@@ -1,0 +1,29 @@
+overwrite: true
+generates:
+  graphql/Users/schema.json:
+    schema:
+      - http://$GRAPHQL_URL/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: $HASURA_ADMIN_SECRET
+            X-Hasura-Role: user
+    plugins:
+      - "introspection"
+  graphql/user.ts:
+    schema:
+      - http://$GRAPHQL_URL/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: $HASURA_ADMIN_SECRET
+            X-Hasura-Role: user
+    documents: graphql/**/*.graphql
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-generic-sdk":
+          noExport: true
+      - add:
+          content:
+            - import { fetchRequester } from "./FetchRequester";
+          placement: prepend
+      - add:
+          content: export const userClient = getSdk(fetchRequester);
+          placement: append

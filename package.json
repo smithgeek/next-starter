@@ -1,0 +1,48 @@
+{
+	"name": "web-app",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"codegen-watch": "graphql-codegen --config codegen.yml --watch",
+		"codegen": "graphql-codegen --config codegen.yml",
+		"check-types": "tsc --noEmit --incremental --watch --pretty"
+	},
+	"dependencies": {
+		"next": "12.1.6",
+		"react": "18.1.0",
+		"react-dom": "18.1.0"
+	},
+	"devDependencies": {
+		"@graphql-codegen/add": "3.2.0",
+		"@graphql-codegen/cli": "2.8.0",
+		"@graphql-codegen/introspection": "2.2.0",
+		"@graphql-codegen/typescript-generic-sdk": "2.4.1",
+		"@graphql-codegen/typescript-operations": "2.5.1",
+		"@material-tailwind/react": "1.0.6",
+		"@types/body-scroll-lock": "3.1.0",
+		"@types/node": "17.0.42",
+		"@types/react": "18.0.12",
+		"@types/react-dom": "18.0.5",
+		"@types/react-modal": "3.13.1",
+		"@types/uuid": "8.3.4",
+		"autoprefixer": "10.4.7",
+		"body-scroll-lock": "4.0.0-beta.0",
+		"eslint": "8.17.0",
+		"eslint-config-next": "12.1.6",
+		"firebase": "9.8.4",
+		"graphql": "16.5.0",
+		"immer": "9.0.15",
+		"postcss": "8.4.14",
+		"react-modal": "3.15.1",
+		"react-query": "3.39.1",
+		"tailwindcss": "3.1.2",
+		"typescript": "4.7.3",
+		"uuid": "8.3.2",
+		"zustand": "4.0.0-rc.1"
+	},
+	"packageManager": "yarn@3.2.2"
+}

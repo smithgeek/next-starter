@@ -1,0 +1,7 @@
+projects:
+  user:
+    schema: graphql/Users/schema.json
+    documents: graphql/Users/*.graphql
+    extensions:
+      languageService:
+        useSchemaFileDefinitions: true
