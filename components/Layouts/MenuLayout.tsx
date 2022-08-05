@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
-import { useUser } from "../../services/firebase/auth";
+import { useAuth } from "../../services/firebase/auth";
 import { LogoutIcon } from "../Icons/LogoutIcon";
 import { BottomNavigation } from "./BottomNavigation";
 import { NavigationItem } from "./NavigationItem";
 import { Sidebar } from "./Sidebar";
 
 export function MenuLayout({ children }: { children: ReactNode }) {
-	const { signOut } = useUser();
+	const { signOut } = useAuth();
 	const navItems: NavigationItem[] = [
 		{
 			text: "Logout",

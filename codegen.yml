@@ -2,28 +2,90 @@ overwrite: true
 generates:
   graphql/Users/schema.json:
     schema:
-      - http://$GRAPHQL_URL/v1/graphql:
+      - http://localhost:9023/v1/graphql:
           headers:
-            X-Hasura-Admin-Secret: $HASURA_ADMIN_SECRET
+            X-Hasura-Admin-Secret: password
             X-Hasura-Role: user
     plugins:
       - "introspection"
   graphql/user.ts:
     schema:
-      - http://$GRAPHQL_URL/v1/graphql:
+      - http://localhost:9023/v1/graphql:
           headers:
-            X-Hasura-Admin-Secret: $HASURA_ADMIN_SECRET
+            X-Hasura-Admin-Secret: password
             X-Hasura-Role: user
-    documents: graphql/**/*.graphql
+    documents: graphql/Users/**/*.graphql
     plugins:
       - "typescript"
       - "typescript-operations"
       - "typescript-generic-sdk":
           noExport: true
+          documentMode: string
       - add:
           content:
             - import { fetchRequester } from "./FetchRequester";
           placement: prepend
       - add:
-          content: export const userClient = getSdk(fetchRequester);
+          content: export const userClient = getSdk(fetchRequester('user'));
           placement: append
+
+  graphql/Admin/schema.json:
+    schema:
+      - http://localhost:9023/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: password
+            X-Hasura-Role: admin
+    plugins:
+      - "introspection"
+  graphql/admin.ts:
+    schema:
+      - http://localhost:9023/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: password
+            X-Hasura-Role: admin
+    documents: graphql/Admin/**/*.graphql
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-generic-sdk":
+          noExport: true
+          documentMode: string
+      - add:
+          content:
+            - import { fetchRequester } from "./FetchRequester";
+          placement: prepend
+      - add:
+          content: export const adminClient = getSdk(fetchRequester('admin'));
+          placement: append
+  graphql/anonymous.ts:
+    schema:
+      - http://localhost:9023/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: password
+            X-Hasura-Role: anonymous
+    documents: graphql/Anonymous/**/*.graphql
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-generic-sdk":
+          noExport: true
+          documentMode: string
+      - add:
+          content:
+            - import { fetchRequester } from "./FetchRequester";
+          placement: prepend
+      - add:
+          content: export const anonymousClient = getSdk(fetchRequester('anonymous'));
+          placement: append
+  ../infrastructure/hasura/metadata/query_collections.yaml:
+    schema:
+      - http://localhost:9023/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: password
+            X-Hasura-Role: admin
+    documents: graphql/**/*.graphql
+    plugins:
+      - hasura-allow-list
+    hooks:
+      afterOneFileWrite:
+        - docker compose -f ../infrastructure/development/docker-compose.yml restart hasura && echo
