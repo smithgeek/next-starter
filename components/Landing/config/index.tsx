@@ -101,116 +101,99 @@ export interface App {
 
 const Config: Config = {
 	app: {
-		siteName: 'Pub Menu',
-		title: 'Pub Menu Digital Sign',
-		description: 'Show your pub menu on your roku tv.',
+		siteName: process.env.NEXT_PUBLIC_APP_NAME,
+		title: process.env.NEXT_PUBLIC_APP_NAME,
+		description: '',
 		locale: 'en',
 	},
 	callToAction: {
-		href: "/menus",
+		href: "/dashboard",
 		text: "Sign In"
 	},
-	"company": {
-		"name": "Pub Menu",
-		"logo": "/assets/img/logo-white.svg"
+	company: {
+		name: process.env.NEXT_PUBLIC_APP_NAME,
+		logo: "https://source.unsplash.com/random/100x100/?space"
 	},
-	"navigation": [
+	navigation: [
 		{
-			"name": "Features",
-			"href": "#features"
+			name: "Features",
+			href: "#features"
 		},
 		{
-			"name": "Pricing",
-			"href": "#pricing"
+			name: "Pricing",
+			href: "#pricing"
 		}
 	],
-	"mainHero": {
-		"title": "Your Menu",
-		"subtitle": "on your TV",
-		"description": "In minutes you can have your own digital drink menu displayed on your Roku.",
-		"img": "/assets/img/demo.jpg",
-		"primaryAction": {
+	mainHero: {
+		title: "Your Product",
+		subtitle: "on display",
+		description: "In minutes you can have your own site.",
+		img: "https://source.unsplash.com/random/600x600/?space",
+		primaryAction: {
 			"text": "Get Started",
-			"href": "/menus"
+			"href": "/dashboard"
 		}
 	},
-	"product": {
-		"title": "Pub Menu",
-		"items": [
+	product: {
+		title: process.env.NEXT_PUBLIC_APP_NAME,
+		items: [
 			{
-				"title": "No need for expensive hardware",
-				"description": "All you need is a Roku device to turn any tv into your own digital drink menu. Install our free roku app and pick which menu you want to display.",
-				"img": "/assets/img/roku.png"
+				title: "No need for waisting your time",
+				description: "Using a starter project gets you what you need faster.",
+				img: "https://source.unsplash.com/random/500x500/?space"
 			}
 		]
 	},
-	"features": {
-		"title": "Features",
-		"subtitle": "",
-		"description": "",
-		"items": [
+	features: {
+		title: "Features",
+		subtitle: "",
+		description: "",
+		items: [
 			{
-				"name": "Home Brewers",
-				"description": "Affordable pricing for home brewers that want to proudly display their beer list.",
+				name: "Awesome features",
+				description: "Make people want your service",
 				iconNode: <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="h-12 text-accent" viewBox="0 0 24 24"><path fill="currentColor" d="M4 21V9l8-6l8 6v12h-6v-7h-4v7Z"></path></svg>
 
-			},
-			{
-				"name": "Drink Library",
-				"description": "Create your own drink library so you can quickly update your menu as your selection changes.",
-				iconNode: <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="h-12 text-accent" viewBox="0 0 64 64"><path fill="currentColor" d="m49.498 3.237l-5.023 11.54l9.598-8.291zm8.501 15.28v-4.829l-9.107 2.797zM43.587 2h-4.911l2.653 9.723z"></path><path fill="currentColor" d="M61.957 40.713c.221-2.905-.423-8.551-1.436-11.442c-.76-2.174-3.894-1.965-6.515-1.356l-.406-2.298c1.981-.659 3.264-2.5 2.931-4.384c-.316-1.813-2.045-3.129-4.108-3.129a4.942 4.942 0 0 0-1.138.135c-1.289-1.042-3.369-1.48-5.459-1.109a8.173 8.173 0 0 0-1.798.534c-.838-.616-1.88-.984-2.968-1.073c-.206-3.275-2.838-6.087-6.458-6.724a8.252 8.252 0 0 0-3.792.206c-.888-1.528-2.495-2.631-4.396-2.966c-1.768-.315-3.597.107-4.933 1.108a8.972 8.972 0 0 0-1.993-.59c-2.274-.402-4.53.078-5.913 1.218a5.196 5.196 0 0 0-1.267-.155c-2.2 0-4.048 1.403-4.391 3.337c-.194 1.114.12 2.241.89 3.171a4.906 4.906 0 0 0 2.358 1.544l-.449 2.551c-2.86-.663-6.275-.891-7.105 1.479c-1.102 3.154-1.804 9.308-1.563 12.474c.24 3.171 1.901 6.696 4.648 8.84l-1.4 7.939c-.763 4.327 25.948 9.037 26.712 4.712l.73-4.144l1.735 9.836c.7 3.97 25.204-.352 24.504-4.32l-1.283-7.285c2.518-1.968 4.04-5.202 4.263-8.109M43.795 20.015l.547-.289a6.221 6.221 0 0 1 1.83-.627c1.665-.293 3.363.105 4.109.935l.457.51l.642-.244c.19-.072.365-.121.532-.151c1.298-.227 2.478.445 2.652 1.432c.178 1.012-.723 2.02-2.004 2.247c-.039.007-.079.007-.117.009l-1.228.103l1.557 8.835l-17.435 3.075l.126-.714c1.62-.374 2.89-1.587 3.169-3.173a3.63 3.63 0 0 0 .049-.859c1.233-.547 2.118-1.617 2.347-2.912c.04-.228.058-.461.053-.696c1.625-.913 2.752-2.458 3.069-4.253c.193-1.106.045-2.213-.355-3.228m-33.447-6.094c-.391-.472-.555-1.021-.461-1.55c.198-1.124 1.525-1.896 2.995-1.632c.189.033.383.088.593.168l.642.246l.461-.512c.842-.938 2.693-1.379 4.563-1.047a6.832 6.832 0 0 1 2.025.686l.644.339l.521-.507c.907-.882 2.334-1.281 3.734-1.037c1.559.274 2.817 1.265 3.286 2.584l.359 1.011l.983-.43a6.176 6.176 0 0 1 3.564-.404c2.928.515 4.995 2.876 4.812 5.492l-.049.682l.618.293c1.821.861 2.866 2.75 2.543 4.591c-.241 1.366-1.2 2.521-2.562 3.092l-.777.325l.188.82c.059.256.067.488.028.713c-.14.789-.813 1.416-1.718 1.598l-1.105.222l.352 1.07c.101.306.126.602.077.881c-.194 1.094-1.408 1.842-2.732 1.61c-1.307-.23-2.208-1.329-2.012-2.447c.059-.332.221-.643.479-.923l1.247-1.346l-21.823-3.848l1.698-9.623l-1.237-.104c-.045-.002-.093-.003-.14-.012c-.731-.128-1.369-.484-1.796-1.001M5.522 33.86c-.203-2.881-.087-7.198.843-9.901c.424-1.234 2.036-1.267 3.689-.927L7.421 37.966c-1.116-1.159-1.796-2.628-1.899-4.106m25.135 17.536c-.62 3.51-23.572-.536-22.951-4.048l3.655-20.738l18.722 3.301c-.057.17-.101.343-.132.519c-.385 2.184 1.213 4.295 3.567 4.745l-2.861 16.221m5.055 5.968l-2.085-11.818l1.338-7.581l18.458-3.274l3.343 18.962c.567 3.22-20.487 6.934-21.054 3.711m21.315-12.319l-2.414-13.699c1.516-.311 2.994-.28 3.382.852c.854 2.479.961 6.439.773 9.082c-.092 1.354-.717 2.701-1.741 3.765"></path><path fill="currentColor" d="M28.029 22.874c-1.002.075-1.665.736-1.665 1.524c1.078-1.188 2.285-.903 2.285-.903c.743-1.63 2.82-2.258 4.365-.854c.568-.742 2.078-.753 2.853-.205c-.254-1.198-1.996-1.507-2.776-.787c-1.425-1.451-4.426-1.28-5.062 1.225m-1.958-8.649c1.769-1.113 3.702-.134 4.146 1.6c0 0 1.238-.07 2.088 1.286c.14-.775-.395-1.542-1.366-1.79c-.185-2.576-3.105-3.266-4.767-2.085c-.639-.845-2.408-.844-2.873.292c.858-.406 2.345-.132 2.772.697"></path></svg>
-
-			},
-			{
-				"name": "Share your menu",
-				"description": "Easily create a link to your menu that you can share with your friends or customers.",
-				iconNode: <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="h-12 text-accent" viewBox="0 0 24 24"><path fill="currentColor" d="M4 19h16v-5h2v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-6h2v5zm8-9H9a5.992 5.992 0 0 0-4.854 2.473A8.003 8.003 0 0 1 12 6V2l8 6l-8 6v-4z"></path></svg>
-			},
-			{
-				"name": "Customize",
-				"description": "Customize all the colors to match your own style.",
-				iconNode: <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="h-12 text-accent" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6c0-1.505.78-3.08 2-4c0 .845.69 2 2 2a3 3 0 0 1 3 3c0 .386-.079.752-.212 1.091a74.515 74.515 0 0 1 2.191 1.808l-2.08 2.08a75.852 75.852 0 0 1-1.808-2.191A2.977 2.977 0 0 1 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.341-1.341A4.446 4.446 0 0 0 17.5 12A4.5 4.5 0 0 0 22 7.5c0-.725-.188-1.401-.493-2.007L18 9l-2-2l3.507-3.507A4.446 4.446 0 0 0 17.5 3A4.5 4.5 0 0 0 13 7.5c0 .725.188 1.401.493 2.007L3 20l2 2l6.848-6.848a68.562 68.562 0 0 0 5.977 5.449l1.425 1.149l1.5-1.5l-1.149-1.425a68.562 68.562 0 0 0-5.449-5.977z"></path></svg>
 			}
 		]
 	},
-	"pricing": {
-		"title": "Pricing",
-		"items": [
+	pricing: {
+		title: "Pricing",
+		items: [
 			{
-				"name": "Commercial",
-				"price": "$25",
-				"priceDetails": "/ month",
-				"features": [
-					"Unlimited Tv's",
-					"Show menu on your Roku",
-					"100 menus"
+				name: "Commercial",
+				price: "$25",
+				priceDetails: "/ month",
+				features: [
+					"This is for you",
+					"If you want to save time",
+					"Get it now!"
 				],
 				key: "business"
 			},
 			{
-				"name": "Home Bar",
-				"price": "$10",
-				"priceDetails": "/ year",
-				"features": [
-					"Non Commercial Use Only",
-					"Unlimited Tv's",
-					"Show menu on your Roku",
-					"100 menus",
+				name: "Home Bar",
+				price: "$10",
+				priceDetails: "/ year",
+				features: [
+					"This is for you",
+					"If you want to save time",
+					"Get it now!"
 				],
 				key: "hobby"
 			},
 			{
-				"name": "Custom",
-				"price": "Contact",
-				"priceDetails": "",
-				"features": [
+				name: "Custom",
+				price: "Contact",
+				priceDetails: "",
+				features: [
 					"Let us know what you're looking for"
 				],
 				key: "custom"
 			}
 		]
 	},
-	"about": {
+	about: {
 	}
 }
 

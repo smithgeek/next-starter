@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { AuthState, useAuth } from "../services/firebase/auth";
-import { LeftIcon } from "./Icons/LeftIcon";
+import { AuthState, useAuth } from "../../services/firebase/auth";
+import { LeftIcon } from "../Icons/LeftIcon";
 
 type AuthProviders = 'Google' | 'Github' | 'Password';
 

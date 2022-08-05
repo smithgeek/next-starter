@@ -19,16 +19,16 @@ export const Faq = () => {
 				</div>
 				<div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
 					<div className="w-full lg:w-1/2 px-4 py-2">
-						<QuestionAnswer question="Can I see a sample menu on my tv?">
+						<QuestionAnswer question="What questions do your customers have?">
 							<span>
-								Of course! Install our <a href="https://my.roku.com/account/add?channel=PUBMENU" className="blue-link" target="_blank" rel="noreferrer">Roku App</a> and search for Demo to see some sample menus.
+								Answer them here
 							</span>
 						</QuestionAnswer>
 					</div>
 					<div className="w-full lg:w-1/2 px-4 py-2">
-						<QuestionAnswer question="Do I have to purchase the commercial plan?">
+						<QuestionAnswer question="What are you waiting for?">
 							<span>
-								If you are a business that is using our service to show customers what they can purchase you need to buy a commercial plan. If you have any questions please send us an email at <a href="mailto:hello@pubmenu.app" className="blue-link">hello@pubmenu.app</a>.
+								Nothing
 							</span>
 						</QuestionAnswer>
 					</div>
