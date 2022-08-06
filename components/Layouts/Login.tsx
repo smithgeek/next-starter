@@ -100,7 +100,7 @@ export default function Login({ providers }: LoginProps) {
 								{oAuthProviders.length > 0 && view === 'login' && <div className="text-blueGray-400 text-center mb-3 font-bold">
 									<small>Or sign in with email and password</small>
 								</div>}
-								<form>
+								<form onSubmit={(e) => { e.preventDefault(); submitCredentials() }}>
 									<div className="relative w-full mb-3">
 										<label
 											className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -137,8 +137,7 @@ export default function Login({ providers }: LoginProps) {
 									<div className="text-center mt-6">
 										<button
 											className={`w-full btn ${loggingIn ? "loading btn-disabled" : ""}`}
-											type="button"
-											onClick={submitCredentials}
+											type="submit"
 										>
 											{action}
 										</button>

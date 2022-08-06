@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 					return <div className="card bg-neutral shadow-xl m-4" key={user.id}>
 						<div className="card-body p-4">
 							<h2 className="card-title flex-1">{user?.name ?? user.email}</h2>
-							<div>Subscription: {SubscriptionStatus[user.subscription?.status ?? 3]}</div>
+							<div>Subscription: {SubscriptionStatus[user.account.subscription?.status ?? 3]}</div>
 							<div className="card-actions flex">
 								<button disabled={userId === user.id} className="btn btn-primary flex-1 btn-sm w-28" onClick={() => impersonate(user.id)}>Impersonate</button>
 							</div>
