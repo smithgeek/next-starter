@@ -12,7 +12,8 @@
 		"lint": "next lint",
 		"codegen-watch": "graphql-codegen --config codegen.yml --watch",
 		"codegen": "graphql-codegen --config codegen.yml",
-		"check-types": "tsc --noEmit --incremental --watch --pretty"
+		"check-types": "tsc --noEmit --incremental --watch --pretty",
+		"yarnsdk:vscode": "yarn dlx @yarnpkg/sdks vscode"
 	},
 	"dependencies": {
 		"@auth/hasura-adapter": "^0.2.3",
