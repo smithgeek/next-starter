@@ -1,3 +1,4 @@
+import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -43,6 +44,7 @@ export default function DevToolsMain() {
 		},
 		[setDevToolsState]
 	);
+	const [tab, setTab] = useState("main");
 	return (
 		<DevToolsContextProvider value={{ state: devToolsState, setState }}>
 			<>
@@ -62,7 +64,11 @@ export default function DevToolsMain() {
 						onInteractOutside={e => e.preventDefault()}
 						className="p-0"
 					>
-						<Tabs defaultValue="main" className="w-full">
+						<Tabs
+							value={tab}
+							className="w-full"
+							onValueChange={setTab}
+						>
 							<TabsList className="w-full justify-start rounded-none">
 								<TabsTrigger value="main">Main</TabsTrigger>
 								{process.env
@@ -75,15 +81,20 @@ export default function DevToolsMain() {
 							</TabsList>
 							<div className="p-2">
 								<ScrollArea className="h-[40vh]">
-									<TabsContent value="main">
-										<MainTools />
-									</TabsContent>
-									<TabsContent value="local">
-										<LocalDevTools />
-									</TabsContent>
-									<TabsContent value="theme">
-										<ThemeTools />
-									</TabsContent>
+									<ErrorBoundary
+										key={tab}
+										fallback={<>Error rendering tab</>}
+									>
+										<TabsContent value="main">
+											<MainTools />
+										</TabsContent>
+										<TabsContent value="local">
+											<LocalDevTools />
+										</TabsContent>
+										<TabsContent value="theme">
+											<ThemeTools />
+										</TabsContent>
+									</ErrorBoundary>
 								</ScrollArea>
 							</div>
 						</Tabs>
