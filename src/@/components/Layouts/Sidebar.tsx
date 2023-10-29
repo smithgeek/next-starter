@@ -68,6 +68,7 @@ export function Sidebar(props: SidebarProps) {
 								variant={item.active ? "secondary" : "ghost"}
 								className="w-full justify-start my-2 gap-2 font-bold"
 								onClick={item.onClick}
+								key={item.text}
 							>
 								{item.icon}
 								<span>{item.text}</span>

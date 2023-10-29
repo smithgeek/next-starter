@@ -1,3 +1,4 @@
+"use client";
 import About from "./About";
 import Canvas from "./Canvas";
 import { Faq } from "./Faq";

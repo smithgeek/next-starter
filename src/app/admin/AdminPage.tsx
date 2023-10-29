@@ -1,12 +1,12 @@
+"use client";
 import { NavPage } from "@/components/Layouts/NavPage";
 import { useRequireRole } from "@/services/roles";
 import { useImpersonation } from "@/services/useImpersonation";
 import { adminClient } from "graphql/Admin/hooks";
-import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Head from "next/head";
 
-const Home: NextPage = () => {
+export function AdminPage() {
 	useRequireRole("admin", "/dashboard");
 	const usersQuery = adminClient.useAllUsers();
 	const { impersonate } = useImpersonation();
@@ -48,6 +48,4 @@ const Home: NextPage = () => {
 			</>
 		</NavPage>
 	);
-};
-
-export default Home;
+}

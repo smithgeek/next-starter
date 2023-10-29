@@ -1,7 +1,7 @@
 import { addAuthorizationHeader } from "graphql/FetchRequester";
 import { LayoutDashboard, LogOut, Shield } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 import { NavigationItem } from "./NavigationItem";
 
 async function getBillingPortalUrl() {
@@ -26,6 +26,7 @@ export function useNavigationItems() {
 	const session = useSession();
 	const role = session.data?.user.role;
 	const router = useRouter();
+	const pathname = usePathname();
 	const signOutAction = async () => {
 		await router.push("/");
 
@@ -36,7 +37,7 @@ export function useNavigationItems() {
 			text: "Dashboard",
 			icon: <LayoutDashboard />,
 			type: "link",
-			active: router.pathname.startsWith("/dashboard"),
+			active: pathname?.startsWith("/dashboard"),
 			href: "/dashboard",
 		},
 	];
@@ -46,7 +47,7 @@ export function useNavigationItems() {
 			icon: <Shield className="w-6" />,
 			type: "link",
 			href: "/admin",
-			active: router.pathname.startsWith("/admin"),
+			active: pathname?.startsWith("/admin"),
 		});
 	} else {
 		navItems.push({

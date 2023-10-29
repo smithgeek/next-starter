@@ -1,7 +1,7 @@
+"use client";
 import { NavPage } from "@/components/Layouts/NavPage";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { useTheme } from "next-themes";
 import Head from "next/head";
@@ -21,7 +21,7 @@ function ThemeOverride({
 	return <div data-color-mode={theme}>{children}</div>;
 }
 
-const Home: NextPage = () => {
+export function DashboardPage() {
 	const session = useSession();
 	const { resolvedTheme } = useTheme();
 
@@ -50,6 +50,4 @@ const Home: NextPage = () => {
 			</>
 		</NavPage>
 	);
-};
-
-export default Home;
+}
