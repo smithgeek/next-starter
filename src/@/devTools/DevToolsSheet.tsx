@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { VenetianMask } from "lucide-react";
@@ -59,7 +60,7 @@ export default function DevToolsMain() {
 							e.preventDefault();
 						}}
 						onInteractOutside={e => e.preventDefault()}
-						className="p-0 h-[40vh]"
+						className="p-0"
 					>
 						<Tabs defaultValue="main" className="w-full">
 							<TabsList className="w-full justify-start rounded-none">
@@ -73,15 +74,17 @@ export default function DevToolsMain() {
 								<TabsTrigger value="theme">Theme</TabsTrigger>
 							</TabsList>
 							<div className="p-2">
-								<TabsContent value="main">
-									<MainTools />
-								</TabsContent>
-								<TabsContent value="local">
-									<LocalDevTools />
-								</TabsContent>
-								<TabsContent value="theme">
-									<ThemeTools />
-								</TabsContent>
+								<ScrollArea className="h-[40vh]">
+									<TabsContent value="main">
+										<MainTools />
+									</TabsContent>
+									<TabsContent value="local">
+										<LocalDevTools />
+									</TabsContent>
+									<TabsContent value="theme">
+										<ThemeTools />
+									</TabsContent>
+								</ScrollArea>
 							</div>
 						</Tabs>
 					</SheetContent>
