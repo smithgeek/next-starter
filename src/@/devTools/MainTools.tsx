@@ -1,19 +1,18 @@
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { useDevToolsState } from "./DevToolsContext";
+import { useDevToolsStore } from "./DevToolsContext";
 
 export function MainTools() {
-	const [state, setState] = useDevToolsState();
+	const { showScreenSize, update } = useDevToolsStore();
 	return (
 		<>
 			<div className="flex items-center space-x-2">
 				<Switch
 					id="show-screen-size"
-					checked={state.showScreenSize}
+					checked={showScreenSize}
 					onCheckedChange={v =>
-						setState({
-							...state,
-							showScreenSize: v,
+						update(s => {
+							s.showScreenSize = v;
 						})
 					}
 				/>

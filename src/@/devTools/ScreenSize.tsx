@@ -1,9 +1,9 @@
-import { useDevToolsState } from "./DevToolsContext";
+import { useDevToolsStore } from "./DevToolsContext";
 
 export function ScreenSize() {
-	const [state] = useDevToolsState();
+	const showScreenSize = useDevToolsStore(s => s.showScreenSize);
 
-	if (!state.showScreenSize) {
+	if (!showScreenSize) {
 		return null;
 	}
 	return (
