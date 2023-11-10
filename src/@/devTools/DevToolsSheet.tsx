@@ -1,4 +1,3 @@
-import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -6,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { VenetianMask } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 import { useDevToolsStore } from "./DevToolsContext";
 import { MainTools } from "./MainTools";
 import { ScreenSize } from "./ScreenSize";
