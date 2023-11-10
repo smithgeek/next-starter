@@ -6483,6 +6483,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-query-params@npm:4.3.0":
+  version: 4.3.0
+  resolution: "next-query-params@npm:4.3.0"
+  dependencies:
+    tslib: "npm:^2.0.3"
+  peerDependencies:
+    next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    use-query-params: ^2.0.0
+  checksum: 1feeff9593879497318b183c259240e22a80389507b8f9a0ed737840880a7824a7d661be6e7a9063258f7b316095e8452cdc1e8193291404583ac48d8af15cb9
+  languageName: node
+  linkType: hard
+
 "next-themes@npm:0.2.1":
   version: 0.2.1
   resolution: "next-themes@npm:0.2.1"
@@ -7859,6 +7872,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"serialize-query-params@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "serialize-query-params@npm:2.0.2"
+  checksum: 854bb9b3afd06ca45ca85d3f853254cf395c3472150dfb08d74b11717700d072df506cac893e14308c23563ab6f299d8d224172867d7d156a2a02dda56ede2b5
+  languageName: node
+  linkType: hard
+
 "set-blocking@npm:^2.0.0":
   version: 2.0.0
   resolution: "set-blocking@npm:2.0.0"
@@ -8746,6 +8766,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"use-query-params@npm:2.2.1":
+  version: 2.2.1
+  resolution: "use-query-params@npm:2.2.1"
+  dependencies:
+    serialize-query-params: "npm:^2.0.2"
+  peerDependencies:
+    "@reach/router": ^1.2.1
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-router-dom: ">=5"
+  peerDependenciesMeta:
+    "@reach/router":
+      optional: true
+    react-router-dom:
+      optional: true
+  checksum: 46b1d6a3fa6a6d753adc6a4c7e629209a04fe1aa551b2e62c6ae6ec9cc7cce3d289b6620f0dd1b7eecd2533be060508b9f98f1d4aa3381bdba95db1a14d527fc
+  languageName: node
+  linkType: hard
+
 "use-sidecar@npm:^1.1.2":
   version: 1.1.2
   resolution: "use-sidecar@npm:1.1.2"
@@ -8877,6 +8916,7 @@ __metadata:
     lucide-react: "npm:0.290.0"
     next: "npm:14.0.0"
     next-auth: "npm:4.24.4"
+    next-query-params: "npm:4.3.0"
     next-themes: "npm:0.2.1"
     npm-run-all: "npm:4.1.5"
     postcss: "npm:8.4.31"
@@ -8888,6 +8928,7 @@ __metadata:
     tslib: "npm:2.6.2"
     typescript: "npm:5.2.2"
     use-immer: "npm:0.9.0"
+    use-query-params: "npm:2.2.1"
     uuid: "npm:9.0.1"
     zustand: "npm:4.4.4"
   languageName: unknown

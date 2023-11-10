@@ -4,26 +4,30 @@ import { DevTools } from "@/devTools/DevTools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { SessionProvider } from "next-auth/react";
+import NextAdapterApp from "next-query-params/app";
 import { ReactNode } from "react";
+import { QueryParamProvider } from "use-query-params";
 
 const queryClient = new QueryClient();
 
 export function ClientLayout({ children }: { children: ReactNode }) {
 	return (
-		<ThemeProvider
-			attribute="class"
-			defaultTheme="system"
-			enableSystem
-			disableTransitionOnChange
-		>
-			<SessionProvider>
-				<QueryClientProvider client={queryClient}>
-					{children}
-					<ReactQueryDevtools />
-					<DevTools />
-				</QueryClientProvider>
-			</SessionProvider>
-		</ThemeProvider>
+		<QueryParamProvider adapter={NextAdapterApp}>
+			<ThemeProvider
+				attribute="class"
+				defaultTheme="system"
+				enableSystem
+				disableTransitionOnChange
+			>
+				<SessionProvider>
+					<QueryClientProvider client={queryClient}>
+						{children}
+						<ReactQueryDevtools />
+						<DevTools />
+					</QueryClientProvider>
+				</SessionProvider>
+			</ThemeProvider>
+		</QueryParamProvider>
 	);
 }
 

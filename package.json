@@ -30,11 +30,13 @@
 		"lucide-react": "0.290.0",
 		"next": "14.0.0",
 		"next-auth": "4.24.4",
+		"next-query-params": "4.3.0",
 		"next-themes": "0.2.1",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"tailwind-merge": "2.0.0",
-		"tailwindcss-animate": "1.0.7"
+		"tailwindcss-animate": "1.0.7",
+		"use-query-params": "2.2.1"
 	},
 	"devDependencies": {
 		"@graphql-codegen/add": "5.0.0",
