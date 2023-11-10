@@ -7,6 +7,8 @@ export interface DevToolsState {
 	panel?: {
 		open?: boolean;
 		tab?: string;
+	session?: {
+		};
 	};
 	update(updater: (draft: DevToolsState) => void): void;
 }
@@ -21,6 +23,13 @@ export const useDevToolsStore = create<DevToolsState>()(
 		}),
 		{
 			name: "devToolsState",
+			partialize: state => {
+				return Object.fromEntries(
+					Object.entries(state).filter(
+						([key]) => !["session"].includes(key)
+					)
+				);
+			},
 		}
 	)
 );

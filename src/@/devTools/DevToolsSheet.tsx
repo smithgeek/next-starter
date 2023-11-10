@@ -25,12 +25,13 @@ const LocalDevTools = dynamic(
 	}
 );
 
-function loadStateFromLocalStorage() {
-	const serializedState = localStorage.getItem("devToolsState");
-	if (serializedState) {
-		return JSON.parse(serializedState);
-	}
-	return {};
+const devToolTabs: { [tabName: string]: JSX.Element } = {
+	Main: <MainTools />,
+	Theme: <ThemeTools />,
+};
+
+if (process.env.NEXT_PUBLIC_LOAD_LOCAL_DEVTOOLS) {
+	devToolTabs["Local"] = <LocalDevTools />;
 }
 
 export default function DevToolsMain() {
@@ -48,8 +49,17 @@ export default function DevToolsMain() {
 	return (
 		<>
 			<ScreenSize />
-			<Sheet modal={false}>
-				<SheetTrigger className="absolute bottom-4 right-20">
+			<Sheet
+				modal={false}
+				open={devToolsState.panel?.open}
+				onOpenChange={open => {
+					devToolsState.update(s => {
+						s.panel ??= {};
+						s.panel.open = open;
+					});
+				}}
+			>
+				<SheetTrigger className="fixed bottom-4 right-20" asChild>
 					<Button style={{ zIndex: 100000 }} variant="ghost">
 						<VenetianMask />
 					</Button>
@@ -74,27 +84,30 @@ export default function DevToolsMain() {
 						}}
 					>
 						<TabsList className="w-full justify-start rounded-none">
-							<TabsTrigger value="main">Main</TabsTrigger>
-							{process.env.NEXT_PUBLIC_LOAD_LOCAL_DEVTOOLS && (
-								<TabsTrigger value="local">Local</TabsTrigger>
-							)}
-							<TabsTrigger value="theme">Theme</TabsTrigger>
+							{Object.keys(devToolTabs).map(key => (
+								<TabsTrigger key={key} value={key}>
+									{key}
+								</TabsTrigger>
+							))}
 						</TabsList>
 						<div className="p-2">
-							<ScrollArea className="h-[40vh]">
+							<ScrollArea className="h-[40vh]" key={tab}>
 								<ErrorBoundary
 									key={tab}
 									fallback={<>Error rendering tab</>}
 								>
-									<TabsContent value="main">
-										<MainTools />
-									</TabsContent>
-									<TabsContent value="local">
-										<LocalDevTools />
-									</TabsContent>
-									<TabsContent value="theme">
-										<ThemeTools />
-									</TabsContent>
+									<>
+										{Object.keys(devToolTabs).map(key => {
+											return (
+												<TabsContent
+													key={key}
+													value={key}
+												>
+													{devToolTabs[key]}
+												</TabsContent>
+											);
+										})}
+									</>
 								</ErrorBoundary>
 							</ScrollArea>
 						</div>
