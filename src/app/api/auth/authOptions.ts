@@ -87,20 +87,6 @@ export const authOptions: NextAuthOptions = {
 					return null;
 				}
 				try {
-					console.log({
-						response: credential.response.authenticatorData,
-						expectedChallenge: challenge,
-						expectedOrigin: origin,
-						expectedRPID: domain,
-						authenticator: {
-							credentialPublicKey: authenticator
-								.credentialPublicKey.buffer as Buffer,
-							credentialID: new TextEncoder().encode(
-								authenticator.credentialId
-							),
-							counter: authenticator.counter,
-						},
-					});
 					const { verified, authenticationInfo: info } =
 						await verifyAuthenticationResponse({
 							response: credential.response.authenticatorData,

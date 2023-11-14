@@ -70,11 +70,7 @@ export async function saveCredentials(cred: {
 	userId: string;
 	key: Uint8Array;
 }) {
-	const stringKey = Buffer.from(
-		new TextDecoder().decode(cred.key),
-		"base64"
-	).toString();
-	console.log(stringKey);
+	const stringKey = Buffer.from(cred.key).toString("hex");
 	await apiSdk.SaveWebauthnCredentials({
 		counter: cred.counter,
 		credentialId: cred.credentialId,
