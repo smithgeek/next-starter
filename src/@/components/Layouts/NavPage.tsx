@@ -50,7 +50,7 @@ export function NavPage({ children }: { children: ReactNode }) {
 	const session = useSession();
 	const { impersonating } = useImpersonation();
 	if (session.status === "unauthenticated") {
-		return <Login providers={["Password", "Google", "Github"]} />;
+		return <Login providers={["Passkey", "Google", "Github"]} />;
 	}
 	if (session.status === "loading") {
 		return null;

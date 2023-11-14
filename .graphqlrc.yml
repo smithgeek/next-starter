@@ -11,3 +11,9 @@ projects:
     extensions:
       languageService:
         useSchemaFileDefinitions: true
+  api:
+    schema: graphql/api/schema.json
+    documents: graphql/api/**/*.graphql
+    extensions:
+      languageService:
+        useSchemaFileDefinitions: true
