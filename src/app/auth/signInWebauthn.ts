@@ -31,5 +31,6 @@ export async function signInWithWebauthn(email: string | undefined | null) {
 		authenticatorData: credential.response.authenticatorData,
 		signature: credential.response.signature,
 		userHandle: credential.response.userHandle,
+		redirect: false,
 	});
 }
