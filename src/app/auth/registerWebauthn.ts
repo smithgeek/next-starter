@@ -1,7 +1,7 @@
 import { startRegistration } from "@simplewebauthn/browser";
 
 export async function registerWebauthn() {
-	const optionsResponse = await fetch("/api/auth/webauthn/register");
+	const optionsResponse = await fetch("/auth/webauthn/register");
 	if (optionsResponse.status !== 200) {
 		alert("Could not get registration options from server");
 		return;
@@ -11,7 +11,7 @@ export async function registerWebauthn() {
 	try {
 		const credential = await startRegistration(opt);
 
-		const response = await fetch("/api/auth/webauthn/register", {
+		const response = await fetch("/auth/webauthn/register", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

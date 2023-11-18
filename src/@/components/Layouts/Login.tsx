@@ -7,6 +7,7 @@ import { ArrowBigLeft } from "lucide-react";
 import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import { signInWithWebauthn } from "../../../app/auth/signInWebauthn";
+import { Label } from "../ui/label";
 
 type AuthProviders = "Google" | "Github" | "Passkey";
 
@@ -23,7 +24,7 @@ export default function Login({ providers }: LoginProps) {
 	const [error, setError] = useState(null);
 	const logInWithEmail = useMutation({
 		mutationFn: async () => {
-			const response = await signIn("email", { email });
+			const response = await signIn("email", { email, redirect: false });
 			if (response?.ok) {
 				setView("checkEmail");
 			}
@@ -138,77 +139,92 @@ export default function Login({ providers }: LoginProps) {
 												)}
 										</>
 									)}
+									{view === "checkEmail" && (
+										<>
+											<Label>
+												Check your email for a sign in
+												link.
+											</Label>
+										</>
+									)}
 								</div>
-								{usesPaskeyProvider && view !== "resetSent" && (
-									<div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-										{oAuthProviders.length > 0 &&
-											view === "login" && (
-												<div className="text-center mb-3 font-bold">
-													<small>
-														Or sign in with email
-													</small>
+								{usesPaskeyProvider &&
+									view !== "resetSent" &&
+									view !== "checkEmail" && (
+										<div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+											{oAuthProviders.length > 0 &&
+												view === "login" && (
+													<div className="text-center mb-3 font-bold">
+														<small>
+															Or sign in with
+															email
+														</small>
+													</div>
+												)}
+											<form
+												onSubmit={e => {
+													e.preventDefault();
+												}}
+											>
+												<div className="relative w-full mb-3">
+													<label
+														className="block uppercase text-xs font-bold mb-2"
+														htmlFor="grid-password"
+													>
+														Email
+													</label>
+													<Input
+														type="email"
+														placeholder="Email"
+														value={email}
+														onChange={e =>
+															setEmail(
+																e.target.value
+															)
+														}
+													/>
 												</div>
-											)}
-										<form
-											onSubmit={e => {
-												e.preventDefault();
-											}}
-										>
-											<div className="relative w-full mb-3">
-												<label
-													className="block uppercase text-xs font-bold mb-2"
-													htmlFor="grid-password"
-												>
-													Email
-												</label>
-												<Input
-													type="email"
-													placeholder="Email"
-													value={email}
-													onChange={e =>
-														setEmail(e.target.value)
-													}
-												/>
-											</div>
 
-											{error && (
-												<div className="text-red-400 font-bold">
-													{error}
+												{error && (
+													<div className="text-red-400 font-bold">
+														{error}
+													</div>
+												)}
+												<div className="text-center mt-6 flex gap-2">
+													<Button
+														className={`w-full ${
+															loggingIn
+																? "loading btn-disabled"
+																: ""
+														}`}
+														onClick={() =>
+															submitCredentials(
+																"passkey"
+															)
+														}
+														disabled={loggingIn}
+													>
+														PassKey
+													</Button>
+													<Button
+														className={`w-full ${
+															loggingIn
+																? "loading btn-disabled"
+																: ""
+														}`}
+														onClick={() =>
+															submitCredentials(
+																"email"
+															)
+														}
+														disabled={loggingIn}
+													>
+														Magic Link
+													</Button>
 												</div>
-											)}
-											<div className="text-center mt-6 flex gap-2">
-												<Button
-													className={`w-full ${
-														loggingIn
-															? "loading btn-disabled"
-															: ""
-													}`}
-													onClick={() =>
-														submitCredentials(
-															"passkey"
-														)
-													}
-												>
-													PassKey
-												</Button>
-												<Button
-													className={`w-full ${
-														loggingIn
-															? "loading btn-disabled"
-															: ""
-													}`}
-													onClick={() =>
-														submitCredentials(
-															"email"
-														)
-													}
-												>
-													Magic Link
-												</Button>
-											</div>
-										</form>
-									</div>
-								)}
+											</form>
+										</div>
+									)}
 							</div>
 							{usesPaskeyProvider && view === "login" && (
 								<div className="flex flex-wrap mt-6 relative justify-between">

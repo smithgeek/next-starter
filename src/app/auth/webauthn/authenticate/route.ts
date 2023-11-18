@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCredentialsForUser, saveChallenge } from "../credentials";
 
 /**
- * handles GET /api/auth/webauthn/authenticate.
+ * handles GET /auth/webauthn/authenticate.
  *
  * It generates and returns authentication options.
  */

@@ -5,7 +5,7 @@ import {
 import { RegistrationResponseJSON } from "@simplewebauthn/typescript-types";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
-import { authOptions } from "../../[...nextauth]/route";
+import { authOptions } from "../../[...nextauth]/authOptions";
 import {
 	getChallenge,
 	getCredentialsForUser,
@@ -18,7 +18,7 @@ const origin = process.env.APP_ORIGIN!;
 const appName = process.env.APP_NAME!;
 
 /**
- * handles GET /api/auth/webauthn/register.
+ * handles GET /auth/webauthn/register.
  *
  * This function generates and returns registration options.
  */
@@ -69,7 +69,7 @@ async function handlePreRegister(req: NextRequest) {
 }
 
 /**
- * handles POST /api/auth/webauthn/register.
+ * handles POST /auth/webauthn/register.
  *
  * This function verifies and stores user's public key.
  */

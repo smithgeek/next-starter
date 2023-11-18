@@ -19,7 +19,7 @@ export function ClientLayout({ children }: { children: ReactNode }) {
 				enableSystem
 				disableTransitionOnChange
 			>
-				<SessionProvider>
+				<SessionProvider basePath="/auth">
 					<QueryClientProvider client={queryClient}>
 						{children}
 						<ReactQueryDevtools />

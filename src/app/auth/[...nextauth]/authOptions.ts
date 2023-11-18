@@ -1,6 +1,6 @@
 import { HasuraAdapter } from "@auth/hasura-adapter";
 import { verifyAuthenticationResponse } from "@simplewebauthn/server";
-import { NextAuthOptions } from "next-auth";
+import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import EmailProvider from "next-auth/providers/email";
 import { createTransport } from "nodemailer";
@@ -8,12 +8,12 @@ import {
 	getChallenge,
 	getCredentialById,
 	updateCredentialCounter,
-} from "./webauthn/credentials";
+} from "../webauthn/credentials";
 
 const domain = process.env.APP_DOMAIN!;
 const origin = process.env.APP_ORIGIN!;
 
-export const authOptions: NextAuthOptions = {
+export const authOptions: AuthOptions = {
 	adapter: HasuraAdapter({
 		endpoint: process.env.NEXT_PUBLIC_GRAPHQL_URL,
 		adminSecret: "password",
@@ -37,8 +37,8 @@ export const authOptions: NextAuthOptions = {
 					to: identifier,
 					from: provider.from,
 					subject: `Sign in to ${appName}`,
-					text: text({ url, appName }),
-					html: html({ url, appName }),
+					text: textEmailTemplate({ url, appName }),
+					html: htmlEmailTemplate({ url, appName }),
 				});
 				const failed = result.rejected
 					.concat(result.pending)
@@ -148,7 +148,7 @@ export const authOptions: NextAuthOptions = {
  *
  * @note We don't add the email address to avoid needing to escape it, if you do, remember to sanitize it!
  */
-function html(params: {
+export function htmlEmailTemplate(params: {
 	url: string;
 	appName: string;
 	theme?: { brandColor?: string; buttonText?: string };
@@ -201,6 +201,12 @@ function html(params: {
 }
 
 /** Email Text body (fallback for email clients that don't render HTML, e.g. feature phones) */
-function text({ url, appName }: { url: string; appName: string }) {
+export function textEmailTemplate({
+	url,
+	appName,
+}: {
+	url: string;
+	appName: string;
+}) {
 	return `Sign in to ${appName}\n${url}\n\n`;
 }

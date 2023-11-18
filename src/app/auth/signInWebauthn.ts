@@ -7,10 +7,7 @@ export async function signInWithWebauthn(email: string | undefined | null) {
 	if (!email) {
 		return;
 	}
-	const url = new URL(
-		`/api/auth/webauthn/authenticate`,
-		window.location.origin
-	);
+	const url = new URL(`/auth/webauthn/authenticate`, window.location.origin);
 	url.search = new URLSearchParams({ email }).toString();
 	const optionsResponse = await fetch(url.toString());
 
