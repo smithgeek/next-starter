@@ -93,6 +93,8 @@ export async function saveCredentials(cred: {
 	counter: number;
 	userId: string;
 	key: Uint8Array;
+	name: string | null;
+	aaguid: string;
 }) {
 	await apiSdk.SaveWebauthnCredentials({
 		counter: cred.counter,
@@ -100,6 +102,8 @@ export async function saveCredentials(cred: {
 		public_key: uint8ArrayToHex(cred.key),
 		transports: cred.transports,
 		userId: cred.userId,
+		name: cred.name,
+		aaguid: cred.aaguid,
 	});
 }
 

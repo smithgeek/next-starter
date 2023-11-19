@@ -2389,8 +2389,12 @@ export type Webauthn_Challenges_Updates = {
 /** columns and relationships of "webauthn_credentials" */
 export type Webauthn_Credentials = {
   __typename?: 'webauthn_credentials';
+  aaguid: Scalars['String']['output'];
   counter: Scalars['Int']['output'];
+  created_at: Scalars['timestamptz']['output'];
   credential_id: Scalars['String']['output'];
+  last_used?: Maybe<Scalars['timestamptz']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
   public_key: Scalars['bytea']['output'];
   transports: Array<Scalars['String']['output']>;
   /** An object relationship */
@@ -2477,8 +2481,12 @@ export type Webauthn_Credentials_Bool_Exp = {
   _and?: InputMaybe<Array<Webauthn_Credentials_Bool_Exp>>;
   _not?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
   _or?: InputMaybe<Array<Webauthn_Credentials_Bool_Exp>>;
+  aaguid?: InputMaybe<String_Comparison_Exp>;
   counter?: InputMaybe<Int_Comparison_Exp>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
   credential_id?: InputMaybe<String_Comparison_Exp>;
+  last_used?: InputMaybe<Timestamptz_Comparison_Exp>;
+  name?: InputMaybe<String_Comparison_Exp>;
   public_key?: InputMaybe<Bytea_Comparison_Exp>;
   transports?: InputMaybe<String_Array_Comparison_Exp>;
   user?: InputMaybe<Users_Bool_Exp>;
@@ -2498,8 +2506,12 @@ export type Webauthn_Credentials_Inc_Input = {
 
 /** input type for inserting data into table "webauthn_credentials" */
 export type Webauthn_Credentials_Insert_Input = {
+  aaguid?: InputMaybe<Scalars['String']['input']>;
   counter?: InputMaybe<Scalars['Int']['input']>;
+  created_at?: InputMaybe<Scalars['timestamptz']['input']>;
   credential_id?: InputMaybe<Scalars['String']['input']>;
+  last_used?: InputMaybe<Scalars['timestamptz']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
   public_key?: InputMaybe<Scalars['bytea']['input']>;
   transports?: InputMaybe<Array<Scalars['String']['input']>>;
   user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
@@ -2509,16 +2521,24 @@ export type Webauthn_Credentials_Insert_Input = {
 /** aggregate max on columns */
 export type Webauthn_Credentials_Max_Fields = {
   __typename?: 'webauthn_credentials_max_fields';
+  aaguid?: Maybe<Scalars['String']['output']>;
   counter?: Maybe<Scalars['Int']['output']>;
+  created_at?: Maybe<Scalars['timestamptz']['output']>;
   credential_id?: Maybe<Scalars['String']['output']>;
+  last_used?: Maybe<Scalars['timestamptz']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
   transports?: Maybe<Array<Scalars['String']['output']>>;
   user_id?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** order by max() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Max_Order_By = {
+  aaguid?: InputMaybe<Order_By>;
   counter?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
   credential_id?: InputMaybe<Order_By>;
+  last_used?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
   transports?: InputMaybe<Order_By>;
   user_id?: InputMaybe<Order_By>;
 };
@@ -2526,16 +2546,24 @@ export type Webauthn_Credentials_Max_Order_By = {
 /** aggregate min on columns */
 export type Webauthn_Credentials_Min_Fields = {
   __typename?: 'webauthn_credentials_min_fields';
+  aaguid?: Maybe<Scalars['String']['output']>;
   counter?: Maybe<Scalars['Int']['output']>;
+  created_at?: Maybe<Scalars['timestamptz']['output']>;
   credential_id?: Maybe<Scalars['String']['output']>;
+  last_used?: Maybe<Scalars['timestamptz']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
   transports?: Maybe<Array<Scalars['String']['output']>>;
   user_id?: Maybe<Scalars['uuid']['output']>;
 };
 
 /** order by min() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Min_Order_By = {
+  aaguid?: InputMaybe<Order_By>;
   counter?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
   credential_id?: InputMaybe<Order_By>;
+  last_used?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
   transports?: InputMaybe<Order_By>;
   user_id?: InputMaybe<Order_By>;
 };
@@ -2558,8 +2586,12 @@ export type Webauthn_Credentials_On_Conflict = {
 
 /** Ordering options when selecting data from "webauthn_credentials". */
 export type Webauthn_Credentials_Order_By = {
+  aaguid?: InputMaybe<Order_By>;
   counter?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
   credential_id?: InputMaybe<Order_By>;
+  last_used?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
   public_key?: InputMaybe<Order_By>;
   transports?: InputMaybe<Order_By>;
   user?: InputMaybe<Users_Order_By>;
@@ -2574,9 +2606,17 @@ export type Webauthn_Credentials_Pk_Columns_Input = {
 /** select columns of table "webauthn_credentials" */
 export enum Webauthn_Credentials_Select_Column {
   /** column name */
+  Aaguid = 'aaguid',
+  /** column name */
   Counter = 'counter',
   /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
   CredentialId = 'credential_id',
+  /** column name */
+  LastUsed = 'last_used',
+  /** column name */
+  Name = 'name',
   /** column name */
   PublicKey = 'public_key',
   /** column name */
@@ -2587,8 +2627,12 @@ export enum Webauthn_Credentials_Select_Column {
 
 /** input type for updating data in table "webauthn_credentials" */
 export type Webauthn_Credentials_Set_Input = {
+  aaguid?: InputMaybe<Scalars['String']['input']>;
   counter?: InputMaybe<Scalars['Int']['input']>;
+  created_at?: InputMaybe<Scalars['timestamptz']['input']>;
   credential_id?: InputMaybe<Scalars['String']['input']>;
+  last_used?: InputMaybe<Scalars['timestamptz']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
   public_key?: InputMaybe<Scalars['bytea']['input']>;
   transports?: InputMaybe<Array<Scalars['String']['input']>>;
   user_id?: InputMaybe<Scalars['uuid']['input']>;
@@ -2637,8 +2681,12 @@ export type Webauthn_Credentials_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Webauthn_Credentials_Stream_Cursor_Value_Input = {
+  aaguid?: InputMaybe<Scalars['String']['input']>;
   counter?: InputMaybe<Scalars['Int']['input']>;
+  created_at?: InputMaybe<Scalars['timestamptz']['input']>;
   credential_id?: InputMaybe<Scalars['String']['input']>;
+  last_used?: InputMaybe<Scalars['timestamptz']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
   public_key?: InputMaybe<Scalars['bytea']['input']>;
   transports?: InputMaybe<Array<Scalars['String']['input']>>;
   user_id?: InputMaybe<Scalars['uuid']['input']>;
@@ -2658,9 +2706,17 @@ export type Webauthn_Credentials_Sum_Order_By = {
 /** update columns of table "webauthn_credentials" */
 export enum Webauthn_Credentials_Update_Column {
   /** column name */
+  Aaguid = 'aaguid',
+  /** column name */
   Counter = 'counter',
   /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
   CredentialId = 'credential_id',
+  /** column name */
+  LastUsed = 'last_used',
+  /** column name */
+  Name = 'name',
   /** column name */
   PublicKey = 'public_key',
   /** column name */
@@ -2746,6 +2802,8 @@ export type SaveWebauthnCredentialsMutationVariables = Exact<{
   counter: Scalars['Int']['input'];
   credentialId: Scalars['String']['input'];
   public_key?: InputMaybe<Scalars['bytea']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  aaguid: Scalars['String']['input'];
 }>;
 
 
@@ -2800,9 +2858,9 @@ export type UpdateWebauthnCredentialsCounterMutation = { __typename?: 'mutation_
 }
     `;
  const SaveWebauthnCredentialsDocument = `
-    mutation SaveWebauthnCredentials($userId: uuid!, $transports: [String!], $counter: Int!, $credentialId: String!, $public_key: bytea) {
+    mutation SaveWebauthnCredentials($userId: uuid!, $transports: [String!], $counter: Int!, $credentialId: String!, $public_key: bytea, $name: String, $aaguid: String!) {
   insert_webauthn_credentials_one(
-    object: {counter: $counter, credential_id: $credentialId, public_key: $public_key, transports: $transports, user_id: $userId}
+    object: {counter: $counter, credential_id: $credentialId, public_key: $public_key, transports: $transports, user_id: $userId, name: $name, aaguid: $aaguid}
   ) {
     user_id
   }
@@ -2812,7 +2870,7 @@ export type UpdateWebauthnCredentialsCounterMutation = { __typename?: 'mutation_
     mutation UpdateWebauthnCredentialsCounter($counter: Int!, $credentialId: String!) {
   update_webauthn_credentials_by_pk(
     pk_columns: {credential_id: $credentialId}
-    _set: {counter: $counter}
+    _set: {counter: $counter, last_used: "now()"}
   ) {
     counter
   }

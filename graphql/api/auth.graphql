@@ -42,6 +42,8 @@ mutation SaveWebauthnCredentials(
 	$counter: Int!
 	$credentialId: String!
 	$public_key: bytea
+	$name: String
+	$aaguid: String!
 ) {
 	insert_webauthn_credentials_one(
 		object: {
@@ -50,6 +52,8 @@ mutation SaveWebauthnCredentials(
 			public_key: $public_key
 			transports: $transports
 			user_id: $userId
+			name: $name
+			aaguid: $aaguid
 		}
 	) {
 		user_id
@@ -62,7 +66,7 @@ mutation UpdateWebauthnCredentialsCounter(
 ) {
 	update_webauthn_credentials_by_pk(
 		pk_columns: { credential_id: $credentialId }
-		_set: { counter: $counter }
+		_set: { counter: $counter, last_used: "now()" }
 	) {
 		counter
 	}

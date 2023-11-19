@@ -12,6 +12,7 @@ import {
 	saveChallenge,
 	saveCredentials,
 } from "../credentials";
+import aaguids from "./aaguid.json";
 
 const domain = process.env.APP_DOMAIN!;
 const origin = process.env.APP_ORIGIN!;
@@ -45,7 +46,7 @@ async function handlePreRegister(req: NextRequest) {
 		rpName: appName,
 		userID: id,
 		userName: email,
-		attestationType: "none",
+		attestationType: "direct",
 		authenticatorSelection: {
 			userVerification: "preferred",
 		},
@@ -102,6 +103,7 @@ async function handleRegister(req: NextRequest) {
 		expectedOrigin: origin,
 		expectedChallenge: challenge,
 	});
+
 	if (!verified || !registrationInfo) {
 		return NextResponse.json(
 			{ success: false, message: "Something went wrong" },
@@ -109,6 +111,10 @@ async function handleRegister(req: NextRequest) {
 		);
 	}
 	try {
+		let passkeyName: string | null = null;
+		if (registrationInfo.aaguid in aaguids) {
+			passkeyName = (aaguids as any)[registrationInfo.aaguid].name;
+		}
 		await saveCredentials({
 			credentialId: registrationInfo.credentialID,
 			transports: registrationResponse.response.transports ?? [
@@ -117,6 +123,8 @@ async function handleRegister(req: NextRequest) {
 			userId: id,
 			key: registrationInfo.credentialPublicKey,
 			counter: registrationInfo.counter,
+			name: passkeyName,
+			aaguid: registrationInfo.aaguid,
 		});
 		return NextResponse.json({ success: true }, { status: 201 });
 	} catch (err) {
