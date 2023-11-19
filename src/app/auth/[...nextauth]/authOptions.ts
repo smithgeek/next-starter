@@ -1,5 +1,6 @@
 import { HasuraAdapter } from "@auth/hasura-adapter";
 import { verifyAuthenticationResponse } from "@simplewebauthn/server";
+import { AuthenticationResponseJSON } from "@simplewebauthn/typescript-types";
 import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import EmailProvider from "next-auth/providers/email";
@@ -67,7 +68,7 @@ export const authOptions: AuthOptions = {
 					userHandle,
 				} = request.body;
 
-				const credential = {
+				const response: AuthenticationResponseJSON = {
 					id,
 					rawId,
 					type,
@@ -77,8 +78,9 @@ export const authOptions: AuthOptions = {
 						signature,
 						userHandle,
 					},
+					clientExtensionResults: {},
 				};
-				const authenticator = await getCredentialById(credential.id);
+				const authenticator = await getCredentialById(response.id);
 				if (!authenticator) {
 					return null;
 				}
@@ -87,15 +89,16 @@ export const authOptions: AuthOptions = {
 					return null;
 				}
 				try {
+					console.log("verify");
 					const { verified, authenticationInfo: info } =
 						await verifyAuthenticationResponse({
-							response: credential.response.authenticatorData,
+							response: response,
 							expectedChallenge: challenge,
 							expectedOrigin: origin,
 							expectedRPID: domain,
 							authenticator: {
-								credentialPublicKey: authenticator
-									.credentialPublicKey.buffer as Buffer,
+								credentialPublicKey:
+									authenticator.credentialPublicKey as Buffer,
 								credentialID: new TextEncoder().encode(
 									authenticator.credentialId
 								),
@@ -103,6 +106,7 @@ export const authOptions: AuthOptions = {
 							},
 						});
 
+					console.log("verified", verified);
 					if (!verified || !info) {
 						return null;
 					}
