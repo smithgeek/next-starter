@@ -23,7 +23,7 @@ async function WebauthnAuthenticate(req: NextRequest) {
 	});
 
 	options.allowCredentials = credentials.map(c => ({
-		id: c.credentialId,
+		id: c.credentialIdBase64,
 		type: "public-key",
 		transports: c.transports,
 	}));

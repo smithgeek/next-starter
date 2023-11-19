@@ -2745,7 +2745,7 @@ export type SaveWebauthnCredentialsMutationVariables = Exact<{
   transports?: InputMaybe<Array<Scalars['String']['input']> | Scalars['String']['input']>;
   counter: Scalars['Int']['input'];
   credentialId: Scalars['String']['input'];
-  publicKey: Scalars['bytea']['input'];
+  public_key?: InputMaybe<Scalars['bytea']['input']>;
 }>;
 
 
@@ -2800,9 +2800,9 @@ export type UpdateWebauthnCredentialsCounterMutation = { __typename?: 'mutation_
 }
     `;
  const SaveWebauthnCredentialsDocument = `
-    mutation SaveWebauthnCredentials($userId: uuid!, $transports: [String!], $counter: Int!, $credentialId: String!, $publicKey: bytea!) {
+    mutation SaveWebauthnCredentials($userId: uuid!, $transports: [String!], $counter: Int!, $credentialId: String!, $public_key: bytea) {
   insert_webauthn_credentials_one(
-    object: {counter: $counter, credential_id: $credentialId, public_key: $publicKey, transports: $transports, user_id: $userId}
+    object: {counter: $counter, credential_id: $credentialId, public_key: $public_key, transports: $transports, user_id: $userId}
   ) {
     user_id
   }

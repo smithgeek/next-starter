@@ -51,7 +51,7 @@ async function handlePreRegister(req: NextRequest) {
 		},
 	});
 	options.excludeCredentials = credentials.map(c => ({
-		id: c.credentialId,
+		id: c.credentialIdBase64,
 		type: "public-key",
 		transports: c.transports,
 	}));
@@ -96,14 +96,13 @@ async function handleRegister(req: NextRequest) {
 		);
 	}
 	const registrationResponse: RegistrationResponseJSON = await req.json();
-	const { verified, registrationInfo: info } =
-		await verifyRegistrationResponse({
-			response: registrationResponse,
-			expectedRPID: domain,
-			expectedOrigin: origin,
-			expectedChallenge: challenge,
-		});
-	if (!verified || !info) {
+	const { verified, registrationInfo } = await verifyRegistrationResponse({
+		response: registrationResponse,
+		expectedRPID: domain,
+		expectedOrigin: origin,
+		expectedChallenge: challenge,
+	});
+	if (!verified || !registrationInfo) {
 		return NextResponse.json(
 			{ success: false, message: "Something went wrong" },
 			{ status: 500 }
@@ -111,13 +110,13 @@ async function handleRegister(req: NextRequest) {
 	}
 	try {
 		await saveCredentials({
-			credentialId: registrationResponse.id,
+			credentialId: registrationInfo.credentialID,
 			transports: registrationResponse.response.transports ?? [
 				"internal",
 			],
 			userId: id,
-			key: info.credentialPublicKey,
-			counter: info.counter,
+			key: registrationInfo.credentialPublicKey,
+			counter: registrationInfo.counter,
 		});
 		return NextResponse.json({ success: true }, { status: 201 });
 	} catch (err) {

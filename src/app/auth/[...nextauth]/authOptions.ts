@@ -89,7 +89,6 @@ export const authOptions: AuthOptions = {
 					return null;
 				}
 				try {
-					console.log("verify");
 					const { verified, authenticationInfo: info } =
 						await verifyAuthenticationResponse({
 							response: response,
@@ -98,24 +97,21 @@ export const authOptions: AuthOptions = {
 							expectedRPID: domain,
 							authenticator: {
 								credentialPublicKey:
-									authenticator.credentialPublicKey as Buffer,
-								credentialID: new TextEncoder().encode(
-									authenticator.credentialId
-								),
+									authenticator.credentialPublicKey,
+								credentialID: authenticator.credentialId,
 								counter: authenticator.counter,
 							},
 						});
 
-					console.log("verified", verified);
 					if (!verified || !info) {
 						return null;
 					}
 					await updateCredentialCounter(
-						authenticator.credentialId,
+						authenticator.credentialIdBase64,
 						info.newCounter
 					);
 				} catch (err) {
-					console.log(err);
+					console.error(err);
 					return null;
 				}
 				return {

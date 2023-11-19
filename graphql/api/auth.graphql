@@ -41,13 +41,13 @@ mutation SaveWebauthnCredentials(
 	$transports: [String!]
 	$counter: Int!
 	$credentialId: String!
-	$publicKey: bytea!
+	$public_key: bytea
 ) {
 	insert_webauthn_credentials_one(
 		object: {
 			counter: $counter
 			credential_id: $credentialId
-			public_key: $publicKey
+			public_key: $public_key
 			transports: $transports
 			user_id: $userId
 		}
