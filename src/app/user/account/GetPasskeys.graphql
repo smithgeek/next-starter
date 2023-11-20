@@ -1,0 +1,8 @@
+query GetPasskeys {
+	webauthn_credentials {
+		aaguid
+		created_at
+		last_used
+		name
+	}
+}

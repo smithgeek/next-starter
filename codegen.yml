@@ -1,33 +1,35 @@
 overwrite: true
 generates:
-  # graphql/User/schema.json:
-  #   schema:
-  #     - http://localhost:9023/v1/graphql:
-  #         headers:
-  #           X-Hasura-Admin-Secret: password
-  #           X-Hasura-Role: user
-  #   plugins:
-  #     - "introspection"
-  # graphql/User/operations.ts:
-  #   schema:
-  #     - http://localhost:9023/v1/graphql:
-  #         headers:
-  #           X-Hasura-Admin-Secret: password
-  #           X-Hasura-Role: user
-  #   documents: graphql/User/**/*.graphql
-  #   plugins:
-  #     - "typescript"
-  #     - "typescript-operations"
-  #     - "typescript-generic-sdk":
-  #         noExport: true
-  #         documentMode: string
-  #     - add:
-  #         content:
-  #           - import { fetchRequester } from "../FetchRequester";
-  #         placement: prepend
-  #     - add:
-  #         content: export const userSdk = getSdk(fetchRequester('user'));
-  #         placement: append
+  graphql/User/schema.json:
+    schema:
+      - http://localhost:9023/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: password
+            X-Hasura-Role: user
+    plugins:
+      - "introspection"
+  graphql/User/operations.ts:
+    schema:
+      - http://localhost:9023/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: password
+            X-Hasura-Role: user
+    documents: 
+      - ./src/app/user/**/*.graphql
+      - graphql/User/**/*.graphql
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-generic-sdk":
+          noExport: true
+          documentMode: string
+      - add:
+          content:
+            - import { fetchRequester } from "../FetchRequester";
+          placement: prepend
+      - add:
+          content: export const userSdk = getSdk(fetchRequester('user'));
+          placement: append
 
   # graphql/Admin/schema.json:
   #   schema:

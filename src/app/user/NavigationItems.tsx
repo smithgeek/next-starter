@@ -1,5 +1,5 @@
 import { addAuthorizationHeader } from "graphql/FetchRequester";
-import { LayoutDashboard, LogOut, Shield } from "lucide-react";
+import { LayoutDashboard, LogOut, Shield, User2 } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import { NavigationItem } from "./NavigationItem";
@@ -38,7 +38,14 @@ export function useNavigationItems() {
 			icon: <LayoutDashboard />,
 			type: "link",
 			active: pathname?.startsWith("/dashboard"),
-			href: "/dashboard",
+			href: "/user/dashboard",
+		},
+		{
+			text: "Account",
+			icon: <User2 />,
+			type: "link",
+			active: pathname?.startsWith("/account"),
+			href: "/user/account",
 		},
 	];
 	if (role === "admin") {

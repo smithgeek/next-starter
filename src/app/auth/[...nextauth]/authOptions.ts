@@ -117,6 +117,7 @@ export const authOptions: AuthOptions = {
 				return {
 					email: authenticator.userId,
 					id: authenticator.userId,
+					role: "user",
 				};
 			},
 		}),

@@ -11,7 +11,7 @@ export interface Config {
 	features: Features;
 	pricing: Pricing;
 	about: About;
-	app: App
+	app: App;
 }
 
 export interface About {
@@ -71,7 +71,7 @@ export interface Pricing {
 	items: PricingItem[];
 }
 
-export type PlanKey = 'hobby' | 'business' | 'custom';
+export type PlanKey = "hobby" | "business" | "custom";
 
 export interface PricingItem {
 	name: string;
@@ -103,26 +103,26 @@ const Config: Config = {
 	app: {
 		siteName: process.env.NEXT_PUBLIC_APP_NAME,
 		title: process.env.NEXT_PUBLIC_APP_NAME,
-		description: '',
-		locale: 'en',
+		description: "",
+		locale: "en",
 	},
 	callToAction: {
-		href: "/dashboard",
-		text: "Sign In"
+		href: "/user/dashboard",
+		text: "Sign In",
 	},
 	company: {
 		name: process.env.NEXT_PUBLIC_APP_NAME,
-		logo: "https://source.unsplash.com/random/100x100/?space"
+		logo: "https://source.unsplash.com/random/100x100/?space",
 	},
 	navigation: [
 		{
 			name: "Features",
-			href: "#features"
+			href: "#features",
 		},
 		{
 			name: "Pricing",
-			href: "#pricing"
-		}
+			href: "#pricing",
+		},
 	],
 	mainHero: {
 		title: "Your Product",
@@ -130,19 +130,20 @@ const Config: Config = {
 		description: "In minutes you can have your own site.",
 		img: "https://source.unsplash.com/random/600x600/?space",
 		primaryAction: {
-			"text": "Get Started",
-			"href": "/dashboard"
-		}
+			text: "Get Started",
+			href: "/user/dashboard",
+		},
 	},
 	product: {
 		title: process.env.NEXT_PUBLIC_APP_NAME,
 		items: [
 			{
 				title: "No need for waisting your time",
-				description: "Using a starter project gets you what you need faster.",
-				img: "https://source.unsplash.com/random/500x500/?space"
-			}
-		]
+				description:
+					"Using a starter project gets you what you need faster.",
+				img: "https://source.unsplash.com/random/500x500/?space",
+			},
+		],
 	},
 	features: {
 		title: "Features",
@@ -152,10 +153,21 @@ const Config: Config = {
 			{
 				name: "Awesome features",
 				description: "Make people want your service",
-				iconNode: <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="h-12 text-accent" viewBox="0 0 24 24"><path fill="currentColor" d="M4 21V9l8-6l8 6v12h-6v-7h-4v7Z"></path></svg>
-
-			}
-		]
+				iconNode: (
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						xmlnsXlink="http://www.w3.org/1999/xlink"
+						className="h-12 text-accent"
+						viewBox="0 0 24 24"
+					>
+						<path
+							fill="currentColor"
+							d="M4 21V9l8-6l8 6v12h-6v-7h-4v7Z"
+						></path>
+					</svg>
+				),
+			},
+		],
 	},
 	pricing: {
 		title: "Pricing",
@@ -167,9 +179,9 @@ const Config: Config = {
 				features: [
 					"This is for you",
 					"If you want to save time",
-					"Get it now!"
+					"Get it now!",
 				],
-				key: "business"
+				key: "business",
 			},
 			{
 				name: "Home Bar",
@@ -178,23 +190,20 @@ const Config: Config = {
 				features: [
 					"This is for you",
 					"If you want to save time",
-					"Get it now!"
+					"Get it now!",
 				],
-				key: "hobby"
+				key: "hobby",
 			},
 			{
 				name: "Custom",
 				price: "Contact",
 				priceDetails: "",
-				features: [
-					"Let us know what you're looking for"
-				],
-				key: "custom"
-			}
-		]
+				features: ["Let us know what you're looking for"],
+				key: "custom",
+			},
+		],
 	},
-	about: {
-	}
-}
+	about: {},
+};
 
 export default Config;

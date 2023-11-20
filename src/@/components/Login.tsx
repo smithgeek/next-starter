@@ -6,8 +6,8 @@ import { useMutation } from "@tanstack/react-query";
 import { ArrowBigLeft } from "lucide-react";
 import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
-import { signInWithWebauthn } from "../../../app/auth/signInWebauthn";
-import { Label } from "../ui/label";
+import { signInWithWebauthn } from "../../app/auth/signInWebauthn";
+import { Label } from "./ui/label";
 
 type AuthProviders = "Google" | "Github" | "Passkey";
 
