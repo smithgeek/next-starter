@@ -45,6 +45,7 @@ export function BottomNavigation({ items, className }: BottomNavigationProps) {
 											item.active ? "secondary" : "ghost"
 										}
 										className="w-full text-center py-2 flex flex-col justify-center items-center cursor-pointer"
+										onClick={item.onClick}
 									>
 										<div>{item.icon}</div>
 										<span className="block text-xs">

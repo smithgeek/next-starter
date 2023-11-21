@@ -28,9 +28,8 @@ export function useNavigationItems() {
 	const router = useRouter();
 	const pathname = usePathname();
 	const signOutAction = async () => {
+		await signOut();
 		await router.push("/");
-
-		await signOut({});
 	};
 	const navItems: NavigationItem[] = [
 		{

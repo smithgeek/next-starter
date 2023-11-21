@@ -7,7 +7,7 @@ export function fetchRequester() {
 			"Content-Type": "application/json",
 		};
 		headers["X-Hasura-Admin-Secret"] = process.env.HASURA_ADMIN_PASSWORD;
-		const response = await fetch(process.env.NEXT_PUBLIC_GRAPHQL_URL, {
+		const response = await fetch(process.env.API_GRAPHQL_URL, {
 			method: "POST",
 			headers,
 			body: JSON.stringify({

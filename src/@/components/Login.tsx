@@ -169,13 +169,15 @@ export default function Login({ providers }: LoginProps) {
 												<div className="relative w-full mb-3">
 													<label
 														className="block uppercase text-xs font-bold mb-2"
-														htmlFor="grid-password"
+														htmlFor="login-username"
 													>
 														Email
 													</label>
 													<Input
 														type="email"
 														placeholder="Email"
+														name="username"
+														id="login-username"
 														value={email}
 														onChange={e =>
 															setEmail(

@@ -46,7 +46,7 @@ async function handlePreRegister(req: NextRequest) {
 		rpName: appName,
 		userID: id,
 		userName: email,
-		attestationType: "direct",
+		attestationType: "none",
 		authenticatorSelection: {
 			userVerification: "preferred",
 		},

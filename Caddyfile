@@ -1,7 +1,7 @@
 :5886
 
 handle_path /h/* {
-	reverse_proxy :8080
+	reverse_proxy :9023
 }
 
 handle_path /api/* {

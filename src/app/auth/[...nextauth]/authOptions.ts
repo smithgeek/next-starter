@@ -16,7 +16,7 @@ const origin = process.env.APP_ORIGIN!;
 
 export const authOptions: AuthOptions = {
 	adapter: HasuraAdapter({
-		endpoint: process.env.NEXT_PUBLIC_GRAPHQL_URL,
+		endpoint: process.env.API_GRAPHQL_URL,
 		adminSecret: "password",
 	}),
 	providers: [
@@ -31,7 +31,12 @@ export const authOptions: AuthOptions = {
 				},
 			},
 			from: "test@localhost.com",
-			async sendVerificationRequest({ identifier, url, provider }) {
+			async sendVerificationRequest({
+				identifier,
+				url: originalUrl,
+				provider,
+			}) {
+				const url = originalUrl.replace("/api/auth/", "/auth/");
 				const appName = process.env.APP_NAME ?? "app";
 				const transport = createTransport(provider.server);
 				const result = await transport.sendMail({

@@ -18,6 +18,7 @@ async function WebauthnAuthenticate(req: NextRequest) {
 	}
 
 	const credentials = await getCredentialsForUser(email);
+
 	const options = await generateAuthenticationOptions({
 		userVerification: "preferred",
 	});
