@@ -1,5 +1,5 @@
 import { addAuthorizationHeader } from "graphql/FetchRequester";
-import { LayoutDashboard, LogOut, Shield, User2 } from "lucide-react";
+import { LayoutDashboard, Shield, User2 } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import { NavigationItem } from "./NavigationItem";
@@ -78,11 +78,5 @@ export function useNavigationItems() {
 			onClick: redirectToStripeBilling,
 		});
 	}
-	navItems.push({
-		text: "Logout",
-		type: "text",
-		icon: <LogOut />,
-		onClick: signOutAction,
-	});
 	return navItems;
 }

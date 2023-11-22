@@ -17,7 +17,7 @@ export default function AuthenticatedLayout({
 	const session = useSession();
 	const { impersonating } = useImpersonation();
 	if (session.status === "unauthenticated") {
-		return <Login providers={["Passkey", "Google", "Github"]} />;
+		return <Login providers={["google", "github"]} />;
 	}
 	if (session.status === "loading") {
 		return null;
