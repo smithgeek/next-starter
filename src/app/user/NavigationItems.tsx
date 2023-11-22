@@ -1,7 +1,16 @@
+import { Button } from "@/components/ui/button";
+import { PendingButtonContent } from "@/components/ui/pendingButtonContent";
+import { cn } from "@/lib/utils";
+import { useMutation } from "@tanstack/react-query";
 import { addAuthorizationHeader } from "graphql/FetchRequester";
-import { LayoutDashboard, Shield, User2 } from "lucide-react";
-import { signOut, useSession } from "next-auth/react";
+import { LayoutDashboard, LogOut, Shield, User2 } from "lucide-react";
+import {
+	signOut as nextAuthSignout,
+	signOut,
+	useSession,
+} from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import { NavigationItem } from "./NavigationItem";
 
 async function getBillingPortalUrl() {
@@ -79,4 +88,46 @@ export function useNavigationItems() {
 		});
 	}
 	return navItems;
+}
+
+export function LogOutButton({ mode }: { mode: "side" | "bottom" }) {
+	const [signingOut, setSigningOut] = useState(false);
+	const router = useRouter();
+	const signOut = useMutation({
+		mutationFn: async () => {
+			setSigningOut(true);
+			await nextAuthSignout();
+			await router.push("/");
+		},
+	});
+
+	const button = (
+		<Button
+			variant={signingOut ? "secondary" : "ghost"}
+			className={cn({
+				"w-full justify-start gap-2 font-bold my-2": mode === "side",
+				"text-center p-2 py-7 flex flex-col justify-center items-center cursor-pointer w-full":
+					mode === "bottom",
+			})}
+			onClick={() => signOut.mutate()}
+		>
+			<PendingButtonContent
+				pending={signingOut}
+				className={cn("flex gap-1 items-center", {
+					"flex-col justify-center": mode === "bottom",
+				})}
+			>
+				<div>
+					<LogOut />
+				</div>
+				<span className={cn({ "text-xs": mode === "bottom" })}>
+					Logout
+				</span>
+			</PendingButtonContent>
+		</Button>
+	);
+	if (mode === "side") {
+		return button;
+	}
+	return <div>{button}</div>;
 }
