@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
-import { userSdk } from "./operations";
+import { useUserSdk } from "./operations";
 
 export const userClient = {
 	useCurrentUser() {
+		const userSdk = useUserSdk();
 		const session = useSession();
 		return useQuery({
 			queryKey: ["currentUser"],

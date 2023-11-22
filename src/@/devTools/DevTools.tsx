@@ -1,5 +1,6 @@
 "use client";
 
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
@@ -42,7 +43,12 @@ export function DevTools() {
 		}
 	}, [setShow, show]);
 	if (show) {
-		return <DevToolsMain />;
+		return (
+			<>
+				<DevToolsMain />
+				<ReactQueryDevtools />
+			</>
+		);
 	}
 	return null;
 }

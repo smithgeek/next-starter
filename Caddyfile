@@ -1,0 +1,10 @@
+:5886
+
+handle_path /h/* {
+	reverse_proxy :9023
+}
+
+handle_path /api/* {
+	reverse_proxy :5266
+}
+reverse_proxy :3000

@@ -1,7 +1,12 @@
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
+import { PendingButtonContent } from "@/components/ui/pendingButtonContent";
 import { cn } from "@/lib/utils";
+import { useMutation } from "@tanstack/react-query";
+import { LogOut } from "lucide-react";
+import { signOut as nextAuthSignout } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ReactNode, useState } from "react";
 import {
 	NavigationItem,
@@ -22,6 +27,15 @@ interface SidebarProps {
 const width = 300;
 export function Sidebar(props: SidebarProps) {
 	const [open, setOpen] = useState(true);
+	const [signingOut, setSigningOut] = useState(false);
+	const router = useRouter();
+	const signOut = useMutation({
+		mutationFn: async () => {
+			setSigningOut(true);
+			await nextAuthSignout();
+			await router.push("/");
+		},
+	});
 	return (
 		<div
 			style={{ width: width, flex: `0 0 ${width}px` }}
@@ -109,6 +123,20 @@ export function Sidebar(props: SidebarProps) {
 					}
 					return item;
 				})}
+				<Button
+					variant={signingOut ? "secondary" : "ghost"}
+					className="w-full justify-start my-2 gap-2 font-bold"
+					onClick={() => signOut.mutate()}
+				>
+					<PendingButtonContent
+						pending={signingOut}
+						className="flex gap-2 items-center"
+						containerClassName="w-full"
+					>
+						<LogOut />
+						<span>Logout</span>
+					</PendingButtonContent>
+				</Button>
 				<div className="flex-1"></div>
 				<div>
 					<ThemeToggle />

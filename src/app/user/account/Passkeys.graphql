@@ -1,0 +1,28 @@
+fragment PasskeyInfo on webauthn_credentials {
+	aaguid
+	created_at
+	last_used
+	name
+	credential_id
+}
+
+query GetPasskeys {
+	webauthn_credentials {
+		...PasskeyInfo
+	}
+}
+
+mutation DeletePasskey($id: String!) {
+	delete_webauthn_credentials_by_pk(credential_id: $id) {
+		...PasskeyInfo
+	}
+}
+
+mutation RenamePasskey($id: String!, $name: String!) {
+	update_webauthn_credentials_by_pk(
+		pk_columns: { credential_id: $id }
+		_set: { name: $name }
+	) {
+		...PasskeyInfo
+	}
+}

@@ -2,11 +2,18 @@
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { DevTools } from "@/devTools/DevTools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { SessionProvider } from "next-auth/react";
 import NextAdapterApp from "next-query-params/app";
 import { ReactNode } from "react";
 import { QueryParamProvider } from "use-query-params";
+
+dayjs.extend(duration);
+dayjs.extend(relativeTime);
+dayjs.extend(localizedFormat);
 
 const queryClient = new QueryClient();
 
@@ -19,10 +26,9 @@ export function ClientLayout({ children }: { children: ReactNode }) {
 				enableSystem
 				disableTransitionOnChange
 			>
-				<SessionProvider>
+				<SessionProvider basePath="/auth">
 					<QueryClientProvider client={queryClient}>
 						{children}
-						<ReactQueryDevtools />
 						<DevTools />
 					</QueryClientProvider>
 				</SessionProvider>

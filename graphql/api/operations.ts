@@ -1,4 +1,4 @@
-import { useFetchRequester } from "../FetchRequester";
+import { fetchRequester } from "./FetchRequester";
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -2767,28 +2767,137 @@ export type Webauthn_Credentials_Variance_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
-export type Admin_GetUsersQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetWebauthnCredentialsForUserQueryVariables = Exact<{
+  email: Scalars['String']['input'];
+}>;
 
 
-export type Admin_GetUsersQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any, name?: string | null, email: string }> };
+export type GetWebauthnCredentialsForUserQuery = { __typename?: 'query_root', webauthn_credentials: Array<{ __typename?: 'webauthn_credentials', credential_id: string, user_id: any, transports: Array<string>, public_key: any, counter: number }> };
+
+export type GetWebauthnCredentialsByIdQueryVariables = Exact<{
+  id: Scalars['String']['input'];
+}>;
 
 
- const Admin_GetUsersDocument = `
-    query Admin_GetUsers {
-  users {
-    id
-    name
-    email
+export type GetWebauthnCredentialsByIdQuery = { __typename?: 'query_root', webauthn_credentials_by_pk?: { __typename?: 'webauthn_credentials', credential_id: string, user_id: any, transports: Array<string>, public_key: any, counter: number } | null };
+
+export type SaveWebauthnCredentialsChallengeMutationVariables = Exact<{
+  userId: Scalars['uuid']['input'];
+  challenge: Scalars['String']['input'];
+}>;
+
+
+export type SaveWebauthnCredentialsChallengeMutation = { __typename?: 'mutation_root', insert_webauthn_challenges_one?: { __typename?: 'webauthn_challenges', user_id: any } | null };
+
+export type GetWebauthnCredentialsChallengeQueryVariables = Exact<{
+  userId: Scalars['uuid']['input'];
+}>;
+
+
+export type GetWebauthnCredentialsChallengeQuery = { __typename?: 'query_root', webauthn_challenges_by_pk?: { __typename?: 'webauthn_challenges', challenge: string } | null };
+
+export type SaveWebauthnCredentialsMutationVariables = Exact<{
+  userId: Scalars['uuid']['input'];
+  transports?: InputMaybe<Array<Scalars['String']['input']> | Scalars['String']['input']>;
+  counter: Scalars['Int']['input'];
+  credentialId: Scalars['String']['input'];
+  public_key?: InputMaybe<Scalars['bytea']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  aaguid: Scalars['String']['input'];
+}>;
+
+
+export type SaveWebauthnCredentialsMutation = { __typename?: 'mutation_root', insert_webauthn_credentials_one?: { __typename?: 'webauthn_credentials', user_id: any } | null };
+
+export type UpdateWebauthnCredentialsCounterMutationVariables = Exact<{
+  counter: Scalars['Int']['input'];
+  credentialId: Scalars['String']['input'];
+}>;
+
+
+export type UpdateWebauthnCredentialsCounterMutation = { __typename?: 'mutation_root', update_webauthn_credentials_by_pk?: { __typename?: 'webauthn_credentials', counter: number } | null };
+
+
+ const GetWebauthnCredentialsForUserDocument = `
+    query GetWebauthnCredentialsForUser($email: String!) {
+  webauthn_credentials(where: {user: {email: {_eq: $email}}}) {
+    credential_id
+    user_id
+    transports
+    public_key
+    counter
+  }
+}
+    `;
+ const GetWebauthnCredentialsByIdDocument = `
+    query GetWebauthnCredentialsById($id: String!) {
+  webauthn_credentials_by_pk(credential_id: $id) {
+    credential_id
+    user_id
+    transports
+    public_key
+    counter
+  }
+}
+    `;
+ const SaveWebauthnCredentialsChallengeDocument = `
+    mutation SaveWebauthnCredentialsChallenge($userId: uuid!, $challenge: String!) {
+  insert_webauthn_challenges_one(
+    object: {challenge: $challenge, user_id: $userId}
+    on_conflict: {constraint: webauthn_challenges_pkey, update_columns: [challenge]}
+  ) {
+    user_id
+  }
+}
+    `;
+ const GetWebauthnCredentialsChallengeDocument = `
+    query GetWebauthnCredentialsChallenge($userId: uuid!) {
+  webauthn_challenges_by_pk(user_id: $userId) {
+    challenge
+  }
+}
+    `;
+ const SaveWebauthnCredentialsDocument = `
+    mutation SaveWebauthnCredentials($userId: uuid!, $transports: [String!], $counter: Int!, $credentialId: String!, $public_key: bytea, $name: String, $aaguid: String!) {
+  insert_webauthn_credentials_one(
+    object: {counter: $counter, credential_id: $credentialId, public_key: $public_key, transports: $transports, user_id: $userId, name: $name, aaguid: $aaguid}
+  ) {
+    user_id
+  }
+}
+    `;
+ const UpdateWebauthnCredentialsCounterDocument = `
+    mutation UpdateWebauthnCredentialsCounter($counter: Int!, $credentialId: String!) {
+  update_webauthn_credentials_by_pk(
+    pk_columns: {credential_id: $credentialId}
+    _set: {counter: $counter, last_used: "now()"}
+  ) {
+    counter
   }
 }
     `;
 export type Requester<C = {}, E = unknown> = <R, V>(doc: string, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
-    Admin_GetUsers(variables?: Admin_GetUsersQueryVariables, options?: C): Promise<Admin_GetUsersQuery> {
-      return requester<Admin_GetUsersQuery, Admin_GetUsersQueryVariables>(Admin_GetUsersDocument, variables, options) as Promise<Admin_GetUsersQuery>;
+    GetWebauthnCredentialsForUser(variables: GetWebauthnCredentialsForUserQueryVariables, options?: C): Promise<GetWebauthnCredentialsForUserQuery> {
+      return requester<GetWebauthnCredentialsForUserQuery, GetWebauthnCredentialsForUserQueryVariables>(GetWebauthnCredentialsForUserDocument, variables, options) as Promise<GetWebauthnCredentialsForUserQuery>;
+    },
+    GetWebauthnCredentialsById(variables: GetWebauthnCredentialsByIdQueryVariables, options?: C): Promise<GetWebauthnCredentialsByIdQuery> {
+      return requester<GetWebauthnCredentialsByIdQuery, GetWebauthnCredentialsByIdQueryVariables>(GetWebauthnCredentialsByIdDocument, variables, options) as Promise<GetWebauthnCredentialsByIdQuery>;
+    },
+    SaveWebauthnCredentialsChallenge(variables: SaveWebauthnCredentialsChallengeMutationVariables, options?: C): Promise<SaveWebauthnCredentialsChallengeMutation> {
+      return requester<SaveWebauthnCredentialsChallengeMutation, SaveWebauthnCredentialsChallengeMutationVariables>(SaveWebauthnCredentialsChallengeDocument, variables, options) as Promise<SaveWebauthnCredentialsChallengeMutation>;
+    },
+    GetWebauthnCredentialsChallenge(variables: GetWebauthnCredentialsChallengeQueryVariables, options?: C): Promise<GetWebauthnCredentialsChallengeQuery> {
+      return requester<GetWebauthnCredentialsChallengeQuery, GetWebauthnCredentialsChallengeQueryVariables>(GetWebauthnCredentialsChallengeDocument, variables, options) as Promise<GetWebauthnCredentialsChallengeQuery>;
+    },
+    SaveWebauthnCredentials(variables: SaveWebauthnCredentialsMutationVariables, options?: C): Promise<SaveWebauthnCredentialsMutation> {
+      return requester<SaveWebauthnCredentialsMutation, SaveWebauthnCredentialsMutationVariables>(SaveWebauthnCredentialsDocument, variables, options) as Promise<SaveWebauthnCredentialsMutation>;
+    },
+    UpdateWebauthnCredentialsCounter(variables: UpdateWebauthnCredentialsCounterMutationVariables, options?: C): Promise<UpdateWebauthnCredentialsCounterMutation> {
+      return requester<UpdateWebauthnCredentialsCounterMutation, UpdateWebauthnCredentialsCounterMutationVariables>(UpdateWebauthnCredentialsCounterDocument, variables, options) as Promise<UpdateWebauthnCredentialsCounterMutation>;
     }
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
-export function useAdminSdk(){const requester = useFetchRequester('admin');return getSdk(requester);}
+export const apiSdk = getSdk(fetchRequester());

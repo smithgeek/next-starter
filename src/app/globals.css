@@ -72,8 +72,7 @@
 		--radius: 0.5rem;
 	}
 
-	.dark[data-color-mode="blue"],
-	.dark [data-color-mode="blue"] {
+	.dark {
 		--background: 222.2 84% 4.9%;
 		--foreground: 210 40% 98%;
 		--card: 222.2 84% 4.9%;
@@ -93,6 +92,45 @@
 		--border: 217.2 32.6% 17.5%;
 		--input: 217.2 32.6% 17.5%;
 		--ring: 224.3 76.3% 48%;
+	}
+
+	.dark[data-color-mode="blue"],
+	.dark [data-color-mode="blue"] {
+		/* Name: custom color palette
+       Author: Ilias Ism
+       URL: https://gradient.page */
+
+		/* CSS: .bg-gradient { background: var(--gradient) } */
+		--gradient: #1488cc;
+
+		--background: 215 53.3% 3.52%;
+		--foreground: 215 8.2% 97.2%;
+
+		--muted: 215 41% 13.2%;
+		--muted-foreground: 215 8.2% 54.4%;
+
+		--popover: 215 48.6% 5.72%;
+		--popover-foreground: 215 8.2% 97.2%;
+
+		--card: 215 48.6% 5.72%;
+		--card-foreground: 215 8.2% 97.2%;
+
+		--border: 215 41% 13.2%;
+		--input: 215 41% 13.2%;
+
+		--primary: 215 82% 44%;
+		--primary-foreground: 215 8.2% 97.2%;
+
+		--secondary: 215 41% 13.2%;
+		--secondary-foreground: 215 8.2% 97.2%;
+
+		--accent: 215 41% 13.2%;
+		--accent-foreground: 215 8.2% 97.2%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 215 8.2% 97.2%;
+
+		--ring: 215 82% 44%;
 	}
 
 	.light[data-color-mode="green"],
@@ -285,49 +323,81 @@
 
 	.light[data-color-mode="zinc"],
 	.light [data-color-mode="zinc"] {
-		--background: 0 0% 100%;
-		--foreground: 240 10% 3.9%;
-		--card: 0 0% 100%;
-		--card-foreground: 240 10% 3.9%;
-		--popover: 0 0% 100%;
-		--popover-foreground: 240 10% 3.9%;
-		--primary: 240 5.9% 10%;
-		--primary-foreground: 0 0% 98%;
-		--secondary: 240 4.8% 95.9%;
-		--secondary-foreground: 240 5.9% 10%;
-		--muted: 240 4.8% 95.9%;
-		--muted-foreground: 240 3.8% 46.1%;
-		--accent: 240 4.8% 95.9%;
-		--accent-foreground: 240 5.9% 10%;
+		/* Name: custom color palette
+			   Author: Ilias Ism
+			   URL: https://gradient.page */
+
+		/* CSS: .bg-gradient { background: var(--gradient) } */
+		--gradient: #232526;
+		--background: 212 95.2% 98.3%;
+		--foreground: 212 0.4% 0.6%;
+
+		--muted: 212 0.4% 91.5%;
+		--muted-foreground: 212 0.2% 41.5%;
+
+		--popover: 212 86.8% 91.5%;
+		--popover-foreground: 212 0.4% 0.75%;
+
+		--card: 212 86.8% 91.5%;
+		--card-foreground: 212 0.4% 0.75%;
+
+		--border: 212 5.4% 89.6%;
+		--input: 212 5.4% 89.6%;
+
+		--primary: 212 4% 15%;
+		--primary-foreground: 212 0.08% 91.5%;
+
+		--secondary: 212 0.2% 95.75%;
+		--secondary-foreground: 212 1.24% 11.5%;
+
+		--accent: 212 0.2% 95.75%;
+		--accent-foreground: 212 1.24% 11.5%;
+
 		--destructive: 0 84.2% 60.2%;
 		--destructive-foreground: 0 0% 98%;
-		--border: 240 5.9% 90%;
-		--input: 240 5.9% 90%;
-		--ring: 240 5.9% 10%;
+
+		--ring: 212 4% 15%;
+
 		--radius: 0.5rem;
 	}
 
 	.dark[data-color-mode="zinc"],
 	.dark [data-color-mode="zinc"] {
-		--background: 240 10% 3.9%;
-		--foreground: 0 0% 88%;
-		--card: 240 10% 3.9%;
-		--card-foreground: 0 0% 88%;
-		--popover: 240 10% 3.9%;
-		--popover-foreground: 0 0% 88%;
-		--primary: 0 0% 88%;
-		--primary-foreground: 240 5.9% 10%;
-		--secondary: 240 3.7% 15.9%;
-		--secondary-foreground: 0 0% 88%;
-		--muted: 240 3.7% 15.9%;
-		--muted-foreground: 240 5% 64.9%;
-		--accent: 240 3.7% 15.9%;
-		--accent-foreground: 0 0% 88%;
+		/* Name: custom color palette
+       Author: Ilias Ism
+       URL: https://gradient.page */
+
+		/* CSS: .bg-gradient { background: var(--gradient) } */
+		--gradient: #403b4a;
+
+		--background: 276 7.15% 2.08%;
+		--foreground: 276 1.1% 96.3%;
+
+		--muted: 276 7.59% 7.800000000000001%;
+		--muted-foreground: 276 1.1% 52.6%;
+
+		--popover: 276 62.8% 3.38%;
+		--popover-foreground: 276 1.1% 96.3%;
+
+		--card: 276 62.8% 3.38%;
+		--card-foreground: 276 1.1% 96.3%;
+
+		--border: 276 7.59% 7.800000000000001%;
+		--input: 276 7.59% 7.800000000000001%;
+
+		--primary: 276 11% 26%;
+		--primary-foreground: 276 1.1% 96.3%;
+
+		--secondary: 276 7.59% 7.800000000000001%;
+		--secondary-foreground: 276 1.1% 96.3%;
+
+		--accent: 276 7.59% 7.800000000000001%;
+		--accent-foreground: 276 1.1% 96.3%;
+
 		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 0 0% 88%;
-		--border: 240 3.7% 15.9%;
-		--input: 240 3.7% 15.9%;
-		--ring: 240 4.9% 83.9%;
+		--destructive-foreground: 276 1.1% 96.3%;
+
+		--ring: 276 11% 26%;
 	}
 
 	.light[data-color-mode="slate"],

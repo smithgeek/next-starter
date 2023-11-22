@@ -1,5 +1,5 @@
 import { addAuthorizationHeader } from "graphql/FetchRequester";
-import { LayoutDashboard, LogOut, Shield } from "lucide-react";
+import { LayoutDashboard, Shield, User2 } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import { NavigationItem } from "./NavigationItem";
@@ -8,7 +8,7 @@ async function getBillingPortalUrl() {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}/billing/stripe/portal?returnUrl=${location.origin}/menus`,
 		{
-			headers: await addAuthorizationHeader({
+			headers: await addAuthorizationHeader("", {
 				"Content-Type": "application/json",
 			}),
 		}
@@ -28,17 +28,23 @@ export function useNavigationItems() {
 	const router = useRouter();
 	const pathname = usePathname();
 	const signOutAction = async () => {
+		await signOut();
 		await router.push("/");
-
-		await signOut({});
 	};
 	const navItems: NavigationItem[] = [
 		{
 			text: "Dashboard",
 			icon: <LayoutDashboard />,
 			type: "link",
-			active: pathname?.startsWith("/dashboard"),
-			href: "/dashboard",
+			active: pathname?.startsWith("/user/dashboard"),
+			href: "/user/dashboard",
+		},
+		{
+			text: "Account",
+			icon: <User2 />,
+			type: "link",
+			active: pathname?.startsWith("/user/account"),
+			href: "/user/account",
 		},
 	];
 	if (role === "admin") {
@@ -72,11 +78,5 @@ export function useNavigationItems() {
 			onClick: redirectToStripeBilling,
 		});
 	}
-	navItems.push({
-		text: "Logout",
-		type: "text",
-		icon: <LogOut />,
-		onClick: signOutAction,
-	});
 	return navItems;
 }

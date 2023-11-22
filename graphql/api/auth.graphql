@@ -1,0 +1,73 @@
+query GetWebauthnCredentialsForUser($email: String!) {
+	webauthn_credentials(where: { user: { email: { _eq: $email } } }) {
+		credential_id
+		user_id
+		transports
+		public_key
+		counter
+	}
+}
+
+query GetWebauthnCredentialsById($id: String!) {
+	webauthn_credentials_by_pk(credential_id: $id) {
+		credential_id
+		user_id
+		transports
+		public_key
+		counter
+	}
+}
+
+mutation SaveWebauthnCredentialsChallenge($userId: uuid!, $challenge: String!) {
+	insert_webauthn_challenges_one(
+		object: { challenge: $challenge, user_id: $userId }
+		on_conflict: {
+			constraint: webauthn_challenges_pkey
+			update_columns: [challenge]
+		}
+	) {
+		user_id
+	}
+}
+
+query GetWebauthnCredentialsChallenge($userId: uuid!) {
+	webauthn_challenges_by_pk(user_id: $userId) {
+		challenge
+	}
+}
+
+mutation SaveWebauthnCredentials(
+	$userId: uuid!
+	$transports: [String!]
+	$counter: Int!
+	$credentialId: String!
+	$public_key: bytea
+	$name: String
+	$aaguid: String!
+) {
+	insert_webauthn_credentials_one(
+		object: {
+			counter: $counter
+			credential_id: $credentialId
+			public_key: $public_key
+			transports: $transports
+			user_id: $userId
+			name: $name
+			aaguid: $aaguid
+		}
+	) {
+		user_id
+	}
+}
+
+mutation UpdateWebauthnCredentialsCounter(
+	$counter: Int!
+	$credentialId: String!
+) {
+	update_webauthn_credentials_by_pk(
+		pk_columns: { credential_id: $credentialId }
+		_set: { counter: $counter, last_used: "now()" }
+	) {
+		counter
+	}
+}
