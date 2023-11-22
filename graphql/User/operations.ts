@@ -1,4 +1,4 @@
-import { fetchRequester } from "../FetchRequester";
+import { useFetchRequester } from "../FetchRequester";
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -373,4 +373,4 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
-export const userSdk = getSdk(fetchRequester('user'));
+export function useUserSdk(){const requester = useFetchRequester('user');return getSdk(requester);}

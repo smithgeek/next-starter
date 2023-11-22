@@ -4021,6 +4021,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dayjs@npm:1.11.10":
+  version: 1.11.10
+  resolution: "dayjs@npm:1.11.10"
+  checksum: 27e8f5bc01c0a76f36c656e62ab7f08c2e7b040b09e613cd4844abf03fb258e0350f0a83b02c887b84d771c1f11e092deda0beef8c6df2a1afbc3f6c1fade279
+  languageName: node
+  linkType: hard
+
 "debounce@npm:^1.2.0":
   version: 1.2.1
   resolution: "debounce@npm:1.2.1"
@@ -9178,6 +9185,7 @@ __metadata:
     autoprefixer: "npm:10.4.16"
     class-variance-authority: "npm:0.7.0"
     clsx: "npm:2.0.0"
+    dayjs: "npm:1.11.10"
     eslint: "npm:8.53.0"
     eslint-config-next: "npm:14.0.2"
     graphql: "npm:16.8.1"

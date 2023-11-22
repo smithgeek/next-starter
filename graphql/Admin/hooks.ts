@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
-import { adminSdk } from "./operations";
+import { useAdminSdk } from "./operations";
 
 export const adminClient = {
 	useAllUsers() {
+		const adminSdk = useAdminSdk();
 		const session = useSession();
 		return useQuery({
 			queryKey: ["allUsers"],

@@ -132,6 +132,12 @@ export const authOptions: AuthOptions = {
 			if (account) {
 				token = Object.assign({}, token, {
 					access_token: account.access_token,
+					"https://hasura.io/jwt/claims": {
+						"x-hasura-allowed-roles": ["user"],
+						"x-hasura-default-role": "user",
+						"x-hasura-role": "user",
+						"x-hasura-user-id": token.sub,
+					},
 				});
 			}
 			return token;

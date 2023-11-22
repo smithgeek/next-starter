@@ -8,7 +8,7 @@ async function getBillingPortalUrl() {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}/billing/stripe/portal?returnUrl=${location.origin}/menus`,
 		{
-			headers: await addAuthorizationHeader({
+			headers: await addAuthorizationHeader("", {
 				"Content-Type": "application/json",
 			}),
 		}
@@ -36,14 +36,14 @@ export function useNavigationItems() {
 			text: "Dashboard",
 			icon: <LayoutDashboard />,
 			type: "link",
-			active: pathname?.startsWith("/dashboard"),
+			active: pathname?.startsWith("/user/dashboard"),
 			href: "/user/dashboard",
 		},
 		{
 			text: "Account",
 			icon: <User2 />,
 			type: "link",
-			active: pathname?.startsWith("/account"),
+			active: pathname?.startsWith("/user/account"),
 			href: "/user/account",
 		},
 	];
