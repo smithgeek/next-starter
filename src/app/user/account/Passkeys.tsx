@@ -19,6 +19,7 @@ import { Form, FormControl, FormField } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { PendingButtonContent } from "@/components/ui/pendingButtonContent";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Label } from "@radix-ui/react-label";
 import dayjs from "dayjs";
 import { Lock, Pencil, X } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -213,6 +214,7 @@ function PasskeyRow({
 
 export function Passkeys() {
 	const { passkeys, register } = usePasskeyData();
+	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 	return (
 		<>
 			<Card>
@@ -234,15 +236,28 @@ export function Passkeys() {
 						/>
 					))}
 				</CardContent>
-				<CardFooter>
+				<CardFooter className="flex flex-col gap-2 items-start">
 					<Button
-						onClick={() => register.mutate()}
+						onClick={() => {
+							setErrorMessage(null);
+							register.mutate(undefined, {
+								onError(error) {
+									setErrorMessage(error.message);
+								},
+								onSuccess() {
+									setErrorMessage(null);
+								},
+							});
+						}}
 						disabled={register.isPending}
 					>
 						<PendingButtonContent pending={register.isPending}>
 							Add Passkey
 						</PendingButtonContent>
 					</Button>
+					{errorMessage && (
+						<Label className="text-red-600">{errorMessage}</Label>
+					)}
 				</CardFooter>
 			</Card>
 		</>

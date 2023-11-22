@@ -64,8 +64,12 @@ export function usePasskeyData() {
 	});
 	const register = useMutation({
 		mutationFn: async () => {
-			await registerWebauthn();
-			queryClient.invalidateQueries({ queryKey: keys.passkeys });
+			const response = await registerWebauthn();
+			if (response.success) {
+				queryClient.invalidateQueries({ queryKey: keys.passkeys });
+				return;
+			}
+			throw new Error(response.message);
 		},
 	});
 	return {

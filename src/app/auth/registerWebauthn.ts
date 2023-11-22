@@ -1,10 +1,18 @@
 import { startRegistration } from "@simplewebauthn/browser";
 
-export async function registerWebauthn() {
+export async function registerWebauthn(): Promise<
+	| {
+			success: true;
+			message?: never;
+	  }
+	| { success: false; message: string }
+> {
 	const optionsResponse = await fetch("/auth/webauthn/register");
 	if (optionsResponse.status !== 200) {
-		alert("Could not get registration options from server");
-		return;
+		return {
+			success: false,
+			message: "Could not get registration options from server",
+		};
 	}
 	const opt = await optionsResponse.json();
 
@@ -20,11 +28,19 @@ export async function registerWebauthn() {
 			credentials: "include",
 		});
 		if (response.status != 201) {
-			alert("Could not register webauthn credentials.");
+			return {
+				success: false,
+				message: "Could not register webauthn credentials.",
+			};
 		} else {
-			alert("Your webauthn credentials have been registered.");
+			return {
+				success: true,
+			};
 		}
 	} catch (err) {
-		alert(`Registration failed. ${(err as Error).message}`);
+		return {
+			success: false,
+			message: `Registration failed. ${(err as Error).message}`,
+		};
 	}
 }
