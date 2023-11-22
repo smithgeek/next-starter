@@ -58,6 +58,53 @@ export enum Cursor_Ordering {
   Desc = 'DESC'
 }
 
+/** mutation root */
+export type Mutation_Root = {
+  __typename?: 'mutation_root';
+  /** delete data from the table: "webauthn_credentials" */
+  delete_webauthn_credentials?: Maybe<Webauthn_Credentials_Mutation_Response>;
+  /** delete single row from the table: "webauthn_credentials" */
+  delete_webauthn_credentials_by_pk?: Maybe<Webauthn_Credentials>;
+  /** update data of the table: "webauthn_credentials" */
+  update_webauthn_credentials?: Maybe<Webauthn_Credentials_Mutation_Response>;
+  /** update single row of the table: "webauthn_credentials" */
+  update_webauthn_credentials_by_pk?: Maybe<Webauthn_Credentials>;
+  /** update multiples rows of table: "webauthn_credentials" */
+  update_webauthn_credentials_many?: Maybe<Array<Maybe<Webauthn_Credentials_Mutation_Response>>>;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Webauthn_CredentialsArgs = {
+  where: Webauthn_Credentials_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Webauthn_Credentials_By_PkArgs = {
+  credential_id: Scalars['String']['input'];
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Webauthn_CredentialsArgs = {
+  _set?: InputMaybe<Webauthn_Credentials_Set_Input>;
+  where: Webauthn_Credentials_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Webauthn_Credentials_By_PkArgs = {
+  _set?: InputMaybe<Webauthn_Credentials_Set_Input>;
+  pk_columns: Webauthn_Credentials_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Webauthn_Credentials_ManyArgs = {
+  updates: Array<Webauthn_Credentials_Updates>;
+};
+
 /** column ordering options */
 export enum Order_By {
   /** in ascending order, nulls last */
@@ -82,6 +129,8 @@ export type Query_Root = {
   users_by_pk?: Maybe<Users>;
   /** An array relationship */
   webauthn_credentials: Array<Webauthn_Credentials>;
+  /** fetch data from the table: "webauthn_credentials" using primary key columns */
+  webauthn_credentials_by_pk?: Maybe<Webauthn_Credentials>;
 };
 
 
@@ -107,6 +156,11 @@ export type Query_RootWebauthn_CredentialsArgs = {
   where?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
 };
 
+
+export type Query_RootWebauthn_Credentials_By_PkArgs = {
+  credential_id: Scalars['String']['input'];
+};
+
 export type Subscription_Root = {
   __typename?: 'subscription_root';
   /** fetch data from the table: "users" */
@@ -117,6 +171,8 @@ export type Subscription_Root = {
   users_stream: Array<Users>;
   /** An array relationship */
   webauthn_credentials: Array<Webauthn_Credentials>;
+  /** fetch data from the table: "webauthn_credentials" using primary key columns */
+  webauthn_credentials_by_pk?: Maybe<Webauthn_Credentials>;
   /** fetch data from the table in a streaming manner: "webauthn_credentials" */
   webauthn_credentials_stream: Array<Webauthn_Credentials>;
 };
@@ -149,6 +205,11 @@ export type Subscription_RootWebauthn_CredentialsArgs = {
   offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
   where?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+};
+
+
+export type Subscription_RootWebauthn_Credentials_By_PkArgs = {
+  credential_id: Scalars['String']['input'];
 };
 
 
@@ -253,6 +314,7 @@ export type Webauthn_Credentials = {
   __typename?: 'webauthn_credentials';
   aaguid: Scalars['String']['output'];
   created_at: Scalars['timestamptz']['output'];
+  credential_id: Scalars['String']['output'];
   last_used?: Maybe<Scalars['timestamptz']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   /** An object relationship */
@@ -273,6 +335,7 @@ export type Webauthn_Credentials_Bool_Exp = {
   _or?: InputMaybe<Array<Webauthn_Credentials_Bool_Exp>>;
   aaguid?: InputMaybe<String_Comparison_Exp>;
   created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  credential_id?: InputMaybe<String_Comparison_Exp>;
   last_used?: InputMaybe<Timestamptz_Comparison_Exp>;
   name?: InputMaybe<String_Comparison_Exp>;
   user?: InputMaybe<Users_Bool_Exp>;
@@ -282,6 +345,7 @@ export type Webauthn_Credentials_Bool_Exp = {
 export type Webauthn_Credentials_Max_Order_By = {
   aaguid?: InputMaybe<Order_By>;
   created_at?: InputMaybe<Order_By>;
+  credential_id?: InputMaybe<Order_By>;
   last_used?: InputMaybe<Order_By>;
   name?: InputMaybe<Order_By>;
 };
@@ -290,17 +354,33 @@ export type Webauthn_Credentials_Max_Order_By = {
 export type Webauthn_Credentials_Min_Order_By = {
   aaguid?: InputMaybe<Order_By>;
   created_at?: InputMaybe<Order_By>;
+  credential_id?: InputMaybe<Order_By>;
   last_used?: InputMaybe<Order_By>;
   name?: InputMaybe<Order_By>;
+};
+
+/** response of any mutation on the table "webauthn_credentials" */
+export type Webauthn_Credentials_Mutation_Response = {
+  __typename?: 'webauthn_credentials_mutation_response';
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int']['output'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Webauthn_Credentials>;
 };
 
 /** Ordering options when selecting data from "webauthn_credentials". */
 export type Webauthn_Credentials_Order_By = {
   aaguid?: InputMaybe<Order_By>;
   created_at?: InputMaybe<Order_By>;
+  credential_id?: InputMaybe<Order_By>;
   last_used?: InputMaybe<Order_By>;
   name?: InputMaybe<Order_By>;
   user?: InputMaybe<Users_Order_By>;
+};
+
+/** primary key columns input for table: webauthn_credentials */
+export type Webauthn_Credentials_Pk_Columns_Input = {
+  credential_id: Scalars['String']['input'];
 };
 
 /** select columns of table "webauthn_credentials" */
@@ -310,10 +390,17 @@ export enum Webauthn_Credentials_Select_Column {
   /** column name */
   CreatedAt = 'created_at',
   /** column name */
+  CredentialId = 'credential_id',
+  /** column name */
   LastUsed = 'last_used',
   /** column name */
   Name = 'name'
 }
+
+/** input type for updating data in table "webauthn_credentials" */
+export type Webauthn_Credentials_Set_Input = {
+  name?: InputMaybe<Scalars['String']['input']>;
+};
 
 /** Streaming cursor of the table "webauthn_credentials" */
 export type Webauthn_Credentials_Stream_Cursor_Input = {
@@ -327,8 +414,16 @@ export type Webauthn_Credentials_Stream_Cursor_Input = {
 export type Webauthn_Credentials_Stream_Cursor_Value_Input = {
   aaguid?: InputMaybe<Scalars['String']['input']>;
   created_at?: InputMaybe<Scalars['timestamptz']['input']>;
+  credential_id?: InputMaybe<Scalars['String']['input']>;
   last_used?: InputMaybe<Scalars['timestamptz']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Webauthn_Credentials_Updates = {
+  /** sets the columns of the filtered rows to the given values */
+  _set?: InputMaybe<Webauthn_Credentials_Set_Input>;
+  /** filter the rows which have to be updated */
+  where: Webauthn_Credentials_Bool_Exp;
 };
 
 export type User_GetCurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
@@ -336,12 +431,37 @@ export type User_GetCurrentUserQueryVariables = Exact<{ [key: string]: never; }>
 
 export type User_GetCurrentUserQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any, name?: string | null, email: string }> };
 
+export type PasskeyInfoFragment = { __typename?: 'webauthn_credentials', aaguid: string, created_at: any, last_used?: any | null, name?: string | null, credential_id: string };
+
 export type GetPasskeysQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPasskeysQuery = { __typename?: 'query_root', webauthn_credentials: Array<{ __typename?: 'webauthn_credentials', aaguid: string, created_at: any, last_used?: any | null, name?: string | null }> };
+export type GetPasskeysQuery = { __typename?: 'query_root', webauthn_credentials: Array<{ __typename?: 'webauthn_credentials', aaguid: string, created_at: any, last_used?: any | null, name?: string | null, credential_id: string }> };
+
+export type DeletePasskeyMutationVariables = Exact<{
+  id: Scalars['String']['input'];
+}>;
 
 
+export type DeletePasskeyMutation = { __typename?: 'mutation_root', delete_webauthn_credentials_by_pk?: { __typename?: 'webauthn_credentials', aaguid: string, created_at: any, last_used?: any | null, name?: string | null, credential_id: string } | null };
+
+export type RenamePasskeyMutationVariables = Exact<{
+  id: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+}>;
+
+
+export type RenamePasskeyMutation = { __typename?: 'mutation_root', update_webauthn_credentials_by_pk?: { __typename?: 'webauthn_credentials', aaguid: string, created_at: any, last_used?: any | null, name?: string | null, credential_id: string } | null };
+
+export const PasskeyInfoFragmentDoc = `
+    fragment PasskeyInfo on webauthn_credentials {
+  aaguid
+  created_at
+  last_used
+  name
+  credential_id
+}
+    `;
  const User_GetCurrentUserDocument = `
     query User_GetCurrentUser {
   users {
@@ -354,13 +474,27 @@ export type GetPasskeysQuery = { __typename?: 'query_root', webauthn_credentials
  const GetPasskeysDocument = `
     query GetPasskeys {
   webauthn_credentials {
-    aaguid
-    created_at
-    last_used
-    name
+    ...PasskeyInfo
   }
 }
-    `;
+    ${PasskeyInfoFragmentDoc}`;
+ const DeletePasskeyDocument = `
+    mutation DeletePasskey($id: String!) {
+  delete_webauthn_credentials_by_pk(credential_id: $id) {
+    ...PasskeyInfo
+  }
+}
+    ${PasskeyInfoFragmentDoc}`;
+ const RenamePasskeyDocument = `
+    mutation RenamePasskey($id: String!, $name: String!) {
+  update_webauthn_credentials_by_pk(
+    pk_columns: {credential_id: $id}
+    _set: {name: $name}
+  ) {
+    ...PasskeyInfo
+  }
+}
+    ${PasskeyInfoFragmentDoc}`;
 export type Requester<C = {}, E = unknown> = <R, V>(doc: string, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
@@ -369,6 +503,12 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
     },
     GetPasskeys(variables?: GetPasskeysQueryVariables, options?: C): Promise<GetPasskeysQuery> {
       return requester<GetPasskeysQuery, GetPasskeysQueryVariables>(GetPasskeysDocument, variables, options) as Promise<GetPasskeysQuery>;
+    },
+    DeletePasskey(variables: DeletePasskeyMutationVariables, options?: C): Promise<DeletePasskeyMutation> {
+      return requester<DeletePasskeyMutation, DeletePasskeyMutationVariables>(DeletePasskeyDocument, variables, options) as Promise<DeletePasskeyMutation>;
+    },
+    RenamePasskey(variables: RenamePasskeyMutationVariables, options?: C): Promise<RenamePasskeyMutation> {
+      return requester<RenamePasskeyMutation, RenamePasskeyMutationVariables>(RenamePasskeyDocument, variables, options) as Promise<RenamePasskeyMutation>;
     }
   };
 }

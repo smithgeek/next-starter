@@ -1736,6 +1736,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hookform/resolvers@npm:3.3.2":
+  version: 3.3.2
+  resolution: "@hookform/resolvers@npm:3.3.2"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: 354930674c708c8b1c974fc944ad8f3980f9fed99e97ae57cb288c23f398b49276458755b45a1014de6dd2a587270377c38057cb16fb65b16c72431b96a34f81
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.13":
   version: 0.11.13
   resolution: "@humanwhocodes/config-array@npm:0.11.13"
@@ -2666,6 +2675,25 @@ __metadata:
     react-native:
       optional: true
   checksum: 6ea956163e73b95b2ce75c215a94c6bb353b4fdb9a606b6e85f7d162e38cb26e3ffef9e0afaa5a4fc2e2613ae133cd890b27ec901b412f7e69450ebf61df15c3
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-table@npm:8.10.7":
+  version: 8.10.7
+  resolution: "@tanstack/react-table@npm:8.10.7"
+  dependencies:
+    "@tanstack/table-core": "npm:8.10.7"
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: ed4eaa648854ce95264c66fd7cc0effafee35d4c34fc2d04b047be0bd48b70695e3e69b2798a4d8b4797de36bf3c0aa24973255d434d7fd4f95856760eb16031
+  languageName: node
+  linkType: hard
+
+"@tanstack/table-core@npm:8.10.7":
+  version: 8.10.7
+  resolution: "@tanstack/table-core@npm:8.10.7"
+  checksum: aa4150e03e4efe3d7a52485debbd7dc297e487a1ba0d1e1171ae84907cde8ea7e88794f812226542266ead8b7a2017c433323426eb50a1d5bc57a8b493fd5af2
   languageName: node
   linkType: hard
 
@@ -7657,6 +7685,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-hook-form@npm:7.48.2":
+  version: 7.48.2
+  resolution: "react-hook-form@npm:7.48.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 6cb494f359675e78c14c49a33d1c568df1a03db4c750eab18d6554e622fd64e04195c57efa138db03f8988587d132c57d2a7f5f3dd9157be996cc9acd4362170
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -9165,6 +9202,7 @@ __metadata:
     "@graphql-codegen/typescript": "npm:4.0.1"
     "@graphql-codegen/typescript-generic-sdk": "npm:4.0.0"
     "@graphql-codegen/typescript-operations": "npm:4.0.1"
+    "@hookform/resolvers": "npm:3.3.2"
     "@radix-ui/react-dialog": "npm:1.0.5"
     "@radix-ui/react-label": "npm:2.0.2"
     "@radix-ui/react-scroll-area": "npm:1.0.5"
@@ -9176,6 +9214,7 @@ __metadata:
     "@simplewebauthn/typescript-types": "npm:8.3.4"
     "@tanstack/react-query": "npm:5.8.3"
     "@tanstack/react-query-devtools": "npm:5.8.3"
+    "@tanstack/react-table": "npm:8.10.7"
     "@types/jsonwebtoken": "npm:9.0.5"
     "@types/node": "npm:20.9.0"
     "@types/nodemailer": "npm:^6"
@@ -9204,6 +9243,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-error-boundary: "npm:4.0.11"
+    react-hook-form: "npm:7.48.2"
     tailwind-merge: "npm:2.0.0"
     tailwindcss: "npm:3.3.5"
     tailwindcss-animate: "npm:1.0.7"
@@ -9212,6 +9252,7 @@ __metadata:
     use-immer: "npm:0.9.0"
     use-query-params: "npm:2.2.1"
     uuid: "npm:9.0.1"
+    zod: "npm:3.22.4"
     zustand: "npm:4.4.6"
   languageName: unknown
   linkType: soft
@@ -9497,6 +9538,13 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: f77b3d8d00310def622123df93d4ee654fc6a0096182af8bd60679ddcdfb3474c56c6c7190817c84a2785648cdee9d721c0154eb45698c62176c322fb46fc700
+  languageName: node
+  linkType: hard
+
+"zod@npm:3.22.4":
+  version: 3.22.4
+  resolution: "zod@npm:3.22.4"
+  checksum: 73622ca36a916f785cf528fe612a884b3e0f183dbe6b33365a7d0fc92abdbedf7804c5e2bd8df0a278e1472106d46674281397a3dd800fa9031dc3429758c6ac
   languageName: node
   linkType: hard
 
