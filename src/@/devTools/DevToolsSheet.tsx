@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { VenetianMask } from "lucide-react";
+import { Rocket } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
@@ -61,7 +61,7 @@ export default function DevToolsMain() {
 			>
 				<SheetTrigger className="fixed bottom-4 right-20" asChild>
 					<Button style={{ zIndex: 100000 }} variant="ghost">
-						<VenetianMask />
+						<Rocket />
 					</Button>
 				</SheetTrigger>
 				<SheetContent

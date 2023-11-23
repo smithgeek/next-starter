@@ -3,5 +3,6 @@ query Admin_GetUsers {
 		id
 		name
 		email
+		emailVerified
 	}
 }

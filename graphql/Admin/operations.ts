@@ -3213,7 +3213,7 @@ export type Webauthn_Credentials_Variance_Order_By = {
 export type Admin_GetUsersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Admin_GetUsersQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any, name?: string | null, email: string }> };
+export type Admin_GetUsersQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any, name?: string | null, email: string, emailVerified?: any | null }> };
 
 
  const Admin_GetUsersDocument = `
@@ -3222,6 +3222,7 @@ export type Admin_GetUsersQuery = { __typename?: 'query_root', users: Array<{ __
     id
     name
     email
+    emailVerified
   }
 }
     `;
