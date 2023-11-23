@@ -8,6 +8,7 @@ export interface DbCredential {
 	transports: AuthenticatorTransportFuture[];
 	credentialPublicKey: Uint8Array;
 	counter: number;
+	email?: string;
 }
 
 export async function getCredentialsForUser(
@@ -62,6 +63,7 @@ export async function getCredentialById(
 		credentialPublicKey: hexStringToUint8Array(
 			response.webauthn_credentials_by_pk.public_key
 		),
+		email: response.webauthn_credentials_by_pk.user.email,
 	};
 }
 

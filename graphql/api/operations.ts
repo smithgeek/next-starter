@@ -549,6 +549,10 @@ export type Mutation_Root = {
   delete_sessions?: Maybe<Sessions_Mutation_Response>;
   /** delete single row from the table: "sessions" */
   delete_sessions_by_pk?: Maybe<Sessions>;
+  /** delete data from the table: "user_features" */
+  delete_user_features?: Maybe<User_Features_Mutation_Response>;
+  /** delete single row from the table: "user_features" */
+  delete_user_features_by_pk?: Maybe<User_Features>;
   /** delete data from the table: "users" */
   delete_users?: Maybe<Users_Mutation_Response>;
   /** delete single row from the table: "users" */
@@ -577,6 +581,10 @@ export type Mutation_Root = {
   insert_sessions?: Maybe<Sessions_Mutation_Response>;
   /** insert a single row into the table: "sessions" */
   insert_sessions_one?: Maybe<Sessions>;
+  /** insert data into the table: "user_features" */
+  insert_user_features?: Maybe<User_Features_Mutation_Response>;
+  /** insert a single row into the table: "user_features" */
+  insert_user_features_one?: Maybe<User_Features>;
   /** insert data into the table: "users" */
   insert_users?: Maybe<Users_Mutation_Response>;
   /** insert a single row into the table: "users" */
@@ -611,6 +619,12 @@ export type Mutation_Root = {
   update_sessions_by_pk?: Maybe<Sessions>;
   /** update multiples rows of table: "sessions" */
   update_sessions_many?: Maybe<Array<Maybe<Sessions_Mutation_Response>>>;
+  /** update data of the table: "user_features" */
+  update_user_features?: Maybe<User_Features_Mutation_Response>;
+  /** update single row of the table: "user_features" */
+  update_user_features_by_pk?: Maybe<User_Features>;
+  /** update multiples rows of table: "user_features" */
+  update_user_features_many?: Maybe<Array<Maybe<User_Features_Mutation_Response>>>;
   /** update data of the table: "users" */
   update_users?: Maybe<Users_Mutation_Response>;
   /** update single row of the table: "users" */
@@ -671,6 +685,19 @@ export type Mutation_RootDelete_SessionsArgs = {
 /** mutation root */
 export type Mutation_RootDelete_Sessions_By_PkArgs = {
   sessionToken: Scalars['String']['input'];
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_User_FeaturesArgs = {
+  where: User_Features_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_User_Features_By_PkArgs = {
+  feature_id: Scalars['Int']['input'];
+  user_id: Scalars['uuid']['input'];
 };
 
 
@@ -761,6 +788,20 @@ export type Mutation_RootInsert_SessionsArgs = {
 export type Mutation_RootInsert_Sessions_OneArgs = {
   object: Sessions_Insert_Input;
   on_conflict?: InputMaybe<Sessions_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_User_FeaturesArgs = {
+  objects: Array<User_Features_Insert_Input>;
+  on_conflict?: InputMaybe<User_Features_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_User_Features_OneArgs = {
+  object: User_Features_Insert_Input;
+  on_conflict?: InputMaybe<User_Features_On_Conflict>;
 };
 
 
@@ -879,6 +920,28 @@ export type Mutation_RootUpdate_Sessions_By_PkArgs = {
 /** mutation root */
 export type Mutation_RootUpdate_Sessions_ManyArgs = {
   updates: Array<Sessions_Updates>;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_User_FeaturesArgs = {
+  _inc?: InputMaybe<User_Features_Inc_Input>;
+  _set?: InputMaybe<User_Features_Set_Input>;
+  where: User_Features_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_User_Features_By_PkArgs = {
+  _inc?: InputMaybe<User_Features_Inc_Input>;
+  _set?: InputMaybe<User_Features_Set_Input>;
+  pk_columns: User_Features_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_User_Features_ManyArgs = {
+  updates: Array<User_Features_Updates>;
 };
 
 
@@ -1156,6 +1219,12 @@ export type Query_Root = {
   sessions_aggregate: Sessions_Aggregate;
   /** fetch data from the table: "sessions" using primary key columns */
   sessions_by_pk?: Maybe<Sessions>;
+  /** fetch data from the table: "user_features" */
+  user_features: Array<User_Features>;
+  /** fetch aggregated fields from the table: "user_features" */
+  user_features_aggregate: User_Features_Aggregate;
+  /** fetch data from the table: "user_features" using primary key columns */
+  user_features_by_pk?: Maybe<User_Features>;
   /** fetch data from the table: "users" */
   users: Array<Users>;
   /** fetch aggregated fields from the table: "users" */
@@ -1249,6 +1318,30 @@ export type Query_RootSessions_AggregateArgs = {
 
 export type Query_RootSessions_By_PkArgs = {
   sessionToken: Scalars['String']['input'];
+};
+
+
+export type Query_RootUser_FeaturesArgs = {
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
+};
+
+
+export type Query_RootUser_Features_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
+};
+
+
+export type Query_RootUser_Features_By_PkArgs = {
+  feature_id: Scalars['Int']['input'];
+  user_id: Scalars['uuid']['input'];
 };
 
 
@@ -1573,6 +1666,14 @@ export type Subscription_Root = {
   sessions_by_pk?: Maybe<Sessions>;
   /** fetch data from the table in a streaming manner: "sessions" */
   sessions_stream: Array<Sessions>;
+  /** fetch data from the table: "user_features" */
+  user_features: Array<User_Features>;
+  /** fetch aggregated fields from the table: "user_features" */
+  user_features_aggregate: User_Features_Aggregate;
+  /** fetch data from the table: "user_features" using primary key columns */
+  user_features_by_pk?: Maybe<User_Features>;
+  /** fetch data from the table in a streaming manner: "user_features" */
+  user_features_stream: Array<User_Features>;
   /** fetch data from the table: "users" */
   users: Array<Users>;
   /** fetch aggregated fields from the table: "users" */
@@ -1695,6 +1796,37 @@ export type Subscription_RootSessions_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Sessions_Stream_Cursor_Input>>;
   where?: InputMaybe<Sessions_Bool_Exp>;
+};
+
+
+export type Subscription_RootUser_FeaturesArgs = {
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
+};
+
+
+export type Subscription_RootUser_Features_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
+};
+
+
+export type Subscription_RootUser_Features_By_PkArgs = {
+  feature_id: Scalars['Int']['input'];
+  user_id: Scalars['uuid']['input'];
+};
+
+
+export type Subscription_RootUser_Features_StreamArgs = {
+  batch_size: Scalars['Int']['input'];
+  cursor: Array<InputMaybe<User_Features_Stream_Cursor_Input>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
@@ -1830,6 +1962,289 @@ export type Timestamptz_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['timestamptz']['input']>>;
 };
 
+/** columns and relationships of "user_features" */
+export type User_Features = {
+  __typename?: 'user_features';
+  feature_id: Scalars['Int']['output'];
+  user_id: Scalars['uuid']['output'];
+};
+
+/** aggregated selection of "user_features" */
+export type User_Features_Aggregate = {
+  __typename?: 'user_features_aggregate';
+  aggregate?: Maybe<User_Features_Aggregate_Fields>;
+  nodes: Array<User_Features>;
+};
+
+export type User_Features_Aggregate_Bool_Exp = {
+  count?: InputMaybe<User_Features_Aggregate_Bool_Exp_Count>;
+};
+
+export type User_Features_Aggregate_Bool_Exp_Count = {
+  arguments?: InputMaybe<Array<User_Features_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+  filter?: InputMaybe<User_Features_Bool_Exp>;
+  predicate: Int_Comparison_Exp;
+};
+
+/** aggregate fields of "user_features" */
+export type User_Features_Aggregate_Fields = {
+  __typename?: 'user_features_aggregate_fields';
+  avg?: Maybe<User_Features_Avg_Fields>;
+  count: Scalars['Int']['output'];
+  max?: Maybe<User_Features_Max_Fields>;
+  min?: Maybe<User_Features_Min_Fields>;
+  stddev?: Maybe<User_Features_Stddev_Fields>;
+  stddev_pop?: Maybe<User_Features_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<User_Features_Stddev_Samp_Fields>;
+  sum?: Maybe<User_Features_Sum_Fields>;
+  var_pop?: Maybe<User_Features_Var_Pop_Fields>;
+  var_samp?: Maybe<User_Features_Var_Samp_Fields>;
+  variance?: Maybe<User_Features_Variance_Fields>;
+};
+
+
+/** aggregate fields of "user_features" */
+export type User_Features_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<User_Features_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** order by aggregate values of table "user_features" */
+export type User_Features_Aggregate_Order_By = {
+  avg?: InputMaybe<User_Features_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<User_Features_Max_Order_By>;
+  min?: InputMaybe<User_Features_Min_Order_By>;
+  stddev?: InputMaybe<User_Features_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<User_Features_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<User_Features_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<User_Features_Sum_Order_By>;
+  var_pop?: InputMaybe<User_Features_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<User_Features_Var_Samp_Order_By>;
+  variance?: InputMaybe<User_Features_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "user_features" */
+export type User_Features_Arr_Rel_Insert_Input = {
+  data: Array<User_Features_Insert_Input>;
+  /** upsert condition */
+  on_conflict?: InputMaybe<User_Features_On_Conflict>;
+};
+
+/** aggregate avg on columns */
+export type User_Features_Avg_Fields = {
+  __typename?: 'user_features_avg_fields';
+  feature_id?: Maybe<Scalars['Float']['output']>;
+};
+
+/** order by avg() on columns of table "user_features" */
+export type User_Features_Avg_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "user_features". All fields are combined with a logical 'AND'. */
+export type User_Features_Bool_Exp = {
+  _and?: InputMaybe<Array<User_Features_Bool_Exp>>;
+  _not?: InputMaybe<User_Features_Bool_Exp>;
+  _or?: InputMaybe<Array<User_Features_Bool_Exp>>;
+  feature_id?: InputMaybe<Int_Comparison_Exp>;
+  user_id?: InputMaybe<Uuid_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "user_features" */
+export enum User_Features_Constraint {
+  /** unique or primary key constraint on columns "user_id", "feature_id" */
+  UserFeaturesPkey = 'user_features_pkey'
+}
+
+/** input type for incrementing numeric columns in table "user_features" */
+export type User_Features_Inc_Input = {
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** input type for inserting data into table "user_features" */
+export type User_Features_Insert_Input = {
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
+};
+
+/** aggregate max on columns */
+export type User_Features_Max_Fields = {
+  __typename?: 'user_features_max_fields';
+  feature_id?: Maybe<Scalars['Int']['output']>;
+  user_id?: Maybe<Scalars['uuid']['output']>;
+};
+
+/** order by max() on columns of table "user_features" */
+export type User_Features_Max_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type User_Features_Min_Fields = {
+  __typename?: 'user_features_min_fields';
+  feature_id?: Maybe<Scalars['Int']['output']>;
+  user_id?: Maybe<Scalars['uuid']['output']>;
+};
+
+/** order by min() on columns of table "user_features" */
+export type User_Features_Min_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
+};
+
+/** response of any mutation on the table "user_features" */
+export type User_Features_Mutation_Response = {
+  __typename?: 'user_features_mutation_response';
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int']['output'];
+  /** data from the rows affected by the mutation */
+  returning: Array<User_Features>;
+};
+
+/** on_conflict condition type for table "user_features" */
+export type User_Features_On_Conflict = {
+  constraint: User_Features_Constraint;
+  update_columns?: Array<User_Features_Update_Column>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "user_features". */
+export type User_Features_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
+};
+
+/** primary key columns input for table: user_features */
+export type User_Features_Pk_Columns_Input = {
+  feature_id: Scalars['Int']['input'];
+  user_id: Scalars['uuid']['input'];
+};
+
+/** select columns of table "user_features" */
+export enum User_Features_Select_Column {
+  /** column name */
+  FeatureId = 'feature_id',
+  /** column name */
+  UserId = 'user_id'
+}
+
+/** input type for updating data in table "user_features" */
+export type User_Features_Set_Input = {
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
+};
+
+/** aggregate stddev on columns */
+export type User_Features_Stddev_Fields = {
+  __typename?: 'user_features_stddev_fields';
+  feature_id?: Maybe<Scalars['Float']['output']>;
+};
+
+/** order by stddev() on columns of table "user_features" */
+export type User_Features_Stddev_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type User_Features_Stddev_Pop_Fields = {
+  __typename?: 'user_features_stddev_pop_fields';
+  feature_id?: Maybe<Scalars['Float']['output']>;
+};
+
+/** order by stddev_pop() on columns of table "user_features" */
+export type User_Features_Stddev_Pop_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type User_Features_Stddev_Samp_Fields = {
+  __typename?: 'user_features_stddev_samp_fields';
+  feature_id?: Maybe<Scalars['Float']['output']>;
+};
+
+/** order by stddev_samp() on columns of table "user_features" */
+export type User_Features_Stddev_Samp_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** Streaming cursor of the table "user_features" */
+export type User_Features_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: User_Features_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type User_Features_Stream_Cursor_Value_Input = {
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
+};
+
+/** aggregate sum on columns */
+export type User_Features_Sum_Fields = {
+  __typename?: 'user_features_sum_fields';
+  feature_id?: Maybe<Scalars['Int']['output']>;
+};
+
+/** order by sum() on columns of table "user_features" */
+export type User_Features_Sum_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** update columns of table "user_features" */
+export enum User_Features_Update_Column {
+  /** column name */
+  FeatureId = 'feature_id',
+  /** column name */
+  UserId = 'user_id'
+}
+
+export type User_Features_Updates = {
+  /** increments the numeric columns with given value of the filtered values */
+  _inc?: InputMaybe<User_Features_Inc_Input>;
+  /** sets the columns of the filtered rows to the given values */
+  _set?: InputMaybe<User_Features_Set_Input>;
+  /** filter the rows which have to be updated */
+  where: User_Features_Bool_Exp;
+};
+
+/** aggregate var_pop on columns */
+export type User_Features_Var_Pop_Fields = {
+  __typename?: 'user_features_var_pop_fields';
+  feature_id?: Maybe<Scalars['Float']['output']>;
+};
+
+/** order by var_pop() on columns of table "user_features" */
+export type User_Features_Var_Pop_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type User_Features_Var_Samp_Fields = {
+  __typename?: 'user_features_var_samp_fields';
+  feature_id?: Maybe<Scalars['Float']['output']>;
+};
+
+/** order by var_samp() on columns of table "user_features" */
+export type User_Features_Var_Samp_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type User_Features_Variance_Fields = {
+  __typename?: 'user_features_variance_fields';
+  feature_id?: Maybe<Scalars['Float']['output']>;
+};
+
+/** order by variance() on columns of table "user_features" */
+export type User_Features_Variance_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
 /** columns and relationships of "users" */
 export type Users = {
   __typename?: 'users';
@@ -1839,6 +2254,10 @@ export type Users = {
   accounts_aggregate: Accounts_Aggregate;
   email: Scalars['String']['output'];
   emailVerified?: Maybe<Scalars['timestamptz']['output']>;
+  /** An array relationship */
+  features: Array<User_Features>;
+  /** An aggregate relationship */
+  features_aggregate: User_Features_Aggregate;
   id: Scalars['uuid']['output'];
   image?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
@@ -1870,6 +2289,26 @@ export type UsersAccounts_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Accounts_Order_By>>;
   where?: InputMaybe<Accounts_Bool_Exp>;
+};
+
+
+/** columns and relationships of "users" */
+export type UsersFeaturesArgs = {
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
+};
+
+
+/** columns and relationships of "users" */
+export type UsersFeatures_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
@@ -1943,6 +2382,8 @@ export type Users_Bool_Exp = {
   accounts_aggregate?: InputMaybe<Accounts_Aggregate_Bool_Exp>;
   email?: InputMaybe<String_Comparison_Exp>;
   emailVerified?: InputMaybe<Timestamptz_Comparison_Exp>;
+  features?: InputMaybe<User_Features_Bool_Exp>;
+  features_aggregate?: InputMaybe<User_Features_Aggregate_Bool_Exp>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
   image?: InputMaybe<String_Comparison_Exp>;
   name?: InputMaybe<String_Comparison_Exp>;
@@ -1965,6 +2406,7 @@ export type Users_Insert_Input = {
   accounts?: InputMaybe<Accounts_Arr_Rel_Insert_Input>;
   email?: InputMaybe<Scalars['String']['input']>;
   emailVerified?: InputMaybe<Scalars['timestamptz']['input']>;
+  features?: InputMaybe<User_Features_Arr_Rel_Insert_Input>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   image?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
@@ -2020,6 +2462,7 @@ export type Users_Order_By = {
   accounts_aggregate?: InputMaybe<Accounts_Aggregate_Order_By>;
   email?: InputMaybe<Order_By>;
   emailVerified?: InputMaybe<Order_By>;
+  features_aggregate?: InputMaybe<User_Features_Aggregate_Order_By>;
   id?: InputMaybe<Order_By>;
   image?: InputMaybe<Order_By>;
   name?: InputMaybe<Order_By>;
@@ -2767,6 +3210,13 @@ export type Webauthn_Credentials_Variance_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
+export type GetUserFeaturesQueryVariables = Exact<{
+  userId: Scalars['uuid']['input'];
+}>;
+
+
+export type GetUserFeaturesQuery = { __typename?: 'query_root', user_features: Array<{ __typename?: 'user_features', feature_id: number }> };
+
 export type GetWebauthnCredentialsForUserQueryVariables = Exact<{
   email: Scalars['String']['input'];
 }>;
@@ -2779,7 +3229,7 @@ export type GetWebauthnCredentialsByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetWebauthnCredentialsByIdQuery = { __typename?: 'query_root', webauthn_credentials_by_pk?: { __typename?: 'webauthn_credentials', credential_id: string, user_id: any, transports: Array<string>, public_key: any, counter: number } | null };
+export type GetWebauthnCredentialsByIdQuery = { __typename?: 'query_root', webauthn_credentials_by_pk?: { __typename?: 'webauthn_credentials', credential_id: string, user_id: any, transports: Array<string>, public_key: any, counter: number, user: { __typename?: 'users', email: string } } | null };
 
 export type SaveWebauthnCredentialsChallengeMutationVariables = Exact<{
   userId: Scalars['uuid']['input'];
@@ -2818,6 +3268,13 @@ export type UpdateWebauthnCredentialsCounterMutationVariables = Exact<{
 export type UpdateWebauthnCredentialsCounterMutation = { __typename?: 'mutation_root', update_webauthn_credentials_by_pk?: { __typename?: 'webauthn_credentials', counter: number } | null };
 
 
+ const GetUserFeaturesDocument = `
+    query GetUserFeatures($userId: uuid!) {
+  user_features(where: {user_id: {_eq: $userId}}) {
+    feature_id
+  }
+}
+    `;
  const GetWebauthnCredentialsForUserDocument = `
     query GetWebauthnCredentialsForUser($email: String!) {
   webauthn_credentials(where: {user: {email: {_eq: $email}}}) {
@@ -2837,6 +3294,9 @@ export type UpdateWebauthnCredentialsCounterMutation = { __typename?: 'mutation_
     transports
     public_key
     counter
+    user {
+      email
+    }
   }
 }
     `;
@@ -2879,6 +3339,9 @@ export type UpdateWebauthnCredentialsCounterMutation = { __typename?: 'mutation_
 export type Requester<C = {}, E = unknown> = <R, V>(doc: string, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
+    GetUserFeatures(variables: GetUserFeaturesQueryVariables, options?: C): Promise<GetUserFeaturesQuery> {
+      return requester<GetUserFeaturesQuery, GetUserFeaturesQueryVariables>(GetUserFeaturesDocument, variables, options) as Promise<GetUserFeaturesQuery>;
+    },
     GetWebauthnCredentialsForUser(variables: GetWebauthnCredentialsForUserQueryVariables, options?: C): Promise<GetWebauthnCredentialsForUserQuery> {
       return requester<GetWebauthnCredentialsForUserQuery, GetWebauthnCredentialsForUserQueryVariables>(GetWebauthnCredentialsForUserDocument, variables, options) as Promise<GetWebauthnCredentialsForUserQuery>;
     },

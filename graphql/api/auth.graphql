@@ -15,6 +15,9 @@ query GetWebauthnCredentialsById($id: String!) {
 		transports
 		public_key
 		counter
+		user {
+			email
+		}
 	}
 }
 

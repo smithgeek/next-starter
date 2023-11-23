@@ -9,7 +9,6 @@ import { useForm } from "react-hook-form";
 import { signInWithWebauthn } from "../../app/auth/signInWebauthn";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "./ui/form";
 import { Label } from "./ui/label";
-import { PendingButtonContent } from "./ui/pendingButtonContent";
 
 type AuthProviders = "google" | "github";
 
@@ -142,6 +141,7 @@ export default function Login({ providers }: LoginProps) {
 												onSubmit={form.handleSubmit(
 													data => signIn.mutate(data)
 												)}
+												className="gap-4 flex flex-col"
 											>
 												<FormField
 													name="email"
@@ -163,17 +163,11 @@ export default function Login({ providers }: LoginProps) {
 												/>
 
 												<Button
-													className="mt-4 w-full"
+													className="w-full"
 													type="submit"
-													disabled={signIn.isPending}
+													busy={signIn.isPending}
 												>
-													<PendingButtonContent
-														pending={
-															signIn.isPending
-														}
-													>
-														Sign In
-													</PendingButtonContent>
+													Sign In
 												</Button>
 											</form>
 										</Form>

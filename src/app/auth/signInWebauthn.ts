@@ -24,6 +24,7 @@ export async function signInWithWebauthn(email: string | undefined | null) {
 	const credential = await startAuthentication(opt);
 
 	await signIn("credentials", {
+		mode: "passkey",
 		id: credential.id,
 		rawId: credential.rawId,
 		type: credential.type,

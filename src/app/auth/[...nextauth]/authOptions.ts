@@ -1,10 +1,12 @@
 import { HasuraAdapter } from "@auth/hasura-adapter";
 import { verifyAuthenticationResponse } from "@simplewebauthn/server";
 import { AuthenticationResponseJSON } from "@simplewebauthn/typescript-types";
-import { AuthOptions } from "next-auth";
+import { apiSdk } from "graphql/api/operations";
+import { AuthOptions, getServerSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import EmailProvider from "next-auth/providers/email";
 import { createTransport } from "nodemailer";
+import { Feature } from "../../features/Feature";
 import {
 	getChallenge,
 	getCredentialById,
@@ -13,6 +15,16 @@ import {
 
 const domain = process.env.APP_DOMAIN!;
 const origin = process.env.APP_ORIGIN!;
+
+type CredentialsOptions =
+	| {
+			mode: "passkey";
+			id?: never;
+	  }
+	| {
+			mode: "impersonate";
+			id: string;
+	  };
 
 export const authOptions: AuthOptions = {
 	adapter: HasuraAdapter({
@@ -59,7 +71,43 @@ export const authOptions: AuthOptions = {
 		CredentialsProvider({
 			name: "passkey",
 			credentials: {},
-			async authorize(credentials, request) {
+			async authorize(options: any, request) {
+				if (options && options.mode === "impersonate") {
+					const session = await getServerSession(authOptions);
+					if (!session?.user.id) {
+						return null;
+					}
+					const features = await apiSdk.GetUserFeatures({
+						userId: session.user.id,
+					});
+					if (
+						!features.user_features.some(
+							f => f.feature_id === Feature.Admin
+						)
+					) {
+						return null;
+					}
+
+					return {
+						id: options.id,
+						email: options.email,
+						impersonatedBy: {
+							id: session.user.id,
+							email: session.user.email,
+						},
+					};
+				}
+				if (options && options.mode === "endImpersonation") {
+					const session = await getServerSession(authOptions);
+					if (!session?.user.impersonatedBy) {
+						return null;
+					}
+
+					return {
+						id: session.user.impersonatedBy.id,
+						email: session.user.impersonatedBy.email,
+					};
+				}
 				if (!request.body) {
 					return null;
 				}
@@ -120,30 +168,22 @@ export const authOptions: AuthOptions = {
 					return null;
 				}
 				return {
-					email: authenticator.userId,
+					email: authenticator.email,
 					id: authenticator.userId,
-					role: "user",
 				};
 			},
 		}),
 	],
 	callbacks: {
-		async jwt({ token, account }) {
-			if (account) {
-				token = Object.assign({}, token, {
-					access_token: account.access_token,
-					"https://hasura.io/jwt/claims": {
-						"x-hasura-allowed-roles": ["user"],
-						"x-hasura-default-role": "user",
-						"x-hasura-role": "user",
-						"x-hasura-user-id": token.sub,
-					},
-				});
-			}
-			return token;
+		jwt({ user, token }) {
+			return {
+				...token,
+				...user,
+			};
 		},
 		async session({ session, token }) {
 			session.user.id = token.sub;
+			session.user.impersonatedBy = token.impersonatedBy;
 			return session;
 		},
 	},

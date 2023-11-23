@@ -3,6 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { Loader2 } from "lucide-react";
 
 const buttonVariants = cva(
 	"inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative",
@@ -40,15 +41,53 @@ export interface ButtonProps
 	asChild?: boolean;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, variant, size, asChild = false, ...props }, ref) => {
+interface BusyProps {
+	busy?: boolean;
+	busyLocation?: "start" | "center" | "end";
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps & BusyProps>(
+	(
+		{
+			className,
+			variant,
+			size,
+			asChild = false,
+			children,
+			disabled,
+			busy,
+			busyLocation,
+			...props
+		},
+		ref
+	) => {
 		const Comp = asChild ? Slot : "button";
 		return (
 			<Comp
 				className={cn(buttonVariants({ variant, size, className }))}
+				disabled={(disabled ?? false) || busy}
 				ref={ref}
 				{...props}
-			/>
+			>
+				{children}
+				{busy && (
+					<div
+						className={cn(
+							"absolute top-0 bottom-0 right-0 left-0 flex justify-end items-center rounded-md",
+							{ "justify-end mr-4": busyLocation === "end" },
+							{ "justify-start ml-4": busyLocation === "start" },
+							{
+								"justify-center":
+									busyLocation === "center" ||
+									busyLocation === undefined,
+							}
+						)}
+						style={{ background: "rgba(0,0,0,0.6)" }}
+					>
+						<Loader2 className="animate-spin" />
+					</div>
+				)}
+			</Comp>
 		);
 	}
 );

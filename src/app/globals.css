@@ -682,3 +682,7 @@
 		--ring: 263.4 70% 50.4%;
 	}
 }
+
+*:has(> .busyOverlay) {
+	position: relative;
+}

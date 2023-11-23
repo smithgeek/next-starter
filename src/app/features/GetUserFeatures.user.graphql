@@ -1,0 +1,5 @@
+query GetUserFeatures {
+	user_features {
+		feature_id
+	}
+}

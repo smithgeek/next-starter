@@ -1,16 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { PendingButtonContent } from "@/components/ui/pendingButtonContent";
 import { cn } from "@/lib/utils";
 import { useMutation } from "@tanstack/react-query";
 import { addAuthorizationHeader } from "graphql/FetchRequester";
 import { LayoutDashboard, LogOut, Shield, User2 } from "lucide-react";
-import {
-	signOut as nextAuthSignout,
-	signOut,
-	useSession,
-} from "next-auth/react";
+import { signOut as nextAuthSignout } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
+import { Feature } from "../features/Feature";
+import { useFeatures } from "../features/useFeatures";
 import { NavigationItem } from "./NavigationItem";
 
 async function getBillingPortalUrl() {
@@ -32,14 +29,9 @@ export async function redirectToStripeBilling() {
 }
 
 export function useNavigationItems() {
-	const session = useSession();
-	const role = session.data?.user.role;
-	const router = useRouter();
+	const features = useFeatures();
 	const pathname = usePathname();
-	const signOutAction = async () => {
-		await signOut();
-		await router.push("/");
-	};
+
 	const navItems: NavigationItem[] = [
 		{
 			text: "Dashboard",
@@ -56,13 +48,13 @@ export function useNavigationItems() {
 			href: "/user/account",
 		},
 	];
-	if (role === "admin") {
+	if (features.data?.includes(Feature.Admin)) {
 		navItems.push({
 			text: "Admin",
 			icon: <Shield className="w-6" />,
 			type: "link",
-			href: "/admin",
-			active: pathname?.startsWith("/admin"),
+			href: "/user/admin",
+			active: pathname?.startsWith("/user/admin"),
 		});
 	} else {
 		navItems.push({
@@ -103,6 +95,7 @@ export function LogOutButton({ mode }: { mode: "side" | "bottom" }) {
 
 	const button = (
 		<Button
+			busy={signingOut}
 			variant={signingOut ? "secondary" : "ghost"}
 			className={cn({
 				"w-full justify-start gap-2 font-bold my-2": mode === "side",
@@ -111,19 +104,10 @@ export function LogOutButton({ mode }: { mode: "side" | "bottom" }) {
 			})}
 			onClick={() => signOut.mutate()}
 		>
-			<PendingButtonContent
-				pending={signingOut}
-				className={cn("flex gap-1 items-center", {
-					"flex-col justify-center": mode === "bottom",
-				})}
-			>
-				<div>
-					<LogOut />
-				</div>
-				<span className={cn({ "text-xs": mode === "bottom" })}>
-					Logout
-				</span>
-			</PendingButtonContent>
+			<div>
+				<LogOut />
+			</div>
+			<span className={cn({ "text-xs": mode === "bottom" })}>Logout</span>
 		</Button>
 	);
 	if (mode === "side") {

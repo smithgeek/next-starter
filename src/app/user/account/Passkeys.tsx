@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/dialog";
 import { Form, FormControl, FormField } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { PendingButtonContent } from "@/components/ui/pendingButtonContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Label } from "@radix-ui/react-label";
 import dayjs from "dayjs";
@@ -107,10 +106,8 @@ function EditPasskeyForm({
 					>
 						Cancel
 					</Button>
-					<Button type="submit" disabled={renamePasskey.isPending}>
-						<PendingButtonContent pending={renamePasskey.isPending}>
-							Save
-						</PendingButtonContent>
+					<Button type="submit" busy={renamePasskey.isPending}>
+						Save
 					</Button>
 				</DialogFooter>
 			</form>
@@ -195,6 +192,7 @@ function PasskeyRow({
 						variant="ghost"
 						size="icon"
 						className="rounded-3xl"
+						busy={deletePasskey.isPending}
 						disabled={disabled}
 						onClick={() =>
 							deletePasskey.mutate({
@@ -202,9 +200,7 @@ function PasskeyRow({
 							})
 						}
 					>
-						<PendingButtonContent pending={deletePasskey.isPending}>
-							<X />
-						</PendingButtonContent>
+						<X />
 					</Button>
 				</>
 			)}
@@ -249,11 +245,9 @@ export function Passkeys() {
 								},
 							});
 						}}
-						disabled={register.isPending}
+						busy={register.isPending}
 					>
-						<PendingButtonContent pending={register.isPending}>
-							Add Passkey
-						</PendingButtonContent>
+						Add Passkey
 					</Button>
 					{errorMessage && (
 						<Label className="text-red-600">{errorMessage}</Label>

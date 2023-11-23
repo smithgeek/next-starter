@@ -15,7 +15,7 @@ generates:
             X-Hasura-Admin-Secret: password
             X-Hasura-Role: user
     documents: 
-      - ./src/app/user/**/*.graphql
+      - ./src/app/**/*.user.graphql
       - graphql/User/**/*.graphql
     plugins:
       - "typescript"
@@ -46,7 +46,7 @@ generates:
             X-Hasura-Admin-Secret: password
             X-Hasura-Role: admin
     documents: 
-      - ./src/app/admin/**/*.graphql
+      - ./src/app/**/*.admin.graphql
       - graphql/Admin/**/*.graphql
     plugins:
       - "typescript"
@@ -88,7 +88,9 @@ generates:
       - http://localhost:9023/v1/graphql:
           headers:
             X-Hasura-Admin-Secret: password
-    documents: graphql/api/**/*.graphql
+    documents: 
+      - graphql/api/**/*.graphql
+      - ./src/app/**/*.api.graphql
     plugins:
       - "typescript"
       - "typescript-operations"

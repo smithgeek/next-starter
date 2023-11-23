@@ -17,6 +17,19 @@ export type Scalars = {
   uuid: { input: any; output: any; }
 };
 
+/** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
+export type Int_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['Int']['input']>;
+  _gt?: InputMaybe<Scalars['Int']['input']>;
+  _gte?: InputMaybe<Scalars['Int']['input']>;
+  _in?: InputMaybe<Array<Scalars['Int']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['Int']['input']>;
+  _lte?: InputMaybe<Scalars['Int']['input']>;
+  _neq?: InputMaybe<Scalars['Int']['input']>;
+  _nin?: InputMaybe<Array<Scalars['Int']['input']>>;
+};
+
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['String']['input']>;
@@ -123,6 +136,10 @@ export enum Order_By {
 
 export type Query_Root = {
   __typename?: 'query_root';
+  /** fetch data from the table: "user_features" */
+  user_features: Array<User_Features>;
+  /** fetch data from the table: "user_features" using primary key columns */
+  user_features_by_pk?: Maybe<User_Features>;
   /** fetch data from the table: "users" */
   users: Array<Users>;
   /** fetch data from the table: "users" using primary key columns */
@@ -131,6 +148,21 @@ export type Query_Root = {
   webauthn_credentials: Array<Webauthn_Credentials>;
   /** fetch data from the table: "webauthn_credentials" using primary key columns */
   webauthn_credentials_by_pk?: Maybe<Webauthn_Credentials>;
+};
+
+
+export type Query_RootUser_FeaturesArgs = {
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
+};
+
+
+export type Query_RootUser_Features_By_PkArgs = {
+  feature_id: Scalars['Int']['input'];
+  user_id: Scalars['uuid']['input'];
 };
 
 
@@ -163,6 +195,12 @@ export type Query_RootWebauthn_Credentials_By_PkArgs = {
 
 export type Subscription_Root = {
   __typename?: 'subscription_root';
+  /** fetch data from the table: "user_features" */
+  user_features: Array<User_Features>;
+  /** fetch data from the table: "user_features" using primary key columns */
+  user_features_by_pk?: Maybe<User_Features>;
+  /** fetch data from the table in a streaming manner: "user_features" */
+  user_features_stream: Array<User_Features>;
   /** fetch data from the table: "users" */
   users: Array<Users>;
   /** fetch data from the table: "users" using primary key columns */
@@ -175,6 +213,28 @@ export type Subscription_Root = {
   webauthn_credentials_by_pk?: Maybe<Webauthn_Credentials>;
   /** fetch data from the table in a streaming manner: "webauthn_credentials" */
   webauthn_credentials_stream: Array<Webauthn_Credentials>;
+};
+
+
+export type Subscription_RootUser_FeaturesArgs = {
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
+};
+
+
+export type Subscription_RootUser_Features_By_PkArgs = {
+  feature_id: Scalars['Int']['input'];
+  user_id: Scalars['uuid']['input'];
+};
+
+
+export type Subscription_RootUser_Features_StreamArgs = {
+  batch_size: Scalars['Int']['input'];
+  cursor: Array<InputMaybe<User_Features_Stream_Cursor_Input>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
@@ -232,14 +292,137 @@ export type Timestamptz_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['timestamptz']['input']>>;
 };
 
+/** columns and relationships of "user_features" */
+export type User_Features = {
+  __typename?: 'user_features';
+  feature_id: Scalars['Int']['output'];
+  user_id: Scalars['uuid']['output'];
+};
+
+/** order by aggregate values of table "user_features" */
+export type User_Features_Aggregate_Order_By = {
+  avg?: InputMaybe<User_Features_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<User_Features_Max_Order_By>;
+  min?: InputMaybe<User_Features_Min_Order_By>;
+  stddev?: InputMaybe<User_Features_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<User_Features_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<User_Features_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<User_Features_Sum_Order_By>;
+  var_pop?: InputMaybe<User_Features_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<User_Features_Var_Samp_Order_By>;
+  variance?: InputMaybe<User_Features_Variance_Order_By>;
+};
+
+/** order by avg() on columns of table "user_features" */
+export type User_Features_Avg_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "user_features". All fields are combined with a logical 'AND'. */
+export type User_Features_Bool_Exp = {
+  _and?: InputMaybe<Array<User_Features_Bool_Exp>>;
+  _not?: InputMaybe<User_Features_Bool_Exp>;
+  _or?: InputMaybe<Array<User_Features_Bool_Exp>>;
+  feature_id?: InputMaybe<Int_Comparison_Exp>;
+  user_id?: InputMaybe<Uuid_Comparison_Exp>;
+};
+
+/** order by max() on columns of table "user_features" */
+export type User_Features_Max_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
+};
+
+/** order by min() on columns of table "user_features" */
+export type User_Features_Min_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "user_features". */
+export type User_Features_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "user_features" */
+export enum User_Features_Select_Column {
+  /** column name */
+  FeatureId = 'feature_id',
+  /** column name */
+  UserId = 'user_id'
+}
+
+/** order by stddev() on columns of table "user_features" */
+export type User_Features_Stddev_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_pop() on columns of table "user_features" */
+export type User_Features_Stddev_Pop_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_samp() on columns of table "user_features" */
+export type User_Features_Stddev_Samp_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** Streaming cursor of the table "user_features" */
+export type User_Features_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: User_Features_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type User_Features_Stream_Cursor_Value_Input = {
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
+};
+
+/** order by sum() on columns of table "user_features" */
+export type User_Features_Sum_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** order by var_pop() on columns of table "user_features" */
+export type User_Features_Var_Pop_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** order by var_samp() on columns of table "user_features" */
+export type User_Features_Var_Samp_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
+/** order by variance() on columns of table "user_features" */
+export type User_Features_Variance_Order_By = {
+  feature_id?: InputMaybe<Order_By>;
+};
+
 /** columns and relationships of "users" */
 export type Users = {
   __typename?: 'users';
   email: Scalars['String']['output'];
+  /** An array relationship */
+  features: Array<User_Features>;
   id: Scalars['uuid']['output'];
   name?: Maybe<Scalars['String']['output']>;
   /** An array relationship */
   webauthn_credentials: Array<Webauthn_Credentials>;
+};
+
+
+/** columns and relationships of "users" */
+export type UsersFeaturesArgs = {
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
@@ -258,6 +441,7 @@ export type Users_Bool_Exp = {
   _not?: InputMaybe<Users_Bool_Exp>;
   _or?: InputMaybe<Array<Users_Bool_Exp>>;
   email?: InputMaybe<String_Comparison_Exp>;
+  features?: InputMaybe<User_Features_Bool_Exp>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
   name?: InputMaybe<String_Comparison_Exp>;
   webauthn_credentials?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
@@ -266,6 +450,7 @@ export type Users_Bool_Exp = {
 /** Ordering options when selecting data from "users". */
 export type Users_Order_By = {
   email?: InputMaybe<Order_By>;
+  features_aggregate?: InputMaybe<User_Features_Aggregate_Order_By>;
   id?: InputMaybe<Order_By>;
   name?: InputMaybe<Order_By>;
   webauthn_credentials_aggregate?: InputMaybe<Webauthn_Credentials_Aggregate_Order_By>;
@@ -431,6 +616,11 @@ export type User_GetCurrentUserQueryVariables = Exact<{ [key: string]: never; }>
 
 export type User_GetCurrentUserQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any, name?: string | null, email: string }> };
 
+export type GetUserFeaturesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetUserFeaturesQuery = { __typename?: 'query_root', user_features: Array<{ __typename?: 'user_features', feature_id: number }> };
+
 export type PasskeyInfoFragment = { __typename?: 'webauthn_credentials', aaguid: string, created_at: any, last_used?: any | null, name?: string | null, credential_id: string };
 
 export type GetPasskeysQueryVariables = Exact<{ [key: string]: never; }>;
@@ -471,6 +661,13 @@ export const PasskeyInfoFragmentDoc = `
   }
 }
     `;
+ const GetUserFeaturesDocument = `
+    query GetUserFeatures {
+  user_features {
+    feature_id
+  }
+}
+    `;
  const GetPasskeysDocument = `
     query GetPasskeys {
   webauthn_credentials {
@@ -500,6 +697,9 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
     User_GetCurrentUser(variables?: User_GetCurrentUserQueryVariables, options?: C): Promise<User_GetCurrentUserQuery> {
       return requester<User_GetCurrentUserQuery, User_GetCurrentUserQueryVariables>(User_GetCurrentUserDocument, variables, options) as Promise<User_GetCurrentUserQuery>;
+    },
+    GetUserFeatures(variables?: GetUserFeaturesQueryVariables, options?: C): Promise<GetUserFeaturesQuery> {
+      return requester<GetUserFeaturesQuery, GetUserFeaturesQueryVariables>(GetUserFeaturesDocument, variables, options) as Promise<GetUserFeaturesQuery>;
     },
     GetPasskeys(variables?: GetPasskeysQueryVariables, options?: C): Promise<GetPasskeysQuery> {
       return requester<GetPasskeysQuery, GetPasskeysQueryVariables>(GetPasskeysDocument, variables, options) as Promise<GetPasskeysQuery>;

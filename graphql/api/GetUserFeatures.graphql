@@ -1,0 +1,5 @@
+query GetUserFeatures($userId: uuid!) {
+	user_features(where: { user_id: { _eq: $userId } }) {
+		feature_id
+	}
+}
