@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useSession } from "next-auth/react";
 
 export async function addAuthorizationHeader(
 	token: string | null | undefined,
@@ -18,11 +19,13 @@ async function fetchHasuraJwt() {
 	return json.token as string;
 }
 
-const hasuraJwtCacheKey = ["hasuraJwt"];
+const cacheKeys = {
+	hasuraJwt: (userId: string) => ["hasuraJwt", userId],
+};
 
-function useHasuraJwtQuery() {
+function useHasuraJwtQuery(userId: string) {
 	return useQuery({
-		queryKey: hasuraJwtCacheKey,
+		queryKey: cacheKeys.hasuraJwt(userId),
 		queryFn: fetchHasuraJwt,
 		refetchInterval: 4 * 60 * 1000,
 		refetchOnMount: false,
@@ -30,11 +33,14 @@ function useHasuraJwtQuery() {
 		refetchOnWindowFocus: false,
 		gcTime: 5 * 60 * 1000,
 		staleTime: 4 * 60 * 6000,
+		enabled: userId !== "",
 	});
 }
 
 export function useFetchRequester(role: string) {
-	const jwtQuery = useHasuraJwtQuery();
+	const session = useSession();
+	const userId = session.data?.user.id ?? "";
+	const jwtQuery = useHasuraJwtQuery(userId);
 	const queryclient = useQueryClient();
 
 	async function getJwt() {
@@ -42,7 +48,7 @@ export function useFetchRequester(role: string) {
 			return jwtQuery.data;
 		}
 		const token = await fetchHasuraJwt();
-		queryclient.setQueryData(hasuraJwtCacheKey, token);
+		queryclient.setQueryData(cacheKeys.hasuraJwt(userId), token);
 		return token;
 	}
 	useMutation({

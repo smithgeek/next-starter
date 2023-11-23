@@ -1,22 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useImpersonation } from "@/services/useImpersonation";
 import { userClient } from "graphql/User/hooks";
 import { AlertTriangle } from "lucide-react";
-import { signIn } from "next-auth/react";
 
 export function ImpersonationBanner() {
-	const queryClient = useQueryClient();
-	const endImpersonation = useMutation({
-		mutationFn: async () => {
-			await signIn("credentials", {
-				mode: "endImpersonation",
-				redirect: false,
-			});
-			await queryClient.invalidateQueries();
-		},
-	});
-
+	const { isImpersonating, endImpersonation } = useImpersonation();
 	const currentUserQuery = userClient.useCurrentUser();
+
+	if (!isImpersonating) {
+		return null;
+	}
+
 	return (
 		<div className="bg-orange-800 shadow-lg rounded-none mb-2 p-2 flex gap-4 items-center">
 			<AlertTriangle />

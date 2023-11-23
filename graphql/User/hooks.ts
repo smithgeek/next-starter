@@ -7,7 +7,7 @@ export const userClient = {
 		const userSdk = useUserSdk();
 		const session = useSession();
 		return useQuery({
-			queryKey: ["currentUser"],
+			queryKey: ["currentUser", session.data?.user.id ?? ""],
 			queryFn: async () => {
 				const response = await userSdk.User_GetCurrentUser();
 				if (response.users.length > 0) {

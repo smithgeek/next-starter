@@ -1,6 +1,5 @@
 "use client";
 import Login from "@/components/Login";
-import { useImpersonation } from "@/services/useImpersonation";
 import { useSession } from "next-auth/react";
 import { ReactNode } from "react";
 import { BottomNavigation } from "./BottomNavigation";
@@ -15,7 +14,6 @@ export default function AuthenticatedLayout({
 }) {
 	const navItems = useNavigationItems();
 	const session = useSession();
-	const { impersonating } = useImpersonation();
 	if (session.status === "unauthenticated") {
 		return <Login providers={["google", "github"]} />;
 	}
@@ -31,9 +29,7 @@ export default function AuthenticatedLayout({
 					className="hidden sm:block"
 				/>
 				<div className="flex-1 flex flex-col">
-					{session.data?.user.impersonatedBy && (
-						<ImpersonationBanner />
-					)}
+					<ImpersonationBanner />
 					<div className="flex-1 p-2">
 						{false && (
 							<div className="alert alert-warning shadow-lg rounded-none mb-2">

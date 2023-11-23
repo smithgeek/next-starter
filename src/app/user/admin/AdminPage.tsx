@@ -2,27 +2,17 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useImpersonation } from "@/services/useImpersonation";
 import { adminClient } from "graphql/Admin/hooks";
-import { signIn } from "next-auth/react";
+import { userClient } from "graphql/User/hooks";
 import { Feature } from "../../features/Feature";
 import { useRequireFeature } from "../../features/useFeatures";
 
 export function AdminPage() {
 	useRequireFeature(Feature.Admin, "/user/dashboard");
+	const { impersonate } = useImpersonation();
 	const usersQuery = adminClient.useAllUsers();
-	const queryClient = useQueryClient();
-	const impersonate = useMutation({
-		mutationFn: async (user: { id: string; email: string }) => {
-			await signIn("credentials", {
-				mode: "impersonate",
-				id: user.id,
-				email: user.email,
-				redirect: false,
-			});
-			await queryClient.invalidateQueries();
-		},
-	});
+	const currentUserQuery = userClient.useCurrentUser();
 
 	return (
 		<>
@@ -43,15 +33,17 @@ export function AdminPage() {
 									{user.email}
 								</Label>
 
-								<Button
-									onClick={() => impersonate.mutate(user)}
-									busy={
-										impersonate.isPending &&
-										impersonate.variables.id === user.id
-									}
-								>
-									Impersonate
-								</Button>
+								{currentUserQuery.data?.id !== user.id && (
+									<Button
+										onClick={() => impersonate.mutate(user)}
+										busy={
+											impersonate.isPending &&
+											impersonate.variables.id === user.id
+										}
+									>
+										Impersonate
+									</Button>
+								)}
 							</CardContent>
 						</Card>
 					);
