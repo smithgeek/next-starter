@@ -15,8 +15,7 @@ generates:
             X-Hasura-Admin-Secret: password
             X-Hasura-Role: user
     documents: 
-      - ./src/app/**/*.user.graphql
-      - graphql/User/**/*.graphql
+      - ./**/*.user.graphql
     plugins:
       - "typescript"
       - "typescript-operations"
@@ -30,6 +29,8 @@ generates:
       - add:
           content: export function useUserSdk(){const requester = useFetchRequester('user');return getSdk(requester);}
           placement: append
+    config:
+      avoidOptionals: true
 
   graphql/Admin/schema.json:
     schema:
@@ -46,8 +47,7 @@ generates:
             X-Hasura-Admin-Secret: password
             X-Hasura-Role: admin
     documents: 
-      - ./src/app/**/*.admin.graphql
-      - graphql/Admin/**/*.graphql
+      - ./**/*.admin.graphql
     plugins:
       - "typescript"
       - "typescript-operations"
@@ -61,6 +61,8 @@ generates:
       - add:
           content: export function useAdminSdk(){const requester = useFetchRequester('admin');return getSdk(requester);}
           placement: append
+    config:
+      avoidOptionals: true
 
   # ../infrastructure/hasura/metadata/query_collections.yaml:
   #   schema:
@@ -89,8 +91,7 @@ generates:
           headers:
             X-Hasura-Admin-Secret: password
     documents: 
-      - graphql/api/**/*.graphql
-      - ./src/app/**/*.api.graphql
+      - ./**/*.api.graphql
     plugins:
       - "typescript"
       - "typescript-operations"
@@ -104,3 +105,6 @@ generates:
       - add:
           content: export const apiSdk = getSdk(fetchRequester());
           placement: append
+    config:
+      avoidOptionals: 
+        field: true

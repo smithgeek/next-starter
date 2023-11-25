@@ -1,5 +1,8 @@
 import { Checkbox } from "@/components/ui/checkbox";
+import { PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
 import { ColumnDef } from "@tanstack/react-table";
+import { Button } from "../button";
+import { Popover } from "../popover";
 
 function camelCaseToWords(s: string) {
 	const result = s.replace(/([A-Z])/g, " $1");
@@ -32,8 +35,8 @@ export function guessColumnDefinitions<TData, TValue>(data: TData[], spec?: Gues
 			header: camelCaseToWords(key.toString()),
 		};
 		const colSpec = spec?.columns && key in spec?.columns ? spec.columns[key] : undefined;
-		const dataType = typeof firstItem[key];
-		if (dataType === "boolean" || colSpec?.type === "boolean") {
+		const dataType = colSpec?.type ?? typeof firstItem[key];
+		if (dataType === "boolean") {
 			def.cell = ({ row }) => {
 				return <Checkbox checked={Boolean(row.getValue(key.toString()))} className="cursor-default" />;
 			};
@@ -43,6 +46,24 @@ export function guessColumnDefinitions<TData, TValue>(data: TData[], spec?: Gues
 			def.filterFn = (row, id, value) => {
 				return Boolean(row.getValue(id) as any) === value;
 			};
+		}
+		if (dataType === "object") {
+			def.cell = ({ row }) => {
+				return (
+					<Popover>
+						<PopoverTrigger>
+							<Button>{key.toString()}</Button>
+						</PopoverTrigger>
+						<PopoverContent>
+							<div className="p-4 bg-background border border-border rounded-md">
+								<pre>{JSON.stringify(row.getValue(key.toString()), null, 4)}</pre>
+							</div>
+						</PopoverContent>
+					</Popover>
+				);
+			};
+			def.enableColumnFilter = false;
+			def.enableSorting = false;
 		}
 		columns.push(def);
 	}

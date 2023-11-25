@@ -1,19 +1,19 @@
 projects:
   user:
     schema: graphql/User/schema.json
-    documents: src/app/(user)/**/*.graphql
+    documents: ./**/*.user.graphql
     extensions:
       languageService:
         useSchemaFileDefinitions: true
   admin:
     schema: graphql/Admin/schema.json
-    documents: graphql/Admin/**/*.graphql
+    documents: ./**/*.admin.graphql
     extensions:
       languageService:
         useSchemaFileDefinitions: true
   api:
     schema: graphql/api/schema.json
-    documents: graphql/api/**/*.graphql
+    documents: ./**/*.api.graphql
     extensions:
       languageService:
         useSchemaFileDefinitions: true

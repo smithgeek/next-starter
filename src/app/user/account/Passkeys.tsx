@@ -1,20 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-	Card,
-	CardContent,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
-import {
-	Dialog,
-	DialogContent,
-	DialogFooter,
-	DialogHeader,
-	DialogTitle,
-} from "@/components/ui/dialog";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Form, FormControl, FormField } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -24,7 +12,7 @@ import { Lock, Pencil, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import aaguids from "../../auth/webauthn/register/aaguid.json";
+import aaguids from "../../auth/webauthn/aaguid.json";
 import { Passkey, usePasskeyData } from "./passkeyData";
 
 const passkeyGuids: {
@@ -44,28 +32,13 @@ function PasskeyIcon({ passkey }: { passkey: { aaguid: string } | undefined }) {
 	if (passkey === undefined) {
 		return <Skeleton className="w-10 h-10 rounded-full" />;
 	}
-	if (
-		passkey.aaguid in passkeyGuids &&
-		themeIcon in passkeyGuids[passkey.aaguid]
-	) {
-		return (
-			<img
-				src={(aaguids as any)[passkey.aaguid][themeIcon]}
-				alt=""
-				className="w-10 h-10"
-			/>
-		);
+	if (passkey.aaguid in passkeyGuids && themeIcon in passkeyGuids[passkey.aaguid]) {
+		return <img src={(aaguids as any)[passkey.aaguid][themeIcon]} alt="" className="w-10 h-10" />;
 	}
 	return <Lock className="w-10 h-10" />;
 }
 
-function EditPasskeyForm({
-	passkey,
-	onClose,
-}: {
-	passkey: Passkey | null;
-	onClose: () => void;
-}) {
+function EditPasskeyForm({ passkey, onClose }: { passkey: Passkey | null; onClose: () => void }) {
 	const { renamePasskey } = usePasskeyData();
 	const form = useForm<{ passkeyName: string }>({
 		defaultValues: { passkeyName: passkey?.name ?? "" },
@@ -99,11 +72,7 @@ function EditPasskeyForm({
 				/>
 
 				<DialogFooter className="mt-2">
-					<Button
-						variant="secondary"
-						onClick={onClose}
-						disabled={renamePasskey.isPending}
-					>
+					<Button variant="secondary" onClick={onClose} disabled={renamePasskey.isPending}>
 						Cancel
 					</Button>
 					<Button type="submit" busy={renamePasskey.isPending}>
@@ -115,77 +84,38 @@ function EditPasskeyForm({
 	);
 }
 
-function DialogPasskeyEditor({
-	passkey,
-	onClose,
-}: {
-	passkey: Passkey | null;
-	onClose: () => void;
-}) {
+function DialogPasskeyEditor({ passkey, onClose }: { passkey: Passkey | null; onClose: () => void }) {
 	return (
 		<Dialog onClose={onClose} open={passkey != null}>
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Edit Passkey Name</DialogTitle>
 				</DialogHeader>
-				<EditPasskeyForm
-					key={passkey?.credential_id}
-					passkey={passkey}
-					onClose={onClose}
-				/>
+				<EditPasskeyForm key={passkey?.credential_id} passkey={passkey} onClose={onClose} />
 			</DialogContent>
 		</Dialog>
 	);
 }
 
-function PasskeyRow({
-	passkey,
-	disabled,
-}: {
-	passkey?: Passkey;
-	disabled?: boolean;
-}) {
+function PasskeyRow({ passkey, disabled }: { passkey?: Passkey; disabled?: boolean }) {
 	const { deletePasskey } = usePasskeyData();
 	const [editing, setEditing] = useState(false);
 	return (
 		<div className="flex gap-4 items-center">
-			<DialogPasskeyEditor
-				passkey={editing ? passkey ?? null : null}
-				onClose={() => setEditing(false)}
-			/>
+			<DialogPasskeyEditor passkey={editing ? passkey ?? null : null} onClose={() => setEditing(false)} />
 			<PasskeyIcon passkey={passkey} />
 			<div className="flex flex-col flex-1">
-				<span className="text-xl">
-					{passkey ? (
-						passkey.name ?? "Unknown"
-					) : (
-						<Skeleton className="h-8 w-[100px] my-2" />
-					)}
-				</span>
+				<span className="text-xl">{passkey ? passkey.name ?? "Unknown" : <Skeleton className="h-8 w-[100px] my-2" />}</span>
 				<span className="text-sm text-muted-foreground">
-					{passkey ? (
-						`Created: ${getHumanTime(passkey.created_at)}`
-					) : (
-						<Skeleton className="h-4 w-[200px] my-1" />
-					)}
+					{passkey ? `Created: ${getHumanTime(passkey.created_at)}` : <Skeleton className="h-4 w-[200px] my-1" />}
 				</span>
 				<span className="text-sm  text-muted-foreground">
-					{passkey ? (
-						`Last Used: ${getHumanTime(passkey.last_used)}`
-					) : (
-						<Skeleton className="h-4 w-[230px] my-1" />
-					)}
+					{passkey ? `Last Used: ${getHumanTime(passkey.last_used)}` : <Skeleton className="h-4 w-[230px] my-1" />}
 				</span>
 			</div>
 			{passkey && (
 				<>
-					<Button
-						variant="ghost"
-						size="icon"
-						className="rounded-3xl"
-						onClick={() => setEditing(true)}
-						disabled={disabled}
-					>
+					<Button variant="ghost" size="icon" className="rounded-3xl" onClick={() => setEditing(true)} disabled={disabled}>
 						<Pencil />
 					</Button>
 					<Button
@@ -224,12 +154,8 @@ export function Passkeys() {
 							<PasskeyRow />
 						</>
 					)}
-					{passkeys.data?.map(key => (
-						<PasskeyRow
-							passkey={key}
-							key={key.credential_id}
-							disabled={register.isPending}
-						/>
+					{passkeys.data?.map((key) => (
+						<PasskeyRow passkey={key} key={key.credential_id} disabled={register.isPending} />
 					))}
 				</CardContent>
 				<CardFooter className="flex flex-col gap-2 items-start">
@@ -249,9 +175,7 @@ export function Passkeys() {
 					>
 						Add Passkey
 					</Button>
-					{errorMessage && (
-						<Label className="text-red-600">{errorMessage}</Label>
-					)}
+					{errorMessage && <Label className="text-red-600">{errorMessage}</Label>}
 				</CardFooter>
 			</Card>
 		</>

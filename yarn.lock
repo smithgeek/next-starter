@@ -77,9 +77,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auth/core@npm:0.18.1":
-  version: 0.18.1
-  resolution: "@auth/core@npm:0.18.1"
+"@auth/core@npm:0.18.3":
+  version: 0.18.3
+  resolution: "@auth/core@npm:0.18.3"
   dependencies:
     "@panva/hkdf": "npm:^1.1.1"
     cookie: "npm:0.5.0"
@@ -92,16 +92,7 @@ __metadata:
   peerDependenciesMeta:
     nodemailer:
       optional: true
-  checksum: 0d818c1ab541df3f3deb7345c0d002a5dd6ced1d81d75625f9753c246ad7ef8e1ef46a358f650d59db0ee0f1bed4038ce4ec4ef4e08d3631afc72a6c14408c56
-  languageName: node
-  linkType: hard
-
-"@auth/hasura-adapter@npm:0.2.5":
-  version: 0.2.5
-  resolution: "@auth/hasura-adapter@npm:0.2.5"
-  dependencies:
-    "@auth/core": "npm:0.18.1"
-  checksum: 6460a8a601b75fe3e5872f9cec28487d76214290545158fc9e979f2134587d8cb2766e69e58bc19ad50387f0e1ee603e8225d5dcf756b5f5303df21ae089b6c1
+  checksum: 6cd351c83cd7fd2aca6119f6516670d02e4ba769811d5beff710ef65c2fe038a49fd70c7a81bad224d16ec5b5b232ea7d38aeeb5b0920da15b121b400a592f75
   languageName: node
   linkType: hard
 
@@ -2877,6 +2868,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@trpc/client@npm:10.44.1":
+  version: 10.44.1
+  resolution: "@trpc/client@npm:10.44.1"
+  peerDependencies:
+    "@trpc/server": 10.44.1
+  checksum: dc88b0b44813b79d30bf2421e8b9f0946f538ecdf114090629d60ec234be0d96cc22583fdba8db3cdfe6486ea903b226a1ab9b7b1043106af0066903f1a5f480
+  languageName: node
+  linkType: hard
+
+"@trpc/server@npm:10.44.1":
+  version: 10.44.1
+  resolution: "@trpc/server@npm:10.44.1"
+  checksum: 63388653899c87d72341862cf2594f4d8d39d70b614e94d5a515e6ffba9003dbfc661ef4348be79c3fc1a53850088efd709f0568df777317603ed0e028dac905
+  languageName: node
+  linkType: hard
+
 "@types/js-yaml@npm:^4.0.0":
   version: 4.0.5
   resolution: "@types/js-yaml@npm:4.0.5"
@@ -2920,6 +2927,15 @@ __metadata:
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: a934f7645ed117a27857147403b0c657ffbca578c8f280e4c21d27dfb43e58dc4f24c4319d4335b8a4fa08e28fb2dc905a5bd5e4bc8878047164c56c1b162139
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:>=8.1.0":
+  version: 20.10.0
+  resolution: "@types/node@npm:20.10.0"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: c7d5ddbdbf3491e2363135c9611eb6bfae90eda2957279237fa232bcb29cd0df1cc3ee149d6de9915b754262a531ee2d57d33c9ecd58d763e8ad4856113822f3
   languageName: node
   linkType: hard
 
@@ -7828,6 +7844,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"qs@npm:^6.11.0":
+  version: 6.11.2
+  resolution: "qs@npm:6.11.2"
+  dependencies:
+    side-channel: "npm:^1.0.4"
+  checksum: f2321d0796664d0f94e92447ccd3bdfd6b6f3a50b6b762aa79d7f5b1ea3a7a9f94063ba896b82bc2a877ed6a7426d4081e4f16568fdb04f0ee188cca9d8505b4
+  languageName: node
+  linkType: hard
+
 "queue-microtask@npm:^1.2.2":
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
@@ -8738,6 +8763,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"stripe@npm:14.5.0":
+  version: 14.5.0
+  resolution: "stripe@npm:14.5.0"
+  dependencies:
+    "@types/node": "npm:>=8.1.0"
+    qs: "npm:^6.11.0"
+  checksum: a2b9615ef7b1f53a2214ce21d533fe66df3575e89f22b74fba885111c66ac17064951f68065b336fb16ce1d93f7bf2c334604c1c6419917073cf6778a251f516
+  languageName: node
+  linkType: hard
+
 "styled-jsx@npm:5.1.1":
   version: 5.1.1
   resolution: "styled-jsx@npm:5.1.1"
@@ -9367,7 +9402,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web-app@workspace:."
   dependencies:
-    "@auth/hasura-adapter": "npm:0.2.5"
+    "@auth/core": "npm:0.18.3"
     "@graphql-codegen/add": "npm:5.0.0"
     "@graphql-codegen/cli": "npm:5.0.0"
     "@graphql-codegen/hasura-allow-list": "npm:3.1.0"
@@ -9390,6 +9425,8 @@ __metadata:
     "@tanstack/react-query": "npm:5.8.3"
     "@tanstack/react-query-devtools": "npm:5.8.3"
     "@tanstack/react-table": "npm:8.10.7"
+    "@trpc/client": "npm:10.44.1"
+    "@trpc/server": "npm:10.44.1"
     "@types/jsonwebtoken": "npm:9.0.5"
     "@types/node": "npm:20.9.0"
     "@types/nodemailer": "npm:^6"
@@ -9419,6 +9456,7 @@ __metadata:
     react-dom: "npm:18.2.0"
     react-error-boundary: "npm:4.0.11"
     react-hook-form: "npm:7.48.2"
+    stripe: "npm:14.5.0"
     tailwind-merge: "npm:2.0.0"
     tailwindcss: "npm:3.3.5"
     tailwindcss-animate: "npm:1.0.7"

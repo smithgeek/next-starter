@@ -1,4 +1,3 @@
-import { HasuraAdapter } from "@auth/hasura-adapter";
 import { verifyAuthenticationResponse } from "@simplewebauthn/server";
 import { AuthenticationResponseJSON } from "@simplewebauthn/typescript-types";
 import { apiSdk } from "graphql/api/operations";
@@ -7,30 +6,14 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import EmailProvider from "next-auth/providers/email";
 import { createTransport } from "nodemailer";
 import { Feature } from "../../features/Feature";
-import {
-	getChallenge,
-	getCredentialById,
-	updateCredentialCounter,
-} from "../webauthn/credentials";
+import { getChallenge, getCredentialById, updateCredentialCounter } from "../webauthn/credentials";
+import { HasuraAdapter } from "./hasuraAdpater";
 
 const domain = process.env.APP_DOMAIN!;
-const origin = process.env.APP_ORIGIN!;
-
-type CredentialsOptions =
-	| {
-			mode: "passkey";
-			id?: never;
-	  }
-	| {
-			mode: "impersonate";
-			id: string;
-	  };
+const origin = process.env.NEXT_PUBLIC_APP_ORIGIN!;
 
 export const authOptions: AuthOptions = {
-	adapter: HasuraAdapter({
-		endpoint: process.env.API_GRAPHQL_URL,
-		adminSecret: "password",
-	}),
+	adapter: HasuraAdapter(),
 	providers: [
 		EmailProvider({
 			server: {
@@ -43,11 +26,7 @@ export const authOptions: AuthOptions = {
 				},
 			},
 			from: "test@localhost.com",
-			async sendVerificationRequest({
-				identifier,
-				url: originalUrl,
-				provider,
-			}) {
+			async sendVerificationRequest({ identifier, url: originalUrl, provider }) {
 				const url = originalUrl.replace("/api/auth/", "/auth/");
 				const appName = process.env.APP_NAME ?? "app";
 				const transport = createTransport(provider.server);
@@ -58,13 +37,9 @@ export const authOptions: AuthOptions = {
 					text: textEmailTemplate({ url, appName }),
 					html: htmlEmailTemplate({ url, appName }),
 				});
-				const failed = result.rejected
-					.concat(result.pending)
-					.filter(Boolean);
+				const failed = result.rejected.concat(result.pending).filter(Boolean);
 				if (failed.length) {
-					throw new Error(
-						`Email(s) (${failed.join(", ")}) could not be sent`
-					);
+					throw new Error(`Email(s) (${failed.join(", ")}) could not be sent`);
 				}
 			},
 		}),
@@ -80,11 +55,7 @@ export const authOptions: AuthOptions = {
 					const features = await apiSdk.GetUserFeatures({
 						userId: session.user.id,
 					});
-					if (
-						!features.user_features.some(
-							f => f.feature_id === Feature.Admin
-						)
-					) {
+					if (!features.user_features.some((f) => f.feature_id === Feature.Admin)) {
 						return null;
 					}
 
@@ -111,15 +82,7 @@ export const authOptions: AuthOptions = {
 				if (!request.body) {
 					return null;
 				}
-				const {
-					id,
-					rawId,
-					type,
-					clientDataJSON,
-					authenticatorData,
-					signature,
-					userHandle,
-				} = request.body;
+				const { id, rawId, type, clientDataJSON, authenticatorData, signature, userHandle } = request.body;
 
 				const response: AuthenticationResponseJSON = {
 					id,
@@ -142,27 +105,22 @@ export const authOptions: AuthOptions = {
 					return null;
 				}
 				try {
-					const { verified, authenticationInfo: info } =
-						await verifyAuthenticationResponse({
-							response: response,
-							expectedChallenge: challenge,
-							expectedOrigin: origin,
-							expectedRPID: domain,
-							authenticator: {
-								credentialPublicKey:
-									authenticator.credentialPublicKey,
-								credentialID: authenticator.credentialId,
-								counter: authenticator.counter,
-							},
-						});
+					const { verified, authenticationInfo: info } = await verifyAuthenticationResponse({
+						response: response,
+						expectedChallenge: challenge,
+						expectedOrigin: origin,
+						expectedRPID: domain,
+						authenticator: {
+							credentialPublicKey: authenticator.credentialPublicKey,
+							credentialID: authenticator.credentialId,
+							counter: authenticator.counter,
+						},
+					});
 
 					if (!verified || !info) {
 						return null;
 					}
-					await updateCredentialCounter(
-						authenticator.credentialIdBase64,
-						info.newCounter
-					);
+					await updateCredentialCounter(authenticator.credentialIdBase64, info.newCounter);
 				} catch (err) {
 					console.error(err);
 					return null;
@@ -200,11 +158,7 @@ export const authOptions: AuthOptions = {
  *
  * @note We don't add the email address to avoid needing to escape it, if you do, remember to sanitize it!
  */
-export function htmlEmailTemplate(params: {
-	url: string;
-	appName: string;
-	theme?: { brandColor?: string; buttonText?: string };
-}) {
+export function htmlEmailTemplate(params: { url: string; appName: string; theme?: { brandColor?: string; buttonText?: string } }) {
 	const { url, appName, theme } = params;
 
 	const escapedAppName = appName.replace(/\./g, "&#8203;.");
@@ -253,12 +207,6 @@ export function htmlEmailTemplate(params: {
 }
 
 /** Email Text body (fallback for email clients that don't render HTML, e.g. feature phones) */
-export function textEmailTemplate({
-	url,
-	appName,
-}: {
-	url: string;
-	appName: string;
-}) {
+export function textEmailTemplate({ url, appName }: { url: string; appName: string }) {
 	return `Sign in to ${appName}\n${url}\n\n`;
 }

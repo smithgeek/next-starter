@@ -1,21 +1,13 @@
-import {
-	generateRegistrationOptions,
-	verifyRegistrationResponse,
-} from "@simplewebauthn/server";
+import { generateRegistrationOptions, verifyRegistrationResponse } from "@simplewebauthn/server";
 import { RegistrationResponseJSON } from "@simplewebauthn/typescript-types";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { authOptions } from "../../[...nextauth]/authOptions";
-import {
-	getChallenge,
-	getCredentialsForUser,
-	saveChallenge,
-	saveCredentials,
-} from "../credentials";
-import aaguids from "./aaguid.json";
+import aaguids from "../aaguid.json";
+import { getChallenge, getCredentialsForUser, saveChallenge, saveCredentials } from "../credentials";
 
 const domain = process.env.APP_DOMAIN!;
-const origin = process.env.APP_ORIGIN!;
+const origin = process.env.NEXT_PUBLIC_APP_ORIGIN!;
 const appName = process.env.APP_NAME!;
 
 /**
@@ -26,17 +18,11 @@ const appName = process.env.APP_NAME!;
 async function handlePreRegister(req: NextRequest) {
 	const session = await getServerSession(authOptions);
 	if (!session?.user) {
-		return NextResponse.json(
-			{ message: "Authentication is required" },
-			{ status: 401 }
-		);
+		return NextResponse.json({ message: "Authentication is required" }, { status: 401 });
 	}
 	const { email, id } = session.user;
 	if (!email || !id) {
-		return NextResponse.json(
-			{ message: "Authentication is required" },
-			{ status: 401 }
-		);
+		return NextResponse.json({ message: "Authentication is required" }, { status: 401 });
 	}
 
 	const credentials = await getCredentialsForUser(email);
@@ -51,7 +37,7 @@ async function handlePreRegister(req: NextRequest) {
 			userVerification: "preferred",
 		},
 	});
-	options.excludeCredentials = credentials.map(c => ({
+	options.excludeCredentials = credentials.map((c) => ({
 		id: c.credentialIdBase64,
 		type: "public-key",
 		transports: c.transports,
@@ -61,10 +47,7 @@ async function handlePreRegister(req: NextRequest) {
 		await saveChallenge({ userId: id, challenge: options.challenge });
 	} catch (err) {
 		console.error(err);
-		return NextResponse.json(
-			{ message: "Could not set up challenge." },
-			{ status: 500 }
-		);
+		return NextResponse.json({ message: "Could not set up challenge." }, { status: 500 });
 	}
 	return NextResponse.json(options);
 }
@@ -77,24 +60,15 @@ async function handlePreRegister(req: NextRequest) {
 async function handleRegister(req: NextRequest) {
 	const session = await getServerSession(authOptions);
 	if (!session?.user) {
-		return NextResponse.json(
-			{ success: false, message: "You are not connected." },
-			{ status: 401 }
-		);
+		return NextResponse.json({ success: false, message: "You are not connected." }, { status: 401 });
 	}
 	const { id } = session.user;
 	if (!id) {
-		return NextResponse.json(
-			{ success: false, message: "You are not connected." },
-			{ status: 401 }
-		);
+		return NextResponse.json({ success: false, message: "You are not connected." }, { status: 401 });
 	}
 	const challenge = await getChallenge(id);
 	if (!challenge) {
-		return NextResponse.json(
-			{ success: false, message: "Pre-registration is required." },
-			{ status: 401 }
-		);
+		return NextResponse.json({ success: false, message: "Pre-registration is required." }, { status: 401 });
 	}
 	const registrationResponse: RegistrationResponseJSON = await req.json();
 	const { verified, registrationInfo } = await verifyRegistrationResponse({
@@ -105,10 +79,7 @@ async function handleRegister(req: NextRequest) {
 	});
 
 	if (!verified || !registrationInfo) {
-		return NextResponse.json(
-			{ success: false, message: "Something went wrong" },
-			{ status: 500 }
-		);
+		return NextResponse.json({ success: false, message: "Something went wrong" }, { status: 500 });
 	}
 	try {
 		let passkeyName: string | null = null;
@@ -117,9 +88,7 @@ async function handleRegister(req: NextRequest) {
 		}
 		await saveCredentials({
 			credentialId: registrationInfo.credentialID,
-			transports: registrationResponse.response.transports ?? [
-				"internal",
-			],
+			transports: registrationResponse.response.transports ?? ["internal"],
 			userId: id,
 			key: registrationInfo.credentialPublicKey,
 			counter: registrationInfo.counter,
@@ -129,10 +98,7 @@ async function handleRegister(req: NextRequest) {
 		return NextResponse.json({ success: true }, { status: 201 });
 	} catch (err) {
 		console.error(err);
-		return NextResponse.json(
-			{ success: false, message: "Could not register the credential." },
-			{ status: 500 }
-		);
+		return NextResponse.json({ success: false, message: "Could not register the credential." }, { status: 500 });
 	}
 }
 

@@ -6,5 +6,7 @@ declare namespace NodeJS {
 		NEXT_PUBLIC_LOAD_LOCAL_DEVTOOLS: boolean;
 		API_GRAPHQL_URL: string;
 		HASURA_JWT_SECRET: string;
+		STRIPE_KEY: string;
+		NEXT_PUBLIC_APP_ORIGIN: string;
 	}
 }

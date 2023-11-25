@@ -1,0 +1,142 @@
+fragment NextAuthHasura_User on users {
+	id
+	name
+	email
+	emailVerified
+	image
+}
+
+fragment NextAuthHasura_Session on sessions {
+	id
+	userId
+	expires
+	sessionToken
+}
+
+fragment NextAuthHasura_Account on user_provider_accounts {
+	id
+	type
+	scope
+	userId
+	id_token
+	provider
+	expires_at
+	token_type
+	access_token
+	refresh_token
+	session_state
+	providerAccountId
+}
+
+fragment NextAuthHasura_VerificationToken on verification_tokens {
+	token
+	expires
+	identifier
+}
+
+query NextAuthHasura_GetSessionAndUser($sessionToken: String!) {
+	sessions(where: { sessionToken: { _eq: $sessionToken } }) {
+		...NextAuthHasura_Session
+		user {
+			...NextAuthHasura_User
+		}
+	}
+}
+
+query NextAuthHasura_GetSession($sessionToken: String!) {
+	sessions_by_pk(sessionToken: $sessionToken) {
+		...NextAuthHasura_Session
+	}
+}
+
+mutation NextAuthHasura_CreateSession($data: sessions_insert_input!) {
+	insert_sessions_one(object: $data) {
+		...NextAuthHasura_Session
+	}
+}
+
+mutation NextAuthHasura_UpdateSession($sessionToken: String, $data: sessions_set_input!) {
+	update_sessions(where: { sessionToken: { _eq: $sessionToken } }, _set: $data) {
+		returning {
+			...NextAuthHasura_Session
+		}
+	}
+}
+
+mutation NextAuthHasura_DeleteSession($sessionToken: String!) {
+	delete_sessions(where: { sessionToken: { _eq: $sessionToken } }) {
+		returning {
+			...NextAuthHasura_Session
+		}
+	}
+}
+
+query NextAuthHasura_GetUser($id: uuid!) {
+	users_by_pk(id: $id) {
+		...NextAuthHasura_User
+	}
+}
+
+query NextAuthHasura_GetUsers($where: users_bool_exp!) {
+	users(where: $where) {
+		...NextAuthHasura_User
+	}
+}
+
+mutation NextAuthHasura_CreateUser($data: users_insert_input!) {
+	insert_users_one(object: $data) {
+		...NextAuthHasura_User
+	}
+}
+
+mutation NextAuthHasura_UpdateUser($id: uuid!, $data: users_set_input!) {
+	update_users_by_pk(pk_columns: { id: $id }, _set: $data) {
+		...NextAuthHasura_User
+	}
+}
+
+mutation NextAuthHasura_DeleteUser($id: uuid!) {
+	delete_users_by_pk(id: $id) {
+		...NextAuthHasura_User
+	}
+}
+
+mutation NextAuthHasura_CreateVerificationToken($data: verification_tokens_insert_input!) {
+	insert_verification_tokens_one(object: $data) {
+		...NextAuthHasura_VerificationToken
+	}
+}
+
+mutation NextAuthHasura_DeleteVerificationToken($identifier: String!, $token: String!) {
+	delete_verification_tokens(where: { token: { _eq: $token }, identifier: { _eq: $identifier } }) {
+		returning {
+			...NextAuthHasura_VerificationToken
+		}
+	}
+}
+
+query NextAuthHasura_GetVerificationToken($identifier: String!, $token: String!) {
+	verification_tokens(where: { token: { _eq: $token }, identifier: { _eq: $identifier } }) {
+		...NextAuthHasura_VerificationToken
+	}
+}
+
+mutation NextAuthHasura_CreateAccount($data: user_provider_accounts_insert_input!) {
+	insert_user_provider_accounts_one(object: $data) {
+		...NextAuthHasura_Account
+	}
+}
+
+mutation NextAuthHasura_DeleteAccount($provider: String!, $providerAccountId: String!) {
+	delete_user_provider_accounts(where: { provider: { _eq: $provider }, providerAccountId: { _eq: $providerAccountId } }) {
+		returning {
+			...NextAuthHasura_Account
+		}
+	}
+}
+
+query NextAuthHasura_GetAccount($provider: String!, $providerAccountId: String!) {
+	user_provider_accounts(where: { provider: { _eq: $provider }, providerAccountId: { _eq: $providerAccountId } }) {
+		...NextAuthHasura_Account
+	}
+}

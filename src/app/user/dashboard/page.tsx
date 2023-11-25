@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
+import { PricingTable } from "./PricingTable";
 import { UserInfo } from "./UserInfo";
 import { DashboardTabs } from "./tabs";
 
@@ -23,6 +24,7 @@ export default function DashboardPage() {
 					<Button variant="outline">Outline</Button>
 				</div>
 			</div>
+			<PricingTable />
 		</>
 	);
 }
