@@ -1,19 +1,7 @@
 overwrite: true
 generates:
-  graphql/User/schema.json:
-    schema:
-      - http://localhost:9023/v1/graphql:
-          headers:
-            X-Hasura-Admin-Secret: password
-            X-Hasura-Role: user
-    plugins:
-      - "introspection"
   graphql/User/operations.ts:
-    schema:
-      - http://localhost:9023/v1/graphql:
-          headers:
-            X-Hasura-Admin-Secret: password
-            X-Hasura-Role: user
+    schema: graphql/User/schema.json
     documents: 
       - ./**/*.user.graphql
     plugins:
@@ -32,20 +20,8 @@ generates:
     config:
       avoidOptionals: true
 
-  graphql/Admin/schema.json:
-    schema:
-      - http://localhost:9023/v1/graphql:
-          headers:
-            X-Hasura-Admin-Secret: password
-            X-Hasura-Role: admin
-    plugins:
-      - "introspection"
   graphql/Admin/operations.ts:
-    schema:
-      - http://localhost:9023/v1/graphql:
-          headers:
-            X-Hasura-Admin-Secret: password
-            X-Hasura-Role: admin
+    schema: graphql/Admin/schema.json
     documents: 
       - ./**/*.admin.graphql
     plugins:
@@ -64,32 +40,8 @@ generates:
     config:
       avoidOptionals: true
 
-  # ../infrastructure/hasura/metadata/query_collections.yaml:
-  #   schema:
-  #     - http://localhost:9023/v1/graphql:
-  #         headers:
-  #           X-Hasura-Admin-Secret: password
-  #           X-Hasura-Role: admin
-  #   documents: graphql/**/*.graphql
-  #   plugins:
-  #     - hasura-allow-list
-  #   hooks:
-  #     afterOneFileWrite:
-  #       - docker compose -f ../infrastructure/development/docker-compose.yml restart hasura && echo
-
-
-  graphql/api/schema.json:
-    schema:
-      - http://localhost:9023/v1/graphql:
-          headers:
-            X-Hasura-Admin-Secret: password
-    plugins:
-      - "introspection"
   graphql/api/operations.ts:
-    schema:
-      - http://localhost:9023/v1/graphql:
-          headers:
-            X-Hasura-Admin-Secret: password
+    schema: graphql/api/schema.json
     documents: 
       - ./**/*.api.graphql
     plugins:
@@ -108,3 +60,17 @@ generates:
     config:
       avoidOptionals: 
         field: true
+
+
+  # ../infrastructure/hasura/metadata/query_collections.yaml:
+  #   schema:
+  #     - http://localhost:9023/v1/graphql:
+  #         headers:
+  #           X-Hasura-Admin-Secret: password
+  #           X-Hasura-Role: admin
+  #   documents: graphql/**/*.graphql
+  #   plugins:
+  #     - hasura-allow-list
+  #   hooks:
+  #     afterOneFileWrite:
+  #       - docker compose -f ../infrastructure/development/docker-compose.yml restart hasura && echo

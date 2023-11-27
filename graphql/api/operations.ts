@@ -2957,21 +2957,21 @@ export type Tenant_Updates = {
 export type Tenant_Users = {
   __typename?: 'tenant_users';
   default: Scalars['Boolean']['output'];
-  /** An array relationship */
-  features: Array<User_Tenant_Features>;
-  /** An aggregate relationship */
-  features_aggregate: User_Tenant_Features_Aggregate;
   /** An object relationship */
   tenant: Tenant;
   tenant_id: Scalars['uuid']['output'];
   /** An object relationship */
   user: Users;
   user_id: Scalars['uuid']['output'];
+  /** An array relationship */
+  user_tenant_features: Array<User_Tenant_Features>;
+  /** An aggregate relationship */
+  user_tenant_features_aggregate: User_Tenant_Features_Aggregate;
 };
 
 
 /** columns and relationships of "tenant_users" */
-export type Tenant_UsersFeaturesArgs = {
+export type Tenant_UsersUser_Tenant_FeaturesArgs = {
   distinct_on?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -2981,7 +2981,7 @@ export type Tenant_UsersFeaturesArgs = {
 
 
 /** columns and relationships of "tenant_users" */
-export type Tenant_UsersFeatures_AggregateArgs = {
+export type Tenant_UsersUser_Tenant_Features_AggregateArgs = {
   distinct_on?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -3058,12 +3058,12 @@ export type Tenant_Users_Bool_Exp = {
   _not?: InputMaybe<Tenant_Users_Bool_Exp>;
   _or?: InputMaybe<Array<Tenant_Users_Bool_Exp>>;
   default?: InputMaybe<Boolean_Comparison_Exp>;
-  features?: InputMaybe<User_Tenant_Features_Bool_Exp>;
-  features_aggregate?: InputMaybe<User_Tenant_Features_Aggregate_Bool_Exp>;
   tenant?: InputMaybe<Tenant_Bool_Exp>;
   tenant_id?: InputMaybe<Uuid_Comparison_Exp>;
   user?: InputMaybe<Users_Bool_Exp>;
   user_id?: InputMaybe<Uuid_Comparison_Exp>;
+  user_tenant_features?: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  user_tenant_features_aggregate?: InputMaybe<User_Tenant_Features_Aggregate_Bool_Exp>;
 };
 
 /** unique or primary key constraints on table "tenant_users" */
@@ -3075,11 +3075,11 @@ export enum Tenant_Users_Constraint {
 /** input type for inserting data into table "tenant_users" */
 export type Tenant_Users_Insert_Input = {
   default?: InputMaybe<Scalars['Boolean']['input']>;
-  features?: InputMaybe<User_Tenant_Features_Arr_Rel_Insert_Input>;
   tenant?: InputMaybe<Tenant_Obj_Rel_Insert_Input>;
   tenant_id?: InputMaybe<Scalars['uuid']['input']>;
   user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
   user_id?: InputMaybe<Scalars['uuid']['input']>;
+  user_tenant_features?: InputMaybe<User_Tenant_Features_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
@@ -3127,11 +3127,11 @@ export type Tenant_Users_On_Conflict = {
 /** Ordering options when selecting data from "tenant_users". */
 export type Tenant_Users_Order_By = {
   default?: InputMaybe<Order_By>;
-  features_aggregate?: InputMaybe<User_Tenant_Features_Aggregate_Order_By>;
   tenant?: InputMaybe<Tenant_Order_By>;
   tenant_id?: InputMaybe<Order_By>;
   user?: InputMaybe<Users_Order_By>;
   user_id?: InputMaybe<Order_By>;
+  user_tenant_features_aggregate?: InputMaybe<User_Tenant_Features_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: tenant_users */

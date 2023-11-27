@@ -1,0 +1,27 @@
+overwrite: true
+generates:
+  graphql/User/schema.json:
+    schema:
+      - http://localhost:9023/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: password
+            X-Hasura-Role: user
+    plugins:
+      - "introspection"
+
+  graphql/Admin/schema.json:
+    schema:
+      - http://localhost:9023/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: password
+            X-Hasura-Role: admin
+    plugins:
+      - "introspection"
+
+  graphql/api/schema.json:
+    schema:
+      - http://localhost:9023/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: password
+    plugins:
+      - "introspection"

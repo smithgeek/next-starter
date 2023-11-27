@@ -797,19 +797,19 @@ export type Tenant_Stream_Cursor_Value_Input = {
 export type Tenant_Users = {
   __typename?: 'tenant_users';
   default: Scalars['Boolean']['output'];
-  /** An array relationship */
-  features: Array<User_Tenant_Features>;
   /** An object relationship */
   tenant: Tenant;
   tenant_id: Scalars['uuid']['output'];
   /** An object relationship */
   user: Users;
   user_id: Scalars['uuid']['output'];
+  /** An array relationship */
+  user_tenant_features: Array<User_Tenant_Features>;
 };
 
 
 /** columns and relationships of "tenant_users" */
-export type Tenant_UsersFeaturesArgs = {
+export type Tenant_UsersUser_Tenant_FeaturesArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   order_by: InputMaybe<Array<User_Tenant_Features_Order_By>>;
@@ -829,11 +829,11 @@ export type Tenant_Users_Bool_Exp = {
   _not: InputMaybe<Tenant_Users_Bool_Exp>;
   _or: InputMaybe<Array<Tenant_Users_Bool_Exp>>;
   default: InputMaybe<Boolean_Comparison_Exp>;
-  features: InputMaybe<User_Tenant_Features_Bool_Exp>;
   tenant: InputMaybe<Tenant_Bool_Exp>;
   tenant_id: InputMaybe<Uuid_Comparison_Exp>;
   user: InputMaybe<Users_Bool_Exp>;
   user_id: InputMaybe<Uuid_Comparison_Exp>;
+  user_tenant_features: InputMaybe<User_Tenant_Features_Bool_Exp>;
 };
 
 /** order by max() on columns of table "tenant_users" */
@@ -860,11 +860,11 @@ export type Tenant_Users_Mutation_Response = {
 /** Ordering options when selecting data from "tenant_users". */
 export type Tenant_Users_Order_By = {
   default: InputMaybe<Order_By>;
-  features_aggregate: InputMaybe<User_Tenant_Features_Aggregate_Order_By>;
   tenant: InputMaybe<Tenant_Order_By>;
   tenant_id: InputMaybe<Order_By>;
   user: InputMaybe<Users_Order_By>;
   user_id: InputMaybe<Order_By>;
+  user_tenant_features_aggregate: InputMaybe<User_Tenant_Features_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: tenant_users */
@@ -1244,7 +1244,7 @@ export type User_GetCurrentUserQuery = { __typename?: 'query_root', users: Array
 
 export type FeatureFragment = { __typename?: 'features', feature: number, options: any | null, expiration: any | null };
 
-export type UserFeaturesFragment = { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant: { __typename?: 'tenant', features: Array<{ __typename?: 'tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }, features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }>, features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> };
+export type UserFeaturesFragment = { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant: { __typename?: 'tenant', features: Array<{ __typename?: 'tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }, user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }>, features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> };
 
 export type GetUserFeaturesQueryVariables = Exact<{
   userId: Scalars['uuid']['input'];
@@ -1252,7 +1252,7 @@ export type GetUserFeaturesQueryVariables = Exact<{
 }>;
 
 
-export type GetUserFeaturesQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant: { __typename?: 'tenant', features: Array<{ __typename?: 'tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }, features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }>, features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> } | null };
+export type GetUserFeaturesQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant: { __typename?: 'tenant', features: Array<{ __typename?: 'tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }, user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }>, features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> } | null };
 
 export type SetDefaultTenantMutationVariables = Exact<{
   userId: Scalars['uuid']['input'];
@@ -1303,7 +1303,7 @@ export const UserFeaturesFragmentDoc = `
         }
       }
     }
-    features(
+    user_tenant_features(
       where: {feature: {_or: [{expiration: {_is_null: true}}, {expiration: {_gt: "now()"}}]}}
     ) {
       feature {

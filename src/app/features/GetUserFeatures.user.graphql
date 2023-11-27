@@ -13,7 +13,7 @@ fragment UserFeatures on users {
 				}
 			}
 		}
-		features(where: { feature: { _or: [{ expiration: { _is_null: true } }, { expiration: { _gt: "now()" } }] } }) {
+		user_tenant_features(where: { feature: { _or: [{ expiration: { _is_null: true } }, { expiration: { _gt: "now()" } }] } }) {
 			feature {
 				...Feature
 			}

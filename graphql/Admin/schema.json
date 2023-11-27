@@ -19886,7 +19886,71 @@
             "deprecationReason": null
           },
           {
-            "name": "features",
+            "name": "tenant",
+            "description": "An object relationship",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "tenant",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "tenant_id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "user",
+            "description": "An object relationship",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "users",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "user_id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "user_tenant_features",
             "description": "An array relationship",
             "args": [
               {
@@ -19987,7 +20051,7 @@
             "deprecationReason": null
           },
           {
-            "name": "features_aggregate",
+            "name": "user_tenant_features_aggregate",
             "description": "An aggregate relationship",
             "args": [
               {
@@ -20073,70 +20137,6 @@
               "ofType": {
                 "kind": "OBJECT",
                 "name": "user_tenant_features_aggregate",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tenant",
-            "description": "An object relationship",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "tenant",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tenant_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "uuid",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "user",
-            "description": "An object relationship",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "users",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "user_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "uuid",
                 "ofType": null
               }
             },
@@ -20697,30 +20697,6 @@
             "deprecationReason": null
           },
           {
-            "name": "features",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "user_tenant_features_bool_exp",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "features_aggregate",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "user_tenant_features_aggregate_bool_exp",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "tenant",
             "description": null,
             "type": {
@@ -20767,6 +20743,30 @@
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "user_tenant_features",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "user_tenant_features_bool_exp",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "user_tenant_features_aggregate",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "user_tenant_features_aggregate_bool_exp",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "interfaces": null,
@@ -20802,18 +20802,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "features",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "user_tenant_features_arr_rel_insert_input",
               "ofType": null
             },
             "defaultValue": null,
@@ -20862,6 +20850,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "uuid",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "user_tenant_features",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "user_tenant_features_arr_rel_insert_input",
               "ofType": null
             },
             "defaultValue": null,
@@ -21146,18 +21146,6 @@
             "deprecationReason": null
           },
           {
-            "name": "features_aggregate",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "user_tenant_features_aggregate_order_by",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "tenant",
             "description": null,
             "type": {
@@ -21199,6 +21187,18 @@
             "type": {
               "kind": "ENUM",
               "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "user_tenant_features_aggregate",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "user_tenant_features_aggregate_order_by",
               "ofType": null
             },
             "defaultValue": null,

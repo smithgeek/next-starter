@@ -1,11 +1,11 @@
 "use client";
-import { useFeaturesQuery } from "../../features/useFeatures";
+import { useFeatures } from "../../features/useFeatures";
 
 export function Features() {
-	const features = useFeaturesQuery();
+	const features = useFeatures();
 	return (
 		<div>
-			<pre>{JSON.stringify(features.data, null, 4)}</pre>
+			<pre>{JSON.stringify(features.rawFeatures, null, 4)}</pre>
 		</div>
 	);
 }
