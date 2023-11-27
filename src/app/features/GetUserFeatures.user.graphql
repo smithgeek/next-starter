@@ -1,5 +1,33 @@
-query GetUserFeatures {
-	user_features {
-		feature_id
+fragment Feature on features {
+	feature
+	options
+	expiration
+}
+
+fragment UserFeatures on users {
+	tenants {
+		tenant {
+			features(where: { feature: { _or: [{ expiration: { _is_null: true } }, { expiration: { _gt: "now()" } }] } }) {
+				feature {
+					...Feature
+				}
+			}
+		}
+		features(where: { feature: { _or: [{ expiration: { _is_null: true } }, { expiration: { _gt: "now()" } }] } }) {
+			feature {
+				...Feature
+			}
+		}
+	}
+	features(where: { feature: { _or: [{ expiration: { _is_null: true } }, { expiration: { _gt: "now()" } }] } }) {
+		feature {
+			...Feature
+		}
+	}
+}
+
+query GetUserFeatures($userId: uuid!) {
+	users_by_pk(id: $userId) {
+		...UserFeatures
 	}
 }

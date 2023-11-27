@@ -5,6 +5,7 @@ import { AuthOptions, getServerSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import EmailProvider from "next-auth/providers/email";
 import { createTransport } from "nodemailer";
+import { Tenants } from "../../../../types/next-auth-d";
 import { Feature } from "../../features/Feature";
 import { getChallenge, getCredentialById, updateCredentialCounter } from "../webauthn/credentials";
 import { HasuraAdapter } from "./hasuraAdpater";
@@ -55,7 +56,7 @@ export const authOptions: AuthOptions = {
 					const features = await apiSdk.GetUserFeatures({
 						userId: session.user.id,
 					});
-					if (!features.user_features.some((f) => f.feature_id === Feature.Admin)) {
+					if (!features.users_by_pk?.features.some((f) => f.feature.feature === Feature.SiteAdmin)) {
 						return null;
 					}
 
@@ -133,7 +134,7 @@ export const authOptions: AuthOptions = {
 		}),
 	],
 	callbacks: {
-		jwt({ user, token }) {
+		async jwt({ user, token }) {
 			return {
 				...token,
 				...user,
@@ -142,6 +143,8 @@ export const authOptions: AuthOptions = {
 		async session({ session, token }) {
 			session.user.id = token.sub;
 			session.user.impersonatedBy = token.impersonatedBy;
+			session.user.tenants = await getTenantsUserBelongsTo(session.user.id);
+			console.log(session);
 			return session;
 		},
 	},
@@ -149,6 +152,25 @@ export const authOptions: AuthOptions = {
 		strategy: "jwt",
 	},
 };
+
+async function getTenantsUserBelongsTo(userId: string | undefined): Promise<Tenants> {
+	if (!userId) {
+		return {
+			allowed: [],
+			active: "",
+		};
+	}
+	const tenantsQuery = await apiSdk.GetUserTenants({ userId: userId });
+	const tenants = tenantsQuery.users_by_pk?.tenants ?? [];
+	const tenantIds = tenants.map((t) => t.tenant_id);
+	const activeTenant = tenants.find((t) => t.default)?.tenant_id;
+	const result = {
+		allowed: tenantIds,
+		active: activeTenant ?? (tenantIds.length > 0 ? tenantIds[0] : ""),
+	};
+	console.log("gt", result, activeTenant);
+	return result;
+}
 
 /**
  * Email HTML body

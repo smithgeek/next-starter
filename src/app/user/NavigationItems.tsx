@@ -7,18 +7,15 @@ import { signOut as nextAuthSignout } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { Feature } from "../features/Feature";
-import { useFeatures } from "../features/useFeatures";
+import { hasFeature, useFeatures } from "../features/useFeatures";
 import { NavigationItem } from "./NavigationItem";
 
 async function getBillingPortalUrl() {
-	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}/billing/stripe/portal?returnUrl=${location.origin}/menus`,
-		{
-			headers: await addAuthorizationHeader("", {
-				"Content-Type": "application/json",
-			}),
-		}
-	);
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/billing/stripe/portal?returnUrl=${location.origin}/menus`, {
+		headers: await addAuthorizationHeader("", {
+			"Content-Type": "application/json",
+		}),
+	});
 	const json = await response.json();
 	return json.url;
 }
@@ -48,7 +45,7 @@ export function useNavigationItems() {
 			href: "/user/account",
 		},
 	];
-	if (features.data?.includes(Feature.Admin)) {
+	if (hasFeature(features.data, Feature.SiteAdmin)) {
 		navItems.push({
 			text: "Admin",
 			icon: <Shield className="w-6" />,
@@ -99,8 +96,7 @@ export function LogOutButton({ mode }: { mode: "side" | "bottom" }) {
 			variant={signingOut ? "secondary" : "ghost"}
 			className={cn({
 				"w-full justify-start gap-2 font-bold my-2": mode === "side",
-				"text-center p-2 py-7 flex flex-col justify-center items-center cursor-pointer w-full":
-					mode === "bottom",
+				"text-center p-2 py-7 flex flex-col justify-center items-center cursor-pointer w-full": mode === "bottom",
 			})}
 			onClick={() => signOut.mutate()}
 		>

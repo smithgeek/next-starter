@@ -11,17 +11,18 @@ async function getHasuraToken(req: NextRequest) {
 		const response = await apiSdk.GetUserFeatures({
 			userId: session.user.id,
 		});
-		isAdmin = response.user_features.some(f => f.feature_id === 0);
+		isAdmin = response.users_by_pk?.features.some((f) => f.feature.feature === 0) ?? false;
 	}
 
+	const tenants = session?.user.tenants.allowed ?? [];
 	const token = jsonwebtoken.sign(
 		{
 			"https://hasura.io/jwt/claims": {
-				"x-hasura-allowed-roles": isAdmin
-					? ["admin", "user"]
-					: ["user"],
+				"x-hasura-allowed-roles": isAdmin ? ["admin", "user"] : ["user"],
 				"x-hasura-default-role": "user",
 				"x-hasura-user-id": session?.user.id,
+				"x-hasura-allowed-tenants": `{${tenants.map((t) => `"${t}"`).join(",")}}`,
+				"x-hasura-tenant-id": session?.user.tenants.active,
 			},
 		},
 		process.env.HASURA_JWT_SECRET,

@@ -16,8 +16,7 @@
  */
 
 import type { Adapter } from "@auth/core/adapters";
-
-import { apiSdk } from "graphql/api/operations.js";
+import { apiSdk } from "../../../../graphql/api/operations";
 
 /**
  *
@@ -26,7 +25,7 @@ import { apiSdk } from "graphql/api/operations.js";
  * 1. Create the Auth.js schema in your database using SQL.
  *
  *   ```sql
- *   CREATE TABLE accounts (
+ *   CREATE TABLE user_provider_accounts (
  *       id uuid DEFAULT gen_random_uuid() NOT NULL,
  *       type text NOT NULL,
  *       provider text NOT NULL,
@@ -134,7 +133,7 @@ export function HasuraAdapter(): Adapter {
 		async getUserByAccount({ providerAccountId, provider }) {
 			return (
 				await apiSdk.NextAuthHasura_GetUsers({
-					where: { accounts: { provider: { _eq: provider }, providerAccountId: { _eq: providerAccountId } } },
+					where: { provider_accounts: { provider: { _eq: provider }, providerAccountId: { _eq: providerAccountId } } },
 				})
 			).users[0];
 		},

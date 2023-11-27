@@ -3,5 +3,11 @@ query User_GetCurrentUser {
 		id
 		name
 		email
+		tenants {
+			tenant {
+				name
+				id
+			}
+		}
 	}
 }

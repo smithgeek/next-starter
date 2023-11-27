@@ -1,0 +1,8 @@
+query GetUserTenants($userId: uuid!) {
+	users_by_pk(id: $userId) {
+		tenants {
+			tenant_id
+			default
+		}
+	}
+}

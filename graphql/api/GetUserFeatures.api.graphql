@@ -1,5 +1,15 @@
+fragment Feature on features {
+	feature
+	options
+	expiration
+}
+
 query GetUserFeatures($userId: uuid!) {
-	user_features(where: { user_id: { _eq: $userId } }) {
-		feature_id
+	users_by_pk(id: $userId) {
+		features(where: { feature: { _or: [{ expiration: { _is_null: true } }, { expiration: { _gt: "now()" } }] } }) {
+			feature {
+				...Feature
+			}
+		}
 	}
 }

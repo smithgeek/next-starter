@@ -1,11 +1,13 @@
-import { UserFragment } from "@auth/hasura-adapter/lib/generated/graphql";
 import { ColumnDef } from "@tanstack/react-table";
 
 import { Button } from "@/components/ui/button";
 import { DataTable } from "@/components/ui/dataTable";
 import { useImpersonation } from "@/services/useImpersonation";
+import { Admin_GetUsersQuery } from "graphql/Admin/operations";
 import { userClient } from "graphql/User/hooks";
 import { VenetianMask } from "lucide-react";
+
+type UserFragment = Admin_GetUsersQuery["users"][0];
 
 function ImpersonateButton({ user }: { user: UserFragment }) {
 	const { impersonate } = useImpersonation();

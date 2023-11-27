@@ -1,14 +1,14 @@
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { userClient } from "graphql/User/hooks";
+import { useUserSdk } from "graphql/User/operations";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { ReactNode, useState } from "react";
-import {
-	NavigationItem,
-	isInputNavItem,
-	isLinkNavItem,
-	isTextNavItem,
-} from "./NavigationItem";
+import { NavigationItem, isInputNavItem, isLinkNavItem, isTextNavItem } from "./NavigationItem";
 import { LogOutButton } from "./NavigationItems";
 
 interface SidebarProps {
@@ -23,28 +23,55 @@ interface SidebarProps {
 const width = 300;
 export function Sidebar(props: SidebarProps) {
 	const [open, setOpen] = useState(true);
+	const currentUser = userClient.useCurrentUser();
+	const session = useSession();
+	const userSdk = useUserSdk();
+	const queryClient = useQueryClient();
 
+	const switchTenant = useMutation({
+		mutationFn: async ({ tenantId }: { tenantId: string }) => {
+			await userSdk.SetDefaultTenant({ tenantId, userId: session.data?.user.id });
+			await session.update();
+			await queryClient.clear();
+		},
+	});
+	const showTenantPicker = (currentUser.data?.tenants.length ?? 0) > 1;
 	return (
-		<div
-			style={{ width: width, flex: `0 0 ${width}px` }}
-			className={props.className}
-		>
+		<div style={{ width: width, flex: `0 0 ${width}px` }} className={props.className}>
 			<div
-				className={cn(
-					"fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto border-r border-border flex flex-col",
-					{ hidden: !open }
-				)}
+				className={cn("fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto border-r border-border flex flex-col", {
+					hidden: !open,
+				})}
 			>
 				<div className="text-xl">
 					<div className="p-2.5 mt-1 flex items-center">
 						{props.header.icon}
-						<h1 className="font-bold text-[15px] ml-3">
-							{props.header.title}
-						</h1>
+						{!showTenantPicker && (
+							<h1 className="font-bold text-[15px] ml-3">{currentUser.data?.tenants?.[0].tenant.name ?? ""}</h1>
+						)}
+						{showTenantPicker && (
+							<Select
+								value={session.data?.user.tenants.active ?? ""}
+								onValueChange={(id) => switchTenant.mutate({ tenantId: id })}
+							>
+								<SelectTrigger className="w-[180px]">
+									<SelectValue />
+								</SelectTrigger>
+								<SelectContent>
+									<SelectGroup>
+										{currentUser.data?.tenants?.map((t) => (
+											<SelectItem key={t.tenant.id} value={t.tenant.id}>
+												{t.tenant.name}
+											</SelectItem>
+										))}
+									</SelectGroup>
+								</SelectContent>
+							</Select>
+						)}
 					</div>
 					<div className="my-2 border-t border-border" />
 				</div>
-				{props.items.map(item => {
+				{props.items.map((item) => {
 					if (isInputNavItem(item)) {
 						return (
 							<div
@@ -55,9 +82,7 @@ export function Sidebar(props: SidebarProps) {
 								<input
 									type="text"
 									value={item.value}
-									onChange={e =>
-										item.onChange(e.target.value)
-									}
+									onChange={(e) => item.onChange(e.target.value)}
 									placeholder={item.text}
 									className="text-[15px] ml-4 w-full bg-transparent focus:outline-none"
 								/>
@@ -79,32 +104,20 @@ export function Sidebar(props: SidebarProps) {
 					}
 					if (isLinkNavItem(item)) {
 						const content = (
-							<Button
-								variant={item.active ? "secondary" : "ghost"}
-								className="w-full justify-start my-2 gap-2 font-bold"
-							>
+							<Button variant={item.active ? "secondary" : "ghost"} className="w-full justify-start my-2 gap-2 font-bold">
 								{item.icon}
 								<span>{item.text}</span>
 							</Button>
 						);
 						if (item.target) {
 							return (
-								<a
-									key={item.text}
-									href={item.href}
-									target={item.target}
-									rel="noopener norefferer"
-								>
+								<a key={item.text} href={item.href} target={item.target} rel="noopener norefferer">
 									{content}
 								</a>
 							);
 						}
 						return (
-							<Link
-								key={item.text}
-								href={item.href}
-								target={item.target}
-							>
+							<Link key={item.text} href={item.href} target={item.target}>
 								{content}
 							</Link>
 						);

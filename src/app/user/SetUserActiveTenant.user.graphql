@@ -1,0 +1,10 @@
+mutation SetDefaultTenant($userId: uuid!, $tenantId: uuid!) {
+	update_tenant_users(where: { user_id: { _eq: $userId }, tenant_id: { _neq: $tenantId } }, _set: { default: false }) {
+		affected_rows
+	}
+	update_tenant_users_by_pk(pk_columns: { tenant_id: $tenantId, user_id: $userId }, _set: { default: true }) {
+		tenant_id
+		user_id
+		default
+	}
+}

@@ -1,3 +1,4 @@
 export enum Feature {
-	Admin,
+	SiteAdmin,
+	TenantAdmin,
 }
