@@ -86,7 +86,7 @@ function toFeatureOptions(f: FeatureFragment): FeatureOptions {
 	};
 }
 
-export function useFeatures() {
+export function useFeaturesQuery() {
 	const userSdk = useUserSdk();
 	const session = useSession();
 	return useQuery({
@@ -109,11 +109,16 @@ export function useFeatures() {
 	});
 }
 
+export function useFeatures() {
+	const { data } = useFeaturesQuery();
+	return data;
+}
+
 export function useRequireFeature(feature: FeatureId, route: string) {
-	const features = useFeatures();
+	const features = useFeaturesQuery();
 	const router = useRouter();
 	useEffect(() => {
-		if (features.isSuccess && features.data.has(feature)) {
+		if (features.isSuccess && !features.data.has(feature)) {
 			router.replace(route);
 		}
 	}, [feature, features.data, features.isSuccess, route, router]);

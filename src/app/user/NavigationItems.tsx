@@ -45,7 +45,7 @@ export function useNavigationItems() {
 			href: "/user/account",
 		},
 	];
-	if (features.data?.has(FeatureId.SiteAdmin)) {
+	if (features.has(FeatureId.SiteAdmin)) {
 		navItems.push({
 			text: "Admin",
 			icon: <Shield className="w-6" />,
