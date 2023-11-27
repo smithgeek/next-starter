@@ -3830,6 +3830,8 @@ export type User_Tenant_Features = {
   feature: Features;
   feature_id: Scalars['uuid']['output'];
   tenant_id: Scalars['uuid']['output'];
+  /** An object relationship */
+  user: Users;
   user_id: Scalars['uuid']['output'];
 };
 
@@ -3888,6 +3890,7 @@ export type User_Tenant_Features_Bool_Exp = {
   feature?: InputMaybe<Features_Bool_Exp>;
   feature_id?: InputMaybe<Uuid_Comparison_Exp>;
   tenant_id?: InputMaybe<Uuid_Comparison_Exp>;
+  user?: InputMaybe<Users_Bool_Exp>;
   user_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
@@ -3902,6 +3905,7 @@ export type User_Tenant_Features_Insert_Input = {
   feature?: InputMaybe<Features_Obj_Rel_Insert_Input>;
   feature_id?: InputMaybe<Scalars['uuid']['input']>;
   tenant_id?: InputMaybe<Scalars['uuid']['input']>;
+  user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
   user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
@@ -3956,6 +3960,7 @@ export type User_Tenant_Features_Order_By = {
   feature?: InputMaybe<Features_Order_By>;
   feature_id?: InputMaybe<Order_By>;
   tenant_id?: InputMaybe<Order_By>;
+  user?: InputMaybe<Users_Order_By>;
   user_id?: InputMaybe<Order_By>;
 };
 
@@ -5008,15 +5013,6 @@ export type Webauthn_Credentials_Variance_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
-export type FeatureFragment = { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null };
-
-export type GetUserFeaturesQueryVariables = Exact<{
-  userId: Scalars['uuid']['input'];
-}>;
-
-
-export type GetUserFeaturesQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }> } | null };
-
 export type GetWebauthnCredentialsForUserQueryVariables = Exact<{
   email: Scalars['String']['input'];
 }>;
@@ -5072,7 +5068,7 @@ export type GetUserTenantsQueryVariables = Exact<{
 }>;
 
 
-export type GetUserTenantsQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant_id: any, default: boolean }> } | null };
+export type GetUserTenantsQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant_id: any, default: boolean, user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature_id: number } }> }> } | null };
 
 export type NextAuthHasura_UserFragment = { __typename?: 'users', id: any, name: string | null, email: string, emailVerified: any | null, image: string | null };
 
@@ -5200,6 +5196,16 @@ export type NextAuthHasura_GetAccountQueryVariables = Exact<{
 
 export type NextAuthHasura_GetAccountQuery = { __typename?: 'query_root', user_provider_accounts: Array<{ __typename?: 'user_provider_accounts', id: any, type: string, scope: string | null, userId: any, id_token: string | null, provider: string, expires_at: number | null, token_type: string | null, access_token: string | null, refresh_token: string | null, session_state: string | null, providerAccountId: string }> };
 
+export type FeatureFragment = { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null };
+
+export type GetUserFeaturesQueryVariables = Exact<{
+  userId: Scalars['uuid']['input'];
+  tenantId: Scalars['uuid']['input'];
+}>;
+
+
+export type GetUserFeaturesQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }>, tenants: Array<{ __typename?: 'tenant_users', user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }> }> } | null };
+
 export type GetStripeCustomerIdQueryVariables = Exact<{
   tenantId: Scalars['uuid']['input'];
 }>;
@@ -5207,13 +5213,24 @@ export type GetStripeCustomerIdQueryVariables = Exact<{
 
 export type GetStripeCustomerIdQuery = { __typename?: 'query_root', tenant_by_pk: { __typename?: 'tenant', stripe_customer_id: string | null } | null };
 
-export const FeatureFragmentDoc = `
-    fragment Feature on features {
-  feature_id
-  options
-  expiration
-}
-    `;
+export type AddUserTenantFeatureMutationVariables = Exact<{
+  feature: Features_Insert_Input;
+  userId: Scalars['uuid']['input'];
+  tenantId: Scalars['uuid']['input'];
+}>;
+
+
+export type AddUserTenantFeatureMutation = { __typename?: 'mutation_root', insert_user_tenant_features_one: { __typename?: 'user_tenant_features', feature_id: any, user_id: any, tenant_id: any } | null };
+
+export type DeleteUserTenantFeatureMutationVariables = Exact<{
+  featureId: Scalars['Int']['input'];
+  userId: Scalars['uuid']['input'];
+  tenantId: Scalars['uuid']['input'];
+}>;
+
+
+export type DeleteUserTenantFeatureMutation = { __typename?: 'mutation_root', delete_features: { __typename?: 'features_mutation_response', affected_rows: number } | null };
+
 export const NextAuthHasura_UserFragmentDoc = `
     fragment NextAuthHasura_User on users {
   id
@@ -5254,19 +5271,13 @@ export const NextAuthHasura_VerificationTokenFragmentDoc = `
   identifier
 }
     `;
- const GetUserFeaturesDocument = `
-    query GetUserFeatures($userId: uuid!) {
-  users_by_pk(id: $userId) {
-    features(
-      where: {feature: {_or: [{expiration: {_is_null: true}}, {expiration: {_gt: "now()"}}]}}
-    ) {
-      feature {
-        ...Feature
-      }
-    }
-  }
+export const FeatureFragmentDoc = `
+    fragment Feature on features {
+  feature_id
+  options
+  expiration
 }
-    ${FeatureFragmentDoc}`;
+    `;
  const GetWebauthnCredentialsForUserDocument = `
     query GetWebauthnCredentialsForUser($email: String!) {
   webauthn_credentials(where: {user: {email: {_eq: $email}}}) {
@@ -5334,6 +5345,11 @@ export const NextAuthHasura_VerificationTokenFragmentDoc = `
     tenants {
       tenant_id
       default
+      user_tenant_features {
+        feature {
+          feature_id
+        }
+      }
     }
   }
 }
@@ -5470,6 +5486,26 @@ ${NextAuthHasura_UserFragmentDoc}`;
   }
 }
     ${NextAuthHasura_AccountFragmentDoc}`;
+ const GetUserFeaturesDocument = `
+    query GetUserFeatures($userId: uuid!, $tenantId: uuid!) {
+  users_by_pk(id: $userId) {
+    features(
+      where: {feature: {_or: [{expiration: {_is_null: true}}, {expiration: {_gt: "now()"}}]}}
+    ) {
+      feature {
+        ...Feature
+      }
+    }
+    tenants(where: {tenant_id: {_eq: $tenantId}}) {
+      user_tenant_features {
+        feature {
+          ...Feature
+        }
+      }
+    }
+  }
+}
+    ${FeatureFragmentDoc}`;
  const GetStripeCustomerIdDocument = `
     query GetStripeCustomerId($tenantId: uuid!) {
   tenant_by_pk(id: $tenantId) {
@@ -5477,12 +5513,29 @@ ${NextAuthHasura_UserFragmentDoc}`;
   }
 }
     `;
+ const AddUserTenantFeatureDocument = `
+    mutation AddUserTenantFeature($feature: features_insert_input!, $userId: uuid!, $tenantId: uuid!) {
+  insert_user_tenant_features_one(
+    object: {feature: {data: $feature}, tenant_id: $tenantId, user_id: $userId}
+  ) {
+    feature_id
+    user_id
+    tenant_id
+  }
+}
+    `;
+ const DeleteUserTenantFeatureDocument = `
+    mutation DeleteUserTenantFeature($featureId: Int!, $userId: uuid!, $tenantId: uuid!) {
+  delete_features(
+    where: {feature_id: {_eq: $featureId}, user_tenant_features: {user_id: {_eq: $userId}, tenant_id: {_eq: $tenantId}}}
+  ) {
+    affected_rows
+  }
+}
+    `;
 export type Requester<C = {}, E = unknown> = <R, V>(doc: string, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
-    GetUserFeatures(variables: GetUserFeaturesQueryVariables, options?: C): Promise<GetUserFeaturesQuery> {
-      return requester<GetUserFeaturesQuery, GetUserFeaturesQueryVariables>(GetUserFeaturesDocument, variables, options) as Promise<GetUserFeaturesQuery>;
-    },
     GetWebauthnCredentialsForUser(variables: GetWebauthnCredentialsForUserQueryVariables, options?: C): Promise<GetWebauthnCredentialsForUserQuery> {
       return requester<GetWebauthnCredentialsForUserQuery, GetWebauthnCredentialsForUserQueryVariables>(GetWebauthnCredentialsForUserDocument, variables, options) as Promise<GetWebauthnCredentialsForUserQuery>;
     },
@@ -5552,10 +5605,19 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
     NextAuthHasura_GetAccount(variables: NextAuthHasura_GetAccountQueryVariables, options?: C): Promise<NextAuthHasura_GetAccountQuery> {
       return requester<NextAuthHasura_GetAccountQuery, NextAuthHasura_GetAccountQueryVariables>(NextAuthHasura_GetAccountDocument, variables, options) as Promise<NextAuthHasura_GetAccountQuery>;
     },
+    GetUserFeatures(variables: GetUserFeaturesQueryVariables, options?: C): Promise<GetUserFeaturesQuery> {
+      return requester<GetUserFeaturesQuery, GetUserFeaturesQueryVariables>(GetUserFeaturesDocument, variables, options) as Promise<GetUserFeaturesQuery>;
+    },
     GetStripeCustomerId(variables: GetStripeCustomerIdQueryVariables, options?: C): Promise<GetStripeCustomerIdQuery> {
       return requester<GetStripeCustomerIdQuery, GetStripeCustomerIdQueryVariables>(GetStripeCustomerIdDocument, variables, options) as Promise<GetStripeCustomerIdQuery>;
+    },
+    AddUserTenantFeature(variables: AddUserTenantFeatureMutationVariables, options?: C): Promise<AddUserTenantFeatureMutation> {
+      return requester<AddUserTenantFeatureMutation, AddUserTenantFeatureMutationVariables>(AddUserTenantFeatureDocument, variables, options) as Promise<AddUserTenantFeatureMutation>;
+    },
+    DeleteUserTenantFeature(variables: DeleteUserTenantFeatureMutationVariables, options?: C): Promise<DeleteUserTenantFeatureMutation> {
+      return requester<DeleteUserTenantFeatureMutation, DeleteUserTenantFeatureMutationVariables>(DeleteUserTenantFeatureDocument, variables, options) as Promise<DeleteUserTenantFeatureMutation>;
     }
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
-export const apiSdk = getSdk(fetchRequester());
+export const apiSdk = getSdk(fetchRequester()); export function getApiSdkWithHeaders(headers: any) { return getSdk(fetchRequester(headers));}

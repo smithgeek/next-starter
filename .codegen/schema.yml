@@ -18,6 +18,15 @@ generates:
     plugins:
       - "introspection"
 
+  graphql/TenantAdmin/schema.json:
+    schema:
+      - http://localhost:9023/v1/graphql:
+          headers:
+            X-Hasura-Admin-Secret: password
+            X-Hasura-Role: tenant_admin
+    plugins:
+      - "introspection"
+
   graphql/api/schema.json:
     schema:
       - http://localhost:9023/v1/graphql:

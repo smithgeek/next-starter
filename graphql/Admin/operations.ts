@@ -21,91 +21,91 @@ export type Scalars = {
 
 /** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
 export type Boolean_Comparison_Exp = {
-  _eq: InputMaybe<Scalars['Boolean']['input']>;
-  _gt: InputMaybe<Scalars['Boolean']['input']>;
-  _gte: InputMaybe<Scalars['Boolean']['input']>;
-  _in: InputMaybe<Array<Scalars['Boolean']['input']>>;
-  _is_null: InputMaybe<Scalars['Boolean']['input']>;
-  _lt: InputMaybe<Scalars['Boolean']['input']>;
-  _lte: InputMaybe<Scalars['Boolean']['input']>;
-  _neq: InputMaybe<Scalars['Boolean']['input']>;
-  _nin: InputMaybe<Array<Scalars['Boolean']['input']>>;
+  _eq?: InputMaybe<Scalars['Boolean']['input']>;
+  _gt?: InputMaybe<Scalars['Boolean']['input']>;
+  _gte?: InputMaybe<Scalars['Boolean']['input']>;
+  _in?: InputMaybe<Array<Scalars['Boolean']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['Boolean']['input']>;
+  _lte?: InputMaybe<Scalars['Boolean']['input']>;
+  _neq?: InputMaybe<Scalars['Boolean']['input']>;
+  _nin?: InputMaybe<Array<Scalars['Boolean']['input']>>;
 };
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
 export type Int_Comparison_Exp = {
-  _eq: InputMaybe<Scalars['Int']['input']>;
-  _gt: InputMaybe<Scalars['Int']['input']>;
-  _gte: InputMaybe<Scalars['Int']['input']>;
-  _in: InputMaybe<Array<Scalars['Int']['input']>>;
-  _is_null: InputMaybe<Scalars['Boolean']['input']>;
-  _lt: InputMaybe<Scalars['Int']['input']>;
-  _lte: InputMaybe<Scalars['Int']['input']>;
-  _neq: InputMaybe<Scalars['Int']['input']>;
-  _nin: InputMaybe<Array<Scalars['Int']['input']>>;
+  _eq?: InputMaybe<Scalars['Int']['input']>;
+  _gt?: InputMaybe<Scalars['Int']['input']>;
+  _gte?: InputMaybe<Scalars['Int']['input']>;
+  _in?: InputMaybe<Array<Scalars['Int']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['Int']['input']>;
+  _lte?: InputMaybe<Scalars['Int']['input']>;
+  _neq?: InputMaybe<Scalars['Int']['input']>;
+  _nin?: InputMaybe<Array<Scalars['Int']['input']>>;
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Array_Comparison_Exp = {
   /** is the array contained in the given array value */
-  _contained_in: InputMaybe<Array<Scalars['String']['input']>>;
+  _contained_in?: InputMaybe<Array<Scalars['String']['input']>>;
   /** does the array contain the given value */
-  _contains: InputMaybe<Array<Scalars['String']['input']>>;
-  _eq: InputMaybe<Array<Scalars['String']['input']>>;
-  _gt: InputMaybe<Array<Scalars['String']['input']>>;
-  _gte: InputMaybe<Array<Scalars['String']['input']>>;
-  _in: InputMaybe<Array<Array<Scalars['String']['input']>>>;
-  _is_null: InputMaybe<Scalars['Boolean']['input']>;
-  _lt: InputMaybe<Array<Scalars['String']['input']>>;
-  _lte: InputMaybe<Array<Scalars['String']['input']>>;
-  _neq: InputMaybe<Array<Scalars['String']['input']>>;
-  _nin: InputMaybe<Array<Array<Scalars['String']['input']>>>;
+  _contains?: InputMaybe<Array<Scalars['String']['input']>>;
+  _eq?: InputMaybe<Array<Scalars['String']['input']>>;
+  _gt?: InputMaybe<Array<Scalars['String']['input']>>;
+  _gte?: InputMaybe<Array<Scalars['String']['input']>>;
+  _in?: InputMaybe<Array<Array<Scalars['String']['input']>>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Array<Scalars['String']['input']>>;
+  _lte?: InputMaybe<Array<Scalars['String']['input']>>;
+  _neq?: InputMaybe<Array<Scalars['String']['input']>>;
+  _nin?: InputMaybe<Array<Array<Scalars['String']['input']>>>;
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
-  _eq: InputMaybe<Scalars['String']['input']>;
-  _gt: InputMaybe<Scalars['String']['input']>;
-  _gte: InputMaybe<Scalars['String']['input']>;
+  _eq?: InputMaybe<Scalars['String']['input']>;
+  _gt?: InputMaybe<Scalars['String']['input']>;
+  _gte?: InputMaybe<Scalars['String']['input']>;
   /** does the column match the given case-insensitive pattern */
-  _ilike: InputMaybe<Scalars['String']['input']>;
-  _in: InputMaybe<Array<Scalars['String']['input']>>;
+  _ilike?: InputMaybe<Scalars['String']['input']>;
+  _in?: InputMaybe<Array<Scalars['String']['input']>>;
   /** does the column match the given POSIX regular expression, case insensitive */
-  _iregex: InputMaybe<Scalars['String']['input']>;
-  _is_null: InputMaybe<Scalars['Boolean']['input']>;
+  _iregex?: InputMaybe<Scalars['String']['input']>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
   /** does the column match the given pattern */
-  _like: InputMaybe<Scalars['String']['input']>;
-  _lt: InputMaybe<Scalars['String']['input']>;
-  _lte: InputMaybe<Scalars['String']['input']>;
-  _neq: InputMaybe<Scalars['String']['input']>;
+  _like?: InputMaybe<Scalars['String']['input']>;
+  _lt?: InputMaybe<Scalars['String']['input']>;
+  _lte?: InputMaybe<Scalars['String']['input']>;
+  _neq?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given case-insensitive pattern */
-  _nilike: InputMaybe<Scalars['String']['input']>;
-  _nin: InputMaybe<Array<Scalars['String']['input']>>;
+  _nilike?: InputMaybe<Scalars['String']['input']>;
+  _nin?: InputMaybe<Array<Scalars['String']['input']>>;
   /** does the column NOT match the given POSIX regular expression, case insensitive */
-  _niregex: InputMaybe<Scalars['String']['input']>;
+  _niregex?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given pattern */
-  _nlike: InputMaybe<Scalars['String']['input']>;
+  _nlike?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given POSIX regular expression, case sensitive */
-  _nregex: InputMaybe<Scalars['String']['input']>;
+  _nregex?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given SQL regular expression */
-  _nsimilar: InputMaybe<Scalars['String']['input']>;
+  _nsimilar?: InputMaybe<Scalars['String']['input']>;
   /** does the column match the given POSIX regular expression, case sensitive */
-  _regex: InputMaybe<Scalars['String']['input']>;
+  _regex?: InputMaybe<Scalars['String']['input']>;
   /** does the column match the given SQL regular expression */
-  _similar: InputMaybe<Scalars['String']['input']>;
+  _similar?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Boolean expression to compare columns of type "bytea". All fields are combined with logical 'AND'. */
 export type Bytea_Comparison_Exp = {
-  _eq: InputMaybe<Scalars['bytea']['input']>;
-  _gt: InputMaybe<Scalars['bytea']['input']>;
-  _gte: InputMaybe<Scalars['bytea']['input']>;
-  _in: InputMaybe<Array<Scalars['bytea']['input']>>;
-  _is_null: InputMaybe<Scalars['Boolean']['input']>;
-  _lt: InputMaybe<Scalars['bytea']['input']>;
-  _lte: InputMaybe<Scalars['bytea']['input']>;
-  _neq: InputMaybe<Scalars['bytea']['input']>;
-  _nin: InputMaybe<Array<Scalars['bytea']['input']>>;
+  _eq?: InputMaybe<Scalars['bytea']['input']>;
+  _gt?: InputMaybe<Scalars['bytea']['input']>;
+  _gte?: InputMaybe<Scalars['bytea']['input']>;
+  _in?: InputMaybe<Array<Scalars['bytea']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['bytea']['input']>;
+  _lte?: InputMaybe<Scalars['bytea']['input']>;
+  _neq?: InputMaybe<Scalars['bytea']['input']>;
+  _nin?: InputMaybe<Array<Scalars['bytea']['input']>>;
 };
 
 /** ordering argument of a cursor */
@@ -140,67 +140,67 @@ export type Features = {
 
 /** columns and relationships of "features" */
 export type FeaturesOptionsArgs = {
-  path: InputMaybe<Scalars['String']['input']>;
+  path?: InputMaybe<Scalars['String']['input']>;
 };
 
 
 /** columns and relationships of "features" */
 export type FeaturesTenant_FeaturesArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Features_Order_By>>;
-  where: InputMaybe<Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Features_Order_By>>;
+  where?: InputMaybe<Tenant_Features_Bool_Exp>;
 };
 
 
 /** columns and relationships of "features" */
 export type FeaturesTenant_Features_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Features_Order_By>>;
-  where: InputMaybe<Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Features_Order_By>>;
+  where?: InputMaybe<Tenant_Features_Bool_Exp>;
 };
 
 
 /** columns and relationships of "features" */
 export type FeaturesUser_FeaturesArgs = {
-  distinct_on: InputMaybe<Array<User_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Features_Order_By>>;
-  where: InputMaybe<User_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
 /** columns and relationships of "features" */
 export type FeaturesUser_Features_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Features_Order_By>>;
-  where: InputMaybe<User_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
 /** columns and relationships of "features" */
 export type FeaturesUser_Tenant_FeaturesArgs = {
-  distinct_on: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Tenant_Features_Order_By>>;
-  where: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Tenant_Features_Order_By>>;
+  where?: InputMaybe<User_Tenant_Features_Bool_Exp>;
 };
 
 
 /** columns and relationships of "features" */
 export type FeaturesUser_Tenant_Features_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Tenant_Features_Order_By>>;
-  where: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Tenant_Features_Order_By>>;
+  where?: InputMaybe<User_Tenant_Features_Bool_Exp>;
 };
 
 /** aggregated selection of "features" */
@@ -229,13 +229,13 @@ export type Features_Aggregate_Fields = {
 
 /** aggregate fields of "features" */
 export type Features_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<Features_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<Features_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** append existing jsonb value of filtered columns with new jsonb value */
 export type Features_Append_Input = {
-  options: InputMaybe<Scalars['jsonb']['input']>;
+  options?: InputMaybe<Scalars['jsonb']['input']>;
 };
 
 /** aggregate avg on columns */
@@ -246,19 +246,19 @@ export type Features_Avg_Fields = {
 
 /** Boolean expression to filter rows from the table "features". All fields are combined with a logical 'AND'. */
 export type Features_Bool_Exp = {
-  _and: InputMaybe<Array<Features_Bool_Exp>>;
-  _not: InputMaybe<Features_Bool_Exp>;
-  _or: InputMaybe<Array<Features_Bool_Exp>>;
-  expiration: InputMaybe<Timestamptz_Comparison_Exp>;
-  feature_id: InputMaybe<Int_Comparison_Exp>;
-  id: InputMaybe<Uuid_Comparison_Exp>;
-  options: InputMaybe<Jsonb_Comparison_Exp>;
-  tenant_features: InputMaybe<Tenant_Features_Bool_Exp>;
-  tenant_features_aggregate: InputMaybe<Tenant_Features_Aggregate_Bool_Exp>;
-  user_features: InputMaybe<User_Features_Bool_Exp>;
-  user_features_aggregate: InputMaybe<User_Features_Aggregate_Bool_Exp>;
-  user_tenant_features: InputMaybe<User_Tenant_Features_Bool_Exp>;
-  user_tenant_features_aggregate: InputMaybe<User_Tenant_Features_Aggregate_Bool_Exp>;
+  _and?: InputMaybe<Array<Features_Bool_Exp>>;
+  _not?: InputMaybe<Features_Bool_Exp>;
+  _or?: InputMaybe<Array<Features_Bool_Exp>>;
+  expiration?: InputMaybe<Timestamptz_Comparison_Exp>;
+  feature_id?: InputMaybe<Int_Comparison_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  options?: InputMaybe<Jsonb_Comparison_Exp>;
+  tenant_features?: InputMaybe<Tenant_Features_Bool_Exp>;
+  tenant_features_aggregate?: InputMaybe<Tenant_Features_Aggregate_Bool_Exp>;
+  user_features?: InputMaybe<User_Features_Bool_Exp>;
+  user_features_aggregate?: InputMaybe<User_Features_Aggregate_Bool_Exp>;
+  user_tenant_features?: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  user_tenant_features_aggregate?: InputMaybe<User_Tenant_Features_Aggregate_Bool_Exp>;
 };
 
 /** unique or primary key constraints on table "features" */
@@ -269,33 +269,33 @@ export enum Features_Constraint {
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 export type Features_Delete_At_Path_Input = {
-  options: InputMaybe<Array<Scalars['String']['input']>>;
+  options?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 /** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
 export type Features_Delete_Elem_Input = {
-  options: InputMaybe<Scalars['Int']['input']>;
+  options?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** delete key/value pair or string element. key/value pairs are matched based on their key value */
 export type Features_Delete_Key_Input = {
-  options: InputMaybe<Scalars['String']['input']>;
+  options?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** input type for incrementing numeric columns in table "features" */
 export type Features_Inc_Input = {
-  feature_id: InputMaybe<Scalars['Int']['input']>;
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "features" */
 export type Features_Insert_Input = {
-  expiration: InputMaybe<Scalars['timestamptz']['input']>;
-  feature_id: InputMaybe<Scalars['Int']['input']>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  options: InputMaybe<Scalars['jsonb']['input']>;
-  tenant_features: InputMaybe<Tenant_Features_Arr_Rel_Insert_Input>;
-  user_features: InputMaybe<User_Features_Arr_Rel_Insert_Input>;
-  user_tenant_features: InputMaybe<User_Tenant_Features_Arr_Rel_Insert_Input>;
+  expiration?: InputMaybe<Scalars['timestamptz']['input']>;
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  options?: InputMaybe<Scalars['jsonb']['input']>;
+  tenant_features?: InputMaybe<Tenant_Features_Arr_Rel_Insert_Input>;
+  user_features?: InputMaybe<User_Features_Arr_Rel_Insert_Input>;
+  user_tenant_features?: InputMaybe<User_Tenant_Features_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
@@ -327,25 +327,25 @@ export type Features_Mutation_Response = {
 export type Features_Obj_Rel_Insert_Input = {
   data: Features_Insert_Input;
   /** upsert condition */
-  on_conflict: InputMaybe<Features_On_Conflict>;
+  on_conflict?: InputMaybe<Features_On_Conflict>;
 };
 
 /** on_conflict condition type for table "features" */
 export type Features_On_Conflict = {
   constraint: Features_Constraint;
-  update_columns: Array<Features_Update_Column>;
-  where: InputMaybe<Features_Bool_Exp>;
+  update_columns?: Array<Features_Update_Column>;
+  where?: InputMaybe<Features_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "features". */
 export type Features_Order_By = {
-  expiration: InputMaybe<Order_By>;
-  feature_id: InputMaybe<Order_By>;
-  id: InputMaybe<Order_By>;
-  options: InputMaybe<Order_By>;
-  tenant_features_aggregate: InputMaybe<Tenant_Features_Aggregate_Order_By>;
-  user_features_aggregate: InputMaybe<User_Features_Aggregate_Order_By>;
-  user_tenant_features_aggregate: InputMaybe<User_Tenant_Features_Aggregate_Order_By>;
+  expiration?: InputMaybe<Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  options?: InputMaybe<Order_By>;
+  tenant_features_aggregate?: InputMaybe<Tenant_Features_Aggregate_Order_By>;
+  user_features_aggregate?: InputMaybe<User_Features_Aggregate_Order_By>;
+  user_tenant_features_aggregate?: InputMaybe<User_Tenant_Features_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: features */
@@ -355,7 +355,7 @@ export type Features_Pk_Columns_Input = {
 
 /** prepend existing jsonb value of filtered columns with new jsonb value */
 export type Features_Prepend_Input = {
-  options: InputMaybe<Scalars['jsonb']['input']>;
+  options?: InputMaybe<Scalars['jsonb']['input']>;
 };
 
 /** select columns of table "features" */
@@ -372,10 +372,10 @@ export enum Features_Select_Column {
 
 /** input type for updating data in table "features" */
 export type Features_Set_Input = {
-  expiration: InputMaybe<Scalars['timestamptz']['input']>;
-  feature_id: InputMaybe<Scalars['Int']['input']>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  options: InputMaybe<Scalars['jsonb']['input']>;
+  expiration?: InputMaybe<Scalars['timestamptz']['input']>;
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  options?: InputMaybe<Scalars['jsonb']['input']>;
 };
 
 /** aggregate stddev on columns */
@@ -401,15 +401,15 @@ export type Features_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Features_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Features_Stream_Cursor_Value_Input = {
-  expiration: InputMaybe<Scalars['timestamptz']['input']>;
-  feature_id: InputMaybe<Scalars['Int']['input']>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  options: InputMaybe<Scalars['jsonb']['input']>;
+  expiration?: InputMaybe<Scalars['timestamptz']['input']>;
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  options?: InputMaybe<Scalars['jsonb']['input']>;
 };
 
 /** aggregate sum on columns */
@@ -432,19 +432,19 @@ export enum Features_Update_Column {
 
 export type Features_Updates = {
   /** append existing jsonb value of filtered columns with new jsonb value */
-  _append: InputMaybe<Features_Append_Input>;
+  _append?: InputMaybe<Features_Append_Input>;
   /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
-  _delete_at_path: InputMaybe<Features_Delete_At_Path_Input>;
+  _delete_at_path?: InputMaybe<Features_Delete_At_Path_Input>;
   /** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
-  _delete_elem: InputMaybe<Features_Delete_Elem_Input>;
+  _delete_elem?: InputMaybe<Features_Delete_Elem_Input>;
   /** delete key/value pair or string element. key/value pairs are matched based on their key value */
-  _delete_key: InputMaybe<Features_Delete_Key_Input>;
+  _delete_key?: InputMaybe<Features_Delete_Key_Input>;
   /** increments the numeric columns with given value of the filtered values */
-  _inc: InputMaybe<Features_Inc_Input>;
+  _inc?: InputMaybe<Features_Inc_Input>;
   /** prepend existing jsonb value of filtered columns with new jsonb value */
-  _prepend: InputMaybe<Features_Prepend_Input>;
+  _prepend?: InputMaybe<Features_Prepend_Input>;
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<Features_Set_Input>;
+  _set?: InputMaybe<Features_Set_Input>;
   /** filter the rows which have to be updated */
   where: Features_Bool_Exp;
 };
@@ -468,31 +468,31 @@ export type Features_Variance_Fields = {
 };
 
 export type Jsonb_Cast_Exp = {
-  String: InputMaybe<String_Comparison_Exp>;
+  String?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'. */
 export type Jsonb_Comparison_Exp = {
-  _cast: InputMaybe<Jsonb_Cast_Exp>;
+  _cast?: InputMaybe<Jsonb_Cast_Exp>;
   /** is the column contained in the given json value */
-  _contained_in: InputMaybe<Scalars['jsonb']['input']>;
+  _contained_in?: InputMaybe<Scalars['jsonb']['input']>;
   /** does the column contain the given json value at the top level */
-  _contains: InputMaybe<Scalars['jsonb']['input']>;
-  _eq: InputMaybe<Scalars['jsonb']['input']>;
-  _gt: InputMaybe<Scalars['jsonb']['input']>;
-  _gte: InputMaybe<Scalars['jsonb']['input']>;
+  _contains?: InputMaybe<Scalars['jsonb']['input']>;
+  _eq?: InputMaybe<Scalars['jsonb']['input']>;
+  _gt?: InputMaybe<Scalars['jsonb']['input']>;
+  _gte?: InputMaybe<Scalars['jsonb']['input']>;
   /** does the string exist as a top-level key in the column */
-  _has_key: InputMaybe<Scalars['String']['input']>;
+  _has_key?: InputMaybe<Scalars['String']['input']>;
   /** do all of these strings exist as top-level keys in the column */
-  _has_keys_all: InputMaybe<Array<Scalars['String']['input']>>;
+  _has_keys_all?: InputMaybe<Array<Scalars['String']['input']>>;
   /** do any of these strings exist as top-level keys in the column */
-  _has_keys_any: InputMaybe<Array<Scalars['String']['input']>>;
-  _in: InputMaybe<Array<Scalars['jsonb']['input']>>;
-  _is_null: InputMaybe<Scalars['Boolean']['input']>;
-  _lt: InputMaybe<Scalars['jsonb']['input']>;
-  _lte: InputMaybe<Scalars['jsonb']['input']>;
-  _neq: InputMaybe<Scalars['jsonb']['input']>;
-  _nin: InputMaybe<Array<Scalars['jsonb']['input']>>;
+  _has_keys_any?: InputMaybe<Array<Scalars['String']['input']>>;
+  _in?: InputMaybe<Array<Scalars['jsonb']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['jsonb']['input']>;
+  _lte?: InputMaybe<Scalars['jsonb']['input']>;
+  _neq?: InputMaybe<Scalars['jsonb']['input']>;
+  _nin?: InputMaybe<Array<Scalars['jsonb']['input']>>;
 };
 
 /** mutation root */
@@ -847,207 +847,207 @@ export type Mutation_RootDelete_Webauthn_Credentials_By_PkArgs = {
 /** mutation root */
 export type Mutation_RootInsert_FeaturesArgs = {
   objects: Array<Features_Insert_Input>;
-  on_conflict: InputMaybe<Features_On_Conflict>;
+  on_conflict?: InputMaybe<Features_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Features_OneArgs = {
   object: Features_Insert_Input;
-  on_conflict: InputMaybe<Features_On_Conflict>;
+  on_conflict?: InputMaybe<Features_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Provider_TypeArgs = {
   objects: Array<Provider_Type_Insert_Input>;
-  on_conflict: InputMaybe<Provider_Type_On_Conflict>;
+  on_conflict?: InputMaybe<Provider_Type_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Provider_Type_OneArgs = {
   object: Provider_Type_Insert_Input;
-  on_conflict: InputMaybe<Provider_Type_On_Conflict>;
+  on_conflict?: InputMaybe<Provider_Type_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_SessionsArgs = {
   objects: Array<Sessions_Insert_Input>;
-  on_conflict: InputMaybe<Sessions_On_Conflict>;
+  on_conflict?: InputMaybe<Sessions_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Sessions_OneArgs = {
   object: Sessions_Insert_Input;
-  on_conflict: InputMaybe<Sessions_On_Conflict>;
+  on_conflict?: InputMaybe<Sessions_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_TenantArgs = {
   objects: Array<Tenant_Insert_Input>;
-  on_conflict: InputMaybe<Tenant_On_Conflict>;
+  on_conflict?: InputMaybe<Tenant_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Tenant_FeaturesArgs = {
   objects: Array<Tenant_Features_Insert_Input>;
-  on_conflict: InputMaybe<Tenant_Features_On_Conflict>;
+  on_conflict?: InputMaybe<Tenant_Features_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Tenant_Features_OneArgs = {
   object: Tenant_Features_Insert_Input;
-  on_conflict: InputMaybe<Tenant_Features_On_Conflict>;
+  on_conflict?: InputMaybe<Tenant_Features_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Tenant_OneArgs = {
   object: Tenant_Insert_Input;
-  on_conflict: InputMaybe<Tenant_On_Conflict>;
+  on_conflict?: InputMaybe<Tenant_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Tenant_UsersArgs = {
   objects: Array<Tenant_Users_Insert_Input>;
-  on_conflict: InputMaybe<Tenant_Users_On_Conflict>;
+  on_conflict?: InputMaybe<Tenant_Users_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Tenant_Users_OneArgs = {
   object: Tenant_Users_Insert_Input;
-  on_conflict: InputMaybe<Tenant_Users_On_Conflict>;
+  on_conflict?: InputMaybe<Tenant_Users_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_User_FeaturesArgs = {
   objects: Array<User_Features_Insert_Input>;
-  on_conflict: InputMaybe<User_Features_On_Conflict>;
+  on_conflict?: InputMaybe<User_Features_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_User_Features_OneArgs = {
   object: User_Features_Insert_Input;
-  on_conflict: InputMaybe<User_Features_On_Conflict>;
+  on_conflict?: InputMaybe<User_Features_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_User_Provider_AccountsArgs = {
   objects: Array<User_Provider_Accounts_Insert_Input>;
-  on_conflict: InputMaybe<User_Provider_Accounts_On_Conflict>;
+  on_conflict?: InputMaybe<User_Provider_Accounts_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_User_Provider_Accounts_OneArgs = {
   object: User_Provider_Accounts_Insert_Input;
-  on_conflict: InputMaybe<User_Provider_Accounts_On_Conflict>;
+  on_conflict?: InputMaybe<User_Provider_Accounts_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_User_Tenant_FeaturesArgs = {
   objects: Array<User_Tenant_Features_Insert_Input>;
-  on_conflict: InputMaybe<User_Tenant_Features_On_Conflict>;
+  on_conflict?: InputMaybe<User_Tenant_Features_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_User_Tenant_Features_OneArgs = {
   object: User_Tenant_Features_Insert_Input;
-  on_conflict: InputMaybe<User_Tenant_Features_On_Conflict>;
+  on_conflict?: InputMaybe<User_Tenant_Features_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_UsersArgs = {
   objects: Array<Users_Insert_Input>;
-  on_conflict: InputMaybe<Users_On_Conflict>;
+  on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Users_OneArgs = {
   object: Users_Insert_Input;
-  on_conflict: InputMaybe<Users_On_Conflict>;
+  on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Verification_TokensArgs = {
   objects: Array<Verification_Tokens_Insert_Input>;
-  on_conflict: InputMaybe<Verification_Tokens_On_Conflict>;
+  on_conflict?: InputMaybe<Verification_Tokens_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Verification_Tokens_OneArgs = {
   object: Verification_Tokens_Insert_Input;
-  on_conflict: InputMaybe<Verification_Tokens_On_Conflict>;
+  on_conflict?: InputMaybe<Verification_Tokens_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Webauthn_ChallengesArgs = {
   objects: Array<Webauthn_Challenges_Insert_Input>;
-  on_conflict: InputMaybe<Webauthn_Challenges_On_Conflict>;
+  on_conflict?: InputMaybe<Webauthn_Challenges_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Webauthn_Challenges_OneArgs = {
   object: Webauthn_Challenges_Insert_Input;
-  on_conflict: InputMaybe<Webauthn_Challenges_On_Conflict>;
+  on_conflict?: InputMaybe<Webauthn_Challenges_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Webauthn_CredentialsArgs = {
   objects: Array<Webauthn_Credentials_Insert_Input>;
-  on_conflict: InputMaybe<Webauthn_Credentials_On_Conflict>;
+  on_conflict?: InputMaybe<Webauthn_Credentials_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_Webauthn_Credentials_OneArgs = {
   object: Webauthn_Credentials_Insert_Input;
-  on_conflict: InputMaybe<Webauthn_Credentials_On_Conflict>;
+  on_conflict?: InputMaybe<Webauthn_Credentials_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_FeaturesArgs = {
-  _append: InputMaybe<Features_Append_Input>;
-  _delete_at_path: InputMaybe<Features_Delete_At_Path_Input>;
-  _delete_elem: InputMaybe<Features_Delete_Elem_Input>;
-  _delete_key: InputMaybe<Features_Delete_Key_Input>;
-  _inc: InputMaybe<Features_Inc_Input>;
-  _prepend: InputMaybe<Features_Prepend_Input>;
-  _set: InputMaybe<Features_Set_Input>;
+  _append?: InputMaybe<Features_Append_Input>;
+  _delete_at_path?: InputMaybe<Features_Delete_At_Path_Input>;
+  _delete_elem?: InputMaybe<Features_Delete_Elem_Input>;
+  _delete_key?: InputMaybe<Features_Delete_Key_Input>;
+  _inc?: InputMaybe<Features_Inc_Input>;
+  _prepend?: InputMaybe<Features_Prepend_Input>;
+  _set?: InputMaybe<Features_Set_Input>;
   where: Features_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Features_By_PkArgs = {
-  _append: InputMaybe<Features_Append_Input>;
-  _delete_at_path: InputMaybe<Features_Delete_At_Path_Input>;
-  _delete_elem: InputMaybe<Features_Delete_Elem_Input>;
-  _delete_key: InputMaybe<Features_Delete_Key_Input>;
-  _inc: InputMaybe<Features_Inc_Input>;
-  _prepend: InputMaybe<Features_Prepend_Input>;
-  _set: InputMaybe<Features_Set_Input>;
+  _append?: InputMaybe<Features_Append_Input>;
+  _delete_at_path?: InputMaybe<Features_Delete_At_Path_Input>;
+  _delete_elem?: InputMaybe<Features_Delete_Elem_Input>;
+  _delete_key?: InputMaybe<Features_Delete_Key_Input>;
+  _inc?: InputMaybe<Features_Inc_Input>;
+  _prepend?: InputMaybe<Features_Prepend_Input>;
+  _set?: InputMaybe<Features_Set_Input>;
   pk_columns: Features_Pk_Columns_Input;
 };
 
@@ -1060,14 +1060,14 @@ export type Mutation_RootUpdate_Features_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_Provider_TypeArgs = {
-  _set: InputMaybe<Provider_Type_Set_Input>;
+  _set?: InputMaybe<Provider_Type_Set_Input>;
   where: Provider_Type_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Provider_Type_By_PkArgs = {
-  _set: InputMaybe<Provider_Type_Set_Input>;
+  _set?: InputMaybe<Provider_Type_Set_Input>;
   pk_columns: Provider_Type_Pk_Columns_Input;
 };
 
@@ -1080,14 +1080,14 @@ export type Mutation_RootUpdate_Provider_Type_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_SessionsArgs = {
-  _set: InputMaybe<Sessions_Set_Input>;
+  _set?: InputMaybe<Sessions_Set_Input>;
   where: Sessions_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Sessions_By_PkArgs = {
-  _set: InputMaybe<Sessions_Set_Input>;
+  _set?: InputMaybe<Sessions_Set_Input>;
   pk_columns: Sessions_Pk_Columns_Input;
 };
 
@@ -1100,28 +1100,28 @@ export type Mutation_RootUpdate_Sessions_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_TenantArgs = {
-  _set: InputMaybe<Tenant_Set_Input>;
+  _set?: InputMaybe<Tenant_Set_Input>;
   where: Tenant_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Tenant_By_PkArgs = {
-  _set: InputMaybe<Tenant_Set_Input>;
+  _set?: InputMaybe<Tenant_Set_Input>;
   pk_columns: Tenant_Pk_Columns_Input;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Tenant_FeaturesArgs = {
-  _set: InputMaybe<Tenant_Features_Set_Input>;
+  _set?: InputMaybe<Tenant_Features_Set_Input>;
   where: Tenant_Features_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Tenant_Features_By_PkArgs = {
-  _set: InputMaybe<Tenant_Features_Set_Input>;
+  _set?: InputMaybe<Tenant_Features_Set_Input>;
   pk_columns: Tenant_Features_Pk_Columns_Input;
 };
 
@@ -1140,14 +1140,14 @@ export type Mutation_RootUpdate_Tenant_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_Tenant_UsersArgs = {
-  _set: InputMaybe<Tenant_Users_Set_Input>;
+  _set?: InputMaybe<Tenant_Users_Set_Input>;
   where: Tenant_Users_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Tenant_Users_By_PkArgs = {
-  _set: InputMaybe<Tenant_Users_Set_Input>;
+  _set?: InputMaybe<Tenant_Users_Set_Input>;
   pk_columns: Tenant_Users_Pk_Columns_Input;
 };
 
@@ -1160,14 +1160,14 @@ export type Mutation_RootUpdate_Tenant_Users_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_User_FeaturesArgs = {
-  _set: InputMaybe<User_Features_Set_Input>;
+  _set?: InputMaybe<User_Features_Set_Input>;
   where: User_Features_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_User_Features_By_PkArgs = {
-  _set: InputMaybe<User_Features_Set_Input>;
+  _set?: InputMaybe<User_Features_Set_Input>;
   pk_columns: User_Features_Pk_Columns_Input;
 };
 
@@ -1180,16 +1180,16 @@ export type Mutation_RootUpdate_User_Features_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_User_Provider_AccountsArgs = {
-  _inc: InputMaybe<User_Provider_Accounts_Inc_Input>;
-  _set: InputMaybe<User_Provider_Accounts_Set_Input>;
+  _inc?: InputMaybe<User_Provider_Accounts_Inc_Input>;
+  _set?: InputMaybe<User_Provider_Accounts_Set_Input>;
   where: User_Provider_Accounts_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_User_Provider_Accounts_By_PkArgs = {
-  _inc: InputMaybe<User_Provider_Accounts_Inc_Input>;
-  _set: InputMaybe<User_Provider_Accounts_Set_Input>;
+  _inc?: InputMaybe<User_Provider_Accounts_Inc_Input>;
+  _set?: InputMaybe<User_Provider_Accounts_Set_Input>;
   pk_columns: User_Provider_Accounts_Pk_Columns_Input;
 };
 
@@ -1202,14 +1202,14 @@ export type Mutation_RootUpdate_User_Provider_Accounts_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_User_Tenant_FeaturesArgs = {
-  _set: InputMaybe<User_Tenant_Features_Set_Input>;
+  _set?: InputMaybe<User_Tenant_Features_Set_Input>;
   where: User_Tenant_Features_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_User_Tenant_Features_By_PkArgs = {
-  _set: InputMaybe<User_Tenant_Features_Set_Input>;
+  _set?: InputMaybe<User_Tenant_Features_Set_Input>;
   pk_columns: User_Tenant_Features_Pk_Columns_Input;
 };
 
@@ -1222,14 +1222,14 @@ export type Mutation_RootUpdate_User_Tenant_Features_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_UsersArgs = {
-  _set: InputMaybe<Users_Set_Input>;
+  _set?: InputMaybe<Users_Set_Input>;
   where: Users_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Users_By_PkArgs = {
-  _set: InputMaybe<Users_Set_Input>;
+  _set?: InputMaybe<Users_Set_Input>;
   pk_columns: Users_Pk_Columns_Input;
 };
 
@@ -1242,14 +1242,14 @@ export type Mutation_RootUpdate_Users_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_Verification_TokensArgs = {
-  _set: InputMaybe<Verification_Tokens_Set_Input>;
+  _set?: InputMaybe<Verification_Tokens_Set_Input>;
   where: Verification_Tokens_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Verification_Tokens_By_PkArgs = {
-  _set: InputMaybe<Verification_Tokens_Set_Input>;
+  _set?: InputMaybe<Verification_Tokens_Set_Input>;
   pk_columns: Verification_Tokens_Pk_Columns_Input;
 };
 
@@ -1262,14 +1262,14 @@ export type Mutation_RootUpdate_Verification_Tokens_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_Webauthn_ChallengesArgs = {
-  _set: InputMaybe<Webauthn_Challenges_Set_Input>;
+  _set?: InputMaybe<Webauthn_Challenges_Set_Input>;
   where: Webauthn_Challenges_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Webauthn_Challenges_By_PkArgs = {
-  _set: InputMaybe<Webauthn_Challenges_Set_Input>;
+  _set?: InputMaybe<Webauthn_Challenges_Set_Input>;
   pk_columns: Webauthn_Challenges_Pk_Columns_Input;
 };
 
@@ -1282,16 +1282,16 @@ export type Mutation_RootUpdate_Webauthn_Challenges_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_Webauthn_CredentialsArgs = {
-  _inc: InputMaybe<Webauthn_Credentials_Inc_Input>;
-  _set: InputMaybe<Webauthn_Credentials_Set_Input>;
+  _inc?: InputMaybe<Webauthn_Credentials_Inc_Input>;
+  _set?: InputMaybe<Webauthn_Credentials_Set_Input>;
   where: Webauthn_Credentials_Bool_Exp;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Webauthn_Credentials_By_PkArgs = {
-  _inc: InputMaybe<Webauthn_Credentials_Inc_Input>;
-  _set: InputMaybe<Webauthn_Credentials_Set_Input>;
+  _inc?: InputMaybe<Webauthn_Credentials_Inc_Input>;
+  _set?: InputMaybe<Webauthn_Credentials_Set_Input>;
   pk_columns: Webauthn_Credentials_Pk_Columns_Input;
 };
 
@@ -1330,21 +1330,21 @@ export type Provider_Type = {
 
 /** columns and relationships of "provider_type" */
 export type Provider_TypeAccountsArgs = {
-  distinct_on: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
-  where: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
+  where?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
 };
 
 
 /** columns and relationships of "provider_type" */
 export type Provider_TypeAccounts_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
-  where: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
+  where?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
 };
 
 /** aggregated selection of "provider_type" */
@@ -1365,18 +1365,18 @@ export type Provider_Type_Aggregate_Fields = {
 
 /** aggregate fields of "provider_type" */
 export type Provider_Type_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<Provider_Type_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<Provider_Type_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Boolean expression to filter rows from the table "provider_type". All fields are combined with a logical 'AND'. */
 export type Provider_Type_Bool_Exp = {
-  _and: InputMaybe<Array<Provider_Type_Bool_Exp>>;
-  _not: InputMaybe<Provider_Type_Bool_Exp>;
-  _or: InputMaybe<Array<Provider_Type_Bool_Exp>>;
-  accounts: InputMaybe<User_Provider_Accounts_Bool_Exp>;
-  accounts_aggregate: InputMaybe<User_Provider_Accounts_Aggregate_Bool_Exp>;
-  value: InputMaybe<String_Comparison_Exp>;
+  _and?: InputMaybe<Array<Provider_Type_Bool_Exp>>;
+  _not?: InputMaybe<Provider_Type_Bool_Exp>;
+  _or?: InputMaybe<Array<Provider_Type_Bool_Exp>>;
+  accounts?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  accounts_aggregate?: InputMaybe<User_Provider_Accounts_Aggregate_Bool_Exp>;
+  value?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "provider_type" */
@@ -1387,8 +1387,8 @@ export enum Provider_Type_Constraint {
 
 /** input type for inserting data into table "provider_type" */
 export type Provider_Type_Insert_Input = {
-  accounts: InputMaybe<User_Provider_Accounts_Arr_Rel_Insert_Input>;
-  value: InputMaybe<Scalars['String']['input']>;
+  accounts?: InputMaybe<User_Provider_Accounts_Arr_Rel_Insert_Input>;
+  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
@@ -1416,20 +1416,20 @@ export type Provider_Type_Mutation_Response = {
 export type Provider_Type_Obj_Rel_Insert_Input = {
   data: Provider_Type_Insert_Input;
   /** upsert condition */
-  on_conflict: InputMaybe<Provider_Type_On_Conflict>;
+  on_conflict?: InputMaybe<Provider_Type_On_Conflict>;
 };
 
 /** on_conflict condition type for table "provider_type" */
 export type Provider_Type_On_Conflict = {
   constraint: Provider_Type_Constraint;
-  update_columns: Array<Provider_Type_Update_Column>;
-  where: InputMaybe<Provider_Type_Bool_Exp>;
+  update_columns?: Array<Provider_Type_Update_Column>;
+  where?: InputMaybe<Provider_Type_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "provider_type". */
 export type Provider_Type_Order_By = {
-  accounts_aggregate: InputMaybe<User_Provider_Accounts_Aggregate_Order_By>;
-  value: InputMaybe<Order_By>;
+  accounts_aggregate?: InputMaybe<User_Provider_Accounts_Aggregate_Order_By>;
+  value?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: provider_type */
@@ -1445,7 +1445,7 @@ export enum Provider_Type_Select_Column {
 
 /** input type for updating data in table "provider_type" */
 export type Provider_Type_Set_Input = {
-  value: InputMaybe<Scalars['String']['input']>;
+  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Streaming cursor of the table "provider_type" */
@@ -1453,12 +1453,12 @@ export type Provider_Type_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Provider_Type_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Provider_Type_Stream_Cursor_Value_Input = {
-  value: InputMaybe<Scalars['String']['input']>;
+  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** update columns of table "provider_type" */
@@ -1469,7 +1469,7 @@ export enum Provider_Type_Update_Column {
 
 export type Provider_Type_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<Provider_Type_Set_Input>;
+  _set?: InputMaybe<Provider_Type_Set_Input>;
   /** filter the rows which have to be updated */
   where: Provider_Type_Bool_Exp;
 };
@@ -1558,20 +1558,20 @@ export type Query_Root = {
 
 
 export type Query_RootFeaturesArgs = {
-  distinct_on: InputMaybe<Array<Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Features_Order_By>>;
-  where: InputMaybe<Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Features_Order_By>>;
+  where?: InputMaybe<Features_Bool_Exp>;
 };
 
 
 export type Query_RootFeatures_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Features_Order_By>>;
-  where: InputMaybe<Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Features_Order_By>>;
+  where?: InputMaybe<Features_Bool_Exp>;
 };
 
 
@@ -1581,20 +1581,20 @@ export type Query_RootFeatures_By_PkArgs = {
 
 
 export type Query_RootProvider_TypeArgs = {
-  distinct_on: InputMaybe<Array<Provider_Type_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Provider_Type_Order_By>>;
-  where: InputMaybe<Provider_Type_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Provider_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Provider_Type_Order_By>>;
+  where?: InputMaybe<Provider_Type_Bool_Exp>;
 };
 
 
 export type Query_RootProvider_Type_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Provider_Type_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Provider_Type_Order_By>>;
-  where: InputMaybe<Provider_Type_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Provider_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Provider_Type_Order_By>>;
+  where?: InputMaybe<Provider_Type_Bool_Exp>;
 };
 
 
@@ -1604,20 +1604,20 @@ export type Query_RootProvider_Type_By_PkArgs = {
 
 
 export type Query_RootSessionsArgs = {
-  distinct_on: InputMaybe<Array<Sessions_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Sessions_Order_By>>;
-  where: InputMaybe<Sessions_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Sessions_Order_By>>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 
 export type Query_RootSessions_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Sessions_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Sessions_Order_By>>;
-  where: InputMaybe<Sessions_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Sessions_Order_By>>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 
@@ -1627,20 +1627,20 @@ export type Query_RootSessions_By_PkArgs = {
 
 
 export type Query_RootTenantArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Order_By>>;
-  where: InputMaybe<Tenant_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Order_By>>;
+  where?: InputMaybe<Tenant_Bool_Exp>;
 };
 
 
 export type Query_RootTenant_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Order_By>>;
-  where: InputMaybe<Tenant_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Order_By>>;
+  where?: InputMaybe<Tenant_Bool_Exp>;
 };
 
 
@@ -1650,20 +1650,20 @@ export type Query_RootTenant_By_PkArgs = {
 
 
 export type Query_RootTenant_FeaturesArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Features_Order_By>>;
-  where: InputMaybe<Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Features_Order_By>>;
+  where?: InputMaybe<Tenant_Features_Bool_Exp>;
 };
 
 
 export type Query_RootTenant_Features_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Features_Order_By>>;
-  where: InputMaybe<Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Features_Order_By>>;
+  where?: InputMaybe<Tenant_Features_Bool_Exp>;
 };
 
 
@@ -1674,20 +1674,20 @@ export type Query_RootTenant_Features_By_PkArgs = {
 
 
 export type Query_RootTenant_UsersArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Users_Order_By>>;
-  where: InputMaybe<Tenant_Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Users_Order_By>>;
+  where?: InputMaybe<Tenant_Users_Bool_Exp>;
 };
 
 
 export type Query_RootTenant_Users_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Users_Order_By>>;
-  where: InputMaybe<Tenant_Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Users_Order_By>>;
+  where?: InputMaybe<Tenant_Users_Bool_Exp>;
 };
 
 
@@ -1698,20 +1698,20 @@ export type Query_RootTenant_Users_By_PkArgs = {
 
 
 export type Query_RootUser_FeaturesArgs = {
-  distinct_on: InputMaybe<Array<User_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Features_Order_By>>;
-  where: InputMaybe<User_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
 export type Query_RootUser_Features_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Features_Order_By>>;
-  where: InputMaybe<User_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
@@ -1722,20 +1722,20 @@ export type Query_RootUser_Features_By_PkArgs = {
 
 
 export type Query_RootUser_Provider_AccountsArgs = {
-  distinct_on: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
-  where: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
+  where?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
 };
 
 
 export type Query_RootUser_Provider_Accounts_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
-  where: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
+  where?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
 };
 
 
@@ -1745,20 +1745,20 @@ export type Query_RootUser_Provider_Accounts_By_PkArgs = {
 
 
 export type Query_RootUser_Tenant_FeaturesArgs = {
-  distinct_on: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Tenant_Features_Order_By>>;
-  where: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Tenant_Features_Order_By>>;
+  where?: InputMaybe<User_Tenant_Features_Bool_Exp>;
 };
 
 
 export type Query_RootUser_Tenant_Features_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Tenant_Features_Order_By>>;
-  where: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Tenant_Features_Order_By>>;
+  where?: InputMaybe<User_Tenant_Features_Bool_Exp>;
 };
 
 
@@ -1770,20 +1770,20 @@ export type Query_RootUser_Tenant_Features_By_PkArgs = {
 
 
 export type Query_RootUsersArgs = {
-  distinct_on: InputMaybe<Array<Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Users_Order_By>>;
-  where: InputMaybe<Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Users_Order_By>>;
+  where?: InputMaybe<Users_Bool_Exp>;
 };
 
 
 export type Query_RootUsers_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Users_Order_By>>;
-  where: InputMaybe<Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Users_Order_By>>;
+  where?: InputMaybe<Users_Bool_Exp>;
 };
 
 
@@ -1793,20 +1793,20 @@ export type Query_RootUsers_By_PkArgs = {
 
 
 export type Query_RootVerification_TokensArgs = {
-  distinct_on: InputMaybe<Array<Verification_Tokens_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Verification_Tokens_Order_By>>;
-  where: InputMaybe<Verification_Tokens_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Verification_Tokens_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Verification_Tokens_Order_By>>;
+  where?: InputMaybe<Verification_Tokens_Bool_Exp>;
 };
 
 
 export type Query_RootVerification_Tokens_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Verification_Tokens_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Verification_Tokens_Order_By>>;
-  where: InputMaybe<Verification_Tokens_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Verification_Tokens_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Verification_Tokens_Order_By>>;
+  where?: InputMaybe<Verification_Tokens_Bool_Exp>;
 };
 
 
@@ -1816,20 +1816,20 @@ export type Query_RootVerification_Tokens_By_PkArgs = {
 
 
 export type Query_RootWebauthn_ChallengesArgs = {
-  distinct_on: InputMaybe<Array<Webauthn_Challenges_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Webauthn_Challenges_Order_By>>;
-  where: InputMaybe<Webauthn_Challenges_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Webauthn_Challenges_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Webauthn_Challenges_Order_By>>;
+  where?: InputMaybe<Webauthn_Challenges_Bool_Exp>;
 };
 
 
 export type Query_RootWebauthn_Challenges_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Webauthn_Challenges_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Webauthn_Challenges_Order_By>>;
-  where: InputMaybe<Webauthn_Challenges_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Webauthn_Challenges_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Webauthn_Challenges_Order_By>>;
+  where?: InputMaybe<Webauthn_Challenges_Bool_Exp>;
 };
 
 
@@ -1839,20 +1839,20 @@ export type Query_RootWebauthn_Challenges_By_PkArgs = {
 
 
 export type Query_RootWebauthn_CredentialsArgs = {
-  distinct_on: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
-  where: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
+  where?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
 };
 
 
 export type Query_RootWebauthn_Credentials_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
-  where: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
+  where?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
 };
 
 
@@ -1879,13 +1879,13 @@ export type Sessions_Aggregate = {
 };
 
 export type Sessions_Aggregate_Bool_Exp = {
-  count: InputMaybe<Sessions_Aggregate_Bool_Exp_Count>;
+  count?: InputMaybe<Sessions_Aggregate_Bool_Exp_Count>;
 };
 
 export type Sessions_Aggregate_Bool_Exp_Count = {
-  arguments: InputMaybe<Array<Sessions_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
-  filter: InputMaybe<Sessions_Bool_Exp>;
+  arguments?: InputMaybe<Array<Sessions_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+  filter?: InputMaybe<Sessions_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
@@ -1900,34 +1900,34 @@ export type Sessions_Aggregate_Fields = {
 
 /** aggregate fields of "sessions" */
 export type Sessions_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<Sessions_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<Sessions_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "sessions" */
 export type Sessions_Aggregate_Order_By = {
-  count: InputMaybe<Order_By>;
-  max: InputMaybe<Sessions_Max_Order_By>;
-  min: InputMaybe<Sessions_Min_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Sessions_Max_Order_By>;
+  min?: InputMaybe<Sessions_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "sessions" */
 export type Sessions_Arr_Rel_Insert_Input = {
   data: Array<Sessions_Insert_Input>;
   /** upsert condition */
-  on_conflict: InputMaybe<Sessions_On_Conflict>;
+  on_conflict?: InputMaybe<Sessions_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "sessions". All fields are combined with a logical 'AND'. */
 export type Sessions_Bool_Exp = {
-  _and: InputMaybe<Array<Sessions_Bool_Exp>>;
-  _not: InputMaybe<Sessions_Bool_Exp>;
-  _or: InputMaybe<Array<Sessions_Bool_Exp>>;
-  expires: InputMaybe<Timestamptz_Comparison_Exp>;
-  id: InputMaybe<Uuid_Comparison_Exp>;
-  sessionToken: InputMaybe<String_Comparison_Exp>;
-  user: InputMaybe<Users_Bool_Exp>;
-  userId: InputMaybe<Uuid_Comparison_Exp>;
+  _and?: InputMaybe<Array<Sessions_Bool_Exp>>;
+  _not?: InputMaybe<Sessions_Bool_Exp>;
+  _or?: InputMaybe<Array<Sessions_Bool_Exp>>;
+  expires?: InputMaybe<Timestamptz_Comparison_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  sessionToken?: InputMaybe<String_Comparison_Exp>;
+  user?: InputMaybe<Users_Bool_Exp>;
+  userId?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "sessions" */
@@ -1938,11 +1938,11 @@ export enum Sessions_Constraint {
 
 /** input type for inserting data into table "sessions" */
 export type Sessions_Insert_Input = {
-  expires: InputMaybe<Scalars['timestamptz']['input']>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  sessionToken: InputMaybe<Scalars['String']['input']>;
-  user: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  userId: InputMaybe<Scalars['uuid']['input']>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  sessionToken?: InputMaybe<Scalars['String']['input']>;
+  user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
@@ -1956,10 +1956,10 @@ export type Sessions_Max_Fields = {
 
 /** order by max() on columns of table "sessions" */
 export type Sessions_Max_Order_By = {
-  expires: InputMaybe<Order_By>;
-  id: InputMaybe<Order_By>;
-  sessionToken: InputMaybe<Order_By>;
-  userId: InputMaybe<Order_By>;
+  expires?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  sessionToken?: InputMaybe<Order_By>;
+  userId?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -1973,10 +1973,10 @@ export type Sessions_Min_Fields = {
 
 /** order by min() on columns of table "sessions" */
 export type Sessions_Min_Order_By = {
-  expires: InputMaybe<Order_By>;
-  id: InputMaybe<Order_By>;
-  sessionToken: InputMaybe<Order_By>;
-  userId: InputMaybe<Order_By>;
+  expires?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  sessionToken?: InputMaybe<Order_By>;
+  userId?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "sessions" */
@@ -1991,17 +1991,17 @@ export type Sessions_Mutation_Response = {
 /** on_conflict condition type for table "sessions" */
 export type Sessions_On_Conflict = {
   constraint: Sessions_Constraint;
-  update_columns: Array<Sessions_Update_Column>;
-  where: InputMaybe<Sessions_Bool_Exp>;
+  update_columns?: Array<Sessions_Update_Column>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "sessions". */
 export type Sessions_Order_By = {
-  expires: InputMaybe<Order_By>;
-  id: InputMaybe<Order_By>;
-  sessionToken: InputMaybe<Order_By>;
-  user: InputMaybe<Users_Order_By>;
-  userId: InputMaybe<Order_By>;
+  expires?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  sessionToken?: InputMaybe<Order_By>;
+  user?: InputMaybe<Users_Order_By>;
+  userId?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: sessions */
@@ -2023,10 +2023,10 @@ export enum Sessions_Select_Column {
 
 /** input type for updating data in table "sessions" */
 export type Sessions_Set_Input = {
-  expires: InputMaybe<Scalars['timestamptz']['input']>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  sessionToken: InputMaybe<Scalars['String']['input']>;
-  userId: InputMaybe<Scalars['uuid']['input']>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  sessionToken?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** Streaming cursor of the table "sessions" */
@@ -2034,15 +2034,15 @@ export type Sessions_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Sessions_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Sessions_Stream_Cursor_Value_Input = {
-  expires: InputMaybe<Scalars['timestamptz']['input']>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  sessionToken: InputMaybe<Scalars['String']['input']>;
-  userId: InputMaybe<Scalars['uuid']['input']>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  sessionToken?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** update columns of table "sessions" */
@@ -2059,7 +2059,7 @@ export enum Sessions_Update_Column {
 
 export type Sessions_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<Sessions_Set_Input>;
+  _set?: InputMaybe<Sessions_Set_Input>;
   /** filter the rows which have to be updated */
   where: Sessions_Bool_Exp;
 };
@@ -2174,20 +2174,20 @@ export type Subscription_Root = {
 
 
 export type Subscription_RootFeaturesArgs = {
-  distinct_on: InputMaybe<Array<Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Features_Order_By>>;
-  where: InputMaybe<Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Features_Order_By>>;
+  where?: InputMaybe<Features_Bool_Exp>;
 };
 
 
 export type Subscription_RootFeatures_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Features_Order_By>>;
-  where: InputMaybe<Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Features_Order_By>>;
+  where?: InputMaybe<Features_Bool_Exp>;
 };
 
 
@@ -2199,25 +2199,25 @@ export type Subscription_RootFeatures_By_PkArgs = {
 export type Subscription_RootFeatures_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Features_Stream_Cursor_Input>>;
-  where: InputMaybe<Features_Bool_Exp>;
+  where?: InputMaybe<Features_Bool_Exp>;
 };
 
 
 export type Subscription_RootProvider_TypeArgs = {
-  distinct_on: InputMaybe<Array<Provider_Type_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Provider_Type_Order_By>>;
-  where: InputMaybe<Provider_Type_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Provider_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Provider_Type_Order_By>>;
+  where?: InputMaybe<Provider_Type_Bool_Exp>;
 };
 
 
 export type Subscription_RootProvider_Type_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Provider_Type_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Provider_Type_Order_By>>;
-  where: InputMaybe<Provider_Type_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Provider_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Provider_Type_Order_By>>;
+  where?: InputMaybe<Provider_Type_Bool_Exp>;
 };
 
 
@@ -2229,25 +2229,25 @@ export type Subscription_RootProvider_Type_By_PkArgs = {
 export type Subscription_RootProvider_Type_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Provider_Type_Stream_Cursor_Input>>;
-  where: InputMaybe<Provider_Type_Bool_Exp>;
+  where?: InputMaybe<Provider_Type_Bool_Exp>;
 };
 
 
 export type Subscription_RootSessionsArgs = {
-  distinct_on: InputMaybe<Array<Sessions_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Sessions_Order_By>>;
-  where: InputMaybe<Sessions_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Sessions_Order_By>>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 
 export type Subscription_RootSessions_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Sessions_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Sessions_Order_By>>;
-  where: InputMaybe<Sessions_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Sessions_Order_By>>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 
@@ -2259,25 +2259,25 @@ export type Subscription_RootSessions_By_PkArgs = {
 export type Subscription_RootSessions_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Sessions_Stream_Cursor_Input>>;
-  where: InputMaybe<Sessions_Bool_Exp>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 
 export type Subscription_RootTenantArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Order_By>>;
-  where: InputMaybe<Tenant_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Order_By>>;
+  where?: InputMaybe<Tenant_Bool_Exp>;
 };
 
 
 export type Subscription_RootTenant_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Order_By>>;
-  where: InputMaybe<Tenant_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Order_By>>;
+  where?: InputMaybe<Tenant_Bool_Exp>;
 };
 
 
@@ -2287,20 +2287,20 @@ export type Subscription_RootTenant_By_PkArgs = {
 
 
 export type Subscription_RootTenant_FeaturesArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Features_Order_By>>;
-  where: InputMaybe<Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Features_Order_By>>;
+  where?: InputMaybe<Tenant_Features_Bool_Exp>;
 };
 
 
 export type Subscription_RootTenant_Features_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Features_Order_By>>;
-  where: InputMaybe<Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Features_Order_By>>;
+  where?: InputMaybe<Tenant_Features_Bool_Exp>;
 };
 
 
@@ -2313,32 +2313,32 @@ export type Subscription_RootTenant_Features_By_PkArgs = {
 export type Subscription_RootTenant_Features_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Tenant_Features_Stream_Cursor_Input>>;
-  where: InputMaybe<Tenant_Features_Bool_Exp>;
+  where?: InputMaybe<Tenant_Features_Bool_Exp>;
 };
 
 
 export type Subscription_RootTenant_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Tenant_Stream_Cursor_Input>>;
-  where: InputMaybe<Tenant_Bool_Exp>;
+  where?: InputMaybe<Tenant_Bool_Exp>;
 };
 
 
 export type Subscription_RootTenant_UsersArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Users_Order_By>>;
-  where: InputMaybe<Tenant_Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Users_Order_By>>;
+  where?: InputMaybe<Tenant_Users_Bool_Exp>;
 };
 
 
 export type Subscription_RootTenant_Users_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Users_Order_By>>;
-  where: InputMaybe<Tenant_Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Users_Order_By>>;
+  where?: InputMaybe<Tenant_Users_Bool_Exp>;
 };
 
 
@@ -2351,25 +2351,25 @@ export type Subscription_RootTenant_Users_By_PkArgs = {
 export type Subscription_RootTenant_Users_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Tenant_Users_Stream_Cursor_Input>>;
-  where: InputMaybe<Tenant_Users_Bool_Exp>;
+  where?: InputMaybe<Tenant_Users_Bool_Exp>;
 };
 
 
 export type Subscription_RootUser_FeaturesArgs = {
-  distinct_on: InputMaybe<Array<User_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Features_Order_By>>;
-  where: InputMaybe<User_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
 export type Subscription_RootUser_Features_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Features_Order_By>>;
-  where: InputMaybe<User_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
@@ -2382,25 +2382,25 @@ export type Subscription_RootUser_Features_By_PkArgs = {
 export type Subscription_RootUser_Features_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<User_Features_Stream_Cursor_Input>>;
-  where: InputMaybe<User_Features_Bool_Exp>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
 export type Subscription_RootUser_Provider_AccountsArgs = {
-  distinct_on: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
-  where: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
+  where?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
 };
 
 
 export type Subscription_RootUser_Provider_Accounts_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
-  where: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
+  where?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
 };
 
 
@@ -2412,25 +2412,25 @@ export type Subscription_RootUser_Provider_Accounts_By_PkArgs = {
 export type Subscription_RootUser_Provider_Accounts_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<User_Provider_Accounts_Stream_Cursor_Input>>;
-  where: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  where?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
 };
 
 
 export type Subscription_RootUser_Tenant_FeaturesArgs = {
-  distinct_on: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Tenant_Features_Order_By>>;
-  where: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Tenant_Features_Order_By>>;
+  where?: InputMaybe<User_Tenant_Features_Bool_Exp>;
 };
 
 
 export type Subscription_RootUser_Tenant_Features_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Tenant_Features_Order_By>>;
-  where: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Tenant_Features_Order_By>>;
+  where?: InputMaybe<User_Tenant_Features_Bool_Exp>;
 };
 
 
@@ -2444,25 +2444,25 @@ export type Subscription_RootUser_Tenant_Features_By_PkArgs = {
 export type Subscription_RootUser_Tenant_Features_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<User_Tenant_Features_Stream_Cursor_Input>>;
-  where: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  where?: InputMaybe<User_Tenant_Features_Bool_Exp>;
 };
 
 
 export type Subscription_RootUsersArgs = {
-  distinct_on: InputMaybe<Array<Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Users_Order_By>>;
-  where: InputMaybe<Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Users_Order_By>>;
+  where?: InputMaybe<Users_Bool_Exp>;
 };
 
 
 export type Subscription_RootUsers_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Users_Order_By>>;
-  where: InputMaybe<Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Users_Order_By>>;
+  where?: InputMaybe<Users_Bool_Exp>;
 };
 
 
@@ -2474,25 +2474,25 @@ export type Subscription_RootUsers_By_PkArgs = {
 export type Subscription_RootUsers_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Users_Stream_Cursor_Input>>;
-  where: InputMaybe<Users_Bool_Exp>;
+  where?: InputMaybe<Users_Bool_Exp>;
 };
 
 
 export type Subscription_RootVerification_TokensArgs = {
-  distinct_on: InputMaybe<Array<Verification_Tokens_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Verification_Tokens_Order_By>>;
-  where: InputMaybe<Verification_Tokens_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Verification_Tokens_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Verification_Tokens_Order_By>>;
+  where?: InputMaybe<Verification_Tokens_Bool_Exp>;
 };
 
 
 export type Subscription_RootVerification_Tokens_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Verification_Tokens_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Verification_Tokens_Order_By>>;
-  where: InputMaybe<Verification_Tokens_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Verification_Tokens_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Verification_Tokens_Order_By>>;
+  where?: InputMaybe<Verification_Tokens_Bool_Exp>;
 };
 
 
@@ -2504,25 +2504,25 @@ export type Subscription_RootVerification_Tokens_By_PkArgs = {
 export type Subscription_RootVerification_Tokens_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Verification_Tokens_Stream_Cursor_Input>>;
-  where: InputMaybe<Verification_Tokens_Bool_Exp>;
+  where?: InputMaybe<Verification_Tokens_Bool_Exp>;
 };
 
 
 export type Subscription_RootWebauthn_ChallengesArgs = {
-  distinct_on: InputMaybe<Array<Webauthn_Challenges_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Webauthn_Challenges_Order_By>>;
-  where: InputMaybe<Webauthn_Challenges_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Webauthn_Challenges_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Webauthn_Challenges_Order_By>>;
+  where?: InputMaybe<Webauthn_Challenges_Bool_Exp>;
 };
 
 
 export type Subscription_RootWebauthn_Challenges_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Webauthn_Challenges_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Webauthn_Challenges_Order_By>>;
-  where: InputMaybe<Webauthn_Challenges_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Webauthn_Challenges_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Webauthn_Challenges_Order_By>>;
+  where?: InputMaybe<Webauthn_Challenges_Bool_Exp>;
 };
 
 
@@ -2534,25 +2534,25 @@ export type Subscription_RootWebauthn_Challenges_By_PkArgs = {
 export type Subscription_RootWebauthn_Challenges_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Webauthn_Challenges_Stream_Cursor_Input>>;
-  where: InputMaybe<Webauthn_Challenges_Bool_Exp>;
+  where?: InputMaybe<Webauthn_Challenges_Bool_Exp>;
 };
 
 
 export type Subscription_RootWebauthn_CredentialsArgs = {
-  distinct_on: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
-  where: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
+  where?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
 };
 
 
 export type Subscription_RootWebauthn_Credentials_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
-  where: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
+  where?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
 };
 
 
@@ -2564,7 +2564,7 @@ export type Subscription_RootWebauthn_Credentials_By_PkArgs = {
 export type Subscription_RootWebauthn_Credentials_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Webauthn_Credentials_Stream_Cursor_Input>>;
-  where: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+  where?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
 };
 
 /** columns and relationships of "tenant" */
@@ -2586,41 +2586,41 @@ export type Tenant = {
 
 /** columns and relationships of "tenant" */
 export type TenantFeaturesArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Features_Order_By>>;
-  where: InputMaybe<Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Features_Order_By>>;
+  where?: InputMaybe<Tenant_Features_Bool_Exp>;
 };
 
 
 /** columns and relationships of "tenant" */
 export type TenantFeatures_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Features_Order_By>>;
-  where: InputMaybe<Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Features_Order_By>>;
+  where?: InputMaybe<Tenant_Features_Bool_Exp>;
 };
 
 
 /** columns and relationships of "tenant" */
 export type TenantUsersArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Users_Order_By>>;
-  where: InputMaybe<Tenant_Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Users_Order_By>>;
+  where?: InputMaybe<Tenant_Users_Bool_Exp>;
 };
 
 
 /** columns and relationships of "tenant" */
 export type TenantUsers_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Users_Order_By>>;
-  where: InputMaybe<Tenant_Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Users_Order_By>>;
+  where?: InputMaybe<Tenant_Users_Bool_Exp>;
 };
 
 /** aggregated selection of "tenant" */
@@ -2641,22 +2641,22 @@ export type Tenant_Aggregate_Fields = {
 
 /** aggregate fields of "tenant" */
 export type Tenant_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<Tenant_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<Tenant_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Boolean expression to filter rows from the table "tenant". All fields are combined with a logical 'AND'. */
 export type Tenant_Bool_Exp = {
-  _and: InputMaybe<Array<Tenant_Bool_Exp>>;
-  _not: InputMaybe<Tenant_Bool_Exp>;
-  _or: InputMaybe<Array<Tenant_Bool_Exp>>;
-  features: InputMaybe<Tenant_Features_Bool_Exp>;
-  features_aggregate: InputMaybe<Tenant_Features_Aggregate_Bool_Exp>;
-  id: InputMaybe<Uuid_Comparison_Exp>;
-  name: InputMaybe<String_Comparison_Exp>;
-  stripe_customer_id: InputMaybe<String_Comparison_Exp>;
-  users: InputMaybe<Tenant_Users_Bool_Exp>;
-  users_aggregate: InputMaybe<Tenant_Users_Aggregate_Bool_Exp>;
+  _and?: InputMaybe<Array<Tenant_Bool_Exp>>;
+  _not?: InputMaybe<Tenant_Bool_Exp>;
+  _or?: InputMaybe<Array<Tenant_Bool_Exp>>;
+  features?: InputMaybe<Tenant_Features_Bool_Exp>;
+  features_aggregate?: InputMaybe<Tenant_Features_Aggregate_Bool_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  name?: InputMaybe<String_Comparison_Exp>;
+  stripe_customer_id?: InputMaybe<String_Comparison_Exp>;
+  users?: InputMaybe<Tenant_Users_Bool_Exp>;
+  users_aggregate?: InputMaybe<Tenant_Users_Aggregate_Bool_Exp>;
 };
 
 /** unique or primary key constraints on table "tenant" */
@@ -2682,13 +2682,13 @@ export type Tenant_Features_Aggregate = {
 };
 
 export type Tenant_Features_Aggregate_Bool_Exp = {
-  count: InputMaybe<Tenant_Features_Aggregate_Bool_Exp_Count>;
+  count?: InputMaybe<Tenant_Features_Aggregate_Bool_Exp_Count>;
 };
 
 export type Tenant_Features_Aggregate_Bool_Exp_Count = {
-  arguments: InputMaybe<Array<Tenant_Features_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
-  filter: InputMaybe<Tenant_Features_Bool_Exp>;
+  arguments?: InputMaybe<Array<Tenant_Features_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+  filter?: InputMaybe<Tenant_Features_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
@@ -2703,32 +2703,32 @@ export type Tenant_Features_Aggregate_Fields = {
 
 /** aggregate fields of "tenant_features" */
 export type Tenant_Features_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<Tenant_Features_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<Tenant_Features_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "tenant_features" */
 export type Tenant_Features_Aggregate_Order_By = {
-  count: InputMaybe<Order_By>;
-  max: InputMaybe<Tenant_Features_Max_Order_By>;
-  min: InputMaybe<Tenant_Features_Min_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Tenant_Features_Max_Order_By>;
+  min?: InputMaybe<Tenant_Features_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "tenant_features" */
 export type Tenant_Features_Arr_Rel_Insert_Input = {
   data: Array<Tenant_Features_Insert_Input>;
   /** upsert condition */
-  on_conflict: InputMaybe<Tenant_Features_On_Conflict>;
+  on_conflict?: InputMaybe<Tenant_Features_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "tenant_features". All fields are combined with a logical 'AND'. */
 export type Tenant_Features_Bool_Exp = {
-  _and: InputMaybe<Array<Tenant_Features_Bool_Exp>>;
-  _not: InputMaybe<Tenant_Features_Bool_Exp>;
-  _or: InputMaybe<Array<Tenant_Features_Bool_Exp>>;
-  feature: InputMaybe<Features_Bool_Exp>;
-  feature_id: InputMaybe<Uuid_Comparison_Exp>;
-  tenant_id: InputMaybe<Uuid_Comparison_Exp>;
+  _and?: InputMaybe<Array<Tenant_Features_Bool_Exp>>;
+  _not?: InputMaybe<Tenant_Features_Bool_Exp>;
+  _or?: InputMaybe<Array<Tenant_Features_Bool_Exp>>;
+  feature?: InputMaybe<Features_Bool_Exp>;
+  feature_id?: InputMaybe<Uuid_Comparison_Exp>;
+  tenant_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "tenant_features" */
@@ -2739,9 +2739,9 @@ export enum Tenant_Features_Constraint {
 
 /** input type for inserting data into table "tenant_features" */
 export type Tenant_Features_Insert_Input = {
-  feature: InputMaybe<Features_Obj_Rel_Insert_Input>;
-  feature_id: InputMaybe<Scalars['uuid']['input']>;
-  tenant_id: InputMaybe<Scalars['uuid']['input']>;
+  feature?: InputMaybe<Features_Obj_Rel_Insert_Input>;
+  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  tenant_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
@@ -2753,8 +2753,8 @@ export type Tenant_Features_Max_Fields = {
 
 /** order by max() on columns of table "tenant_features" */
 export type Tenant_Features_Max_Order_By = {
-  feature_id: InputMaybe<Order_By>;
-  tenant_id: InputMaybe<Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  tenant_id?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -2766,8 +2766,8 @@ export type Tenant_Features_Min_Fields = {
 
 /** order by min() on columns of table "tenant_features" */
 export type Tenant_Features_Min_Order_By = {
-  feature_id: InputMaybe<Order_By>;
-  tenant_id: InputMaybe<Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  tenant_id?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "tenant_features" */
@@ -2782,15 +2782,15 @@ export type Tenant_Features_Mutation_Response = {
 /** on_conflict condition type for table "tenant_features" */
 export type Tenant_Features_On_Conflict = {
   constraint: Tenant_Features_Constraint;
-  update_columns: Array<Tenant_Features_Update_Column>;
-  where: InputMaybe<Tenant_Features_Bool_Exp>;
+  update_columns?: Array<Tenant_Features_Update_Column>;
+  where?: InputMaybe<Tenant_Features_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "tenant_features". */
 export type Tenant_Features_Order_By = {
-  feature: InputMaybe<Features_Order_By>;
-  feature_id: InputMaybe<Order_By>;
-  tenant_id: InputMaybe<Order_By>;
+  feature?: InputMaybe<Features_Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  tenant_id?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: tenant_features */
@@ -2809,8 +2809,8 @@ export enum Tenant_Features_Select_Column {
 
 /** input type for updating data in table "tenant_features" */
 export type Tenant_Features_Set_Input = {
-  feature_id: InputMaybe<Scalars['uuid']['input']>;
-  tenant_id: InputMaybe<Scalars['uuid']['input']>;
+  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  tenant_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** Streaming cursor of the table "tenant_features" */
@@ -2818,13 +2818,13 @@ export type Tenant_Features_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Tenant_Features_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Tenant_Features_Stream_Cursor_Value_Input = {
-  feature_id: InputMaybe<Scalars['uuid']['input']>;
-  tenant_id: InputMaybe<Scalars['uuid']['input']>;
+  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  tenant_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** update columns of table "tenant_features" */
@@ -2837,18 +2837,18 @@ export enum Tenant_Features_Update_Column {
 
 export type Tenant_Features_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<Tenant_Features_Set_Input>;
+  _set?: InputMaybe<Tenant_Features_Set_Input>;
   /** filter the rows which have to be updated */
   where: Tenant_Features_Bool_Exp;
 };
 
 /** input type for inserting data into table "tenant" */
 export type Tenant_Insert_Input = {
-  features: InputMaybe<Tenant_Features_Arr_Rel_Insert_Input>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  name: InputMaybe<Scalars['String']['input']>;
-  stripe_customer_id: InputMaybe<Scalars['String']['input']>;
-  users: InputMaybe<Tenant_Users_Arr_Rel_Insert_Input>;
+  features?: InputMaybe<Tenant_Features_Arr_Rel_Insert_Input>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  stripe_customer_id?: InputMaybe<Scalars['String']['input']>;
+  users?: InputMaybe<Tenant_Users_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
@@ -2880,23 +2880,23 @@ export type Tenant_Mutation_Response = {
 export type Tenant_Obj_Rel_Insert_Input = {
   data: Tenant_Insert_Input;
   /** upsert condition */
-  on_conflict: InputMaybe<Tenant_On_Conflict>;
+  on_conflict?: InputMaybe<Tenant_On_Conflict>;
 };
 
 /** on_conflict condition type for table "tenant" */
 export type Tenant_On_Conflict = {
   constraint: Tenant_Constraint;
-  update_columns: Array<Tenant_Update_Column>;
-  where: InputMaybe<Tenant_Bool_Exp>;
+  update_columns?: Array<Tenant_Update_Column>;
+  where?: InputMaybe<Tenant_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "tenant". */
 export type Tenant_Order_By = {
-  features_aggregate: InputMaybe<Tenant_Features_Aggregate_Order_By>;
-  id: InputMaybe<Order_By>;
-  name: InputMaybe<Order_By>;
-  stripe_customer_id: InputMaybe<Order_By>;
-  users_aggregate: InputMaybe<Tenant_Users_Aggregate_Order_By>;
+  features_aggregate?: InputMaybe<Tenant_Features_Aggregate_Order_By>;
+  id?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+  stripe_customer_id?: InputMaybe<Order_By>;
+  users_aggregate?: InputMaybe<Tenant_Users_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: tenant */
@@ -2916,9 +2916,9 @@ export enum Tenant_Select_Column {
 
 /** input type for updating data in table "tenant" */
 export type Tenant_Set_Input = {
-  id: InputMaybe<Scalars['uuid']['input']>;
-  name: InputMaybe<Scalars['String']['input']>;
-  stripe_customer_id: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  stripe_customer_id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Streaming cursor of the table "tenant" */
@@ -2926,14 +2926,14 @@ export type Tenant_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Tenant_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Tenant_Stream_Cursor_Value_Input = {
-  id: InputMaybe<Scalars['uuid']['input']>;
-  name: InputMaybe<Scalars['String']['input']>;
-  stripe_customer_id: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  stripe_customer_id?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** update columns of table "tenant" */
@@ -2948,7 +2948,7 @@ export enum Tenant_Update_Column {
 
 export type Tenant_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<Tenant_Set_Input>;
+  _set?: InputMaybe<Tenant_Set_Input>;
   /** filter the rows which have to be updated */
   where: Tenant_Bool_Exp;
 };
@@ -2972,21 +2972,21 @@ export type Tenant_Users = {
 
 /** columns and relationships of "tenant_users" */
 export type Tenant_UsersUser_Tenant_FeaturesArgs = {
-  distinct_on: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Tenant_Features_Order_By>>;
-  where: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Tenant_Features_Order_By>>;
+  where?: InputMaybe<User_Tenant_Features_Bool_Exp>;
 };
 
 
 /** columns and relationships of "tenant_users" */
 export type Tenant_UsersUser_Tenant_Features_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Tenant_Features_Order_By>>;
-  where: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Tenant_Features_Order_By>>;
+  where?: InputMaybe<User_Tenant_Features_Bool_Exp>;
 };
 
 /** aggregated selection of "tenant_users" */
@@ -2997,29 +2997,29 @@ export type Tenant_Users_Aggregate = {
 };
 
 export type Tenant_Users_Aggregate_Bool_Exp = {
-  bool_and: InputMaybe<Tenant_Users_Aggregate_Bool_Exp_Bool_And>;
-  bool_or: InputMaybe<Tenant_Users_Aggregate_Bool_Exp_Bool_Or>;
-  count: InputMaybe<Tenant_Users_Aggregate_Bool_Exp_Count>;
+  bool_and?: InputMaybe<Tenant_Users_Aggregate_Bool_Exp_Bool_And>;
+  bool_or?: InputMaybe<Tenant_Users_Aggregate_Bool_Exp_Bool_Or>;
+  count?: InputMaybe<Tenant_Users_Aggregate_Bool_Exp_Count>;
 };
 
 export type Tenant_Users_Aggregate_Bool_Exp_Bool_And = {
   arguments: Tenant_Users_Select_Column_Tenant_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
-  filter: InputMaybe<Tenant_Users_Bool_Exp>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+  filter?: InputMaybe<Tenant_Users_Bool_Exp>;
   predicate: Boolean_Comparison_Exp;
 };
 
 export type Tenant_Users_Aggregate_Bool_Exp_Bool_Or = {
   arguments: Tenant_Users_Select_Column_Tenant_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
-  filter: InputMaybe<Tenant_Users_Bool_Exp>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+  filter?: InputMaybe<Tenant_Users_Bool_Exp>;
   predicate: Boolean_Comparison_Exp;
 };
 
 export type Tenant_Users_Aggregate_Bool_Exp_Count = {
-  arguments: InputMaybe<Array<Tenant_Users_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
-  filter: InputMaybe<Tenant_Users_Bool_Exp>;
+  arguments?: InputMaybe<Array<Tenant_Users_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+  filter?: InputMaybe<Tenant_Users_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
@@ -3034,36 +3034,36 @@ export type Tenant_Users_Aggregate_Fields = {
 
 /** aggregate fields of "tenant_users" */
 export type Tenant_Users_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<Tenant_Users_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<Tenant_Users_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "tenant_users" */
 export type Tenant_Users_Aggregate_Order_By = {
-  count: InputMaybe<Order_By>;
-  max: InputMaybe<Tenant_Users_Max_Order_By>;
-  min: InputMaybe<Tenant_Users_Min_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Tenant_Users_Max_Order_By>;
+  min?: InputMaybe<Tenant_Users_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "tenant_users" */
 export type Tenant_Users_Arr_Rel_Insert_Input = {
   data: Array<Tenant_Users_Insert_Input>;
   /** upsert condition */
-  on_conflict: InputMaybe<Tenant_Users_On_Conflict>;
+  on_conflict?: InputMaybe<Tenant_Users_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "tenant_users". All fields are combined with a logical 'AND'. */
 export type Tenant_Users_Bool_Exp = {
-  _and: InputMaybe<Array<Tenant_Users_Bool_Exp>>;
-  _not: InputMaybe<Tenant_Users_Bool_Exp>;
-  _or: InputMaybe<Array<Tenant_Users_Bool_Exp>>;
-  default: InputMaybe<Boolean_Comparison_Exp>;
-  tenant: InputMaybe<Tenant_Bool_Exp>;
-  tenant_id: InputMaybe<Uuid_Comparison_Exp>;
-  user: InputMaybe<Users_Bool_Exp>;
-  user_id: InputMaybe<Uuid_Comparison_Exp>;
-  user_tenant_features: InputMaybe<User_Tenant_Features_Bool_Exp>;
-  user_tenant_features_aggregate: InputMaybe<User_Tenant_Features_Aggregate_Bool_Exp>;
+  _and?: InputMaybe<Array<Tenant_Users_Bool_Exp>>;
+  _not?: InputMaybe<Tenant_Users_Bool_Exp>;
+  _or?: InputMaybe<Array<Tenant_Users_Bool_Exp>>;
+  default?: InputMaybe<Boolean_Comparison_Exp>;
+  tenant?: InputMaybe<Tenant_Bool_Exp>;
+  tenant_id?: InputMaybe<Uuid_Comparison_Exp>;
+  user?: InputMaybe<Users_Bool_Exp>;
+  user_id?: InputMaybe<Uuid_Comparison_Exp>;
+  user_tenant_features?: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  user_tenant_features_aggregate?: InputMaybe<User_Tenant_Features_Aggregate_Bool_Exp>;
 };
 
 /** unique or primary key constraints on table "tenant_users" */
@@ -3074,12 +3074,12 @@ export enum Tenant_Users_Constraint {
 
 /** input type for inserting data into table "tenant_users" */
 export type Tenant_Users_Insert_Input = {
-  default: InputMaybe<Scalars['Boolean']['input']>;
-  tenant: InputMaybe<Tenant_Obj_Rel_Insert_Input>;
-  tenant_id: InputMaybe<Scalars['uuid']['input']>;
-  user: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
-  user_tenant_features: InputMaybe<User_Tenant_Features_Arr_Rel_Insert_Input>;
+  default?: InputMaybe<Scalars['Boolean']['input']>;
+  tenant?: InputMaybe<Tenant_Obj_Rel_Insert_Input>;
+  tenant_id?: InputMaybe<Scalars['uuid']['input']>;
+  user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
+  user_tenant_features?: InputMaybe<User_Tenant_Features_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
@@ -3091,8 +3091,8 @@ export type Tenant_Users_Max_Fields = {
 
 /** order by max() on columns of table "tenant_users" */
 export type Tenant_Users_Max_Order_By = {
-  tenant_id: InputMaybe<Order_By>;
-  user_id: InputMaybe<Order_By>;
+  tenant_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -3104,8 +3104,8 @@ export type Tenant_Users_Min_Fields = {
 
 /** order by min() on columns of table "tenant_users" */
 export type Tenant_Users_Min_Order_By = {
-  tenant_id: InputMaybe<Order_By>;
-  user_id: InputMaybe<Order_By>;
+  tenant_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "tenant_users" */
@@ -3120,18 +3120,18 @@ export type Tenant_Users_Mutation_Response = {
 /** on_conflict condition type for table "tenant_users" */
 export type Tenant_Users_On_Conflict = {
   constraint: Tenant_Users_Constraint;
-  update_columns: Array<Tenant_Users_Update_Column>;
-  where: InputMaybe<Tenant_Users_Bool_Exp>;
+  update_columns?: Array<Tenant_Users_Update_Column>;
+  where?: InputMaybe<Tenant_Users_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "tenant_users". */
 export type Tenant_Users_Order_By = {
-  default: InputMaybe<Order_By>;
-  tenant: InputMaybe<Tenant_Order_By>;
-  tenant_id: InputMaybe<Order_By>;
-  user: InputMaybe<Users_Order_By>;
-  user_id: InputMaybe<Order_By>;
-  user_tenant_features_aggregate: InputMaybe<User_Tenant_Features_Aggregate_Order_By>;
+  default?: InputMaybe<Order_By>;
+  tenant?: InputMaybe<Tenant_Order_By>;
+  tenant_id?: InputMaybe<Order_By>;
+  user?: InputMaybe<Users_Order_By>;
+  user_id?: InputMaybe<Order_By>;
+  user_tenant_features_aggregate?: InputMaybe<User_Tenant_Features_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: tenant_users */
@@ -3164,9 +3164,9 @@ export enum Tenant_Users_Select_Column_Tenant_Users_Aggregate_Bool_Exp_Bool_Or_A
 
 /** input type for updating data in table "tenant_users" */
 export type Tenant_Users_Set_Input = {
-  default: InputMaybe<Scalars['Boolean']['input']>;
-  tenant_id: InputMaybe<Scalars['uuid']['input']>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  default?: InputMaybe<Scalars['Boolean']['input']>;
+  tenant_id?: InputMaybe<Scalars['uuid']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** Streaming cursor of the table "tenant_users" */
@@ -3174,14 +3174,14 @@ export type Tenant_Users_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Tenant_Users_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Tenant_Users_Stream_Cursor_Value_Input = {
-  default: InputMaybe<Scalars['Boolean']['input']>;
-  tenant_id: InputMaybe<Scalars['uuid']['input']>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  default?: InputMaybe<Scalars['Boolean']['input']>;
+  tenant_id?: InputMaybe<Scalars['uuid']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** update columns of table "tenant_users" */
@@ -3196,22 +3196,22 @@ export enum Tenant_Users_Update_Column {
 
 export type Tenant_Users_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<Tenant_Users_Set_Input>;
+  _set?: InputMaybe<Tenant_Users_Set_Input>;
   /** filter the rows which have to be updated */
   where: Tenant_Users_Bool_Exp;
 };
 
 /** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
 export type Timestamptz_Comparison_Exp = {
-  _eq: InputMaybe<Scalars['timestamptz']['input']>;
-  _gt: InputMaybe<Scalars['timestamptz']['input']>;
-  _gte: InputMaybe<Scalars['timestamptz']['input']>;
-  _in: InputMaybe<Array<Scalars['timestamptz']['input']>>;
-  _is_null: InputMaybe<Scalars['Boolean']['input']>;
-  _lt: InputMaybe<Scalars['timestamptz']['input']>;
-  _lte: InputMaybe<Scalars['timestamptz']['input']>;
-  _neq: InputMaybe<Scalars['timestamptz']['input']>;
-  _nin: InputMaybe<Array<Scalars['timestamptz']['input']>>;
+  _eq?: InputMaybe<Scalars['timestamptz']['input']>;
+  _gt?: InputMaybe<Scalars['timestamptz']['input']>;
+  _gte?: InputMaybe<Scalars['timestamptz']['input']>;
+  _in?: InputMaybe<Array<Scalars['timestamptz']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['timestamptz']['input']>;
+  _lte?: InputMaybe<Scalars['timestamptz']['input']>;
+  _neq?: InputMaybe<Scalars['timestamptz']['input']>;
+  _nin?: InputMaybe<Array<Scalars['timestamptz']['input']>>;
 };
 
 /** columns and relationships of "user_features" */
@@ -3231,13 +3231,13 @@ export type User_Features_Aggregate = {
 };
 
 export type User_Features_Aggregate_Bool_Exp = {
-  count: InputMaybe<User_Features_Aggregate_Bool_Exp_Count>;
+  count?: InputMaybe<User_Features_Aggregate_Bool_Exp_Count>;
 };
 
 export type User_Features_Aggregate_Bool_Exp_Count = {
-  arguments: InputMaybe<Array<User_Features_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
-  filter: InputMaybe<User_Features_Bool_Exp>;
+  arguments?: InputMaybe<Array<User_Features_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+  filter?: InputMaybe<User_Features_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
@@ -3252,32 +3252,32 @@ export type User_Features_Aggregate_Fields = {
 
 /** aggregate fields of "user_features" */
 export type User_Features_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<User_Features_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<User_Features_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "user_features" */
 export type User_Features_Aggregate_Order_By = {
-  count: InputMaybe<Order_By>;
-  max: InputMaybe<User_Features_Max_Order_By>;
-  min: InputMaybe<User_Features_Min_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<User_Features_Max_Order_By>;
+  min?: InputMaybe<User_Features_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "user_features" */
 export type User_Features_Arr_Rel_Insert_Input = {
   data: Array<User_Features_Insert_Input>;
   /** upsert condition */
-  on_conflict: InputMaybe<User_Features_On_Conflict>;
+  on_conflict?: InputMaybe<User_Features_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "user_features". All fields are combined with a logical 'AND'. */
 export type User_Features_Bool_Exp = {
-  _and: InputMaybe<Array<User_Features_Bool_Exp>>;
-  _not: InputMaybe<User_Features_Bool_Exp>;
-  _or: InputMaybe<Array<User_Features_Bool_Exp>>;
-  feature: InputMaybe<Features_Bool_Exp>;
-  feature_id: InputMaybe<Uuid_Comparison_Exp>;
-  user_id: InputMaybe<Uuid_Comparison_Exp>;
+  _and?: InputMaybe<Array<User_Features_Bool_Exp>>;
+  _not?: InputMaybe<User_Features_Bool_Exp>;
+  _or?: InputMaybe<Array<User_Features_Bool_Exp>>;
+  feature?: InputMaybe<Features_Bool_Exp>;
+  feature_id?: InputMaybe<Uuid_Comparison_Exp>;
+  user_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "user_features" */
@@ -3288,9 +3288,9 @@ export enum User_Features_Constraint {
 
 /** input type for inserting data into table "user_features" */
 export type User_Features_Insert_Input = {
-  feature: InputMaybe<Features_Obj_Rel_Insert_Input>;
-  feature_id: InputMaybe<Scalars['uuid']['input']>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  feature?: InputMaybe<Features_Obj_Rel_Insert_Input>;
+  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
@@ -3302,8 +3302,8 @@ export type User_Features_Max_Fields = {
 
 /** order by max() on columns of table "user_features" */
 export type User_Features_Max_Order_By = {
-  feature_id: InputMaybe<Order_By>;
-  user_id: InputMaybe<Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -3315,8 +3315,8 @@ export type User_Features_Min_Fields = {
 
 /** order by min() on columns of table "user_features" */
 export type User_Features_Min_Order_By = {
-  feature_id: InputMaybe<Order_By>;
-  user_id: InputMaybe<Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "user_features" */
@@ -3331,15 +3331,15 @@ export type User_Features_Mutation_Response = {
 /** on_conflict condition type for table "user_features" */
 export type User_Features_On_Conflict = {
   constraint: User_Features_Constraint;
-  update_columns: Array<User_Features_Update_Column>;
-  where: InputMaybe<User_Features_Bool_Exp>;
+  update_columns?: Array<User_Features_Update_Column>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "user_features". */
 export type User_Features_Order_By = {
-  feature: InputMaybe<Features_Order_By>;
-  feature_id: InputMaybe<Order_By>;
-  user_id: InputMaybe<Order_By>;
+  feature?: InputMaybe<Features_Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: user_features */
@@ -3358,8 +3358,8 @@ export enum User_Features_Select_Column {
 
 /** input type for updating data in table "user_features" */
 export type User_Features_Set_Input = {
-  feature_id: InputMaybe<Scalars['uuid']['input']>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** Streaming cursor of the table "user_features" */
@@ -3367,13 +3367,13 @@ export type User_Features_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: User_Features_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type User_Features_Stream_Cursor_Value_Input = {
-  feature_id: InputMaybe<Scalars['uuid']['input']>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** update columns of table "user_features" */
@@ -3386,7 +3386,7 @@ export enum User_Features_Update_Column {
 
 export type User_Features_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<User_Features_Set_Input>;
+  _set?: InputMaybe<User_Features_Set_Input>;
   /** filter the rows which have to be updated */
   where: User_Features_Bool_Exp;
 };
@@ -3420,13 +3420,13 @@ export type User_Provider_Accounts_Aggregate = {
 };
 
 export type User_Provider_Accounts_Aggregate_Bool_Exp = {
-  count: InputMaybe<User_Provider_Accounts_Aggregate_Bool_Exp_Count>;
+  count?: InputMaybe<User_Provider_Accounts_Aggregate_Bool_Exp_Count>;
 };
 
 export type User_Provider_Accounts_Aggregate_Bool_Exp_Count = {
-  arguments: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
-  filter: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  arguments?: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+  filter?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
@@ -3449,30 +3449,30 @@ export type User_Provider_Accounts_Aggregate_Fields = {
 
 /** aggregate fields of "user_provider_accounts" */
 export type User_Provider_Accounts_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "user_provider_accounts" */
 export type User_Provider_Accounts_Aggregate_Order_By = {
-  avg: InputMaybe<User_Provider_Accounts_Avg_Order_By>;
-  count: InputMaybe<Order_By>;
-  max: InputMaybe<User_Provider_Accounts_Max_Order_By>;
-  min: InputMaybe<User_Provider_Accounts_Min_Order_By>;
-  stddev: InputMaybe<User_Provider_Accounts_Stddev_Order_By>;
-  stddev_pop: InputMaybe<User_Provider_Accounts_Stddev_Pop_Order_By>;
-  stddev_samp: InputMaybe<User_Provider_Accounts_Stddev_Samp_Order_By>;
-  sum: InputMaybe<User_Provider_Accounts_Sum_Order_By>;
-  var_pop: InputMaybe<User_Provider_Accounts_Var_Pop_Order_By>;
-  var_samp: InputMaybe<User_Provider_Accounts_Var_Samp_Order_By>;
-  variance: InputMaybe<User_Provider_Accounts_Variance_Order_By>;
+  avg?: InputMaybe<User_Provider_Accounts_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<User_Provider_Accounts_Max_Order_By>;
+  min?: InputMaybe<User_Provider_Accounts_Min_Order_By>;
+  stddev?: InputMaybe<User_Provider_Accounts_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<User_Provider_Accounts_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<User_Provider_Accounts_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<User_Provider_Accounts_Sum_Order_By>;
+  var_pop?: InputMaybe<User_Provider_Accounts_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<User_Provider_Accounts_Var_Samp_Order_By>;
+  variance?: InputMaybe<User_Provider_Accounts_Variance_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "user_provider_accounts" */
 export type User_Provider_Accounts_Arr_Rel_Insert_Input = {
   data: Array<User_Provider_Accounts_Insert_Input>;
   /** upsert condition */
-  on_conflict: InputMaybe<User_Provider_Accounts_On_Conflict>;
+  on_conflict?: InputMaybe<User_Provider_Accounts_On_Conflict>;
 };
 
 /** aggregate avg on columns */
@@ -3483,28 +3483,28 @@ export type User_Provider_Accounts_Avg_Fields = {
 
 /** order by avg() on columns of table "user_provider_accounts" */
 export type User_Provider_Accounts_Avg_Order_By = {
-  expires_at: InputMaybe<Order_By>;
+  expires_at?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "user_provider_accounts". All fields are combined with a logical 'AND'. */
 export type User_Provider_Accounts_Bool_Exp = {
-  _and: InputMaybe<Array<User_Provider_Accounts_Bool_Exp>>;
-  _not: InputMaybe<User_Provider_Accounts_Bool_Exp>;
-  _or: InputMaybe<Array<User_Provider_Accounts_Bool_Exp>>;
-  access_token: InputMaybe<String_Comparison_Exp>;
-  expires_at: InputMaybe<Int_Comparison_Exp>;
-  id: InputMaybe<Uuid_Comparison_Exp>;
-  id_token: InputMaybe<String_Comparison_Exp>;
-  provider: InputMaybe<String_Comparison_Exp>;
-  providerAccountId: InputMaybe<String_Comparison_Exp>;
-  provider_type: InputMaybe<Provider_Type_Bool_Exp>;
-  refresh_token: InputMaybe<String_Comparison_Exp>;
-  scope: InputMaybe<String_Comparison_Exp>;
-  session_state: InputMaybe<String_Comparison_Exp>;
-  token_type: InputMaybe<String_Comparison_Exp>;
-  type: InputMaybe<String_Comparison_Exp>;
-  user: InputMaybe<Users_Bool_Exp>;
-  userId: InputMaybe<Uuid_Comparison_Exp>;
+  _and?: InputMaybe<Array<User_Provider_Accounts_Bool_Exp>>;
+  _not?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  _or?: InputMaybe<Array<User_Provider_Accounts_Bool_Exp>>;
+  access_token?: InputMaybe<String_Comparison_Exp>;
+  expires_at?: InputMaybe<Int_Comparison_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  id_token?: InputMaybe<String_Comparison_Exp>;
+  provider?: InputMaybe<String_Comparison_Exp>;
+  providerAccountId?: InputMaybe<String_Comparison_Exp>;
+  provider_type?: InputMaybe<Provider_Type_Bool_Exp>;
+  refresh_token?: InputMaybe<String_Comparison_Exp>;
+  scope?: InputMaybe<String_Comparison_Exp>;
+  session_state?: InputMaybe<String_Comparison_Exp>;
+  token_type?: InputMaybe<String_Comparison_Exp>;
+  type?: InputMaybe<String_Comparison_Exp>;
+  user?: InputMaybe<Users_Bool_Exp>;
+  userId?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "user_provider_accounts" */
@@ -3515,25 +3515,25 @@ export enum User_Provider_Accounts_Constraint {
 
 /** input type for incrementing numeric columns in table "user_provider_accounts" */
 export type User_Provider_Accounts_Inc_Input = {
-  expires_at: InputMaybe<Scalars['Int']['input']>;
+  expires_at?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "user_provider_accounts" */
 export type User_Provider_Accounts_Insert_Input = {
-  access_token: InputMaybe<Scalars['String']['input']>;
-  expires_at: InputMaybe<Scalars['Int']['input']>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  id_token: InputMaybe<Scalars['String']['input']>;
-  provider: InputMaybe<Scalars['String']['input']>;
-  providerAccountId: InputMaybe<Scalars['String']['input']>;
-  provider_type: InputMaybe<Provider_Type_Obj_Rel_Insert_Input>;
-  refresh_token: InputMaybe<Scalars['String']['input']>;
-  scope: InputMaybe<Scalars['String']['input']>;
-  session_state: InputMaybe<Scalars['String']['input']>;
-  token_type: InputMaybe<Scalars['String']['input']>;
-  type: InputMaybe<Scalars['String']['input']>;
-  user: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  userId: InputMaybe<Scalars['uuid']['input']>;
+  access_token?: InputMaybe<Scalars['String']['input']>;
+  expires_at?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  id_token?: InputMaybe<Scalars['String']['input']>;
+  provider?: InputMaybe<Scalars['String']['input']>;
+  providerAccountId?: InputMaybe<Scalars['String']['input']>;
+  provider_type?: InputMaybe<Provider_Type_Obj_Rel_Insert_Input>;
+  refresh_token?: InputMaybe<Scalars['String']['input']>;
+  scope?: InputMaybe<Scalars['String']['input']>;
+  session_state?: InputMaybe<Scalars['String']['input']>;
+  token_type?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
@@ -3555,18 +3555,18 @@ export type User_Provider_Accounts_Max_Fields = {
 
 /** order by max() on columns of table "user_provider_accounts" */
 export type User_Provider_Accounts_Max_Order_By = {
-  access_token: InputMaybe<Order_By>;
-  expires_at: InputMaybe<Order_By>;
-  id: InputMaybe<Order_By>;
-  id_token: InputMaybe<Order_By>;
-  provider: InputMaybe<Order_By>;
-  providerAccountId: InputMaybe<Order_By>;
-  refresh_token: InputMaybe<Order_By>;
-  scope: InputMaybe<Order_By>;
-  session_state: InputMaybe<Order_By>;
-  token_type: InputMaybe<Order_By>;
-  type: InputMaybe<Order_By>;
-  userId: InputMaybe<Order_By>;
+  access_token?: InputMaybe<Order_By>;
+  expires_at?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  id_token?: InputMaybe<Order_By>;
+  provider?: InputMaybe<Order_By>;
+  providerAccountId?: InputMaybe<Order_By>;
+  refresh_token?: InputMaybe<Order_By>;
+  scope?: InputMaybe<Order_By>;
+  session_state?: InputMaybe<Order_By>;
+  token_type?: InputMaybe<Order_By>;
+  type?: InputMaybe<Order_By>;
+  userId?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -3588,18 +3588,18 @@ export type User_Provider_Accounts_Min_Fields = {
 
 /** order by min() on columns of table "user_provider_accounts" */
 export type User_Provider_Accounts_Min_Order_By = {
-  access_token: InputMaybe<Order_By>;
-  expires_at: InputMaybe<Order_By>;
-  id: InputMaybe<Order_By>;
-  id_token: InputMaybe<Order_By>;
-  provider: InputMaybe<Order_By>;
-  providerAccountId: InputMaybe<Order_By>;
-  refresh_token: InputMaybe<Order_By>;
-  scope: InputMaybe<Order_By>;
-  session_state: InputMaybe<Order_By>;
-  token_type: InputMaybe<Order_By>;
-  type: InputMaybe<Order_By>;
-  userId: InputMaybe<Order_By>;
+  access_token?: InputMaybe<Order_By>;
+  expires_at?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  id_token?: InputMaybe<Order_By>;
+  provider?: InputMaybe<Order_By>;
+  providerAccountId?: InputMaybe<Order_By>;
+  refresh_token?: InputMaybe<Order_By>;
+  scope?: InputMaybe<Order_By>;
+  session_state?: InputMaybe<Order_By>;
+  token_type?: InputMaybe<Order_By>;
+  type?: InputMaybe<Order_By>;
+  userId?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "user_provider_accounts" */
@@ -3614,26 +3614,26 @@ export type User_Provider_Accounts_Mutation_Response = {
 /** on_conflict condition type for table "user_provider_accounts" */
 export type User_Provider_Accounts_On_Conflict = {
   constraint: User_Provider_Accounts_Constraint;
-  update_columns: Array<User_Provider_Accounts_Update_Column>;
-  where: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  update_columns?: Array<User_Provider_Accounts_Update_Column>;
+  where?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "user_provider_accounts". */
 export type User_Provider_Accounts_Order_By = {
-  access_token: InputMaybe<Order_By>;
-  expires_at: InputMaybe<Order_By>;
-  id: InputMaybe<Order_By>;
-  id_token: InputMaybe<Order_By>;
-  provider: InputMaybe<Order_By>;
-  providerAccountId: InputMaybe<Order_By>;
-  provider_type: InputMaybe<Provider_Type_Order_By>;
-  refresh_token: InputMaybe<Order_By>;
-  scope: InputMaybe<Order_By>;
-  session_state: InputMaybe<Order_By>;
-  token_type: InputMaybe<Order_By>;
-  type: InputMaybe<Order_By>;
-  user: InputMaybe<Users_Order_By>;
-  userId: InputMaybe<Order_By>;
+  access_token?: InputMaybe<Order_By>;
+  expires_at?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  id_token?: InputMaybe<Order_By>;
+  provider?: InputMaybe<Order_By>;
+  providerAccountId?: InputMaybe<Order_By>;
+  provider_type?: InputMaybe<Provider_Type_Order_By>;
+  refresh_token?: InputMaybe<Order_By>;
+  scope?: InputMaybe<Order_By>;
+  session_state?: InputMaybe<Order_By>;
+  token_type?: InputMaybe<Order_By>;
+  type?: InputMaybe<Order_By>;
+  user?: InputMaybe<Users_Order_By>;
+  userId?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: user_provider_accounts */
@@ -3671,18 +3671,18 @@ export enum User_Provider_Accounts_Select_Column {
 
 /** input type for updating data in table "user_provider_accounts" */
 export type User_Provider_Accounts_Set_Input = {
-  access_token: InputMaybe<Scalars['String']['input']>;
-  expires_at: InputMaybe<Scalars['Int']['input']>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  id_token: InputMaybe<Scalars['String']['input']>;
-  provider: InputMaybe<Scalars['String']['input']>;
-  providerAccountId: InputMaybe<Scalars['String']['input']>;
-  refresh_token: InputMaybe<Scalars['String']['input']>;
-  scope: InputMaybe<Scalars['String']['input']>;
-  session_state: InputMaybe<Scalars['String']['input']>;
-  token_type: InputMaybe<Scalars['String']['input']>;
-  type: InputMaybe<Scalars['String']['input']>;
-  userId: InputMaybe<Scalars['uuid']['input']>;
+  access_token?: InputMaybe<Scalars['String']['input']>;
+  expires_at?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  id_token?: InputMaybe<Scalars['String']['input']>;
+  provider?: InputMaybe<Scalars['String']['input']>;
+  providerAccountId?: InputMaybe<Scalars['String']['input']>;
+  refresh_token?: InputMaybe<Scalars['String']['input']>;
+  scope?: InputMaybe<Scalars['String']['input']>;
+  session_state?: InputMaybe<Scalars['String']['input']>;
+  token_type?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate stddev on columns */
@@ -3693,7 +3693,7 @@ export type User_Provider_Accounts_Stddev_Fields = {
 
 /** order by stddev() on columns of table "user_provider_accounts" */
 export type User_Provider_Accounts_Stddev_Order_By = {
-  expires_at: InputMaybe<Order_By>;
+  expires_at?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
@@ -3704,7 +3704,7 @@ export type User_Provider_Accounts_Stddev_Pop_Fields = {
 
 /** order by stddev_pop() on columns of table "user_provider_accounts" */
 export type User_Provider_Accounts_Stddev_Pop_Order_By = {
-  expires_at: InputMaybe<Order_By>;
+  expires_at?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -3715,7 +3715,7 @@ export type User_Provider_Accounts_Stddev_Samp_Fields = {
 
 /** order by stddev_samp() on columns of table "user_provider_accounts" */
 export type User_Provider_Accounts_Stddev_Samp_Order_By = {
-  expires_at: InputMaybe<Order_By>;
+  expires_at?: InputMaybe<Order_By>;
 };
 
 /** Streaming cursor of the table "user_provider_accounts" */
@@ -3723,23 +3723,23 @@ export type User_Provider_Accounts_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: User_Provider_Accounts_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type User_Provider_Accounts_Stream_Cursor_Value_Input = {
-  access_token: InputMaybe<Scalars['String']['input']>;
-  expires_at: InputMaybe<Scalars['Int']['input']>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  id_token: InputMaybe<Scalars['String']['input']>;
-  provider: InputMaybe<Scalars['String']['input']>;
-  providerAccountId: InputMaybe<Scalars['String']['input']>;
-  refresh_token: InputMaybe<Scalars['String']['input']>;
-  scope: InputMaybe<Scalars['String']['input']>;
-  session_state: InputMaybe<Scalars['String']['input']>;
-  token_type: InputMaybe<Scalars['String']['input']>;
-  type: InputMaybe<Scalars['String']['input']>;
-  userId: InputMaybe<Scalars['uuid']['input']>;
+  access_token?: InputMaybe<Scalars['String']['input']>;
+  expires_at?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  id_token?: InputMaybe<Scalars['String']['input']>;
+  provider?: InputMaybe<Scalars['String']['input']>;
+  providerAccountId?: InputMaybe<Scalars['String']['input']>;
+  refresh_token?: InputMaybe<Scalars['String']['input']>;
+  scope?: InputMaybe<Scalars['String']['input']>;
+  session_state?: InputMaybe<Scalars['String']['input']>;
+  token_type?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate sum on columns */
@@ -3750,7 +3750,7 @@ export type User_Provider_Accounts_Sum_Fields = {
 
 /** order by sum() on columns of table "user_provider_accounts" */
 export type User_Provider_Accounts_Sum_Order_By = {
-  expires_at: InputMaybe<Order_By>;
+  expires_at?: InputMaybe<Order_By>;
 };
 
 /** update columns of table "user_provider_accounts" */
@@ -3783,9 +3783,9 @@ export enum User_Provider_Accounts_Update_Column {
 
 export type User_Provider_Accounts_Updates = {
   /** increments the numeric columns with given value of the filtered values */
-  _inc: InputMaybe<User_Provider_Accounts_Inc_Input>;
+  _inc?: InputMaybe<User_Provider_Accounts_Inc_Input>;
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<User_Provider_Accounts_Set_Input>;
+  _set?: InputMaybe<User_Provider_Accounts_Set_Input>;
   /** filter the rows which have to be updated */
   where: User_Provider_Accounts_Bool_Exp;
 };
@@ -3798,7 +3798,7 @@ export type User_Provider_Accounts_Var_Pop_Fields = {
 
 /** order by var_pop() on columns of table "user_provider_accounts" */
 export type User_Provider_Accounts_Var_Pop_Order_By = {
-  expires_at: InputMaybe<Order_By>;
+  expires_at?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
@@ -3809,7 +3809,7 @@ export type User_Provider_Accounts_Var_Samp_Fields = {
 
 /** order by var_samp() on columns of table "user_provider_accounts" */
 export type User_Provider_Accounts_Var_Samp_Order_By = {
-  expires_at: InputMaybe<Order_By>;
+  expires_at?: InputMaybe<Order_By>;
 };
 
 /** aggregate variance on columns */
@@ -3820,7 +3820,7 @@ export type User_Provider_Accounts_Variance_Fields = {
 
 /** order by variance() on columns of table "user_provider_accounts" */
 export type User_Provider_Accounts_Variance_Order_By = {
-  expires_at: InputMaybe<Order_By>;
+  expires_at?: InputMaybe<Order_By>;
 };
 
 /** columns and relationships of "user_tenant_features" */
@@ -3830,6 +3830,8 @@ export type User_Tenant_Features = {
   feature: Features;
   feature_id: Scalars['uuid']['output'];
   tenant_id: Scalars['uuid']['output'];
+  /** An object relationship */
+  user: Users;
   user_id: Scalars['uuid']['output'];
 };
 
@@ -3841,13 +3843,13 @@ export type User_Tenant_Features_Aggregate = {
 };
 
 export type User_Tenant_Features_Aggregate_Bool_Exp = {
-  count: InputMaybe<User_Tenant_Features_Aggregate_Bool_Exp_Count>;
+  count?: InputMaybe<User_Tenant_Features_Aggregate_Bool_Exp_Count>;
 };
 
 export type User_Tenant_Features_Aggregate_Bool_Exp_Count = {
-  arguments: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
-  filter: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  arguments?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+  filter?: InputMaybe<User_Tenant_Features_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
@@ -3862,33 +3864,34 @@ export type User_Tenant_Features_Aggregate_Fields = {
 
 /** aggregate fields of "user_tenant_features" */
 export type User_Tenant_Features_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<User_Tenant_Features_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "user_tenant_features" */
 export type User_Tenant_Features_Aggregate_Order_By = {
-  count: InputMaybe<Order_By>;
-  max: InputMaybe<User_Tenant_Features_Max_Order_By>;
-  min: InputMaybe<User_Tenant_Features_Min_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<User_Tenant_Features_Max_Order_By>;
+  min?: InputMaybe<User_Tenant_Features_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "user_tenant_features" */
 export type User_Tenant_Features_Arr_Rel_Insert_Input = {
   data: Array<User_Tenant_Features_Insert_Input>;
   /** upsert condition */
-  on_conflict: InputMaybe<User_Tenant_Features_On_Conflict>;
+  on_conflict?: InputMaybe<User_Tenant_Features_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "user_tenant_features". All fields are combined with a logical 'AND'. */
 export type User_Tenant_Features_Bool_Exp = {
-  _and: InputMaybe<Array<User_Tenant_Features_Bool_Exp>>;
-  _not: InputMaybe<User_Tenant_Features_Bool_Exp>;
-  _or: InputMaybe<Array<User_Tenant_Features_Bool_Exp>>;
-  feature: InputMaybe<Features_Bool_Exp>;
-  feature_id: InputMaybe<Uuid_Comparison_Exp>;
-  tenant_id: InputMaybe<Uuid_Comparison_Exp>;
-  user_id: InputMaybe<Uuid_Comparison_Exp>;
+  _and?: InputMaybe<Array<User_Tenant_Features_Bool_Exp>>;
+  _not?: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  _or?: InputMaybe<Array<User_Tenant_Features_Bool_Exp>>;
+  feature?: InputMaybe<Features_Bool_Exp>;
+  feature_id?: InputMaybe<Uuid_Comparison_Exp>;
+  tenant_id?: InputMaybe<Uuid_Comparison_Exp>;
+  user?: InputMaybe<Users_Bool_Exp>;
+  user_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "user_tenant_features" */
@@ -3899,10 +3902,11 @@ export enum User_Tenant_Features_Constraint {
 
 /** input type for inserting data into table "user_tenant_features" */
 export type User_Tenant_Features_Insert_Input = {
-  feature: InputMaybe<Features_Obj_Rel_Insert_Input>;
-  feature_id: InputMaybe<Scalars['uuid']['input']>;
-  tenant_id: InputMaybe<Scalars['uuid']['input']>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  feature?: InputMaybe<Features_Obj_Rel_Insert_Input>;
+  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  tenant_id?: InputMaybe<Scalars['uuid']['input']>;
+  user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
@@ -3915,9 +3919,9 @@ export type User_Tenant_Features_Max_Fields = {
 
 /** order by max() on columns of table "user_tenant_features" */
 export type User_Tenant_Features_Max_Order_By = {
-  feature_id: InputMaybe<Order_By>;
-  tenant_id: InputMaybe<Order_By>;
-  user_id: InputMaybe<Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  tenant_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -3930,9 +3934,9 @@ export type User_Tenant_Features_Min_Fields = {
 
 /** order by min() on columns of table "user_tenant_features" */
 export type User_Tenant_Features_Min_Order_By = {
-  feature_id: InputMaybe<Order_By>;
-  tenant_id: InputMaybe<Order_By>;
-  user_id: InputMaybe<Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  tenant_id?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "user_tenant_features" */
@@ -3947,16 +3951,17 @@ export type User_Tenant_Features_Mutation_Response = {
 /** on_conflict condition type for table "user_tenant_features" */
 export type User_Tenant_Features_On_Conflict = {
   constraint: User_Tenant_Features_Constraint;
-  update_columns: Array<User_Tenant_Features_Update_Column>;
-  where: InputMaybe<User_Tenant_Features_Bool_Exp>;
+  update_columns?: Array<User_Tenant_Features_Update_Column>;
+  where?: InputMaybe<User_Tenant_Features_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "user_tenant_features". */
 export type User_Tenant_Features_Order_By = {
-  feature: InputMaybe<Features_Order_By>;
-  feature_id: InputMaybe<Order_By>;
-  tenant_id: InputMaybe<Order_By>;
-  user_id: InputMaybe<Order_By>;
+  feature?: InputMaybe<Features_Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  tenant_id?: InputMaybe<Order_By>;
+  user?: InputMaybe<Users_Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: user_tenant_features */
@@ -3978,9 +3983,9 @@ export enum User_Tenant_Features_Select_Column {
 
 /** input type for updating data in table "user_tenant_features" */
 export type User_Tenant_Features_Set_Input = {
-  feature_id: InputMaybe<Scalars['uuid']['input']>;
-  tenant_id: InputMaybe<Scalars['uuid']['input']>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  tenant_id?: InputMaybe<Scalars['uuid']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** Streaming cursor of the table "user_tenant_features" */
@@ -3988,14 +3993,14 @@ export type User_Tenant_Features_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: User_Tenant_Features_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type User_Tenant_Features_Stream_Cursor_Value_Input = {
-  feature_id: InputMaybe<Scalars['uuid']['input']>;
-  tenant_id: InputMaybe<Scalars['uuid']['input']>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  tenant_id?: InputMaybe<Scalars['uuid']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** update columns of table "user_tenant_features" */
@@ -4010,7 +4015,7 @@ export enum User_Tenant_Features_Update_Column {
 
 export type User_Tenant_Features_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<User_Tenant_Features_Set_Input>;
+  _set?: InputMaybe<User_Tenant_Features_Set_Input>;
   /** filter the rows which have to be updated */
   where: User_Tenant_Features_Bool_Exp;
 };
@@ -4048,101 +4053,101 @@ export type Users = {
 
 /** columns and relationships of "users" */
 export type UsersFeaturesArgs = {
-  distinct_on: InputMaybe<Array<User_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Features_Order_By>>;
-  where: InputMaybe<User_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
 /** columns and relationships of "users" */
 export type UsersFeatures_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Features_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Features_Order_By>>;
-  where: InputMaybe<User_Features_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Features_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Features_Order_By>>;
+  where?: InputMaybe<User_Features_Bool_Exp>;
 };
 
 
 /** columns and relationships of "users" */
 export type UsersProvider_AccountsArgs = {
-  distinct_on: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
-  where: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
+  where?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
 };
 
 
 /** columns and relationships of "users" */
 export type UsersProvider_Accounts_AggregateArgs = {
-  distinct_on: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
-  where: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<User_Provider_Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<User_Provider_Accounts_Order_By>>;
+  where?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
 };
 
 
 /** columns and relationships of "users" */
 export type UsersSessionsArgs = {
-  distinct_on: InputMaybe<Array<Sessions_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Sessions_Order_By>>;
-  where: InputMaybe<Sessions_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Sessions_Order_By>>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 
 /** columns and relationships of "users" */
 export type UsersSessions_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Sessions_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Sessions_Order_By>>;
-  where: InputMaybe<Sessions_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Sessions_Order_By>>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 
 /** columns and relationships of "users" */
 export type UsersTenantsArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Users_Order_By>>;
-  where: InputMaybe<Tenant_Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Users_Order_By>>;
+  where?: InputMaybe<Tenant_Users_Bool_Exp>;
 };
 
 
 /** columns and relationships of "users" */
 export type UsersTenants_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Tenant_Users_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Tenant_Users_Order_By>>;
-  where: InputMaybe<Tenant_Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Tenant_Users_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Tenant_Users_Order_By>>;
+  where?: InputMaybe<Tenant_Users_Bool_Exp>;
 };
 
 
 /** columns and relationships of "users" */
 export type UsersWebauthn_CredentialsArgs = {
-  distinct_on: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
-  where: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
+  where?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
 };
 
 
 /** columns and relationships of "users" */
 export type UsersWebauthn_Credentials_AggregateArgs = {
-  distinct_on: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  offset: InputMaybe<Scalars['Int']['input']>;
-  order_by: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
-  where: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Webauthn_Credentials_Order_By>>;
+  where?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
 };
 
 /** aggregated selection of "users" */
@@ -4163,30 +4168,30 @@ export type Users_Aggregate_Fields = {
 
 /** aggregate fields of "users" */
 export type Users_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<Users_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<Users_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'. */
 export type Users_Bool_Exp = {
-  _and: InputMaybe<Array<Users_Bool_Exp>>;
-  _not: InputMaybe<Users_Bool_Exp>;
-  _or: InputMaybe<Array<Users_Bool_Exp>>;
-  email: InputMaybe<String_Comparison_Exp>;
-  emailVerified: InputMaybe<Timestamptz_Comparison_Exp>;
-  features: InputMaybe<User_Features_Bool_Exp>;
-  features_aggregate: InputMaybe<User_Features_Aggregate_Bool_Exp>;
-  id: InputMaybe<Uuid_Comparison_Exp>;
-  image: InputMaybe<String_Comparison_Exp>;
-  name: InputMaybe<String_Comparison_Exp>;
-  provider_accounts: InputMaybe<User_Provider_Accounts_Bool_Exp>;
-  provider_accounts_aggregate: InputMaybe<User_Provider_Accounts_Aggregate_Bool_Exp>;
-  sessions: InputMaybe<Sessions_Bool_Exp>;
-  sessions_aggregate: InputMaybe<Sessions_Aggregate_Bool_Exp>;
-  tenants: InputMaybe<Tenant_Users_Bool_Exp>;
-  tenants_aggregate: InputMaybe<Tenant_Users_Aggregate_Bool_Exp>;
-  webauthn_credentials: InputMaybe<Webauthn_Credentials_Bool_Exp>;
-  webauthn_credentials_aggregate: InputMaybe<Webauthn_Credentials_Aggregate_Bool_Exp>;
+  _and?: InputMaybe<Array<Users_Bool_Exp>>;
+  _not?: InputMaybe<Users_Bool_Exp>;
+  _or?: InputMaybe<Array<Users_Bool_Exp>>;
+  email?: InputMaybe<String_Comparison_Exp>;
+  emailVerified?: InputMaybe<Timestamptz_Comparison_Exp>;
+  features?: InputMaybe<User_Features_Bool_Exp>;
+  features_aggregate?: InputMaybe<User_Features_Aggregate_Bool_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  image?: InputMaybe<String_Comparison_Exp>;
+  name?: InputMaybe<String_Comparison_Exp>;
+  provider_accounts?: InputMaybe<User_Provider_Accounts_Bool_Exp>;
+  provider_accounts_aggregate?: InputMaybe<User_Provider_Accounts_Aggregate_Bool_Exp>;
+  sessions?: InputMaybe<Sessions_Bool_Exp>;
+  sessions_aggregate?: InputMaybe<Sessions_Aggregate_Bool_Exp>;
+  tenants?: InputMaybe<Tenant_Users_Bool_Exp>;
+  tenants_aggregate?: InputMaybe<Tenant_Users_Aggregate_Bool_Exp>;
+  webauthn_credentials?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+  webauthn_credentials_aggregate?: InputMaybe<Webauthn_Credentials_Aggregate_Bool_Exp>;
 };
 
 /** unique or primary key constraints on table "users" */
@@ -4199,16 +4204,16 @@ export enum Users_Constraint {
 
 /** input type for inserting data into table "users" */
 export type Users_Insert_Input = {
-  email: InputMaybe<Scalars['String']['input']>;
-  emailVerified: InputMaybe<Scalars['timestamptz']['input']>;
-  features: InputMaybe<User_Features_Arr_Rel_Insert_Input>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  image: InputMaybe<Scalars['String']['input']>;
-  name: InputMaybe<Scalars['String']['input']>;
-  provider_accounts: InputMaybe<User_Provider_Accounts_Arr_Rel_Insert_Input>;
-  sessions: InputMaybe<Sessions_Arr_Rel_Insert_Input>;
-  tenants: InputMaybe<Tenant_Users_Arr_Rel_Insert_Input>;
-  webauthn_credentials: InputMaybe<Webauthn_Credentials_Arr_Rel_Insert_Input>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  emailVerified?: InputMaybe<Scalars['timestamptz']['input']>;
+  features?: InputMaybe<User_Features_Arr_Rel_Insert_Input>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  provider_accounts?: InputMaybe<User_Provider_Accounts_Arr_Rel_Insert_Input>;
+  sessions?: InputMaybe<Sessions_Arr_Rel_Insert_Input>;
+  tenants?: InputMaybe<Tenant_Users_Arr_Rel_Insert_Input>;
+  webauthn_credentials?: InputMaybe<Webauthn_Credentials_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
@@ -4244,28 +4249,28 @@ export type Users_Mutation_Response = {
 export type Users_Obj_Rel_Insert_Input = {
   data: Users_Insert_Input;
   /** upsert condition */
-  on_conflict: InputMaybe<Users_On_Conflict>;
+  on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 /** on_conflict condition type for table "users" */
 export type Users_On_Conflict = {
   constraint: Users_Constraint;
-  update_columns: Array<Users_Update_Column>;
-  where: InputMaybe<Users_Bool_Exp>;
+  update_columns?: Array<Users_Update_Column>;
+  where?: InputMaybe<Users_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "users". */
 export type Users_Order_By = {
-  email: InputMaybe<Order_By>;
-  emailVerified: InputMaybe<Order_By>;
-  features_aggregate: InputMaybe<User_Features_Aggregate_Order_By>;
-  id: InputMaybe<Order_By>;
-  image: InputMaybe<Order_By>;
-  name: InputMaybe<Order_By>;
-  provider_accounts_aggregate: InputMaybe<User_Provider_Accounts_Aggregate_Order_By>;
-  sessions_aggregate: InputMaybe<Sessions_Aggregate_Order_By>;
-  tenants_aggregate: InputMaybe<Tenant_Users_Aggregate_Order_By>;
-  webauthn_credentials_aggregate: InputMaybe<Webauthn_Credentials_Aggregate_Order_By>;
+  email?: InputMaybe<Order_By>;
+  emailVerified?: InputMaybe<Order_By>;
+  features_aggregate?: InputMaybe<User_Features_Aggregate_Order_By>;
+  id?: InputMaybe<Order_By>;
+  image?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+  provider_accounts_aggregate?: InputMaybe<User_Provider_Accounts_Aggregate_Order_By>;
+  sessions_aggregate?: InputMaybe<Sessions_Aggregate_Order_By>;
+  tenants_aggregate?: InputMaybe<Tenant_Users_Aggregate_Order_By>;
+  webauthn_credentials_aggregate?: InputMaybe<Webauthn_Credentials_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: users */
@@ -4289,11 +4294,11 @@ export enum Users_Select_Column {
 
 /** input type for updating data in table "users" */
 export type Users_Set_Input = {
-  email: InputMaybe<Scalars['String']['input']>;
-  emailVerified: InputMaybe<Scalars['timestamptz']['input']>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  image: InputMaybe<Scalars['String']['input']>;
-  name: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  emailVerified?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Streaming cursor of the table "users" */
@@ -4301,16 +4306,16 @@ export type Users_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Users_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Users_Stream_Cursor_Value_Input = {
-  email: InputMaybe<Scalars['String']['input']>;
-  emailVerified: InputMaybe<Scalars['timestamptz']['input']>;
-  id: InputMaybe<Scalars['uuid']['input']>;
-  image: InputMaybe<Scalars['String']['input']>;
-  name: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  emailVerified?: InputMaybe<Scalars['timestamptz']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** update columns of table "users" */
@@ -4329,22 +4334,22 @@ export enum Users_Update_Column {
 
 export type Users_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<Users_Set_Input>;
+  _set?: InputMaybe<Users_Set_Input>;
   /** filter the rows which have to be updated */
   where: Users_Bool_Exp;
 };
 
 /** Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'. */
 export type Uuid_Comparison_Exp = {
-  _eq: InputMaybe<Scalars['uuid']['input']>;
-  _gt: InputMaybe<Scalars['uuid']['input']>;
-  _gte: InputMaybe<Scalars['uuid']['input']>;
-  _in: InputMaybe<Array<Scalars['uuid']['input']>>;
-  _is_null: InputMaybe<Scalars['Boolean']['input']>;
-  _lt: InputMaybe<Scalars['uuid']['input']>;
-  _lte: InputMaybe<Scalars['uuid']['input']>;
-  _neq: InputMaybe<Scalars['uuid']['input']>;
-  _nin: InputMaybe<Array<Scalars['uuid']['input']>>;
+  _eq?: InputMaybe<Scalars['uuid']['input']>;
+  _gt?: InputMaybe<Scalars['uuid']['input']>;
+  _gte?: InputMaybe<Scalars['uuid']['input']>;
+  _in?: InputMaybe<Array<Scalars['uuid']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['uuid']['input']>;
+  _lte?: InputMaybe<Scalars['uuid']['input']>;
+  _neq?: InputMaybe<Scalars['uuid']['input']>;
+  _nin?: InputMaybe<Array<Scalars['uuid']['input']>>;
 };
 
 /** columns and relationships of "verification_tokens" */
@@ -4373,18 +4378,18 @@ export type Verification_Tokens_Aggregate_Fields = {
 
 /** aggregate fields of "verification_tokens" */
 export type Verification_Tokens_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<Verification_Tokens_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<Verification_Tokens_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Boolean expression to filter rows from the table "verification_tokens". All fields are combined with a logical 'AND'. */
 export type Verification_Tokens_Bool_Exp = {
-  _and: InputMaybe<Array<Verification_Tokens_Bool_Exp>>;
-  _not: InputMaybe<Verification_Tokens_Bool_Exp>;
-  _or: InputMaybe<Array<Verification_Tokens_Bool_Exp>>;
-  expires: InputMaybe<Timestamptz_Comparison_Exp>;
-  identifier: InputMaybe<String_Comparison_Exp>;
-  token: InputMaybe<String_Comparison_Exp>;
+  _and?: InputMaybe<Array<Verification_Tokens_Bool_Exp>>;
+  _not?: InputMaybe<Verification_Tokens_Bool_Exp>;
+  _or?: InputMaybe<Array<Verification_Tokens_Bool_Exp>>;
+  expires?: InputMaybe<Timestamptz_Comparison_Exp>;
+  identifier?: InputMaybe<String_Comparison_Exp>;
+  token?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "verification_tokens" */
@@ -4395,9 +4400,9 @@ export enum Verification_Tokens_Constraint {
 
 /** input type for inserting data into table "verification_tokens" */
 export type Verification_Tokens_Insert_Input = {
-  expires: InputMaybe<Scalars['timestamptz']['input']>;
-  identifier: InputMaybe<Scalars['String']['input']>;
-  token: InputMaybe<Scalars['String']['input']>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  identifier?: InputMaybe<Scalars['String']['input']>;
+  token?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** aggregate max on columns */
@@ -4428,15 +4433,15 @@ export type Verification_Tokens_Mutation_Response = {
 /** on_conflict condition type for table "verification_tokens" */
 export type Verification_Tokens_On_Conflict = {
   constraint: Verification_Tokens_Constraint;
-  update_columns: Array<Verification_Tokens_Update_Column>;
-  where: InputMaybe<Verification_Tokens_Bool_Exp>;
+  update_columns?: Array<Verification_Tokens_Update_Column>;
+  where?: InputMaybe<Verification_Tokens_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "verification_tokens". */
 export type Verification_Tokens_Order_By = {
-  expires: InputMaybe<Order_By>;
-  identifier: InputMaybe<Order_By>;
-  token: InputMaybe<Order_By>;
+  expires?: InputMaybe<Order_By>;
+  identifier?: InputMaybe<Order_By>;
+  token?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: verification_tokens */
@@ -4456,9 +4461,9 @@ export enum Verification_Tokens_Select_Column {
 
 /** input type for updating data in table "verification_tokens" */
 export type Verification_Tokens_Set_Input = {
-  expires: InputMaybe<Scalars['timestamptz']['input']>;
-  identifier: InputMaybe<Scalars['String']['input']>;
-  token: InputMaybe<Scalars['String']['input']>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  identifier?: InputMaybe<Scalars['String']['input']>;
+  token?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Streaming cursor of the table "verification_tokens" */
@@ -4466,14 +4471,14 @@ export type Verification_Tokens_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Verification_Tokens_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Verification_Tokens_Stream_Cursor_Value_Input = {
-  expires: InputMaybe<Scalars['timestamptz']['input']>;
-  identifier: InputMaybe<Scalars['String']['input']>;
-  token: InputMaybe<Scalars['String']['input']>;
+  expires?: InputMaybe<Scalars['timestamptz']['input']>;
+  identifier?: InputMaybe<Scalars['String']['input']>;
+  token?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** update columns of table "verification_tokens" */
@@ -4488,7 +4493,7 @@ export enum Verification_Tokens_Update_Column {
 
 export type Verification_Tokens_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<Verification_Tokens_Set_Input>;
+  _set?: InputMaybe<Verification_Tokens_Set_Input>;
   /** filter the rows which have to be updated */
   where: Verification_Tokens_Bool_Exp;
 };
@@ -4518,17 +4523,17 @@ export type Webauthn_Challenges_Aggregate_Fields = {
 
 /** aggregate fields of "webauthn_challenges" */
 export type Webauthn_Challenges_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<Webauthn_Challenges_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<Webauthn_Challenges_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Boolean expression to filter rows from the table "webauthn_challenges". All fields are combined with a logical 'AND'. */
 export type Webauthn_Challenges_Bool_Exp = {
-  _and: InputMaybe<Array<Webauthn_Challenges_Bool_Exp>>;
-  _not: InputMaybe<Webauthn_Challenges_Bool_Exp>;
-  _or: InputMaybe<Array<Webauthn_Challenges_Bool_Exp>>;
-  challenge: InputMaybe<String_Comparison_Exp>;
-  user_id: InputMaybe<Uuid_Comparison_Exp>;
+  _and?: InputMaybe<Array<Webauthn_Challenges_Bool_Exp>>;
+  _not?: InputMaybe<Webauthn_Challenges_Bool_Exp>;
+  _or?: InputMaybe<Array<Webauthn_Challenges_Bool_Exp>>;
+  challenge?: InputMaybe<String_Comparison_Exp>;
+  user_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "webauthn_challenges" */
@@ -4539,8 +4544,8 @@ export enum Webauthn_Challenges_Constraint {
 
 /** input type for inserting data into table "webauthn_challenges" */
 export type Webauthn_Challenges_Insert_Input = {
-  challenge: InputMaybe<Scalars['String']['input']>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  challenge?: InputMaybe<Scalars['String']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
@@ -4569,14 +4574,14 @@ export type Webauthn_Challenges_Mutation_Response = {
 /** on_conflict condition type for table "webauthn_challenges" */
 export type Webauthn_Challenges_On_Conflict = {
   constraint: Webauthn_Challenges_Constraint;
-  update_columns: Array<Webauthn_Challenges_Update_Column>;
-  where: InputMaybe<Webauthn_Challenges_Bool_Exp>;
+  update_columns?: Array<Webauthn_Challenges_Update_Column>;
+  where?: InputMaybe<Webauthn_Challenges_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "webauthn_challenges". */
 export type Webauthn_Challenges_Order_By = {
-  challenge: InputMaybe<Order_By>;
-  user_id: InputMaybe<Order_By>;
+  challenge?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: webauthn_challenges */
@@ -4594,8 +4599,8 @@ export enum Webauthn_Challenges_Select_Column {
 
 /** input type for updating data in table "webauthn_challenges" */
 export type Webauthn_Challenges_Set_Input = {
-  challenge: InputMaybe<Scalars['String']['input']>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  challenge?: InputMaybe<Scalars['String']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** Streaming cursor of the table "webauthn_challenges" */
@@ -4603,13 +4608,13 @@ export type Webauthn_Challenges_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Webauthn_Challenges_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Webauthn_Challenges_Stream_Cursor_Value_Input = {
-  challenge: InputMaybe<Scalars['String']['input']>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  challenge?: InputMaybe<Scalars['String']['input']>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** update columns of table "webauthn_challenges" */
@@ -4622,7 +4627,7 @@ export enum Webauthn_Challenges_Update_Column {
 
 export type Webauthn_Challenges_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<Webauthn_Challenges_Set_Input>;
+  _set?: InputMaybe<Webauthn_Challenges_Set_Input>;
   /** filter the rows which have to be updated */
   where: Webauthn_Challenges_Bool_Exp;
 };
@@ -4651,13 +4656,13 @@ export type Webauthn_Credentials_Aggregate = {
 };
 
 export type Webauthn_Credentials_Aggregate_Bool_Exp = {
-  count: InputMaybe<Webauthn_Credentials_Aggregate_Bool_Exp_Count>;
+  count?: InputMaybe<Webauthn_Credentials_Aggregate_Bool_Exp_Count>;
 };
 
 export type Webauthn_Credentials_Aggregate_Bool_Exp_Count = {
-  arguments: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
-  filter: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+  arguments?: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+  filter?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
   predicate: Int_Comparison_Exp;
 };
 
@@ -4680,30 +4685,30 @@ export type Webauthn_Credentials_Aggregate_Fields = {
 
 /** aggregate fields of "webauthn_credentials" */
 export type Webauthn_Credentials_Aggregate_FieldsCountArgs = {
-  columns: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
-  distinct: InputMaybe<Scalars['Boolean']['input']>;
+  columns?: InputMaybe<Array<Webauthn_Credentials_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** order by aggregate values of table "webauthn_credentials" */
 export type Webauthn_Credentials_Aggregate_Order_By = {
-  avg: InputMaybe<Webauthn_Credentials_Avg_Order_By>;
-  count: InputMaybe<Order_By>;
-  max: InputMaybe<Webauthn_Credentials_Max_Order_By>;
-  min: InputMaybe<Webauthn_Credentials_Min_Order_By>;
-  stddev: InputMaybe<Webauthn_Credentials_Stddev_Order_By>;
-  stddev_pop: InputMaybe<Webauthn_Credentials_Stddev_Pop_Order_By>;
-  stddev_samp: InputMaybe<Webauthn_Credentials_Stddev_Samp_Order_By>;
-  sum: InputMaybe<Webauthn_Credentials_Sum_Order_By>;
-  var_pop: InputMaybe<Webauthn_Credentials_Var_Pop_Order_By>;
-  var_samp: InputMaybe<Webauthn_Credentials_Var_Samp_Order_By>;
-  variance: InputMaybe<Webauthn_Credentials_Variance_Order_By>;
+  avg?: InputMaybe<Webauthn_Credentials_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Webauthn_Credentials_Max_Order_By>;
+  min?: InputMaybe<Webauthn_Credentials_Min_Order_By>;
+  stddev?: InputMaybe<Webauthn_Credentials_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Webauthn_Credentials_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Webauthn_Credentials_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Webauthn_Credentials_Sum_Order_By>;
+  var_pop?: InputMaybe<Webauthn_Credentials_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Webauthn_Credentials_Var_Samp_Order_By>;
+  variance?: InputMaybe<Webauthn_Credentials_Variance_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "webauthn_credentials" */
 export type Webauthn_Credentials_Arr_Rel_Insert_Input = {
   data: Array<Webauthn_Credentials_Insert_Input>;
   /** upsert condition */
-  on_conflict: InputMaybe<Webauthn_Credentials_On_Conflict>;
+  on_conflict?: InputMaybe<Webauthn_Credentials_On_Conflict>;
 };
 
 /** aggregate avg on columns */
@@ -4714,24 +4719,24 @@ export type Webauthn_Credentials_Avg_Fields = {
 
 /** order by avg() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Avg_Order_By = {
-  counter: InputMaybe<Order_By>;
+  counter?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "webauthn_credentials". All fields are combined with a logical 'AND'. */
 export type Webauthn_Credentials_Bool_Exp = {
-  _and: InputMaybe<Array<Webauthn_Credentials_Bool_Exp>>;
-  _not: InputMaybe<Webauthn_Credentials_Bool_Exp>;
-  _or: InputMaybe<Array<Webauthn_Credentials_Bool_Exp>>;
-  aaguid: InputMaybe<String_Comparison_Exp>;
-  counter: InputMaybe<Int_Comparison_Exp>;
-  created_at: InputMaybe<Timestamptz_Comparison_Exp>;
-  credential_id: InputMaybe<String_Comparison_Exp>;
-  last_used: InputMaybe<Timestamptz_Comparison_Exp>;
-  name: InputMaybe<String_Comparison_Exp>;
-  public_key: InputMaybe<Bytea_Comparison_Exp>;
-  transports: InputMaybe<String_Array_Comparison_Exp>;
-  user: InputMaybe<Users_Bool_Exp>;
-  user_id: InputMaybe<Uuid_Comparison_Exp>;
+  _and?: InputMaybe<Array<Webauthn_Credentials_Bool_Exp>>;
+  _not?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+  _or?: InputMaybe<Array<Webauthn_Credentials_Bool_Exp>>;
+  aaguid?: InputMaybe<String_Comparison_Exp>;
+  counter?: InputMaybe<Int_Comparison_Exp>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  credential_id?: InputMaybe<String_Comparison_Exp>;
+  last_used?: InputMaybe<Timestamptz_Comparison_Exp>;
+  name?: InputMaybe<String_Comparison_Exp>;
+  public_key?: InputMaybe<Bytea_Comparison_Exp>;
+  transports?: InputMaybe<String_Array_Comparison_Exp>;
+  user?: InputMaybe<Users_Bool_Exp>;
+  user_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "webauthn_credentials" */
@@ -4742,21 +4747,21 @@ export enum Webauthn_Credentials_Constraint {
 
 /** input type for incrementing numeric columns in table "webauthn_credentials" */
 export type Webauthn_Credentials_Inc_Input = {
-  counter: InputMaybe<Scalars['Int']['input']>;
+  counter?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "webauthn_credentials" */
 export type Webauthn_Credentials_Insert_Input = {
-  aaguid: InputMaybe<Scalars['String']['input']>;
-  counter: InputMaybe<Scalars['Int']['input']>;
-  created_at: InputMaybe<Scalars['timestamptz']['input']>;
-  credential_id: InputMaybe<Scalars['String']['input']>;
-  last_used: InputMaybe<Scalars['timestamptz']['input']>;
-  name: InputMaybe<Scalars['String']['input']>;
-  public_key: InputMaybe<Scalars['bytea']['input']>;
-  transports: InputMaybe<Array<Scalars['String']['input']>>;
-  user: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  aaguid?: InputMaybe<Scalars['String']['input']>;
+  counter?: InputMaybe<Scalars['Int']['input']>;
+  created_at?: InputMaybe<Scalars['timestamptz']['input']>;
+  credential_id?: InputMaybe<Scalars['String']['input']>;
+  last_used?: InputMaybe<Scalars['timestamptz']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  public_key?: InputMaybe<Scalars['bytea']['input']>;
+  transports?: InputMaybe<Array<Scalars['String']['input']>>;
+  user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate max on columns */
@@ -4774,14 +4779,14 @@ export type Webauthn_Credentials_Max_Fields = {
 
 /** order by max() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Max_Order_By = {
-  aaguid: InputMaybe<Order_By>;
-  counter: InputMaybe<Order_By>;
-  created_at: InputMaybe<Order_By>;
-  credential_id: InputMaybe<Order_By>;
-  last_used: InputMaybe<Order_By>;
-  name: InputMaybe<Order_By>;
-  transports: InputMaybe<Order_By>;
-  user_id: InputMaybe<Order_By>;
+  aaguid?: InputMaybe<Order_By>;
+  counter?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
+  credential_id?: InputMaybe<Order_By>;
+  last_used?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+  transports?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -4799,14 +4804,14 @@ export type Webauthn_Credentials_Min_Fields = {
 
 /** order by min() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Min_Order_By = {
-  aaguid: InputMaybe<Order_By>;
-  counter: InputMaybe<Order_By>;
-  created_at: InputMaybe<Order_By>;
-  credential_id: InputMaybe<Order_By>;
-  last_used: InputMaybe<Order_By>;
-  name: InputMaybe<Order_By>;
-  transports: InputMaybe<Order_By>;
-  user_id: InputMaybe<Order_By>;
+  aaguid?: InputMaybe<Order_By>;
+  counter?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
+  credential_id?: InputMaybe<Order_By>;
+  last_used?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+  transports?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "webauthn_credentials" */
@@ -4821,22 +4826,22 @@ export type Webauthn_Credentials_Mutation_Response = {
 /** on_conflict condition type for table "webauthn_credentials" */
 export type Webauthn_Credentials_On_Conflict = {
   constraint: Webauthn_Credentials_Constraint;
-  update_columns: Array<Webauthn_Credentials_Update_Column>;
-  where: InputMaybe<Webauthn_Credentials_Bool_Exp>;
+  update_columns?: Array<Webauthn_Credentials_Update_Column>;
+  where?: InputMaybe<Webauthn_Credentials_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "webauthn_credentials". */
 export type Webauthn_Credentials_Order_By = {
-  aaguid: InputMaybe<Order_By>;
-  counter: InputMaybe<Order_By>;
-  created_at: InputMaybe<Order_By>;
-  credential_id: InputMaybe<Order_By>;
-  last_used: InputMaybe<Order_By>;
-  name: InputMaybe<Order_By>;
-  public_key: InputMaybe<Order_By>;
-  transports: InputMaybe<Order_By>;
-  user: InputMaybe<Users_Order_By>;
-  user_id: InputMaybe<Order_By>;
+  aaguid?: InputMaybe<Order_By>;
+  counter?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
+  credential_id?: InputMaybe<Order_By>;
+  last_used?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+  public_key?: InputMaybe<Order_By>;
+  transports?: InputMaybe<Order_By>;
+  user?: InputMaybe<Users_Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: webauthn_credentials */
@@ -4868,15 +4873,15 @@ export enum Webauthn_Credentials_Select_Column {
 
 /** input type for updating data in table "webauthn_credentials" */
 export type Webauthn_Credentials_Set_Input = {
-  aaguid: InputMaybe<Scalars['String']['input']>;
-  counter: InputMaybe<Scalars['Int']['input']>;
-  created_at: InputMaybe<Scalars['timestamptz']['input']>;
-  credential_id: InputMaybe<Scalars['String']['input']>;
-  last_used: InputMaybe<Scalars['timestamptz']['input']>;
-  name: InputMaybe<Scalars['String']['input']>;
-  public_key: InputMaybe<Scalars['bytea']['input']>;
-  transports: InputMaybe<Array<Scalars['String']['input']>>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  aaguid?: InputMaybe<Scalars['String']['input']>;
+  counter?: InputMaybe<Scalars['Int']['input']>;
+  created_at?: InputMaybe<Scalars['timestamptz']['input']>;
+  credential_id?: InputMaybe<Scalars['String']['input']>;
+  last_used?: InputMaybe<Scalars['timestamptz']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  public_key?: InputMaybe<Scalars['bytea']['input']>;
+  transports?: InputMaybe<Array<Scalars['String']['input']>>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate stddev on columns */
@@ -4887,7 +4892,7 @@ export type Webauthn_Credentials_Stddev_Fields = {
 
 /** order by stddev() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Stddev_Order_By = {
-  counter: InputMaybe<Order_By>;
+  counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
@@ -4898,7 +4903,7 @@ export type Webauthn_Credentials_Stddev_Pop_Fields = {
 
 /** order by stddev_pop() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Stddev_Pop_Order_By = {
-  counter: InputMaybe<Order_By>;
+  counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -4909,7 +4914,7 @@ export type Webauthn_Credentials_Stddev_Samp_Fields = {
 
 /** order by stddev_samp() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Stddev_Samp_Order_By = {
-  counter: InputMaybe<Order_By>;
+  counter?: InputMaybe<Order_By>;
 };
 
 /** Streaming cursor of the table "webauthn_credentials" */
@@ -4917,20 +4922,20 @@ export type Webauthn_Credentials_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Webauthn_Credentials_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering: InputMaybe<Cursor_Ordering>;
+  ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Webauthn_Credentials_Stream_Cursor_Value_Input = {
-  aaguid: InputMaybe<Scalars['String']['input']>;
-  counter: InputMaybe<Scalars['Int']['input']>;
-  created_at: InputMaybe<Scalars['timestamptz']['input']>;
-  credential_id: InputMaybe<Scalars['String']['input']>;
-  last_used: InputMaybe<Scalars['timestamptz']['input']>;
-  name: InputMaybe<Scalars['String']['input']>;
-  public_key: InputMaybe<Scalars['bytea']['input']>;
-  transports: InputMaybe<Array<Scalars['String']['input']>>;
-  user_id: InputMaybe<Scalars['uuid']['input']>;
+  aaguid?: InputMaybe<Scalars['String']['input']>;
+  counter?: InputMaybe<Scalars['Int']['input']>;
+  created_at?: InputMaybe<Scalars['timestamptz']['input']>;
+  credential_id?: InputMaybe<Scalars['String']['input']>;
+  last_used?: InputMaybe<Scalars['timestamptz']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  public_key?: InputMaybe<Scalars['bytea']['input']>;
+  transports?: InputMaybe<Array<Scalars['String']['input']>>;
+  user_id?: InputMaybe<Scalars['uuid']['input']>;
 };
 
 /** aggregate sum on columns */
@@ -4941,7 +4946,7 @@ export type Webauthn_Credentials_Sum_Fields = {
 
 /** order by sum() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Sum_Order_By = {
-  counter: InputMaybe<Order_By>;
+  counter?: InputMaybe<Order_By>;
 };
 
 /** update columns of table "webauthn_credentials" */
@@ -4968,9 +4973,9 @@ export enum Webauthn_Credentials_Update_Column {
 
 export type Webauthn_Credentials_Updates = {
   /** increments the numeric columns with given value of the filtered values */
-  _inc: InputMaybe<Webauthn_Credentials_Inc_Input>;
+  _inc?: InputMaybe<Webauthn_Credentials_Inc_Input>;
   /** sets the columns of the filtered rows to the given values */
-  _set: InputMaybe<Webauthn_Credentials_Set_Input>;
+  _set?: InputMaybe<Webauthn_Credentials_Set_Input>;
   /** filter the rows which have to be updated */
   where: Webauthn_Credentials_Bool_Exp;
 };
@@ -4983,7 +4988,7 @@ export type Webauthn_Credentials_Var_Pop_Fields = {
 
 /** order by var_pop() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Var_Pop_Order_By = {
-  counter: InputMaybe<Order_By>;
+  counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
@@ -4994,7 +4999,7 @@ export type Webauthn_Credentials_Var_Samp_Fields = {
 
 /** order by var_samp() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Var_Samp_Order_By = {
-  counter: InputMaybe<Order_By>;
+  counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate variance on columns */
@@ -5005,7 +5010,7 @@ export type Webauthn_Credentials_Variance_Fields = {
 
 /** order by variance() on columns of table "webauthn_credentials" */
 export type Webauthn_Credentials_Variance_Order_By = {
-  counter: InputMaybe<Order_By>;
+  counter?: InputMaybe<Order_By>;
 };
 
 export type Admin_GetUsersQueryVariables = Exact<{ [key: string]: never; }>;

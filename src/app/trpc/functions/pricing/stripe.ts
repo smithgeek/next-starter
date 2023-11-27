@@ -1,7 +1,9 @@
 import { apiSdk } from "graphql/api/operations";
 import { getServerSession } from "next-auth";
 import Stripe from "stripe";
-import { authOptions } from "../auth/[...nextauth]/authOptions";
+import { z } from "zod";
+import { authOptions } from "../../../auth/[...nextauth]/authOptions";
+import { procedure, router } from "../../server";
 const stripe = new Stripe(process.env.STRIPE_KEY);
 
 async function getProducts() {
@@ -12,7 +14,7 @@ async function getProducts() {
 	return products.data;
 }
 
-export async function getBillingPortalUrl(returnUrl: string) {
+async function getBillingPortalUrl(returnUrl: string) {
 	const session = await getServerSession(authOptions);
 	const response = await apiSdk.GetStripeCustomerId({ tenantId: session?.user.tenants.active });
 	if (response.tenant_by_pk?.stripe_customer_id) {
@@ -35,7 +37,7 @@ function getPrice(price: string | Stripe.Price | null | undefined) {
 	return null;
 }
 
-export async function getPricingData() {
+async function getPricingData() {
 	const products = await getProducts();
 	return products.map((product) => ({
 		name: product.name,
@@ -43,3 +45,12 @@ export async function getPricingData() {
 		features: product.features,
 	}));
 }
+
+export const stripeRouter = router({
+	getPricing: procedure.query(async () => {
+		return await getPricingData();
+	}),
+	getBillingPortalUrl: procedure.input(z.object({ returnUrl: z.string() })).query(async ({ input }) => {
+		return await getBillingPortalUrl(input.returnUrl);
+	}),
+});

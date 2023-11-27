@@ -3,6 +3,11 @@ query GetUserTenants($userId: uuid!) {
 		tenants {
 			tenant_id
 			default
+			user_tenant_features {
+				feature {
+					feature_id
+				}
+			}
 		}
 	}
 }

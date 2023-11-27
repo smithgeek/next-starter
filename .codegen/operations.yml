@@ -18,7 +18,8 @@ generates:
           content: export function useUserSdk(){const requester = useFetchRequester('user');return getSdk(requester);}
           placement: append
     config:
-      avoidOptionals: true
+      avoidOptionals: 
+        field: true
 
   graphql/Admin/operations.ts:
     schema: graphql/Admin/schema.json
@@ -38,7 +39,29 @@ generates:
           content: export function useAdminSdk(){const requester = useFetchRequester('admin');return getSdk(requester);}
           placement: append
     config:
-      avoidOptionals: true
+      avoidOptionals: 
+        field: true
+
+  graphql/TenantAdmin/operations.ts:
+    schema: graphql/TenantAdmin/schema.json
+    documents: 
+      - ./**/*.tenantAdmin.graphql
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-generic-sdk":
+          noExport: true
+          documentMode: string
+      - add:
+          content:
+            - import { useFetchRequester } from "../FetchRequester";
+          placement: prepend
+      - add:
+          content: export function useTenantAdminSdk(){const requester = useFetchRequester('tenant_admin');return getSdk(requester);}
+          placement: append
+    config:
+      avoidOptionals: 
+        field: true
 
   graphql/api/operations.ts:
     schema: graphql/api/schema.json
@@ -55,7 +78,7 @@ generates:
             - import { fetchRequester } from "./FetchRequester";
           placement: prepend
       - add:
-          content: export const apiSdk = getSdk(fetchRequester());
+          content: "export const apiSdk = getSdk(fetchRequester()); export function getApiSdkWithHeaders(headers: any) { return getSdk(fetchRequester(headers));}"
           placement: append
     config:
       avoidOptionals: 

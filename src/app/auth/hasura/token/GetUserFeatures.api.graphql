@@ -4,11 +4,18 @@ fragment Feature on features {
 	expiration
 }
 
-query GetUserFeatures($userId: uuid!) {
+query GetUserFeatures($userId: uuid!, $tenantId: uuid!) {
 	users_by_pk(id: $userId) {
 		features(where: { feature: { _or: [{ expiration: { _is_null: true } }, { expiration: { _gt: "now()" } }] } }) {
 			feature {
 				...Feature
+			}
+		}
+		tenants(where: { tenant_id: { _eq: $tenantId } }) {
+			user_tenant_features {
+				feature {
+					...Feature
+				}
 			}
 		}
 	}

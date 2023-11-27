@@ -12,7 +12,7 @@ export function BillingButton() {
 	const goToStripe = useMutation({
 		mutationFn: async () => {
 			setNavigating(true);
-			const url = await trpcClient.getBillingPortalUrl.query({ returnUrl: location.href });
+			const url = await trpcClient.stripe.getBillingPortalUrl.query({ returnUrl: location.href });
 			if (url) {
 				await router.push(url);
 			} else {

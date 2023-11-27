@@ -1,14 +1,10 @@
-import { z } from "zod";
-import { getBillingPortalUrl, getPricingData } from "../pricing/stripe";
-import { procedure, router } from "./server";
+import { stripeRouter } from "./functions/pricing/stripe";
+import { tenantAdminRouter } from "./functions/tenantAdmin/AddUserTenantFeature";
+import { router } from "./server";
 
 export const trpcRouter = router({
-	getPricing: procedure.query(async () => {
-		return await getPricingData();
-	}),
-	getBillingPortalUrl: procedure.input(z.object({ returnUrl: z.string() })).query(async ({ input }) => {
-		return await getBillingPortalUrl(input.returnUrl);
-	}),
+	stripe: stripeRouter,
+	tenantAdmin: tenantAdminRouter,
 });
 // This type will be used as a reference later...
 export type TrpcRouter = typeof trpcRouter;

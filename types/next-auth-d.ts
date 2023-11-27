@@ -3,6 +3,7 @@ import { DefaultSession } from "next-auth";
 export interface Tenants {
 	allowed: string[];
 	active: string;
+	isAdmin: boolean;
 }
 
 declare module "next-auth" {

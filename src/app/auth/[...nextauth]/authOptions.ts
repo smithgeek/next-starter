@@ -55,6 +55,7 @@ export const authOptions: AuthOptions = {
 					}
 					const features = await apiSdk.GetUserFeatures({
 						userId: session.user.id,
+						tenantId: session.user.tenants.active,
 					});
 					if (!features.users_by_pk?.features.some((f) => f.feature.feature_id === FeatureId.SiteAdmin)) {
 						return null;
@@ -157,17 +158,18 @@ async function getTenantsUserBelongsTo(userId: string | undefined): Promise<Tena
 		return {
 			allowed: [],
 			active: "",
+			isAdmin: false,
 		};
 	}
 	const tenantsQuery = await apiSdk.GetUserTenants({ userId: userId });
 	const tenants = tenantsQuery.users_by_pk?.tenants ?? [];
 	const tenantIds = tenants.map((t) => t.tenant_id);
-	const activeTenant = tenants.find((t) => t.default)?.tenant_id;
-	const result = {
+	const activeTenant = tenants.find((t) => t.default) ?? (tenants.length > 0 ? tenants[0] : null);
+	return {
 		allowed: tenantIds,
-		active: activeTenant ?? (tenantIds.length > 0 ? tenantIds[0] : ""),
+		active: activeTenant?.tenant_id ?? "",
+		isAdmin: activeTenant?.user_tenant_features.some((f) => f.feature.feature_id === FeatureId.TenantAdmin) ?? false,
 	};
-	return result;
 }
 
 /**

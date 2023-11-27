@@ -67,12 +67,12 @@ export function useFeatures() {
 	return data;
 }
 
-export function useRequireFeature(feature: FeatureId, route: string) {
+export function useRequireFeature(feature: FeatureId, route?: string) {
 	const features = useFeaturesQuery();
 	const router = useRouter();
 	useEffect(() => {
 		if (features.isSuccess && !features.data.has(feature)) {
-			router.replace(route);
+			router.replace(route ?? "/app/dashboard");
 		}
 	}, [feature, features.data, features.isSuccess, route, router]);
 }

@@ -1,0 +1,15 @@
+mutation AddUserTenantFeature($feature: features_insert_input!, $userId: uuid!, $tenantId: uuid!) {
+	insert_user_tenant_features_one(object: { feature: { data: $feature }, tenant_id: $tenantId, user_id: $userId }) {
+		feature_id
+		user_id
+		tenant_id
+	}
+}
+
+mutation DeleteUserTenantFeature($featureId: Int!, $userId: uuid!, $tenantId: uuid!) {
+	delete_features(
+		where: { feature_id: { _eq: $featureId }, user_tenant_features: { user_id: { _eq: $userId }, tenant_id: { _eq: $tenantId } } }
+	) {
+		affected_rows
+	}
+}

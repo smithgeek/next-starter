@@ -1,10 +1,8 @@
-export function fetchRequester() {
-	return async <TResult, TVariables>(
-		doc: string,
-		variables: TVariables
-	): Promise<TResult> => {
+export function fetchRequester(customHeaders?: any) {
+	return async <TResult, TVariables>(doc: string, variables: TVariables): Promise<TResult> => {
 		let headers: any = {
 			"Content-Type": "application/json",
+			...customHeaders,
 		};
 		headers["X-Hasura-Admin-Secret"] = process.env.HASURA_ADMIN_PASSWORD;
 		const response = await fetch(process.env.API_GRAPHQL_URL, {

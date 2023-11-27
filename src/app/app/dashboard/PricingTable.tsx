@@ -9,7 +9,7 @@ export function PricingTable() {
 	const prices = useQuery({
 		queryKey: ["pricingTable"],
 		queryFn: async () => {
-			return await trpcClient.getPricing.query();
+			return await trpcClient.stripe.getPricing.query();
 		},
 	});
 	if (!prices.data) {

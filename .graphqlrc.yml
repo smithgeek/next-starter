@@ -11,6 +11,12 @@ projects:
     extensions:
       languageService:
         useSchemaFileDefinitions: true
+  tenantAdmin:
+    schema: graphql/TenantAdmin/schema.json
+    documents: ./**/*.tenantAdmin.graphql
+    extensions:
+      languageService:
+        useSchemaFileDefinitions: true
   api:
     schema: graphql/api/schema.json
     documents: ./**/*.api.graphql

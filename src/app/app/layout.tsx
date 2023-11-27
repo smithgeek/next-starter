@@ -4,8 +4,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { ReactNode } from "react";
-import { ImpersonationBanner } from "./ImpersonationBanner";
-import { redirectToStripeBilling } from "./NavigationItems";
 import { NavMenu } from "./navMenu/Menu";
 import { NavigationHeader } from "./navMenu/NavigationHeader";
 
@@ -23,7 +21,7 @@ export default function AuthenticatedLayout({ children }: { children: ReactNode 
 		<div>
 			<div className="flex flex-col md:flex-row">
 				<NavMenu
-					className="hidden md:flex fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto border-r border-border flex-col"
+					className="hidden md:flex fixed top-0 bottom-0 lg:left-0 w-[300px] overflow-y-auto border-r border-border flex-col"
 					style={{ width: width, flex: `0 0 ${width}px` }}
 				/>
 				<div className="md:hidden flex gap-2 p-2 border-b border-border">
@@ -31,14 +29,13 @@ export default function AuthenticatedLayout({ children }: { children: ReactNode 
 						<SheetTrigger>
 							<Menu />
 						</SheetTrigger>
-						<SheetContent side="left" hideClose>
-							<NavMenu />
+						<SheetContent side="left" hideClose className="p-0 flex flex-col">
+							<NavMenu className="flex flex-1" />
 						</SheetContent>
 					</Sheet>
 					<NavigationHeader hidePicker />
 				</div>
 				<div className="flex-1 flex flex-col md:ml-[300px]">
-					<ImpersonationBanner />
 					<div className="flex-1 p-2">
 						{false && (
 							<div className="alert alert-warning shadow-lg rounded-none mb-2">
@@ -58,7 +55,7 @@ export default function AuthenticatedLayout({ children }: { children: ReactNode 
 									</svg>
 									<div>
 										<span>Your subscription is inactive.</span>
-										<button className="btn btn-primary btn-sm ml-4" onClick={redirectToStripeBilling}>
+										<button className="btn btn-primary btn-sm ml-4" onClick={() => {}}>
 											Fix it now
 										</button>
 									</div>

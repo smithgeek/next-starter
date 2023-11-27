@@ -17,7 +17,7 @@ export function LogoutButton() {
 	});
 
 	return (
-		<NavButton busy={signingOut} className="justify-start gap-2 font-bold my-2" onClick={() => signOut.mutate()}>
+		<NavButton variant="outline" busy={signingOut} className="justify-start gap-2 font-bold my-2" onClick={() => signOut.mutate()}>
 			<LogOut />
 			<span>Logout</span>
 		</NavButton>

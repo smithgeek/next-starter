@@ -1,0 +1,14 @@
+query GetUsers {
+	users {
+		id
+		name
+		email
+		tenants {
+			user_tenant_features {
+				feature {
+					feature_id
+				}
+			}
+		}
+	}
+}

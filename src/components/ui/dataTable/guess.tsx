@@ -16,6 +16,7 @@ export interface GuessSpec<TData, TValue> {
 		};
 	};
 	extraColumns?: ColumnDef<TData, TValue>[];
+	excludeColumns?: string[];
 }
 
 export function guessColumnDefinitions<TData, TValue>(data: TData[], spec?: GuessSpec<TData, TValue>): ColumnDef<TData, TValue>[] {
@@ -30,6 +31,9 @@ export function guessColumnDefinitions<TData, TValue>(data: TData[], spec?: Gues
 	let columns: ColumnDef<TData, TValue>[] = [];
 	const keys = Object.keys(firstItem) as (keyof TData)[];
 	for (const key of keys) {
+		if (spec?.excludeColumns?.includes(key.toString())) {
+			continue;
+		}
 		let def: ColumnDef<TData, TValue> = {
 			accessorKey: key,
 			header: camelCaseToWords(key.toString()),

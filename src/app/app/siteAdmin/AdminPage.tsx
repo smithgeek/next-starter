@@ -5,7 +5,7 @@ import { useRequireFeature } from "../../features/useFeatures";
 import { UsersTable } from "./UsersTable";
 
 export function AdminPage() {
-	useRequireFeature(FeatureId.SiteAdmin, "/user/dashboard");
+	useRequireFeature(FeatureId.SiteAdmin);
 	const usersQuery = adminClient.useAllUsers();
 
 	return <>{usersQuery.data && <UsersTable users={usersQuery.data} />}</>;
