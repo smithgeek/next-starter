@@ -1,4 +1,4 @@
-export enum Feature {
+export enum FeatureId {
 	SiteAdmin,
 	TenantAdmin,
 }

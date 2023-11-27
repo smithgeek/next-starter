@@ -6,7 +6,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import EmailProvider from "next-auth/providers/email";
 import { createTransport } from "nodemailer";
 import { Tenants } from "../../../../types/next-auth-d";
-import { Feature } from "../../features/Feature";
+import { FeatureId } from "../../features/Feature";
 import { getChallenge, getCredentialById, updateCredentialCounter } from "../webauthn/credentials";
 import { HasuraAdapter } from "./hasuraAdpater";
 
@@ -56,7 +56,7 @@ export const authOptions: AuthOptions = {
 					const features = await apiSdk.GetUserFeatures({
 						userId: session.user.id,
 					});
-					if (!features.users_by_pk?.features.some((f) => f.feature.feature === Feature.SiteAdmin)) {
+					if (!features.users_by_pk?.features.some((f) => f.feature.feature === FeatureId.SiteAdmin)) {
 						return null;
 					}
 

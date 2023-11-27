@@ -6,8 +6,8 @@ import { LayoutDashboard, LogOut, Shield, User2 } from "lucide-react";
 import { signOut as nextAuthSignout } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { Feature } from "../features/Feature";
-import { hasFeature, useFeatures } from "../features/useFeatures";
+import { FeatureId } from "../features/Feature";
+import { useFeatures } from "../features/useFeatures";
 import { NavigationItem } from "./NavigationItem";
 
 async function getBillingPortalUrl() {
@@ -45,7 +45,7 @@ export function useNavigationItems() {
 			href: "/user/account",
 		},
 	];
-	if (hasFeature(features.data, Feature.SiteAdmin)) {
+	if (features.data?.has(FeatureId.SiteAdmin)) {
 		navItems.push({
 			text: "Admin",
 			icon: <Shield className="w-6" />,
