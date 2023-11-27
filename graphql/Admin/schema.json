@@ -1907,7 +1907,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "args": [],
             "type": {
@@ -1923,7 +1923,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "args": [],
             "type": {
@@ -2807,7 +2807,7 @@
         "description": "aggregate avg on columns",
         "fields": [
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "args": [],
             "type": {
@@ -2895,7 +2895,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -2907,7 +2907,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -3017,7 +3017,7 @@
         "enumValues": [
           {
             "name": "features_pkey",
-            "description": "unique or primary key constraint on columns \"feature_id\"",
+            "description": "unique or primary key constraint on columns \"id\"",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -3108,7 +3108,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -3143,7 +3143,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -3155,7 +3155,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -3237,7 +3237,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "args": [],
             "type": {
@@ -3249,7 +3249,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "args": [],
             "type": {
@@ -3284,7 +3284,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "args": [],
             "type": {
@@ -3296,7 +3296,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "args": [],
             "type": {
@@ -3485,7 +3485,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -3497,7 +3497,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -3568,7 +3568,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "NON_NULL",
@@ -3626,13 +3626,13 @@
             "deprecationReason": null
           },
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -3665,7 +3665,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -3677,7 +3677,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -3711,7 +3711,7 @@
         "description": "aggregate stddev on columns",
         "fields": [
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "args": [],
             "type": {
@@ -3734,7 +3734,7 @@
         "description": "aggregate stddev_pop on columns",
         "fields": [
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "args": [],
             "type": {
@@ -3757,7 +3757,7 @@
         "description": "aggregate stddev_samp on columns",
         "fields": [
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "args": [],
             "type": {
@@ -3832,7 +3832,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -3844,7 +3844,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -3878,7 +3878,7 @@
         "description": "aggregate sum on columns",
         "fields": [
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "args": [],
             "type": {
@@ -3910,13 +3910,13 @@
             "deprecationReason": null
           },
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -4047,7 +4047,7 @@
         "description": "aggregate var_pop on columns",
         "fields": [
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "args": [],
             "type": {
@@ -4070,7 +4070,7 @@
         "description": "aggregate var_samp on columns",
         "fields": [
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "args": [],
             "type": {
@@ -4093,7 +4093,7 @@
         "description": "aggregate variance on columns",
         "fields": [
           {
-            "name": "feature",
+            "name": "feature_id",
             "description": null,
             "args": [],
             "type": {
@@ -4405,7 +4405,7 @@
             "description": "delete single row from the table: \"features\"",
             "args": [
               {
-                "name": "feature_id",
+                "name": "id",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
@@ -9345,7 +9345,7 @@
             "description": "fetch data from the table: \"features\" using primary key columns",
             "args": [
               {
-                "name": "feature_id",
+                "name": "id",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
@@ -13670,7 +13670,7 @@
             "description": "fetch data from the table: \"features\" using primary key columns",
             "args": [
               {
-                "name": "feature_id",
+                "name": "id",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
@@ -17625,9 +17625,13 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null

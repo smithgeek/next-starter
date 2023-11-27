@@ -56,7 +56,7 @@ export const authOptions: AuthOptions = {
 					const features = await apiSdk.GetUserFeatures({
 						userId: session.user.id,
 					});
-					if (!features.users_by_pk?.features.some((f) => f.feature.feature === FeatureId.SiteAdmin)) {
+					if (!features.users_by_pk?.features.some((f) => f.feature.feature_id === FeatureId.SiteAdmin)) {
 						return null;
 					}
 

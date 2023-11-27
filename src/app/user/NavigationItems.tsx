@@ -53,7 +53,8 @@ export function useNavigationItems() {
 			href: "/user/admin",
 			active: pathname?.startsWith("/user/admin"),
 		});
-	} else {
+	}
+	if (features.has(FeatureId.TenantAdmin)) {
 		navItems.push({
 			text: "Billing",
 			icon: (

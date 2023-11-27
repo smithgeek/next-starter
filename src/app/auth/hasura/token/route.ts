@@ -2,6 +2,7 @@ import { apiSdk } from "graphql/api/operations";
 import * as jsonwebtoken from "jsonwebtoken";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
+import { FeatureId } from "../../../features/Feature";
 import { authOptions } from "../../[...nextauth]/authOptions";
 
 async function getHasuraToken(req: NextRequest) {
@@ -11,7 +12,7 @@ async function getHasuraToken(req: NextRequest) {
 		const response = await apiSdk.GetUserFeatures({
 			userId: session.user.id,
 		});
-		isAdmin = response.users_by_pk?.features.some((f) => f.feature.feature === 0) ?? false;
+		isAdmin = response.users_by_pk?.features.some((f) => f.feature.feature_id === FeatureId.SiteAdmin) ?? false;
 	}
 
 	const tenants = session?.user.tenants.allowed ?? [];

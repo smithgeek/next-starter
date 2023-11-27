@@ -89,8 +89,8 @@ export enum Cursor_Ordering {
 export type Features = {
   __typename?: 'features';
   expiration: Maybe<Scalars['timestamptz']['output']>;
-  feature: Scalars['Int']['output'];
-  feature_id: Scalars['uuid']['output'];
+  feature_id: Scalars['Int']['output'];
+  id: Scalars['uuid']['output'];
   options: Maybe<Scalars['jsonb']['output']>;
   /** An array relationship */
   tenant_features: Array<Tenant_Features>;
@@ -141,8 +141,8 @@ export type Features_Bool_Exp = {
   _not: InputMaybe<Features_Bool_Exp>;
   _or: InputMaybe<Array<Features_Bool_Exp>>;
   expiration: InputMaybe<Timestamptz_Comparison_Exp>;
-  feature: InputMaybe<Int_Comparison_Exp>;
-  feature_id: InputMaybe<Uuid_Comparison_Exp>;
+  feature_id: InputMaybe<Int_Comparison_Exp>;
+  id: InputMaybe<Uuid_Comparison_Exp>;
   options: InputMaybe<Jsonb_Comparison_Exp>;
   tenant_features: InputMaybe<Tenant_Features_Bool_Exp>;
   user_features: InputMaybe<User_Features_Bool_Exp>;
@@ -152,8 +152,8 @@ export type Features_Bool_Exp = {
 /** Ordering options when selecting data from "features". */
 export type Features_Order_By = {
   expiration: InputMaybe<Order_By>;
-  feature: InputMaybe<Order_By>;
   feature_id: InputMaybe<Order_By>;
+  id: InputMaybe<Order_By>;
   options: InputMaybe<Order_By>;
   tenant_features_aggregate: InputMaybe<Tenant_Features_Aggregate_Order_By>;
   user_features_aggregate: InputMaybe<User_Features_Aggregate_Order_By>;
@@ -165,9 +165,9 @@ export enum Features_Select_Column {
   /** column name */
   Expiration = 'expiration',
   /** column name */
-  Feature = 'feature',
-  /** column name */
   FeatureId = 'feature_id',
+  /** column name */
+  Id = 'id',
   /** column name */
   Options = 'options'
 }
@@ -183,8 +183,8 @@ export type Features_Stream_Cursor_Input = {
 /** Initial value of the column from where the streaming should start */
 export type Features_Stream_Cursor_Value_Input = {
   expiration: InputMaybe<Scalars['timestamptz']['input']>;
-  feature: InputMaybe<Scalars['Int']['input']>;
-  feature_id: InputMaybe<Scalars['uuid']['input']>;
+  feature_id: InputMaybe<Scalars['Int']['input']>;
+  id: InputMaybe<Scalars['uuid']['input']>;
   options: InputMaybe<Scalars['jsonb']['input']>;
 };
 
@@ -350,7 +350,7 @@ export type Query_RootFeaturesArgs = {
 
 
 export type Query_RootFeatures_By_PkArgs = {
-  feature_id: Scalars['uuid']['input'];
+  id: Scalars['uuid']['input'];
 };
 
 
@@ -507,7 +507,7 @@ export type Subscription_RootFeaturesArgs = {
 
 
 export type Subscription_RootFeatures_By_PkArgs = {
-  feature_id: Scalars['uuid']['input'];
+  id: Scalars['uuid']['input'];
 };
 
 
@@ -660,7 +660,7 @@ export type Tenant = {
   /** An array relationship */
   features: Array<Tenant_Features>;
   id: Scalars['uuid']['output'];
-  name: Maybe<Scalars['String']['output']>;
+  name: Scalars['String']['output'];
   /** An array relationship */
   users: Array<Tenant_Users>;
 };
@@ -1240,11 +1240,11 @@ export type Webauthn_Credentials_Updates = {
 export type User_GetCurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type User_GetCurrentUserQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any, name: string | null, email: string, tenants: Array<{ __typename?: 'tenant_users', tenant: { __typename?: 'tenant', name: string | null, id: any } }> }> };
+export type User_GetCurrentUserQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any, name: string | null, email: string, tenants: Array<{ __typename?: 'tenant_users', tenant: { __typename?: 'tenant', name: string, id: any } }> }> };
 
-export type FeatureFragment = { __typename?: 'features', feature: number, options: any | null, expiration: any | null };
+export type FeatureFragment = { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null };
 
-export type UserFeaturesFragment = { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant: { __typename?: 'tenant', features: Array<{ __typename?: 'tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }, user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }>, features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> };
+export type UserFeaturesFragment = { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant: { __typename?: 'tenant', features: Array<{ __typename?: 'tenant_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }> }, user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }> }>, features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }> };
 
 export type GetUserFeaturesQueryVariables = Exact<{
   userId: Scalars['uuid']['input'];
@@ -1252,7 +1252,7 @@ export type GetUserFeaturesQueryVariables = Exact<{
 }>;
 
 
-export type GetUserFeaturesQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant: { __typename?: 'tenant', features: Array<{ __typename?: 'tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }, user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> }>, features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> } | null };
+export type GetUserFeaturesQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant: { __typename?: 'tenant', features: Array<{ __typename?: 'tenant_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }> }, user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }> }>, features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }> } | null };
 
 export type SetDefaultTenantMutationVariables = Exact<{
   userId: Scalars['uuid']['input'];
@@ -1286,7 +1286,7 @@ export type RenamePasskeyMutation = { __typename?: 'mutation_root', update_webau
 
 export const FeatureFragmentDoc = `
     fragment Feature on features {
-  feature
+  feature_id
   options
   expiration
 }

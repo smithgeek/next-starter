@@ -1,18 +1,17 @@
 "use client";
 import Login from "@/components/Login";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { ReactNode } from "react";
-import { BottomNavigation } from "./BottomNavigation";
 import { ImpersonationBanner } from "./ImpersonationBanner";
-import { redirectToStripeBilling, useNavigationItems } from "./NavigationItems";
-import { Sidebar } from "./Sidebar";
+import { redirectToStripeBilling } from "./NavigationItems";
+import { NavMenu } from "./navMenu/Menu";
+import { NavigationHeader } from "./navMenu/NavigationHeader";
 
-export default function AuthenticatedLayout({
-	children,
-}: {
-	children: ReactNode;
-}) {
-	const navItems = useNavigationItems();
+const width = 300;
+
+export default function AuthenticatedLayout({ children }: { children: ReactNode }) {
 	const session = useSession();
 	if (session.status === "unauthenticated") {
 		return <Login providers={["google", "github"]} />;
@@ -22,13 +21,23 @@ export default function AuthenticatedLayout({
 	}
 	return (
 		<div>
-			<div className="flex">
-				<Sidebar
-					header={{ title: process.env.NEXT_PUBLIC_APP_NAME }}
-					items={navItems}
-					className="hidden sm:block"
+			<div className="flex flex-col md:flex-row">
+				<NavMenu
+					className="hidden md:flex fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto border-r border-border flex-col"
+					style={{ width: width, flex: `0 0 ${width}px` }}
 				/>
-				<div className="flex-1 flex flex-col">
+				<div className="md:hidden flex gap-2 p-2 border-b border-border">
+					<Sheet>
+						<SheetTrigger>
+							<Menu />
+						</SheetTrigger>
+						<SheetContent side="left" hideClose>
+							<NavMenu />
+						</SheetContent>
+					</Sheet>
+					<NavigationHeader hidePicker />
+				</div>
+				<div className="flex-1 flex flex-col md:ml-[300px]">
 					<ImpersonationBanner />
 					<div className="flex-1 p-2">
 						{false && (
@@ -48,13 +57,8 @@ export default function AuthenticatedLayout({
 										/>
 									</svg>
 									<div>
-										<span>
-											Your subscription is inactive.
-										</span>
-										<button
-											className="btn btn-primary btn-sm ml-4"
-											onClick={redirectToStripeBilling}
-										>
+										<span>Your subscription is inactive.</span>
+										<button className="btn btn-primary btn-sm ml-4" onClick={redirectToStripeBilling}>
 											Fix it now
 										</button>
 									</div>
@@ -65,7 +69,6 @@ export default function AuthenticatedLayout({
 					</div>
 				</div>
 			</div>
-			<BottomNavigation items={navItems} className="sm:hidden" />
 		</div>
 	);
 }

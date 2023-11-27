@@ -120,8 +120,8 @@ export enum Cursor_Ordering {
 export type Features = {
   __typename?: 'features';
   expiration: Maybe<Scalars['timestamptz']['output']>;
-  feature: Scalars['Int']['output'];
-  feature_id: Scalars['uuid']['output'];
+  feature_id: Scalars['Int']['output'];
+  id: Scalars['uuid']['output'];
   options: Maybe<Scalars['jsonb']['output']>;
   /** An array relationship */
   tenant_features: Array<Tenant_Features>;
@@ -241,7 +241,7 @@ export type Features_Append_Input = {
 /** aggregate avg on columns */
 export type Features_Avg_Fields = {
   __typename?: 'features_avg_fields';
-  feature: Maybe<Scalars['Float']['output']>;
+  feature_id: Maybe<Scalars['Float']['output']>;
 };
 
 /** Boolean expression to filter rows from the table "features". All fields are combined with a logical 'AND'. */
@@ -250,8 +250,8 @@ export type Features_Bool_Exp = {
   _not?: InputMaybe<Features_Bool_Exp>;
   _or?: InputMaybe<Array<Features_Bool_Exp>>;
   expiration?: InputMaybe<Timestamptz_Comparison_Exp>;
-  feature?: InputMaybe<Int_Comparison_Exp>;
-  feature_id?: InputMaybe<Uuid_Comparison_Exp>;
+  feature_id?: InputMaybe<Int_Comparison_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
   options?: InputMaybe<Jsonb_Comparison_Exp>;
   tenant_features?: InputMaybe<Tenant_Features_Bool_Exp>;
   tenant_features_aggregate?: InputMaybe<Tenant_Features_Aggregate_Bool_Exp>;
@@ -263,7 +263,7 @@ export type Features_Bool_Exp = {
 
 /** unique or primary key constraints on table "features" */
 export enum Features_Constraint {
-  /** unique or primary key constraint on columns "feature_id" */
+  /** unique or primary key constraint on columns "id" */
   FeaturesPkey = 'features_pkey'
 }
 
@@ -284,14 +284,14 @@ export type Features_Delete_Key_Input = {
 
 /** input type for incrementing numeric columns in table "features" */
 export type Features_Inc_Input = {
-  feature?: InputMaybe<Scalars['Int']['input']>;
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** input type for inserting data into table "features" */
 export type Features_Insert_Input = {
   expiration?: InputMaybe<Scalars['timestamptz']['input']>;
-  feature?: InputMaybe<Scalars['Int']['input']>;
-  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
   options?: InputMaybe<Scalars['jsonb']['input']>;
   tenant_features?: InputMaybe<Tenant_Features_Arr_Rel_Insert_Input>;
   user_features?: InputMaybe<User_Features_Arr_Rel_Insert_Input>;
@@ -302,16 +302,16 @@ export type Features_Insert_Input = {
 export type Features_Max_Fields = {
   __typename?: 'features_max_fields';
   expiration: Maybe<Scalars['timestamptz']['output']>;
-  feature: Maybe<Scalars['Int']['output']>;
-  feature_id: Maybe<Scalars['uuid']['output']>;
+  feature_id: Maybe<Scalars['Int']['output']>;
+  id: Maybe<Scalars['uuid']['output']>;
 };
 
 /** aggregate min on columns */
 export type Features_Min_Fields = {
   __typename?: 'features_min_fields';
   expiration: Maybe<Scalars['timestamptz']['output']>;
-  feature: Maybe<Scalars['Int']['output']>;
-  feature_id: Maybe<Scalars['uuid']['output']>;
+  feature_id: Maybe<Scalars['Int']['output']>;
+  id: Maybe<Scalars['uuid']['output']>;
 };
 
 /** response of any mutation on the table "features" */
@@ -340,8 +340,8 @@ export type Features_On_Conflict = {
 /** Ordering options when selecting data from "features". */
 export type Features_Order_By = {
   expiration?: InputMaybe<Order_By>;
-  feature?: InputMaybe<Order_By>;
   feature_id?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
   options?: InputMaybe<Order_By>;
   tenant_features_aggregate?: InputMaybe<Tenant_Features_Aggregate_Order_By>;
   user_features_aggregate?: InputMaybe<User_Features_Aggregate_Order_By>;
@@ -350,7 +350,7 @@ export type Features_Order_By = {
 
 /** primary key columns input for table: features */
 export type Features_Pk_Columns_Input = {
-  feature_id: Scalars['uuid']['input'];
+  id: Scalars['uuid']['input'];
 };
 
 /** prepend existing jsonb value of filtered columns with new jsonb value */
@@ -363,9 +363,9 @@ export enum Features_Select_Column {
   /** column name */
   Expiration = 'expiration',
   /** column name */
-  Feature = 'feature',
-  /** column name */
   FeatureId = 'feature_id',
+  /** column name */
+  Id = 'id',
   /** column name */
   Options = 'options'
 }
@@ -373,27 +373,27 @@ export enum Features_Select_Column {
 /** input type for updating data in table "features" */
 export type Features_Set_Input = {
   expiration?: InputMaybe<Scalars['timestamptz']['input']>;
-  feature?: InputMaybe<Scalars['Int']['input']>;
-  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
   options?: InputMaybe<Scalars['jsonb']['input']>;
 };
 
 /** aggregate stddev on columns */
 export type Features_Stddev_Fields = {
   __typename?: 'features_stddev_fields';
-  feature: Maybe<Scalars['Float']['output']>;
+  feature_id: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Features_Stddev_Pop_Fields = {
   __typename?: 'features_stddev_pop_fields';
-  feature: Maybe<Scalars['Float']['output']>;
+  feature_id: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Features_Stddev_Samp_Fields = {
   __typename?: 'features_stddev_samp_fields';
-  feature: Maybe<Scalars['Float']['output']>;
+  feature_id: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "features" */
@@ -407,15 +407,15 @@ export type Features_Stream_Cursor_Input = {
 /** Initial value of the column from where the streaming should start */
 export type Features_Stream_Cursor_Value_Input = {
   expiration?: InputMaybe<Scalars['timestamptz']['input']>;
-  feature?: InputMaybe<Scalars['Int']['input']>;
-  feature_id?: InputMaybe<Scalars['uuid']['input']>;
+  feature_id?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
   options?: InputMaybe<Scalars['jsonb']['input']>;
 };
 
 /** aggregate sum on columns */
 export type Features_Sum_Fields = {
   __typename?: 'features_sum_fields';
-  feature: Maybe<Scalars['Int']['output']>;
+  feature_id: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "features" */
@@ -423,9 +423,9 @@ export enum Features_Update_Column {
   /** column name */
   Expiration = 'expiration',
   /** column name */
-  Feature = 'feature',
-  /** column name */
   FeatureId = 'feature_id',
+  /** column name */
+  Id = 'id',
   /** column name */
   Options = 'options'
 }
@@ -452,19 +452,19 @@ export type Features_Updates = {
 /** aggregate var_pop on columns */
 export type Features_Var_Pop_Fields = {
   __typename?: 'features_var_pop_fields';
-  feature: Maybe<Scalars['Float']['output']>;
+  feature_id: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate var_samp on columns */
 export type Features_Var_Samp_Fields = {
   __typename?: 'features_var_samp_fields';
-  feature: Maybe<Scalars['Float']['output']>;
+  feature_id: Maybe<Scalars['Float']['output']>;
 };
 
 /** aggregate variance on columns */
 export type Features_Variance_Fields = {
   __typename?: 'features_variance_fields';
-  feature: Maybe<Scalars['Float']['output']>;
+  feature_id: Maybe<Scalars['Float']['output']>;
 };
 
 export type Jsonb_Cast_Exp = {
@@ -691,7 +691,7 @@ export type Mutation_RootDelete_FeaturesArgs = {
 
 /** mutation root */
 export type Mutation_RootDelete_Features_By_PkArgs = {
-  feature_id: Scalars['uuid']['input'];
+  id: Scalars['uuid']['input'];
 };
 
 
@@ -1576,7 +1576,7 @@ export type Query_RootFeatures_AggregateArgs = {
 
 
 export type Query_RootFeatures_By_PkArgs = {
-  feature_id: Scalars['uuid']['input'];
+  id: Scalars['uuid']['input'];
 };
 
 
@@ -2192,7 +2192,7 @@ export type Subscription_RootFeatures_AggregateArgs = {
 
 
 export type Subscription_RootFeatures_By_PkArgs = {
-  feature_id: Scalars['uuid']['input'];
+  id: Scalars['uuid']['input'];
 };
 
 
@@ -2575,7 +2575,7 @@ export type Tenant = {
   /** An aggregate relationship */
   features_aggregate: Tenant_Features_Aggregate;
   id: Scalars['uuid']['output'];
-  name: Maybe<Scalars['String']['output']>;
+  name: Scalars['String']['output'];
   stripe_customer_id: Maybe<Scalars['String']['output']>;
   /** An array relationship */
   users: Array<Tenant_Users>;
@@ -5008,14 +5008,14 @@ export type Webauthn_Credentials_Variance_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
-export type FeatureFragment = { __typename?: 'features', feature: number, options: any | null, expiration: any | null };
+export type FeatureFragment = { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null };
 
 export type GetUserFeaturesQueryVariables = Exact<{
   userId: Scalars['uuid']['input'];
 }>;
 
 
-export type GetUserFeaturesQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature: number, options: any | null, expiration: any | null } }> } | null };
+export type GetUserFeaturesQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }> } | null };
 
 export type GetWebauthnCredentialsForUserQueryVariables = Exact<{
   email: Scalars['String']['input'];
@@ -5200,9 +5200,16 @@ export type NextAuthHasura_GetAccountQueryVariables = Exact<{
 
 export type NextAuthHasura_GetAccountQuery = { __typename?: 'query_root', user_provider_accounts: Array<{ __typename?: 'user_provider_accounts', id: any, type: string, scope: string | null, userId: any, id_token: string | null, provider: string, expires_at: number | null, token_type: string | null, access_token: string | null, refresh_token: string | null, session_state: string | null, providerAccountId: string }> };
 
+export type GetStripeCustomerIdQueryVariables = Exact<{
+  tenantId: Scalars['uuid']['input'];
+}>;
+
+
+export type GetStripeCustomerIdQuery = { __typename?: 'query_root', tenant_by_pk: { __typename?: 'tenant', stripe_customer_id: string | null } | null };
+
 export const FeatureFragmentDoc = `
     fragment Feature on features {
-  feature
+  feature_id
   options
   expiration
 }
@@ -5463,6 +5470,13 @@ ${NextAuthHasura_UserFragmentDoc}`;
   }
 }
     ${NextAuthHasura_AccountFragmentDoc}`;
+ const GetStripeCustomerIdDocument = `
+    query GetStripeCustomerId($tenantId: uuid!) {
+  tenant_by_pk(id: $tenantId) {
+    stripe_customer_id
+  }
+}
+    `;
 export type Requester<C = {}, E = unknown> = <R, V>(doc: string, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
@@ -5537,6 +5551,9 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
     },
     NextAuthHasura_GetAccount(variables: NextAuthHasura_GetAccountQueryVariables, options?: C): Promise<NextAuthHasura_GetAccountQuery> {
       return requester<NextAuthHasura_GetAccountQuery, NextAuthHasura_GetAccountQueryVariables>(NextAuthHasura_GetAccountDocument, variables, options) as Promise<NextAuthHasura_GetAccountQuery>;
+    },
+    GetStripeCustomerId(variables: GetStripeCustomerIdQueryVariables, options?: C): Promise<GetStripeCustomerIdQuery> {
+      return requester<GetStripeCustomerIdQuery, GetStripeCustomerIdQueryVariables>(GetStripeCustomerIdDocument, variables, options) as Promise<GetStripeCustomerIdQuery>;
     }
   };
 }

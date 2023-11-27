@@ -1,0 +1,5 @@
+query GetStripeCustomerId($tenantId: uuid!) {
+	tenant_by_pk(id: $tenantId) {
+		stripe_customer_id
+	}
+}

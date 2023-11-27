@@ -9,6 +9,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { SessionProvider } from "next-auth/react";
 import NextAdapterApp from "next-query-params/app";
 import { ReactNode } from "react";
+import { ToastContainer } from "react-toastify";
 import { QueryParamProvider } from "use-query-params";
 
 dayjs.extend(duration);
@@ -20,16 +21,12 @@ const queryClient = new QueryClient();
 export function ClientLayout({ children }: { children: ReactNode }) {
 	return (
 		<QueryParamProvider adapter={NextAdapterApp}>
-			<ThemeProvider
-				attribute="class"
-				defaultTheme="system"
-				enableSystem
-				disableTransitionOnChange
-			>
+			<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 				<SessionProvider basePath="/auth">
 					<QueryClientProvider client={queryClient}>
 						{children}
 						<DevTools />
+						<ToastContainer />
 					</QueryClientProvider>
 				</SessionProvider>
 			</ThemeProvider>
