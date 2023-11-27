@@ -24,11 +24,11 @@ async function addUserTenantFeature(userId: string, feature: Features_Insert_Inp
 	}
 }
 
-async function removeUserTenantFeature(userId: string, featureId: FeatureId) {
+async function removeUserTenantFeature(userId: string, featureName: FeatureId) {
 	const session = await getServerSideSession();
 	if (session && session.user.tenants.isAdmin) {
 		await getSdk(session.user.tenants.active).DeleteUserTenantFeature({
-			featureId,
+			featureName,
 			tenantId: session?.user.tenants.active,
 			userId,
 		});
@@ -37,7 +37,7 @@ async function removeUserTenantFeature(userId: string, featureId: FeatureId) {
 
 async function makeUserTenantAdmin({ userId }: { userId: string }) {
 	addUserTenantFeature(userId, {
-		feature_id: FeatureId.TenantAdmin,
+		name: FeatureId.TenantAdmin,
 		id: makeUuid(),
 	});
 }

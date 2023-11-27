@@ -18,19 +18,6 @@ export type Scalars = {
   uuid: { input: any; output: any; }
 };
 
-/** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
-export type Int_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['Int']['input']>;
-  _gt?: InputMaybe<Scalars['Int']['input']>;
-  _gte?: InputMaybe<Scalars['Int']['input']>;
-  _in?: InputMaybe<Array<Scalars['Int']['input']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
-  _lt?: InputMaybe<Scalars['Int']['input']>;
-  _lte?: InputMaybe<Scalars['Int']['input']>;
-  _neq?: InputMaybe<Scalars['Int']['input']>;
-  _nin?: InputMaybe<Array<Scalars['Int']['input']>>;
-};
-
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['String']['input']>;
@@ -76,8 +63,8 @@ export enum Cursor_Ordering {
 export type Features = {
   __typename?: 'features';
   expiration: Maybe<Scalars['timestamptz']['output']>;
-  feature_id: Scalars['Int']['output'];
   id: Scalars['uuid']['output'];
+  name: Scalars['String']['output'];
   options: Maybe<Scalars['jsonb']['output']>;
   /** An array relationship */
   tenant_features: Array<Tenant_Features>;
@@ -117,8 +104,8 @@ export type Features_Bool_Exp = {
   _not?: InputMaybe<Features_Bool_Exp>;
   _or?: InputMaybe<Array<Features_Bool_Exp>>;
   expiration?: InputMaybe<Timestamptz_Comparison_Exp>;
-  feature_id?: InputMaybe<Int_Comparison_Exp>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
+  name?: InputMaybe<String_Comparison_Exp>;
   options?: InputMaybe<Jsonb_Comparison_Exp>;
   tenant_features?: InputMaybe<Tenant_Features_Bool_Exp>;
   user_tenant_features?: InputMaybe<User_Tenant_Features_Bool_Exp>;
@@ -127,8 +114,8 @@ export type Features_Bool_Exp = {
 /** Ordering options when selecting data from "features". */
 export type Features_Order_By = {
   expiration?: InputMaybe<Order_By>;
-  feature_id?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
   options?: InputMaybe<Order_By>;
   tenant_features_aggregate?: InputMaybe<Tenant_Features_Aggregate_Order_By>;
   user_tenant_features_aggregate?: InputMaybe<User_Tenant_Features_Aggregate_Order_By>;
@@ -139,9 +126,9 @@ export enum Features_Select_Column {
   /** column name */
   Expiration = 'expiration',
   /** column name */
-  FeatureId = 'feature_id',
-  /** column name */
   Id = 'id',
+  /** column name */
+  Name = 'name',
   /** column name */
   Options = 'options'
 }
@@ -157,8 +144,8 @@ export type Features_Stream_Cursor_Input = {
 /** Initial value of the column from where the streaming should start */
 export type Features_Stream_Cursor_Value_Input = {
   expiration?: InputMaybe<Scalars['timestamptz']['input']>;
-  feature_id?: InputMaybe<Scalars['Int']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
   options?: InputMaybe<Scalars['jsonb']['input']>;
 };
 
@@ -947,7 +934,7 @@ export type Uuid_Comparison_Exp = {
 export type GetUsersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetUsersQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any, name: string | null, email: string, tenants: Array<{ __typename?: 'tenant_users', user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature_id: number } }> }> }> };
+export type GetUsersQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any, name: string | null, email: string, tenants: Array<{ __typename?: 'tenant_users', user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', name: string } }> }> }> };
 
 
  const GetUsersDocument = `
@@ -959,7 +946,7 @@ export type GetUsersQuery = { __typename?: 'query_root', users: Array<{ __typena
     tenants {
       user_tenant_features {
         feature {
-          feature_id
+          name
         }
       }
     }

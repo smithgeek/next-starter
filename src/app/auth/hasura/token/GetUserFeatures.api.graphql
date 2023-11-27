@@ -1,5 +1,5 @@
 fragment Feature on features {
-	feature_id
+	name
 	options
 	expiration
 }

@@ -57,7 +57,7 @@ export const authOptions: AuthOptions = {
 						userId: session.user.id,
 						tenantId: session.user.tenants.active,
 					});
-					if (!features.users_by_pk?.features.some((f) => f.feature.feature_id === FeatureId.SiteAdmin)) {
+					if (!features.users_by_pk?.features.some((f) => f.feature.name === FeatureId.SiteAdmin)) {
 						return null;
 					}
 
@@ -168,7 +168,7 @@ async function getTenantsUserBelongsTo(userId: string | undefined): Promise<Tena
 	return {
 		allowed: tenantIds,
 		active: activeTenant?.tenant_id ?? "",
-		isAdmin: activeTenant?.user_tenant_features.some((f) => f.feature.feature_id === FeatureId.TenantAdmin) ?? false,
+		isAdmin: activeTenant?.user_tenant_features.some((f) => f.feature.name === FeatureId.TenantAdmin) ?? false,
 	};
 }
 

@@ -120,8 +120,8 @@ export enum Cursor_Ordering {
 export type Features = {
   __typename?: 'features';
   expiration: Maybe<Scalars['timestamptz']['output']>;
-  feature_id: Scalars['Int']['output'];
   id: Scalars['uuid']['output'];
+  name: Scalars['String']['output'];
   options: Maybe<Scalars['jsonb']['output']>;
   /** An array relationship */
   tenant_features: Array<Tenant_Features>;
@@ -213,17 +213,9 @@ export type Features_Aggregate = {
 /** aggregate fields of "features" */
 export type Features_Aggregate_Fields = {
   __typename?: 'features_aggregate_fields';
-  avg: Maybe<Features_Avg_Fields>;
   count: Scalars['Int']['output'];
   max: Maybe<Features_Max_Fields>;
   min: Maybe<Features_Min_Fields>;
-  stddev: Maybe<Features_Stddev_Fields>;
-  stddev_pop: Maybe<Features_Stddev_Pop_Fields>;
-  stddev_samp: Maybe<Features_Stddev_Samp_Fields>;
-  sum: Maybe<Features_Sum_Fields>;
-  var_pop: Maybe<Features_Var_Pop_Fields>;
-  var_samp: Maybe<Features_Var_Samp_Fields>;
-  variance: Maybe<Features_Variance_Fields>;
 };
 
 
@@ -238,20 +230,14 @@ export type Features_Append_Input = {
   options?: InputMaybe<Scalars['jsonb']['input']>;
 };
 
-/** aggregate avg on columns */
-export type Features_Avg_Fields = {
-  __typename?: 'features_avg_fields';
-  feature_id: Maybe<Scalars['Float']['output']>;
-};
-
 /** Boolean expression to filter rows from the table "features". All fields are combined with a logical 'AND'. */
 export type Features_Bool_Exp = {
   _and?: InputMaybe<Array<Features_Bool_Exp>>;
   _not?: InputMaybe<Features_Bool_Exp>;
   _or?: InputMaybe<Array<Features_Bool_Exp>>;
   expiration?: InputMaybe<Timestamptz_Comparison_Exp>;
-  feature_id?: InputMaybe<Int_Comparison_Exp>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
+  name?: InputMaybe<String_Comparison_Exp>;
   options?: InputMaybe<Jsonb_Comparison_Exp>;
   tenant_features?: InputMaybe<Tenant_Features_Bool_Exp>;
   tenant_features_aggregate?: InputMaybe<Tenant_Features_Aggregate_Bool_Exp>;
@@ -282,16 +268,11 @@ export type Features_Delete_Key_Input = {
   options?: InputMaybe<Scalars['String']['input']>;
 };
 
-/** input type for incrementing numeric columns in table "features" */
-export type Features_Inc_Input = {
-  feature_id?: InputMaybe<Scalars['Int']['input']>;
-};
-
 /** input type for inserting data into table "features" */
 export type Features_Insert_Input = {
   expiration?: InputMaybe<Scalars['timestamptz']['input']>;
-  feature_id?: InputMaybe<Scalars['Int']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
   options?: InputMaybe<Scalars['jsonb']['input']>;
   tenant_features?: InputMaybe<Tenant_Features_Arr_Rel_Insert_Input>;
   user_features?: InputMaybe<User_Features_Arr_Rel_Insert_Input>;
@@ -302,16 +283,16 @@ export type Features_Insert_Input = {
 export type Features_Max_Fields = {
   __typename?: 'features_max_fields';
   expiration: Maybe<Scalars['timestamptz']['output']>;
-  feature_id: Maybe<Scalars['Int']['output']>;
   id: Maybe<Scalars['uuid']['output']>;
+  name: Maybe<Scalars['String']['output']>;
 };
 
 /** aggregate min on columns */
 export type Features_Min_Fields = {
   __typename?: 'features_min_fields';
   expiration: Maybe<Scalars['timestamptz']['output']>;
-  feature_id: Maybe<Scalars['Int']['output']>;
   id: Maybe<Scalars['uuid']['output']>;
+  name: Maybe<Scalars['String']['output']>;
 };
 
 /** response of any mutation on the table "features" */
@@ -340,8 +321,8 @@ export type Features_On_Conflict = {
 /** Ordering options when selecting data from "features". */
 export type Features_Order_By = {
   expiration?: InputMaybe<Order_By>;
-  feature_id?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
   options?: InputMaybe<Order_By>;
   tenant_features_aggregate?: InputMaybe<Tenant_Features_Aggregate_Order_By>;
   user_features_aggregate?: InputMaybe<User_Features_Aggregate_Order_By>;
@@ -363,9 +344,9 @@ export enum Features_Select_Column {
   /** column name */
   Expiration = 'expiration',
   /** column name */
-  FeatureId = 'feature_id',
-  /** column name */
   Id = 'id',
+  /** column name */
+  Name = 'name',
   /** column name */
   Options = 'options'
 }
@@ -373,27 +354,9 @@ export enum Features_Select_Column {
 /** input type for updating data in table "features" */
 export type Features_Set_Input = {
   expiration?: InputMaybe<Scalars['timestamptz']['input']>;
-  feature_id?: InputMaybe<Scalars['Int']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
   options?: InputMaybe<Scalars['jsonb']['input']>;
-};
-
-/** aggregate stddev on columns */
-export type Features_Stddev_Fields = {
-  __typename?: 'features_stddev_fields';
-  feature_id: Maybe<Scalars['Float']['output']>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Features_Stddev_Pop_Fields = {
-  __typename?: 'features_stddev_pop_fields';
-  feature_id: Maybe<Scalars['Float']['output']>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Features_Stddev_Samp_Fields = {
-  __typename?: 'features_stddev_samp_fields';
-  feature_id: Maybe<Scalars['Float']['output']>;
 };
 
 /** Streaming cursor of the table "features" */
@@ -407,15 +370,9 @@ export type Features_Stream_Cursor_Input = {
 /** Initial value of the column from where the streaming should start */
 export type Features_Stream_Cursor_Value_Input = {
   expiration?: InputMaybe<Scalars['timestamptz']['input']>;
-  feature_id?: InputMaybe<Scalars['Int']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
   options?: InputMaybe<Scalars['jsonb']['input']>;
-};
-
-/** aggregate sum on columns */
-export type Features_Sum_Fields = {
-  __typename?: 'features_sum_fields';
-  feature_id: Maybe<Scalars['Int']['output']>;
 };
 
 /** update columns of table "features" */
@@ -423,9 +380,9 @@ export enum Features_Update_Column {
   /** column name */
   Expiration = 'expiration',
   /** column name */
-  FeatureId = 'feature_id',
-  /** column name */
   Id = 'id',
+  /** column name */
+  Name = 'name',
   /** column name */
   Options = 'options'
 }
@@ -439,32 +396,12 @@ export type Features_Updates = {
   _delete_elem?: InputMaybe<Features_Delete_Elem_Input>;
   /** delete key/value pair or string element. key/value pairs are matched based on their key value */
   _delete_key?: InputMaybe<Features_Delete_Key_Input>;
-  /** increments the numeric columns with given value of the filtered values */
-  _inc?: InputMaybe<Features_Inc_Input>;
   /** prepend existing jsonb value of filtered columns with new jsonb value */
   _prepend?: InputMaybe<Features_Prepend_Input>;
   /** sets the columns of the filtered rows to the given values */
   _set?: InputMaybe<Features_Set_Input>;
   /** filter the rows which have to be updated */
   where: Features_Bool_Exp;
-};
-
-/** aggregate var_pop on columns */
-export type Features_Var_Pop_Fields = {
-  __typename?: 'features_var_pop_fields';
-  feature_id: Maybe<Scalars['Float']['output']>;
-};
-
-/** aggregate var_samp on columns */
-export type Features_Var_Samp_Fields = {
-  __typename?: 'features_var_samp_fields';
-  feature_id: Maybe<Scalars['Float']['output']>;
-};
-
-/** aggregate variance on columns */
-export type Features_Variance_Fields = {
-  __typename?: 'features_variance_fields';
-  feature_id: Maybe<Scalars['Float']['output']>;
 };
 
 export type Jsonb_Cast_Exp = {
@@ -1032,7 +969,6 @@ export type Mutation_RootUpdate_FeaturesArgs = {
   _delete_at_path?: InputMaybe<Features_Delete_At_Path_Input>;
   _delete_elem?: InputMaybe<Features_Delete_Elem_Input>;
   _delete_key?: InputMaybe<Features_Delete_Key_Input>;
-  _inc?: InputMaybe<Features_Inc_Input>;
   _prepend?: InputMaybe<Features_Prepend_Input>;
   _set?: InputMaybe<Features_Set_Input>;
   where: Features_Bool_Exp;
@@ -1045,7 +981,6 @@ export type Mutation_RootUpdate_Features_By_PkArgs = {
   _delete_at_path?: InputMaybe<Features_Delete_At_Path_Input>;
   _delete_elem?: InputMaybe<Features_Delete_Elem_Input>;
   _delete_key?: InputMaybe<Features_Delete_Key_Input>;
-  _inc?: InputMaybe<Features_Inc_Input>;
   _prepend?: InputMaybe<Features_Prepend_Input>;
   _set?: InputMaybe<Features_Set_Input>;
   pk_columns: Features_Pk_Columns_Input;
@@ -5068,7 +5003,7 @@ export type GetUserTenantsQueryVariables = Exact<{
 }>;
 
 
-export type GetUserTenantsQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant_id: any, default: boolean, user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature_id: number } }> }> } | null };
+export type GetUserTenantsQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', tenants: Array<{ __typename?: 'tenant_users', tenant_id: any, default: boolean, user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', name: string } }> }> } | null };
 
 export type NextAuthHasura_UserFragment = { __typename?: 'users', id: any, name: string | null, email: string, emailVerified: any | null, image: string | null };
 
@@ -5196,7 +5131,7 @@ export type NextAuthHasura_GetAccountQueryVariables = Exact<{
 
 export type NextAuthHasura_GetAccountQuery = { __typename?: 'query_root', user_provider_accounts: Array<{ __typename?: 'user_provider_accounts', id: any, type: string, scope: string | null, userId: any, id_token: string | null, provider: string, expires_at: number | null, token_type: string | null, access_token: string | null, refresh_token: string | null, session_state: string | null, providerAccountId: string }> };
 
-export type FeatureFragment = { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null };
+export type FeatureFragment = { __typename?: 'features', name: string, options: any | null, expiration: any | null };
 
 export type GetUserFeaturesQueryVariables = Exact<{
   userId: Scalars['uuid']['input'];
@@ -5204,7 +5139,7 @@ export type GetUserFeaturesQueryVariables = Exact<{
 }>;
 
 
-export type GetUserFeaturesQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }>, tenants: Array<{ __typename?: 'tenant_users', user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', feature_id: number, options: any | null, expiration: any | null } }> }> } | null };
+export type GetUserFeaturesQuery = { __typename?: 'query_root', users_by_pk: { __typename?: 'users', features: Array<{ __typename?: 'user_features', feature: { __typename?: 'features', name: string, options: any | null, expiration: any | null } }>, tenants: Array<{ __typename?: 'tenant_users', user_tenant_features: Array<{ __typename?: 'user_tenant_features', feature: { __typename?: 'features', name: string, options: any | null, expiration: any | null } }> }> } | null };
 
 export type GetStripeCustomerIdQueryVariables = Exact<{
   tenantId: Scalars['uuid']['input'];
@@ -5223,7 +5158,7 @@ export type AddUserTenantFeatureMutationVariables = Exact<{
 export type AddUserTenantFeatureMutation = { __typename?: 'mutation_root', insert_user_tenant_features_one: { __typename?: 'user_tenant_features', feature_id: any, user_id: any, tenant_id: any } | null };
 
 export type DeleteUserTenantFeatureMutationVariables = Exact<{
-  featureId: Scalars['Int']['input'];
+  featureName: Scalars['String']['input'];
   userId: Scalars['uuid']['input'];
   tenantId: Scalars['uuid']['input'];
 }>;
@@ -5273,7 +5208,7 @@ export const NextAuthHasura_VerificationTokenFragmentDoc = `
     `;
 export const FeatureFragmentDoc = `
     fragment Feature on features {
-  feature_id
+  name
   options
   expiration
 }
@@ -5347,7 +5282,7 @@ export const FeatureFragmentDoc = `
       default
       user_tenant_features {
         feature {
-          feature_id
+          name
         }
       }
     }
@@ -5525,9 +5460,9 @@ ${NextAuthHasura_UserFragmentDoc}`;
 }
     `;
  const DeleteUserTenantFeatureDocument = `
-    mutation DeleteUserTenantFeature($featureId: Int!, $userId: uuid!, $tenantId: uuid!) {
+    mutation DeleteUserTenantFeature($featureName: String!, $userId: uuid!, $tenantId: uuid!) {
   delete_features(
-    where: {feature_id: {_eq: $featureId}, user_tenant_features: {user_id: {_eq: $userId}, tenant_id: {_eq: $tenantId}}}
+    where: {name: {_eq: $featureName}, user_tenant_features: {user_id: {_eq: $userId}, tenant_id: {_eq: $tenantId}}}
   ) {
     affected_rows
   }

@@ -6,9 +6,9 @@ mutation AddUserTenantFeature($feature: features_insert_input!, $userId: uuid!, 
 	}
 }
 
-mutation DeleteUserTenantFeature($featureId: Int!, $userId: uuid!, $tenantId: uuid!) {
+mutation DeleteUserTenantFeature($featureName: String!, $userId: uuid!, $tenantId: uuid!) {
 	delete_features(
-		where: { feature_id: { _eq: $featureId }, user_tenant_features: { user_id: { _eq: $userId }, tenant_id: { _eq: $tenantId } } }
+		where: { name: { _eq: $featureName }, user_tenant_features: { user_id: { _eq: $userId }, tenant_id: { _eq: $tenantId } } }
 	) {
 		affected_rows
 	}

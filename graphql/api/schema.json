@@ -1907,22 +1907,6 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "id",
             "description": null,
             "args": [],
@@ -1932,6 +1916,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "uuid",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -2604,18 +2604,6 @@
         "description": "aggregate fields of \"features\"",
         "fields": [
           {
-            "name": "avg",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "features_avg_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "count",
             "description": null,
             "args": [
@@ -2687,90 +2675,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "stddev",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "features_stddev_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "stddev_pop",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "features_stddev_pop_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "stddev_samp",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "features_stddev_samp_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "sum",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "features_sum_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "var_pop",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "features_var_pop_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "var_samp",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "features_var_samp_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "variance",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "features_variance_fields",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -2798,29 +2702,6 @@
           }
         ],
         "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "features_avg_fields",
-        "description": "aggregate avg on columns",
-        "fields": [
-          {
-            "name": "feature_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -2895,11 +2776,11 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "Int_comparison_exp",
+              "name": "uuid_comparison_exp",
               "ofType": null
             },
             "defaultValue": null,
@@ -2907,11 +2788,11 @@
             "deprecationReason": null
           },
           {
-            "name": "id",
+            "name": "name",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "uuid_comparison_exp",
+              "name": "String_comparison_exp",
               "ofType": null
             },
             "defaultValue": null,
@@ -3103,29 +2984,6 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "features_inc_input",
-        "description": "input type for incrementing numeric columns in table \"features\"",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "feature_id",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
         "name": "features_insert_input",
         "description": "input type for inserting data into table \"features\"",
         "fields": null,
@@ -3143,11 +3001,11 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null,
@@ -3155,11 +3013,11 @@
             "deprecationReason": null
           },
           {
-            "name": "id",
+            "name": "name",
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "uuid",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -3237,24 +3095,24 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "id",
             "description": null,
             "args": [],
             "type": {
               "kind": "SCALAR",
               "name": "uuid",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -3284,24 +3142,24 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "id",
             "description": null,
             "args": [],
             "type": {
               "kind": "SCALAR",
               "name": "uuid",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -3485,7 +3343,7 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -3497,7 +3355,7 @@
             "deprecationReason": null
           },
           {
-            "name": "id",
+            "name": "name",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -3626,13 +3484,13 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "id",
+            "name": "name",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -3665,11 +3523,11 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null,
@@ -3677,11 +3535,11 @@
             "deprecationReason": null
           },
           {
-            "name": "id",
+            "name": "name",
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "uuid",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -3702,75 +3560,6 @@
           }
         ],
         "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "features_stddev_fields",
-        "description": "aggregate stddev on columns",
-        "fields": [
-          {
-            "name": "feature_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "features_stddev_pop_fields",
-        "description": "aggregate stddev_pop on columns",
-        "fields": [
-          {
-            "name": "feature_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "features_stddev_samp_fields",
-        "description": "aggregate stddev_samp on columns",
-        "fields": [
-          {
-            "name": "feature_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -3832,11 +3621,11 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "uuid",
               "ofType": null
             },
             "defaultValue": null,
@@ -3844,11 +3633,11 @@
             "deprecationReason": null
           },
           {
-            "name": "id",
+            "name": "name",
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "uuid",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -3873,29 +3662,6 @@
         "possibleTypes": null
       },
       {
-        "kind": "OBJECT",
-        "name": "features_sum_fields",
-        "description": "aggregate sum on columns",
-        "fields": [
-          {
-            "name": "feature_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
         "kind": "ENUM",
         "name": "features_update_column",
         "description": "update columns of table \"features\"",
@@ -3910,13 +3676,13 @@
             "deprecationReason": null
           },
           {
-            "name": "feature_id",
+            "name": "id",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "id",
+            "name": "name",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -3985,18 +3751,6 @@
             "deprecationReason": null
           },
           {
-            "name": "_inc",
-            "description": "increments the numeric columns with given value of the filtered values",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "features_inc_input",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "_prepend",
             "description": "prepend existing jsonb value of filtered columns with new jsonb value",
             "type": {
@@ -4038,75 +3792,6 @@
           }
         ],
         "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "features_var_pop_fields",
-        "description": "aggregate var_pop on columns",
-        "fields": [
-          {
-            "name": "feature_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "features_var_samp_fields",
-        "description": "aggregate var_samp on columns",
-        "fields": [
-          {
-            "name": "feature_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "features_variance_fields",
-        "description": "aggregate variance on columns",
-        "fields": [
-          {
-            "name": "feature_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -6428,18 +6113,6 @@
                 "deprecationReason": null
               },
               {
-                "name": "_inc",
-                "description": "increments the numeric columns with given value of the filtered values",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "features_inc_input",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
                 "name": "_prepend",
                 "description": "prepend existing jsonb value of filtered columns with new jsonb value",
                 "type": {
@@ -6534,18 +6207,6 @@
                 "type": {
                   "kind": "INPUT_OBJECT",
                   "name": "features_delete_key_input",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "_inc",
-                "description": "increments the numeric columns with given value of the filtered values",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "features_inc_input",
                   "ofType": null
                 },
                 "defaultValue": null,

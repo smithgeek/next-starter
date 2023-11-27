@@ -42,7 +42,7 @@ function AdminCheckboxCell({ user }: { user: TenantUser }) {
 						produce(users, (draft) => {
 							const u = draft.find((d) => d.id === user.id);
 							if (u) {
-								u.tenants[0].user_tenant_features.push({ feature: { feature_id: FeatureId.TenantAdmin } });
+								u.tenants[0].user_tenant_features.push({ feature: { name: FeatureId.TenantAdmin } });
 							}
 						})
 					);
@@ -57,7 +57,7 @@ function AdminCheckboxCell({ user }: { user: TenantUser }) {
 							const u = draft.find((d) => d.id === user.id);
 							if (u) {
 								u.tenants[0].user_tenant_features = u.tenants[0].user_tenant_features.filter(
-									(f) => f.feature.feature_id !== FeatureId.TenantAdmin
+									(f) => f.feature.name !== FeatureId.TenantAdmin
 								);
 							}
 						})
@@ -66,7 +66,7 @@ function AdminCheckboxCell({ user }: { user: TenantUser }) {
 			}
 		},
 	});
-	const isAdmin = user.tenants.some((t) => t.user_tenant_features.some((f) => f.feature.feature_id === FeatureId.TenantAdmin));
+	const isAdmin = user.tenants.some((t) => t.user_tenant_features.some((f) => f.feature.name === FeatureId.TenantAdmin));
 	if (updateAdmin.isPending) {
 		return <Loader2 className="animate-spin" />;
 	}

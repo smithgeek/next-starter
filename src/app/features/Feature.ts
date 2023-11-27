@@ -1,6 +1,6 @@
 export enum FeatureId {
-	SiteAdmin,
-	TenantAdmin,
+	SiteAdmin = "site.admin",
+	TenantAdmin = "tenant.admin",
 }
 
 export interface FeatureOptions {

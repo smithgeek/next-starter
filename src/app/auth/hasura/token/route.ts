@@ -13,10 +13,10 @@ async function getHasuraToken(req: NextRequest) {
 			userId: session.user.id,
 			tenantId: session.user.tenants.active,
 		});
-		if (response.users_by_pk?.features.some((f) => f.feature.feature_id === FeatureId.SiteAdmin) ?? false) {
+		if (response.users_by_pk?.features.some((f) => f.feature.name === FeatureId.SiteAdmin) ?? false) {
 			roles.push("admin");
 		}
-		if (response.users_by_pk?.tenants[0].user_tenant_features.some((f) => f.feature.feature_id === FeatureId.TenantAdmin) ?? false) {
+		if (response.users_by_pk?.tenants[0].user_tenant_features.some((f) => f.feature.name === FeatureId.TenantAdmin) ?? false) {
 			roles.push("tenant_admin");
 		}
 	}

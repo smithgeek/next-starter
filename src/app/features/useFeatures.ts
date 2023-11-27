@@ -33,7 +33,7 @@ function createAppFeatures(allFeatures: UserFeatures) {
 
 function toFeatureOptions(f: FeatureFragment): FeatureOptions {
 	return {
-		feature: f.feature_id as FeatureId,
+		feature: f.name as FeatureId,
 		options: f.options,
 	};
 }
