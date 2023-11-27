@@ -1248,6 +1248,7 @@ export type UserFeaturesFragment = { __typename?: 'users', tenants: Array<{ __ty
 
 export type GetUserFeaturesQueryVariables = Exact<{
   userId: Scalars['uuid']['input'];
+  tenantId: Scalars['uuid']['input'];
 }>;
 
 
@@ -1292,7 +1293,7 @@ export const FeatureFragmentDoc = `
     `;
 export const UserFeaturesFragmentDoc = `
     fragment UserFeatures on users {
-  tenants {
+  tenants(where: {tenant_id: {_eq: $tenantId}}) {
     tenant {
       features(
         where: {feature: {_or: [{expiration: {_is_null: true}}, {expiration: {_gt: "now()"}}]}}
@@ -1344,7 +1345,7 @@ export const PasskeyInfoFragmentDoc = `
 }
     `;
  const GetUserFeaturesDocument = `
-    query GetUserFeatures($userId: uuid!) {
+    query GetUserFeatures($userId: uuid!, $tenantId: uuid!) {
   users_by_pk(id: $userId) {
     ...UserFeatures
   }

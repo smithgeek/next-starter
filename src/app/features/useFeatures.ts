@@ -31,6 +31,7 @@ export function useFeatures() {
 		queryFn: async () => {
 			const response = await userSdk.GetUserFeatures({
 				userId: session.data?.user.id ?? "",
+				tenantId: session.data?.user.tenants.active ?? "",
 			});
 			const features: UserFeatures = {
 				features: response.users_by_pk?.features.map((f) => toFeatureOptions(f.feature)) ?? [],

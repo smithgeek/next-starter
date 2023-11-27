@@ -144,7 +144,6 @@ export const authOptions: AuthOptions = {
 			session.user.id = token.sub;
 			session.user.impersonatedBy = token.impersonatedBy;
 			session.user.tenants = await getTenantsUserBelongsTo(session.user.id);
-			console.log(session);
 			return session;
 		},
 	},
@@ -168,7 +167,6 @@ async function getTenantsUserBelongsTo(userId: string | undefined): Promise<Tena
 		allowed: tenantIds,
 		active: activeTenant ?? (tenantIds.length > 0 ? tenantIds[0] : ""),
 	};
-	console.log("gt", result, activeTenant);
 	return result;
 }
 
